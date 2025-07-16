@@ -124,13 +124,15 @@ def show_manual_controller(container, on_back):
 
     def update_position():
         try:
-            last_position = core.motion_controller.cnc_last_position
+            last_position = core.motion_controller.grbl_last_position
             grbl_status = core.motion_controller.grbl_status
             x, y, z = map(float, last_position.split(","))
             position_label.config(text=f"Stav: {grbl_status}, X: {x:.3f}, Y: {y:.3f}, Z: {z:.3f}")
         except Exception:
             pass
-        threading.Timer(0.5, update_position).start()
+        position_timer = threading.Timer(0.5, update_position)
+        position_timer.daemon = True
+        position_timer.start()
 
 
     preview_running = False

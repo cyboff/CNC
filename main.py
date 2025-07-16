@@ -8,3 +8,4 @@ if __name__ == "__main__":
     init_grbl()
     launch_main_window()
     logger.info("Program spuštěn")
+    # Spustí hlavní okno aplikace

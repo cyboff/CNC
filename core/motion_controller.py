@@ -7,16 +7,16 @@ from core.logger import logger
 
 
 cnc_serial = None  # globální proměnná pro sériový port
-
+position_timer = None
 
 # === Sdílené proměnné ===
 
 position_lock = threading.Lock()
 grbl_status = "Idle"  # Stav GRBL, zda je Idle nebo ne
-cnc_last_position = "0.001,0.002,0.003"
+grbl_last_position = "0.001,0.002,0.003"
 
 def init_grbl():
-    global cnc_serial, cnc_last_position, grbl_status, position_lock
+    global cnc_serial, grbl_last_position, grbl_status, position_lock, position_timer
 
     cnc_serial = serial.Serial()
     cnc_serial.port = CNC_SERIAL_PORT
@@ -30,21 +30,23 @@ def init_grbl():
     cnc_serial.reset_input_buffer()
 
     def update_position():
-        global cnc_last_position, grbl_status, position_lock
+        global grbl_last_position, grbl_status, position_lock
 
         try:
-            cnc_last_position, grbl_status = grbl_update_position()
-            print(f"[GRBL] Aktuální pozice: {cnc_last_position}, Stav: {grbl_status}")
+            grbl_last_position, grbl_status = grbl_update_position()
+            print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
             print("Failed to update position")
-        threading.Timer(0.5, update_position).start()
+        position_timer = threading.Timer(0.5, update_position)
+        position_timer.daemon = True  # aby se ukončil při zavření programu
+        position_timer.start()
 
     update_position() # spustí periodické aktualizace pozice
 
     try:
 
-        if cnc_last_position != "0.000,0.000,0.000":
-            x, y, z = [float(val) for val in cnc_last_position.split(",")]
+        if grbl_last_position != "0.000,0.000,0.000":
+            x, y, z = [float(val) for val in grbl_last_position.split(",")]
             print(f"Machine Position (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
         else:
             print("MPos not found – trying to home the machine")
@@ -60,8 +62,7 @@ def send_gcode(command: str):
     global cnc_serial
 
     if cnc_serial is None or not cnc_serial.is_open:
-        print("[GRBL] Port není otevřený – inicializuji GRBL...")
-        init_grbl()
+        print("[GRBL] Port není otevřený")
 
     print(f"[GRBL] Posílám: {command}")
     cnc_serial.write((command + "\n").encode())
@@ -86,7 +87,7 @@ def grbl_home():
     """
     Spustí homing sekvenci ($H)
     """
-    global cnc_serial, cnc_last_position, grbl_status, position_lock
+    global cnc_serial, grbl_last_position, grbl_status, position_lock
     try:
         send_gcode("$H")
         print("🏠 GRBL Home sent")
@@ -94,14 +95,16 @@ def grbl_home():
         print("⚠️  Error sending Home:", e)
         return
 
-        # Počkej na konec homing sekvence
+    # Počkej na konec homing sekvence
     grbl_wait_for_idle()
+    # Aktualizuj WPos pozici na MPos, protože po homingu může být WPos jiná než MPos
+    # je lepší pracovat s MPos = WPos, protože MPos přichází v odpovědi na '?' častěji
     try:
-        x, y, z = [float(val) for val in cnc_last_position.split(",")]
+        x, y, z = [float(val) for val in grbl_last_position.split(",")]
         send_gcode(f"G10 L20 P1 X{x:.3f} Y{y:.3f} Z{z:.3f}")
         print(f"Nastaveno WPos na MPos: X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
     except Exception as e:
-        print("Failed to set WPos to MPos:", e)
+        print("Chyba při nastavování WPos na MPos:", e)
 
 def grbl_clear_alarm():
     """
@@ -146,7 +149,7 @@ def grbl_update_position():
     """
     Pošle '?' a načte poslední odpověď od GRBL, uloží do last_position
     """
-    global cnc_serial, position_lock, grbl_status, cnc_last_position
+    global cnc_serial, position_lock, grbl_status, grbl_last_position
 
     cnc_serial.write(b'?')
     cnc_serial.flush()
@@ -175,15 +178,15 @@ def grbl_update_position():
                         if part.startswith('MPos:'):
                             mpos = part[5:].strip()
                             with position_lock:
-                                cnc_last_position = mpos
+                                grbl_last_position = mpos
                                 # print("Aktuální CNC pozice:",last_position)
-                                return cnc_last_position, grbl_status
+                                return grbl_last_position, grbl_status
             except Exception:
                 pass
         time.sleep(0.01)
-    cnc_last_position = "0.000,0.000,0.000"
+    grbl_last_position = "0.000,0.000,0.000"
     grbl_status = "Unknown"
-    return cnc_last_position, grbl_status
+    return grbl_last_position, grbl_status
 
 def grbl_wait_for_idle():
     """

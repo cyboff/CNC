@@ -1,4 +1,8 @@
 import ttkbootstrap as ttk
+
+import core.motion_controller
+from core.camera_manager import camera
+from core.motion_controller import cnc_serial
 from gui.new_project_wizard import open_new_project_wizard
 from gui.log_viewer import show_log_view
 from gui.styles import apply_styles
@@ -9,7 +13,7 @@ from core.logger import logger
 from core.database import get_all_projects
 from core.utils import center_window, create_header, create_footer, add_nav_button
 from config import APP_NAME, WINDOW_WIDTH, WINDOW_HEIGHT
-
+import sys
 
 def launch_main_window():
     root = ttk.Window(themename="morph")    # vytvoříme hlavní okno programu
@@ -25,7 +29,14 @@ def launch_main_window():
     show_home(container)                            # zobrazíme home stránku
 
     root.mainloop()
-
+    # Po zavření hlavního okna ukonči všechny spuštěné procesy
+    if core.motion_controller.position_timer is not None:
+        logger.info("Zastavuji periodické aktualizace pozice")
+        core.motion_controller.position_timer.cancel()
+    if core.motion_controller.cnc_serial.is_open:
+        logger.info("Zavírám sériový port CNC")
+        core.motion_controller.cnc_serial.close()  # zavře sériový port CNC
+    sys.exit(0)
 
 def show_home(container):
     for widget in container.winfo_children():

@@ -5,11 +5,13 @@ from pypylon import pylon
 from PIL import Image, ImageTk
 
 camera = None
+microscope = None
+actual_camera = None
 preview_running = False
 
 
 def get_basler_frame():
-    global camera
+    global camera, actual_camera, preview_running
     try:
         if camera is None:
             camera = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
@@ -27,7 +29,7 @@ def get_basler_frame():
 
 
 def start_camera_preview(image_label, update_position_callback=None):
-    global camera, preview_running
+    global camera, actual_camera, preview_running
 
     if preview_running:
         return
@@ -72,13 +74,12 @@ def start_camera_preview(image_label, update_position_callback=None):
                 imgtk = ImageTk.PhotoImage(image=im_pil)
 
                 def update():
-                    global grbl_status
                     if not image_label.winfo_exists():
                         return  # Widget už neexistuje, ukončíme aktualizaci
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(0, update)
+                image_label.after(100, update)
 
 
 
