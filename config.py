@@ -73,10 +73,10 @@ offYmm = float(get_setting("offYmm"))
 
 # Předdefinované pozice vzorků (center point)
 sample_positions_mm = {
-    "A1": (-197.0, 210.0, default_Z_position),
-    "A2": (-153.0, 210.0, default_Z_position),
-    "B1": (-197.0, 165.0, default_Z_position),
-    "B2": (-153.0, 165.0, default_Z_position),
+    "A1": (-197.0, -210.0, default_Z_position),
+    "A2": (-153.0, -210.0, default_Z_position),
+    "B1": (-197.0, -165.0, default_Z_position),
+    "B2": (-153.0, -165.0, default_Z_position),
 }
 
 # Speciální pozice (např. pro pin)

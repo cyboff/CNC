@@ -34,7 +34,7 @@ def init_grbl():
 
         try:
             grbl_last_position, grbl_status = grbl_update_position()
-            print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
+            # print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
             print("Failed to update position")
         position_timer = threading.Timer(0.5, update_position)
@@ -80,7 +80,7 @@ def move_axis(axis: str, value: float):
     """
     Relativní pohyb v jedné ose.
     """
-    gcode = f"G91\nG0 {axis.upper()}{value:.3f}\nG90"
+    gcode = f"G91 G1 {axis.upper()}{value:.3f} M3 S750 F2000" # M3 S750 je pro spuštění osvětlení, F2000 je rychlost posuvu
     send_gcode(gcode)
 
 def grbl_home():
@@ -120,16 +120,6 @@ def grbl_abort():
     cnc_serial.write(b'\x18')  # Ctrl-X
     print("[GRBL] Abort odeslán (Ctrl-X)")
 
-def grbl_toggle_pause_resume():
-    """
-    Přepne mezi pauzou a pokračováním (0x13 a 0x11)
-    """
-    global cnc_serial
-    cnc_serial.write(b'\x13')  # Pause (XOFF)
-    time.sleep(0.5)
-    cnc_serial.write(b'\x11')  # Resume (XON)
-    print("[GRBL] Pauza/Resume přepnuto")
-
 def move_to_position(x: float, y: float):
     send_gcode(f"G0 X{x:.2f} Y{y:.2f}")
 
@@ -161,7 +151,7 @@ def grbl_update_position():
             # print("Received: (update_position)", line.decode().strip())
             try:
                 decoded = line.decode(errors='ignore').strip()
-                print("[GRBL] Status:", decoded)
+                # print("[GRBL] Status:", decoded)
                 if "Idle" in decoded:
                     grbl_status = "Idle"
                 elif "Run" in decoded:
@@ -190,7 +180,8 @@ def grbl_update_position():
 
 def grbl_wait_for_idle():
     """
-    Čeká, dokud GRBL nepřijde do stavu Idle (stav získá z threadu update_position_timer).
+    Čeká, dokud GRBL nepřijde do stavu Idle (stav získá z threadu position_timer v init_grbl()).
+    Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
     global grbl_status
 
@@ -198,18 +189,3 @@ def grbl_wait_for_idle():
         if grbl_status == "Idle":
             break
         time.sleep(0.1)
-#
-#     while True:
-#         cnc_serial.write(b'?')
-#         cnc_serial.flush()
-#         t0 = time.time()
-#         while time.time() - t0 < 0.5:
-#             if cnc_serial.in_waiting:
-#                 line = cnc_serial.readline().decode(errors='ignore').strip()
-#                 if "Idle" in line:
-#                     print("[GRBL] Stroj je Idle")
-#                     grbl_status = "Idle"
-#                     return
-#                 else:
-#                     grbl_idle = False
-#         time.sleep(0.1)  # čekej 100 ms před dalším dotazem

@@ -1,18 +1,20 @@
 from tkinter import ttk, StringVar, Label, Frame, Button
+
+import config
 from core.utils import create_back_button, create_header, create_footer
 from core.logger import logger
-from core.motion_controller import move_axis, grbl_home, grbl_clear_alarm, grbl_abort, grbl_toggle_pause_resume, \
-    grbl_update_position
+from core.motion_controller import move_axis, grbl_home, grbl_clear_alarm, grbl_abort
 import core.motion_controller
 from process.images_process import run_autofocus, run_fine_focus
 from process.find_process import find_sample_positions
-from core.camera_manager import start_camera_preview, preview_running
+from core.camera_manager import start_camera_preview, switch_camera
+import core.camera_manager
 import threading
 
 update_position_timer = None
 
 def show_manual_controller(container, on_back):
-    global cnc_serial, last_position, position_lock, grbl_status, update_position_timer, preview_running
+
     for widget in container.winfo_children():
         widget.destroy()
 
@@ -88,24 +90,20 @@ def show_manual_controller(container, on_back):
     # === TLAČÍTKA ===
 
     def add_action_button(parent, text, command):
-        button = ttk.Button(parent, text=text, style="MainSmaller.TButton", command=command, cursor="hand2")
+        button = ttk.Button(parent, text=text, style="Main.TButton", command=command, cursor="hand2")
         button.pack(pady=6, ipadx=20, ipady=8)
         button.configure(width=25)
 
     # ZELENÁ skupina
     add_action_button(control_frame, "🏠 Domů ($H)", lambda: threading.Thread(target=grbl_home, daemon=True).start())
-    add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=find_sample_positions, daemon=True).start())
-    add_action_button(control_frame, "🎥 Přepnout kameru", lambda: print("Toggle kamera"))
-
-    # ČERVENÁ skupina
-    add_action_button(control_frame, "⏸ Pause (!)", lambda: grbl_toggle_pause_resume("!"))
     add_action_button(control_frame, "🔁 Přerušit (Soft Reset)", grbl_abort)
     add_action_button(control_frame, "❌ Zrušit Alarm ($X)", grbl_clear_alarm)
 
     # MODRÁ skupina
+    add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=find_sample_positions, daemon=True).start())
+    add_action_button(control_frame, "🎥 Přepnout kameru", lambda: threading.Thread(target=switch_camera, daemon=True).start())
     add_action_button(control_frame, "🔧 Jemné ostření", run_fine_focus)
     add_action_button(control_frame, "🎯 Zaostřit", run_autofocus)
-    add_action_button(control_frame, "💾 Ulož pozici", lambda: print("Ulož pozici"))
 
     # VPRAVO – kamera
     preview_frame = ttk.Frame(main_frame)
@@ -113,7 +111,7 @@ def show_manual_controller(container, on_back):
 
     Label(preview_frame, text="Zobrazení kamery", font=("Helvetica", 14, "bold")).pack()
 
-    image_label = Label(preview_frame, width=640, height=480)
+    image_label = Label(preview_frame, width=int(config.frame_width), height=int(config.frame_height))
     image_label.pack()
 
     # === POZICE STROJE ===
@@ -134,7 +132,7 @@ def show_manual_controller(container, on_back):
         position_timer.daemon = True
         position_timer.start()
 
-
-    preview_running = False
+    core.camera_manager.preview_running = False
     start_camera_preview(image_label, update_position_callback=update_position)
     update_position()  # Spustí periodické aktualizace pozice
+

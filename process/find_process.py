@@ -9,14 +9,6 @@ from core.motion_controller import move_to_home_position, move_to_coordinates
 from core.database import save_sample_positions_to_db
 from config import camera_offset_x, camera_offset_y
 
-
-def move_to_home_position():
-    """
-    Najetí na výchozí souřadnice (např. 0,0)
-    """
-    logger.info("[FIND] Najíždím na výchozí pozici (0,0)...")
-    # TODO: Ovládání motorů – motors.move_to(0, 0)
-
 def move_to_sample_center(x: float, y: float):
     real_x = x + camera_offset_x
     real_y = y + camera_offset_y
@@ -34,7 +26,7 @@ def find_sample_positions(project_id: int, sample_codes: list[str]):
 
     print("[FIND] Detekuji pozice vzorků...")
     # TODO: Detekce kontur, výpočet pozic (zatím dummy pozice)
-    sample_positions = [(100, 200), (300, 200), (500, 200)]
+    sample_positions = [(-100, -200), (-110, -200), (-130, -200)]
     print(f"[FIND] Nalezeno {len(sample_positions)} vzorků")
 
     # Pohyb na střed 1. vzorku s offsetem (reálný pohyb)

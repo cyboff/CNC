@@ -24,10 +24,6 @@ def apply_styles():
     style.configure("Main.TButton",font=("Helvetica", 16),padding=10,foreground="#ffffff",background="#018c45",borderwidth=0)
     style.map("Main.TButton",background=[("active", "#015A2D")])
 
-    style.configure("MainSmaller.TButton", font=("Helvetica", 12), padding=5, foreground="#ffffff", background="#018c45",
-                    borderwidth=0)
-    style.map("MainSmaller.TButton", background=[("active", "#015A2D")])
-
     style.configure("Move.TButton", font=("Helvetica", 16), padding=10, foreground="white", background="#007bff")
 
     style.configure("Secondary.TButton",font=("Helvetica", 14),padding=8,foreground="#333",background="#ccc")
