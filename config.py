@@ -56,7 +56,7 @@ correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
 autofocus_steps = get_setting("autofocus_steps")
 
 # Výchozí pozice osy Z (např. výška mikroskopu)
-default_Z_position = get_setting("default_Z_position")
+default_Z_position = float(get_setting("default_Z_position"))
 last_Z_position = default_Z_position  # lze měnit runtime
 
 # Offset hlavní kamery vůči nástroji
@@ -72,12 +72,12 @@ offXmm = float(get_setting("offXmm"))
 offYmm = float(get_setting("offYmm"))
 
 # Předdefinované pozice vzorků (center point)
-sample_positions_mm = {
-    "A1": (-197.0, -210.0, default_Z_position),
-    "A2": (-153.0, -210.0, default_Z_position),
-    "B1": (-197.0, -165.0, default_Z_position),
-    "B2": (-153.0, -165.0, default_Z_position),
-}
+sample_positions_mm = [
+    (-197.0, -210.0, default_Z_position),
+    (-153.0, -210.0, default_Z_position),
+    (-197.0, -165.0, default_Z_position),
+    (-153.0, -165.0, default_Z_position),
+]
 
 # Speciální pozice (např. pro pin)
 pin_camera_position = (-215.930, -229.450, default_Z_position)

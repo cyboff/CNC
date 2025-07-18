@@ -36,6 +36,9 @@ def sample_scanner(container, project_id, on_back):
             Messagebox.show_info("Kód už byl načten.")
             logger.warning(f"EAN kód {code} byl již načten")
             entry.delete(0, "end")
+        if len(samples) > 3:
+            Messagebox.show_info("Načteny 4 vzorky. Pokračujte na měření.")
+            start_measurement()
 
     entry.bind("<Return>", on_scan)
 

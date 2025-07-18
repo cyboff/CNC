@@ -2,7 +2,7 @@ import serial
 import time
 import re
 import threading
-from config import CNC_SERIAL_PORT, CNC_BAUDRATE
+from config import CNC_SERIAL_PORT, CNC_BAUDRATE, default_Z_position
 from core.logger import logger
 
 
@@ -12,7 +12,7 @@ position_timer = None
 # === Sdílené proměnné ===
 
 position_lock = threading.Lock()
-grbl_status = "Idle"  # Stav GRBL, zda je Idle nebo ne
+grbl_status = "Unknown"  # Stav GRBL, zda je Idle nebo ne
 grbl_last_position = "0.001,0.002,0.003"
 
 def init_grbl():
@@ -37,7 +37,7 @@ def init_grbl():
             # print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
             print("Failed to update position")
-        position_timer = threading.Timer(0.5, update_position)
+        position_timer = threading.Timer(0.25, update_position)
         position_timer.daemon = True  # aby se ukončil při zavření programu
         position_timer.start()
 
@@ -120,18 +120,22 @@ def grbl_abort():
     cnc_serial.write(b'\x18')  # Ctrl-X
     print("[GRBL] Abort odeslán (Ctrl-X)")
 
-def move_to_position(x: float, y: float):
-    send_gcode(f"G0 X{x:.2f} Y{y:.2f}")
+def move_to_position(x: float, y: float, z: float = None):
+    global grbl_status
+    if z is None:
+        z = default_Z_position
+    send_gcode(f"G90 G1 X{x:.2f} Y{y:.2f} Z{z:.2f} M3 S750 F2000")  # G90 je absolutní pohyb, F2000 je rychlost posuvu
+    grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 def move_to_home_position():
-    print("[MOTION] Najíždím na výchozí pozici (0, 0)")
-    move_to_position(0, 0)
+    print("[MOTION] Najíždím na výchozí pozici (-245, -245)")
+    move_to_position(-245, -245)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
 
-def move_to_coordinates(x: float, y: float):
-    move_to_position(x, y)
+def move_to_coordinates(x: float, y: float, z: float = None):
+    move_to_position(x, y, z)
 
 def move_relative(dx: float, dy: float):
-    gcode = f"G91\nG0 X{dx:.3f} Y{dy:.3f}\nG90"
+    gcode = f"G91\nG0 X{dx:.3f} Y{dy:.3f}"
     send_gcode(gcode)
 
 
@@ -179,13 +183,14 @@ def grbl_update_position():
     return grbl_last_position, grbl_status
 
 def grbl_wait_for_idle():
+    global grbl_status
     """
     Čeká, dokud GRBL nepřijde do stavu Idle (stav získá z threadu position_timer v init_grbl()).
     Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
-    global grbl_status
-
+    # print("[GRBL] Waiting for Idle:", grbl_status)
+    time.sleep(0.3)  # Stav CNC se updatuje každých 0.25s, takže počkáme 0.3s, aby se stihl aktualizovat
     while True:
         if grbl_status == "Idle":
             break
-        time.sleep(0.1)
+        time.sleep(0.3)
