@@ -705,3 +705,320 @@
 2025-07-18 13:19:27,706 [INFO] Klik: Manuální ovládání
 2025-07-18 13:19:27,713 [INFO] Kliknutí na manuální řízení
 2025-07-18 13:19:38,129 [INFO] Zavírám sériový port CNC
+2025-07-18 13:37:42,369 [INFO] Aplikace spuštěna
+2025-07-18 13:37:42,370 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:37:43,958 [INFO] Klik: Nové měření
+2025-07-18 13:37:49,467 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_37_4
+2025-07-18 13:37:54,900 [INFO] Načten EAN kód: 1234
+2025-07-18 13:37:55,740 [INFO] Načten EAN kód: 123
+2025-07-18 13:37:56,717 [INFO] Načten EAN kód: 134
+2025-07-18 13:37:58,559 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 13:38:59,277 [INFO] [DB] Uložen vzorek 1234 na pozici (-197.0, -210.0)
+2025-07-18 13:38:59,277 [INFO] [DB] Uložen vzorek 123 na pozici (-153.0, -210.0)
+2025-07-18 13:38:59,278 [INFO] [DB] Uložen vzorek 134 na pozici (-197.0, -165.0)
+2025-07-18 13:45:04,548 [INFO] Aplikace spuštěna
+2025-07-18 13:45:04,548 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:45:06,578 [INFO] Klik: Nové měření
+2025-07-18 13:45:10,245 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_45_q
+2025-07-18 13:48:10,920 [INFO] Aplikace spuštěna
+2025-07-18 13:48:10,921 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:48:12,391 [INFO] Klik: Nové měření
+2025-07-18 13:48:16,048 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_48_21r
+2025-07-18 13:48:35,480 [INFO] Načten EAN kód: 1234
+2025-07-18 13:48:36,308 [INFO] Načten EAN kód: 123
+2025-07-18 13:48:37,023 [INFO] Načten EAN kód: 1235
+2025-07-18 13:48:40,311 [WARNING] EAN kód 1235 byl již načten
+2025-07-18 13:48:42,034 [INFO] Načten EAN kód: 235
+2025-07-18 13:48:43,493 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 13:52:29,634 [INFO] Aplikace spuštěna
+2025-07-18 13:52:29,635 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:52:31,356 [INFO] Klik: Nové měření
+2025-07-18 13:52:34,476 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_52_134t
+2025-07-18 13:54:09,621 [INFO] Aplikace spuštěna
+2025-07-18 13:54:09,621 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:54:11,458 [INFO] Klik: Nové měření
+2025-07-18 13:54:14,127 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_54_125
+2025-07-18 13:54:26,941 [INFO] Načten EAN kód: 2314
+2025-07-18 13:54:27,730 [INFO] Načten EAN kód: 1235
+2025-07-18 13:54:29,619 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 13:56:46,377 [INFO] Aplikace spuštěna
+2025-07-18 13:56:46,377 [INFO] Zobrazení domovské obrazovky
+2025-07-18 13:56:49,741 [INFO] Klik: Nové měření
+2025-07-18 13:56:52,102 [INFO] Vytvořena složka projektu: projects\2025_07_18_13_56_ewr
+2025-07-18 13:56:56,775 [INFO] Načten EAN kód: 12455
+2025-07-18 13:56:58,442 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 13:57:26,694 [INFO] [DB] Uložen vzorek 12455 na pozici (-197.0, -210.0)
+2025-07-18 13:57:28,265 [INFO] Projekt 0 – Načteno 1 vzorků: ['12455']
+2025-07-18 13:57:29,996 [INFO] Zavírám sériový port CNC
+2025-07-18 14:05:19,971 [INFO] Aplikace spuštěna
+2025-07-18 14:05:19,972 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:05:22,721 [INFO] Klik: Nové měření
+2025-07-18 14:05:25,141 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_05_541
+2025-07-18 14:05:45,480 [INFO] Aplikace spuštěna
+2025-07-18 14:05:45,481 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:05:47,482 [INFO] Klik: Nové měření
+2025-07-18 14:05:49,779 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_05_1245
+2025-07-18 14:06:08,801 [INFO] Načten EAN kód: 234
+2025-07-18 14:06:13,503 [INFO] Načten EAN kód: 512
+2025-07-18 14:06:16,153 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:06:57,932 [INFO] [DB] Uložen vzorek 234 na pozici (-197.0, -210.0)
+2025-07-18 14:06:57,933 [INFO] [DB] Uložen vzorek 512 na pozici (-153.0, -210.0)
+2025-07-18 14:08:24,916 [INFO] Aplikace spuštěna
+2025-07-18 14:08:24,916 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:08:27,074 [INFO] Klik: Nové měření
+2025-07-18 14:08:29,732 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_08_15
+2025-07-18 14:08:35,438 [INFO] Načten EAN kód: 123
+2025-07-18 14:08:37,456 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:09:16,604 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:09:17,676 [INFO] Klik: Nové měření
+2025-07-18 14:09:20,368 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_09_236
+2025-07-18 14:09:24,892 [INFO] Načten EAN kód: 326
+2025-07-18 14:09:25,946 [INFO] Načten EAN kód: 2365257
+2025-07-18 14:09:26,832 [INFO] Načten EAN kód: 236
+2025-07-18 14:09:28,148 [INFO] Načten EAN kód: 22436
+2025-07-18 14:09:30,074 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:10:31,330 [INFO] Aplikace spuštěna
+2025-07-18 14:10:31,331 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:10:37,307 [INFO] Klik: Nové měření
+2025-07-18 14:10:40,606 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_10_154
+2025-07-18 14:10:48,433 [INFO] Načten EAN kód: 512
+2025-07-18 14:10:50,173 [INFO] Načten EAN kód: 1516
+2025-07-18 14:10:52,049 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:11:06,794 [INFO] [DB] Uložen vzorek 512 na pozici (-197.0, -210.0)
+2025-07-18 14:11:06,795 [INFO] [DB] Uložen vzorek 1516 na pozici (-153.0, -210.0)
+2025-07-18 14:11:52,852 [INFO] Aplikace spuštěna
+2025-07-18 14:11:52,852 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:11:55,858 [INFO] Klik: Nové měření
+2025-07-18 14:12:00,250 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_12_234
+2025-07-18 14:12:04,433 [INFO] Načten EAN kód: 11235
+2025-07-18 14:12:05,745 [INFO] Načten EAN kód: 1513
+2025-07-18 14:12:07,769 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:13:07,904 [INFO] [DB] Uložen vzorek 11235 na pozici (-197.0, -210.0)
+2025-07-18 14:13:07,905 [INFO] [DB] Uložen vzorek 1513 na pozici (-153.0, -210.0)
+2025-07-18 14:14:18,269 [INFO] Aplikace spuštěna
+2025-07-18 14:14:18,270 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:14:22,559 [INFO] Zavírám sériový port CNC
+2025-07-18 14:15:27,775 [INFO] Aplikace spuštěna
+2025-07-18 14:15:27,776 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:15:45,425 [INFO] Klik: Otevřít měření
+2025-07-18 14:15:45,434 [INFO] Zobrazení seznamu všech projektů
+2025-07-18 14:15:54,216 [INFO] Smazáno měření ID 47 (pokus)
+2025-07-18 14:15:54,884 [INFO] Smazáno měření ID 48 (fe)
+2025-07-18 14:15:55,488 [INFO] Smazáno měření ID 49 (f)
+2025-07-18 14:15:56,261 [INFO] Smazáno měření ID 50 (efq)
+2025-07-18 14:15:56,856 [INFO] Smazáno měření ID 51 (wqf)
+2025-07-18 14:15:57,310 [INFO] Smazáno měření ID 52 (w)
+2025-07-18 14:15:57,740 [INFO] Smazáno měření ID 53 (w)
+2025-07-18 14:15:58,193 [INFO] Smazáno měření ID 54 (er12)
+2025-07-18 14:15:58,528 [INFO] Smazáno měření ID 55 (2)
+2025-07-18 14:15:58,801 [INFO] Smazáno měření ID 56 (3)
+2025-07-18 14:15:59,202 [INFO] Smazáno měření ID 57 (w)
+2025-07-18 14:15:59,560 [INFO] Smazáno měření ID 58 (rer)
+2025-07-18 14:16:00,749 [INFO] Smazáno měření ID 59 (215125)
+2025-07-18 14:16:02,190 [INFO] Smazáno měření ID 60 (23r123)
+2025-07-18 14:16:05,226 [INFO] Smazáno měření ID 84 (234)
+2025-07-18 14:16:06,135 [INFO] Smazáno měření ID 83 (154)
+2025-07-18 14:16:06,689 [INFO] Smazáno měření ID 82 (236)
+2025-07-18 14:16:07,193 [INFO] Smazáno měření ID 81 (15)
+2025-07-18 14:16:07,632 [INFO] Smazáno měření ID 80 (1245)
+2025-07-18 14:16:08,298 [INFO] Smazáno měření ID 79 (541)
+2025-07-18 14:16:08,926 [INFO] Smazáno měření ID 78 (ewr)
+2025-07-18 14:16:09,517 [INFO] Smazáno měření ID 77 (125)
+2025-07-18 14:16:09,951 [INFO] Smazáno měření ID 76 (134t)
+2025-07-18 14:16:10,389 [INFO] Smazáno měření ID 75 (21r)
+2025-07-18 14:16:10,848 [INFO] Smazáno měření ID 74 (q)
+2025-07-18 14:16:11,371 [INFO] Smazáno měření ID 73 (4)
+2025-07-18 14:16:12,337 [INFO] Smazáno měření ID 72 (4235)
+2025-07-18 14:16:12,899 [INFO] Smazáno měření ID 71 (234)
+2025-07-18 14:16:13,447 [INFO] Smazáno měření ID 70 (34)
+2025-07-18 14:16:13,899 [INFO] Smazáno měření ID 69 (qr)
+2025-07-18 14:16:14,297 [INFO] Smazáno měření ID 68 (42351)
+2025-07-18 14:16:16,363 [INFO] Smazáno měření ID 67 (2345)
+2025-07-18 14:16:16,966 [INFO] Smazáno měření ID 66 (2345)
+2025-07-18 14:16:17,684 [INFO] Smazáno měření ID 65 (q)
+2025-07-18 14:16:18,397 [INFO] Smazáno měření ID 64 (12r123rwqdf)
+2025-07-18 14:16:18,956 [INFO] Smazáno měření ID 63 (er)
+2025-07-18 14:16:19,463 [INFO] Smazáno měření ID 62 (2365)
+2025-07-18 14:16:20,002 [INFO] Smazáno měření ID 61 (14)
+2025-07-18 14:16:21,619 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:16:22,595 [INFO] Klik: Nové měření
+2025-07-18 14:16:25,862 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_16_tq4t
+2025-07-18 14:16:32,237 [INFO] Načten EAN kód: 2345
+2025-07-18 14:16:34,331 [INFO] Načten EAN kód: 5324
+2025-07-18 14:16:36,955 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:17:25,012 [INFO] [DB] Uložen vzorek 2345 na pozici (-197.0, -210.0)
+2025-07-18 14:17:25,012 [INFO] [DB] Uložen vzorek 5324 na pozici (-153.0, -210.0)
+2025-07-18 14:19:09,819 [INFO] Aplikace spuštěna
+2025-07-18 14:19:09,819 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:24:14,695 [INFO] Zavírám sériový port CNC
+2025-07-18 14:27:46,680 [INFO] Aplikace spuštěna
+2025-07-18 14:27:46,680 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:27:48,898 [INFO] Klik: Nové měření
+2025-07-18 14:27:52,128 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_27_215
+2025-07-18 14:27:56,086 [INFO] Načten EAN kód: 1235
+2025-07-18 14:27:58,669 [INFO] Načten EAN kód: 1253
+2025-07-18 14:27:59,559 [INFO] Načten EAN kód: 2146
+2025-07-18 14:28:11,018 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:28:12,298 [INFO] Klik: Manuální ovládání
+2025-07-18 14:28:12,305 [INFO] Kliknutí na manuální řízení
+2025-07-18 14:28:19,943 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:28:20,999 [INFO] Klik: Nové měření
+2025-07-18 14:28:27,437 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_28_24
+2025-07-18 14:28:58,916 [INFO] Načten EAN kód: 1235
+2025-07-18 14:29:01,340 [INFO] Načten EAN kód: ewt
+2025-07-18 14:29:03,350 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:29:30,386 [INFO] [DB] Uložen vzorek 1235 na pozici (-197.0, -210.0)
+2025-07-18 14:29:30,387 [INFO] [DB] Uložen vzorek ewt na pozici (-153.0, -210.0)
+2025-07-18 14:38:41,394 [INFO] Aplikace spuštěna
+2025-07-18 14:38:41,394 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:38:43,310 [INFO] Klik: Nové měření
+2025-07-18 14:38:45,658 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_38_weqt
+2025-07-18 14:38:48,788 [INFO] Načten EAN kód: 1254
+2025-07-18 14:38:50,265 [INFO] Načten EAN kód: 15414551
+2025-07-18 14:38:51,272 [INFO] Načten EAN kód: 14
+2025-07-18 14:38:53,161 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:39:34,232 [INFO] [DB] Uložen vzorek 1254 na pozici (-197.0, -210.0)
+2025-07-18 14:39:34,232 [INFO] [DB] Uložen vzorek 15414551 na pozici (-153.0, -210.0)
+2025-07-18 14:39:34,232 [INFO] [DB] Uložen vzorek 14 na pozici (-197.0, -165.0)
+2025-07-18 14:39:39,073 [INFO] Projekt 0 – Načteno 3 vzorků: ['1254', '15414551', '14']
+2025-07-18 14:39:42,071 [INFO] Zavírám sériový port CNC
+2025-07-18 14:41:19,101 [INFO] Aplikace spuštěna
+2025-07-18 14:41:19,101 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:41:22,023 [INFO] Klik: Nové měření
+2025-07-18 14:41:24,731 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_41_21r
+2025-07-18 14:41:27,743 [INFO] Načten EAN kód: 152
+2025-07-18 14:41:28,399 [INFO] Načten EAN kód: 15
+2025-07-18 14:41:30,033 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:44:12,792 [INFO] Aplikace spuštěna
+2025-07-18 14:44:12,792 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:44:14,617 [INFO] Klik: Nové měření
+2025-07-18 14:44:17,494 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_44_e
+2025-07-18 14:44:22,791 [INFO] Načten EAN kód: 2314
+2025-07-18 14:44:28,700 [WARNING] EAN kód 2314 byl již načten
+2025-07-18 14:48:35,690 [INFO] Aplikace spuštěna
+2025-07-18 14:48:35,691 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:48:39,921 [INFO] Klik: Nové měření
+2025-07-18 14:48:42,542 [INFO] Vytvořena složka projektu: projects\2025_07_18_14_48_qer
+2025-07-18 14:48:54,662 [INFO] Načten EAN kód: 215r12
+2025-07-18 14:48:55,300 [INFO] Načten EAN kód: 14
+2025-07-18 14:48:56,979 [INFO] Načten EAN kód: 112453
+2025-07-18 14:48:58,359 [INFO] Načten EAN kód: 15
+2025-07-18 14:49:04,963 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 14:49:47,043 [INFO] [DB] Uložen vzorek 215r12 na pozici (-197.0, -210.0)
+2025-07-18 14:49:47,044 [INFO] [DB] Uložen vzorek 14 na pozici (-153.0, -210.0)
+2025-07-18 14:49:47,044 [INFO] [DB] Uložen vzorek 112453 na pozici (-197.0, -165.0)
+2025-07-18 14:49:47,044 [INFO] [DB] Uložen vzorek 15 na pozici (-153.0, -165.0)
+2025-07-18 14:49:47,050 [INFO] Projekt 0 – Načteno 4 vzorků: ['215r12', '14', '112453', '15']
+2025-07-18 14:50:26,992 [INFO] Zobrazení domovské obrazovky
+2025-07-18 14:50:30,144 [INFO] Klik: Nové měření
+2025-07-18 14:50:40,620 [INFO] Zavírám sériový port CNC
+2025-07-18 15:01:54,470 [INFO] Aplikace spuštěna
+2025-07-18 15:01:54,470 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:01:57,287 [INFO] Klik: Nové měření
+2025-07-18 15:02:00,939 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_02_1245
+2025-07-18 15:02:03,236 [INFO] Načten EAN kód: 1245
+2025-07-18 15:02:04,294 [INFO] Načten EAN kód: 145
+2025-07-18 15:02:06,068 [WARNING] EAN kód 145 byl již načten
+2025-07-18 15:02:07,939 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:02:35,980 [INFO] [DB] Uložen vzorek 1245 na pozici (-197.0, -210.0)
+2025-07-18 15:02:35,981 [INFO] [DB] Uložen vzorek 145 na pozici (-153.0, -210.0)
+2025-07-18 15:25:16,921 [INFO] Aplikace spuštěna
+2025-07-18 15:25:16,921 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:25:18,886 [INFO] Klik: Nové měření
+2025-07-18 15:25:21,503 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_25_ewq
+2025-07-18 15:25:24,083 [INFO] Načten EAN kód: 3215
+2025-07-18 15:25:24,598 [INFO] Načten EAN kód: 125
+2025-07-18 15:25:25,570 [INFO] Načten EAN kód: 1
+2025-07-18 15:25:27,355 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:26:09,570 [INFO] [DB] Uložen vzorek 3215 na pozici (-197.0, -210.0)
+2025-07-18 15:26:09,570 [INFO] [DB] Uložen vzorek 125 na pozici (-153.0, -210.0)
+2025-07-18 15:26:09,570 [INFO] [DB] Uložen vzorek 1 na pozici (-197.0, -165.0)
+2025-07-18 15:28:54,292 [INFO] Aplikace spuštěna
+2025-07-18 15:28:54,292 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:28:56,260 [INFO] Klik: Nové měření
+2025-07-18 15:28:59,138 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_28_45
+2025-07-18 15:29:00,948 [INFO] Načten EAN kód: 45
+2025-07-18 15:29:01,586 [INFO] Načten EAN kód: 25
+2025-07-18 15:29:03,690 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:29:32,420 [INFO] [DB] Uložen vzorek 45 na pozici (-197.0, -210.0)
+2025-07-18 15:29:32,420 [INFO] [DB] Uložen vzorek 25 na pozici (-153.0, -210.0)
+2025-07-18 15:35:41,528 [INFO] Aplikace spuštěna
+2025-07-18 15:35:41,529 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:35:43,478 [INFO] Klik: Nové měření
+2025-07-18 15:35:45,965 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_35_232345
+2025-07-18 15:35:49,343 [INFO] Načten EAN kód: 1
+2025-07-18 15:35:50,463 [INFO] Načten EAN kód: 2
+2025-07-18 15:35:51,366 [INFO] Načten EAN kód: 3
+2025-07-18 15:35:53,668 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:36:35,697 [INFO] [DB] Uložen vzorek 1 na pozici (-197.0, -210.0)
+2025-07-18 15:36:35,698 [INFO] [DB] Uložen vzorek 2 na pozici (-153.0, -210.0)
+2025-07-18 15:36:35,699 [INFO] [DB] Uložen vzorek 3 na pozici (-197.0, -165.0)
+2025-07-18 15:44:34,113 [INFO] Aplikace spuštěna
+2025-07-18 15:44:34,114 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:44:37,128 [INFO] Klik: Nové měření
+2025-07-18 15:44:40,436 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_44_req
+2025-07-18 15:44:42,765 [INFO] Načten EAN kód: 13
+2025-07-18 15:44:43,590 [INFO] Načten EAN kód: 314
+2025-07-18 15:44:45,150 [WARNING] EAN kód 13 byl již načten
+2025-07-18 15:44:46,493 [INFO] Načten EAN kód: 1
+2025-07-18 15:44:48,518 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:45:31,554 [INFO] [DB] Uložen vzorek 13 na pozici (-197.0, -210.0)
+2025-07-18 15:45:31,555 [INFO] [DB] Uložen vzorek 314 na pozici (-153.0, -210.0)
+2025-07-18 15:45:31,555 [INFO] [DB] Uložen vzorek 1 na pozici (-197.0, -165.0)
+2025-07-18 15:46:10,155 [INFO] Zavírám sériový port CNC
+2025-07-18 15:49:51,878 [INFO] Aplikace spuštěna
+2025-07-18 15:49:51,878 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:49:54,533 [INFO] Klik: Nové měření
+2025-07-18 15:49:57,922 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_49_43
+2025-07-18 15:49:59,743 [INFO] Načten EAN kód: 3
+2025-07-18 15:50:00,842 [WARNING] EAN kód 3 byl již načten
+2025-07-18 15:50:01,844 [INFO] Načten EAN kód: 4
+2025-07-18 15:50:02,683 [INFO] Načten EAN kód: 5
+2025-07-18 15:50:04,703 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:50:47,212 [INFO] [DB] Uložen vzorek 3 na pozici (-197.0, -210.0)
+2025-07-18 15:50:47,213 [INFO] [DB] Uložen vzorek 4 na pozici (-153.0, -210.0)
+2025-07-18 15:50:47,213 [INFO] [DB] Uložen vzorek 5 na pozici (-197.0, -165.0)
+2025-07-18 15:51:08,973 [INFO] Zavírám sériový port CNC
+2025-07-18 15:53:06,378 [INFO] Aplikace spuštěna
+2025-07-18 15:53:06,379 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:53:08,869 [INFO] Klik: Nové měření
+2025-07-18 15:53:11,255 [INFO] Vytvořena složka projektu: projects\2025_07_18_15_53_ewrq
+2025-07-18 15:53:13,937 [INFO] Načten EAN kód: 13
+2025-07-18 15:53:14,370 [INFO] Načten EAN kód: 4
+2025-07-18 15:53:15,036 [INFO] Načten EAN kód: 5
+2025-07-18 15:53:17,008 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 15:53:59,734 [INFO] [DB] Uložen vzorek 13 na pozici (-197.0, -210.0)
+2025-07-18 15:53:59,735 [INFO] [DB] Uložen vzorek 4 na pozici (-153.0, -210.0)
+2025-07-18 15:53:59,735 [INFO] [DB] Uložen vzorek 5 na pozici (-197.0, -165.0)
+2025-07-18 15:54:27,225 [INFO] Zavírám sériový port CNC
+2025-07-18 15:56:12,242 [INFO] Aplikace spuštěna
+2025-07-18 15:56:12,242 [INFO] Zobrazení domovské obrazovky
+2025-07-18 15:56:14,383 [INFO] Zavírám sériový port CNC
+2025-07-18 16:00:42,166 [INFO] Aplikace spuštěna
+2025-07-18 16:00:42,166 [INFO] Zobrazení domovské obrazovky
+2025-07-18 16:00:45,486 [INFO] Klik: Nové měření
+2025-07-18 16:00:48,006 [INFO] Vytvořena složka projektu: projects\2025_07_18_16_00_qrt
+2025-07-18 16:00:50,519 [INFO] Načten EAN kód: 1245
+2025-07-18 16:00:51,367 [INFO] Načten EAN kód: 623
+2025-07-18 16:00:51,916 [INFO] Načten EAN kód: 6
+2025-07-18 16:00:53,607 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 16:01:36,276 [INFO] [DB] Uložen vzorek 1245 na pozici (-197.0, -210.0)
+2025-07-18 16:01:36,277 [INFO] [DB] Uložen vzorek 623 na pozici (-153.0, -210.0)
+2025-07-18 16:01:36,277 [INFO] [DB] Uložen vzorek 6 na pozici (-197.0, -165.0)
+2025-07-18 16:03:36,673 [INFO] Aplikace spuštěna
+2025-07-18 16:03:36,674 [INFO] Zobrazení domovské obrazovky
+2025-07-18 16:03:38,679 [INFO] Klik: Nové měření
+2025-07-18 16:03:41,066 [INFO] Vytvořena složka projektu: projects\2025_07_18_16_03_321
+2025-07-18 16:03:43,414 [INFO] Načten EAN kód: 3
+2025-07-18 16:03:43,907 [INFO] Načten EAN kód: 4
+2025-07-18 16:03:45,500 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 16:05:15,938 [INFO] Aplikace spuštěna
+2025-07-18 16:05:15,939 [INFO] Zobrazení domovské obrazovky
+2025-07-18 16:05:17,532 [INFO] Klik: Nové měření
+2025-07-18 16:05:21,395 [INFO] Vytvořena složka projektu: projects\2025_07_18_16_05_45
+2025-07-18 16:05:23,196 [INFO] Načten EAN kód: 43
+2025-07-18 16:05:24,019 [INFO] Načten EAN kód: 64
+2025-07-18 16:05:25,892 [INFO] [SCAN] Spouštím proces FIND pro projekt 0
+2025-07-18 16:05:54,868 [INFO] [DB] Uložen vzorek 43 na pozici (-197.0, -210.0)
+2025-07-18 16:05:54,868 [INFO] [DB] Uložen vzorek 64 na pozici (-153.0, -210.0)
+2025-07-18 16:06:13,972 [INFO] Zavírám sériový port CNC

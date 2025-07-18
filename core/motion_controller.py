@@ -37,8 +37,8 @@ def init_grbl():
             # print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
             print("Failed to update position")
-        position_timer = threading.Timer(0.25, update_position)
-        position_timer.daemon = True  # aby se ukončil při zavření programu
+        position_timer = threading.Timer(0.5, update_position) #update pozice každých 0.5s, častěji nestíhá GRBL odpovídat
+        position_timer.daemon = True
         position_timer.start()
 
     update_position() # spustí periodické aktualizace pozice
@@ -189,8 +189,8 @@ def grbl_wait_for_idle():
     Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
     # print("[GRBL] Waiting for Idle:", grbl_status)
-    time.sleep(0.3)  # Stav CNC se updatuje každých 0.25s, takže počkáme 0.3s, aby se stihl aktualizovat
+    time.sleep(0.5)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.5s, aby se stihl aktualizovat
     while True:
         if grbl_status == "Idle":
             break
-        time.sleep(0.3)
+        time.sleep(0.5)

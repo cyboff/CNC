@@ -22,14 +22,11 @@ def move_to_sample_center(x: float, y: float):
 def find_sample_positions(project_id: int, sample_codes: list[str]):
     global grbl_status
 
-    print("[FIND] Najíždím na výchozí pozici (0,0)...")
-    move_to_home_position()
     sample_positions = []
     for code in sample_codes:
         sample_position = config.sample_positions_mm[sample_codes.index(code)]
-        print(f"[FIND] Najíždím na pozici vzorku {code}: {sample_position}")
         (x, y, z) = sample_position
-        print(f"[FIND] Najíždím na pozici vzorku {code}: ({x}, {y})")
+        print(f"[FIND] Najíždím na pozici vzorku {code}: ({x}, {y}, {z})")
         sample_positions.append((x, y))
         move_to_coordinates(x, y, z)
         print("[FIND] Snímám fotku hlavní kamerou...")

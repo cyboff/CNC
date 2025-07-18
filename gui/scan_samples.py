@@ -4,7 +4,7 @@ import tkinter as tk
 
 from core.logger import logger
 from core.utils import create_header, create_footer, create_back_button
-from process.find_process import find_sample_positions
+from gui.find_samples import show_sample_detector
 
 def sample_scanner(container, project_id, on_back):
     for widget in container.winfo_children():
@@ -47,11 +47,11 @@ def sample_scanner(container, project_id, on_back):
             Messagebox.show_error("Musíte načíst alespoň 1 vzorek.")
             return
         logger.info(f"[SCAN] Spouštím proces FIND pro projekt {project_id}")
-        positions = find_sample_positions(project_id, samples)
-        Messagebox.show_info(f"Detekováno {len(positions)} vzorků.")
+        # Pokračovat na měření
+        for widget in container.winfo_children():
+            widget.destroy()
+        show_sample_detector(container, project_id, samples, on_back)
 
-        logger.info(f"Projekt {project_id} – Načteno {len(samples)} vzorků: {samples}")
-        # TODO: pokračovat na měření
 
     ttk.Button(container, text="Vzorky načteny – spustit měření", bootstyle="success",
                command=start_measurement).pack(pady=20)
