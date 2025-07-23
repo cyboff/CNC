@@ -6,6 +6,8 @@ import ttkbootstrap as ttk
 from PIL import Image, ImageTk
 from core.logger import logger
 from config import APP_NAME, VERSION, COMPANY
+import config
+from tkinter import Label
 
 def create_step_header(parent, text: str):
     """Vytvoří záhlaví kroku s popisným textem."""
@@ -101,3 +103,30 @@ def create_footer(container):
 
     status_label = ttk.Label(footer, text="Systém připraven.", font=("Arial", 12), foreground="#d8e2f1", background="#48484c")
     status_label.pack(side="right", padx=12)
+
+def create_camera_preview(parent, frame_width, frame_height, get_position, start_preview):
+    preview_frame = ttk.Frame(parent)
+    preview_frame.pack(side="right", fill="both", expand=True)
+
+    Label(preview_frame, text="Zobrazení kamery", font=("Helvetica", 14, "bold")).pack()
+    image_label = Label(preview_frame, width=int(config.frame_width), height=int(config.frame_height))
+    image_label.pack()
+
+    position_label = Label(preview_frame, text="Status: ---, X: ---, Y: ---, Z: ---", font=("Helvetica", 10))
+    position_label.pack(pady=6)
+
+    def update_position():
+        try:
+            last_position, grbl_status = get_position()
+            x, y, z = map(float, last_position.split(","))
+            position_label.config(text=f"Stav: {grbl_status}, X: {x:.3f}, Y: {y:.3f}, Z: {z:.3f}")
+        except Exception:
+            pass
+        position_timer = threading.Timer(0.5, update_position)
+        position_timer.daemon = True
+        position_timer.start()
+
+    start_preview(image_label, update_position_callback=update_position)
+    update_position()
+
+    return preview_frame, image_label, position_label

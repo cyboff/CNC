@@ -100,8 +100,8 @@ def show_home(container):
     tree.pack(fill="both", expand=True)
 
     all_projects = get_all_projects()
-    recent_projects = all_projects[-10:] if len(all_projects) > 10 else all_projects
-    for row in reversed(recent_projects):
+    recent_projects = all_projects[0:10] if len(all_projects) > 10 else all_projects
+    for row in recent_projects:
         tree.insert("", "end", values=row)
 
     def on_double_click(event):

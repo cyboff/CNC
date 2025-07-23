@@ -6,7 +6,7 @@ Vrací seznam souřadnic vzorků [(x1, y1), (x2, y2), ...].
 import config
 from core.logger import logger
 from core.motion_controller import move_to_home_position, move_to_coordinates
-from core.database import save_sample_positions_to_db
+from core.database import save_project_samples_to_db
 from config import camera_offset_x, camera_offset_y, microscope_offset_x, microscope_offset_y
 
 def move_to_sample_center(x: float, y: float):
@@ -23,19 +23,21 @@ def find_sample_positions(project_id: int, sample_codes: list[str]):
     global grbl_status
 
     sample_positions = []
+    items = []  # Počet detekovaných drátů pro každý vzorek
     for code in sample_codes:
         sample_position = config.sample_positions_mm[sample_codes.index(code)]
-        (x, y, z) = sample_position
-        print(f"[FIND] Najíždím na pozici vzorku {code}: ({x}, {y}, {z})")
-        sample_positions.append((x, y))
+        (name, x, y, z) = sample_position
+        print(f"[FIND] Najíždím na pozici {name} vzorku {code}: ({x}, {y}, {z})")
         move_to_coordinates(x, y, z)
         print("[FIND] Snímám fotku hlavní kamerou...")
         # TODO: Vyfotit a zpracovat obrázek (zatím dummy)
 
         print("[FIND] Detekuji pozice vzorků...")
         # TODO: Detekce kontur, výpočet pozic (zatím dummy pozice)
+        items = [1,2,3] # Dummy počet detekovaných drátů
+        sample_positions.append((name,items))  # Přidat pozici a počet detekovaných drátů
 
     # Uložit pozice do databáze
-    save_sample_positions_to_db(sample_codes, sample_positions)
+    save_project_samples_to_db(project_id, sample_codes, sample_positions)
 
     return sample_positions

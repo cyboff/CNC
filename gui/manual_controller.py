@@ -1,7 +1,7 @@
 from tkinter import ttk, StringVar, Label, Frame, Button
 
 import config
-from core.utils import create_back_button, create_header, create_footer
+from core.utils import create_back_button, create_header, create_footer, create_camera_preview
 from core.logger import logger
 from core.motion_controller import move_axis, grbl_home, grbl_clear_alarm, grbl_abort
 import core.motion_controller
@@ -106,33 +106,12 @@ def show_manual_controller(container, on_back):
     add_action_button(control_frame, "🎯 Zaostřit", run_autofocus)
 
     # VPRAVO – kamera
-    preview_frame = ttk.Frame(main_frame)
-    preview_frame.pack(side="left", fill="both", expand=True)
-
-    Label(preview_frame, text="Zobrazení kamery", font=("Helvetica", 14, "bold")).pack()
-
-    image_label = Label(preview_frame, width=int(config.frame_width), height=int(config.frame_height))
-    image_label.pack()
-
-    # === POZICE STROJE ===
-
-    # Live pozice
-    position_label = Label(preview_frame, text="Status: ---, X: ---, Y: ---, Z: ---", font=("Helvetica", 10))
-    position_label.pack(pady=6)
-
-    def update_position():
-        try:
-            last_position = core.motion_controller.grbl_last_position
-            grbl_status = core.motion_controller.grbl_status
-            x, y, z = map(float, last_position.split(","))
-            position_label.config(text=f"Stav: {grbl_status}, X: {x:.3f}, Y: {y:.3f}, Z: {z:.3f}")
-        except Exception:
-            pass
-        position_timer = threading.Timer(0.5, update_position)
-        position_timer.daemon = True
-        position_timer.start()
-
     core.camera_manager.preview_running = False
-    start_camera_preview(image_label, update_position_callback=update_position)
-    update_position()  # Spustí periodické aktualizace pozice
+    preview_frame, image_label, position_label = create_camera_preview(
+        main_frame,
+        config.frame_width,
+        config.frame_height,
+        lambda: (core.motion_controller.grbl_last_position, core.motion_controller.grbl_status),
+        start_camera_preview
+    )
 

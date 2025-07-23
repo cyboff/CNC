@@ -6,7 +6,7 @@ def create_project_folder(project_id, project_name):
     # Normalizace jména
     safe_name = re.sub(r'\W+', '_', project_name).strip('_')
     timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M")
-    folder_name = f"{timestamp}_{safe_name}"
+    folder_name = f"{timestamp}_{project_id}_{safe_name}"
     project_path = os.path.join("projects", folder_name)
 
     os.makedirs(project_path, exist_ok=True)

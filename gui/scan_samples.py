@@ -11,7 +11,7 @@ def sample_scanner(container, project_id, on_back):
         widget.destroy()
 
     samples = []
-
+    print(f"Krok 2: Skenování EAN kódů pro projekt {project_id}")
     create_header(container, "CNC Sample Detector - Krok 2: Skenování EAN kódů")
     create_footer(container)
     create_back_button(container, on_back)
@@ -37,12 +37,12 @@ def sample_scanner(container, project_id, on_back):
             logger.warning(f"EAN kód {code} byl již načten")
             entry.delete(0, "end")
         if len(samples) > 3:
-            Messagebox.show_info("Načteny 4 vzorky. Pokračujte na měření.")
-            start_measurement()
+            Messagebox.show_info("Načteny všechny 4 vzorky. Pokračujte na měření.")
+            start_measurement(container, project_id, samples)
 
     entry.bind("<Return>", on_scan)
 
-    def start_measurement():
+    def start_measurement(container, project_id:int, samples: list[str]):
         if len(samples) == 0:
             Messagebox.show_error("Musíte načíst alespoň 1 vzorek.")
             return
@@ -53,5 +53,7 @@ def sample_scanner(container, project_id, on_back):
         show_sample_detector(container, project_id, samples, on_back)
 
 
-    ttk.Button(container, text="Vzorky načteny – spustit měření", bootstyle="success",
-               command=start_measurement).pack(pady=20)
+    ttk.Button(
+        container, text="Vzorky načteny – spustit měření", bootstyle="success",
+        command=lambda: start_measurement(container, project_id, samples)
+    ).pack(pady=20)
