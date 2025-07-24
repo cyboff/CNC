@@ -4,6 +4,7 @@ Modul pro najíždění na základní pozici a detekci vzorků pomocí hlavní k
 Vrací seznam souřadnic vzorků [(x1, y1), (x2, y2), ...].
 """
 import cv2
+import numpy as np
 from ttkbootstrap.dialogs import Messagebox
 
 import config
@@ -49,8 +50,11 @@ def find_sample_positions(image_label, tree, project_id: int, sample_codes: list
             h, w = img.shape[:2]
             center = (w // 2, h // 2)
             cv2.circle(img, center, 40, (0, 0, 255), 4)
+            items = find_circles(img)  # Detekce kruhů na obrázku
+            for x, y, r in items:
+                cv2.circle(img, (x,y), r, (0, 255, 0), 1)
             # DUMMY: Přidáme dummy položky pro detekované dráty
-            items = [(1, -100, -200, 20), (2, -110, -202, 15)]  # Dummy počet detekovaných drátů
+            # items = [(1, -100, -200, 20), (2, -110, -202, 15)]  # Dummy počet detekovaných drátů
             # Převod na RGB pro PIL a zobrazení v náhledu
             im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
             imgtk = ImageTk.PhotoImage(image=im_pil)
@@ -78,3 +82,18 @@ def find_sample_positions(image_label, tree, project_id: int, sample_codes: list
         core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Restart živého náhledu
 
     return sample_positions
+
+def find_circles(image):
+    """
+    Detekuje kruhy na obrázku pomocí Houghovy transformace.
+    Vrací seznam středů kruhů [(x1, y1), (x2, y2), ...].
+    """
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    blurred = cv2.GaussianBlur(gray, (9, 9), 2)
+    circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, dp=1, minDist=20,
+                               param1=50, param2=30, minRadius=10, maxRadius=100)
+
+    if circles is not None:
+        circles = np.uint16(np.around(circles))
+        return [(circle[0], circle[1], circle[2]) for circle in circles[0, :]]
+    return []

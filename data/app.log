@@ -1649,3 +1649,38 @@
 2025-07-24 15:13:15,675 [INFO] Kliknutí na manuální řízení
 2025-07-24 15:13:28,267 [INFO] Zobrazení domovské obrazovky
 2025-07-24 15:13:31,569 [INFO] Zavírám sériový port CNC
+2025-07-24 15:37:20,412 [INFO] Aplikace spuštěna
+2025-07-24 15:37:20,412 [INFO] Zobrazení domovské obrazovky
+2025-07-24 15:37:32,153 [INFO] Klik: Nové měření
+2025-07-24 15:37:36,269 [INFO] Vytvořena složka projektu: projects\2025_07_24_15_37_34_25
+2025-07-24 15:37:37,955 [INFO] Načten EAN kód: 213
+2025-07-24 15:37:38,529 [INFO] Načten EAN kód: 1235
+2025-07-24 15:37:38,950 [INFO] Načten EAN kód: 215
+2025-07-24 15:37:39,927 [INFO] Načten EAN kód: 125
+2025-07-24 15:37:41,742 [INFO] [SCAN] Spouštím proces FIND pro projekt 34
+2025-07-24 15:38:29,464 [INFO] Aplikace spuštěna
+2025-07-24 15:38:29,465 [INFO] Zobrazení domovské obrazovky
+2025-07-24 15:38:31,453 [INFO] Klik: Nové měření
+2025-07-24 15:38:34,861 [INFO] Vytvořena složka projektu: projects\2025_07_24_15_38_35_245
+2025-07-24 15:38:40,755 [INFO] Načten EAN kód: 1234
+2025-07-24 15:38:41,449 [INFO] Načten EAN kód: 1243
+2025-07-24 15:38:44,493 [WARNING] EAN kód 1234 byl již načten
+2025-07-24 15:38:45,584 [INFO] [SCAN] Spouštím proces FIND pro projekt 35
+2025-07-24 15:38:47,334 [INFO] [DB] Uložen vzorek 1234 na pozici A1.
+2025-07-24 15:39:03,143 [INFO] [DB] Uložen vzorek 1243 na pozici A2.
+2025-07-24 15:39:23,055 [INFO] Zavírám sériový port CNC
+2025-07-24 15:43:58,098 [INFO] Aplikace spuštěna
+2025-07-24 15:43:58,098 [INFO] Zobrazení domovské obrazovky
+2025-07-24 15:44:00,031 [INFO] Klik: Nové měření
+2025-07-24 15:44:03,549 [INFO] Vytvořena složka projektu: projects\2025_07_24_15_44_36_213
+2025-07-24 15:44:05,279 [INFO] Načten EAN kód: 243
+2025-07-24 15:44:05,776 [INFO] Načten EAN kód: 1234
+2025-07-24 15:44:06,428 [INFO] Načten EAN kód: 43
+2025-07-24 15:44:07,791 [WARNING] EAN kód 43 byl již načten
+2025-07-24 15:44:08,483 [INFO] Načten EAN kód: 3
+2025-07-24 15:44:10,059 [INFO] [SCAN] Spouštím proces FIND pro projekt 36
+2025-07-24 15:44:24,981 [INFO] [DB] Uložen vzorek 243 na pozici A1.
+2025-07-24 15:44:41,305 [INFO] [DB] Uložen vzorek 1234 na pozici A2.
+2025-07-24 15:44:57,621 [INFO] [DB] Uložen vzorek 43 na pozici B1.
+2025-07-24 15:45:13,927 [INFO] [DB] Uložen vzorek 3 na pozici B2.
+2025-07-24 15:49:21,106 [INFO] Zavírám sériový port CNC
