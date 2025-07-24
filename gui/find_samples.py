@@ -52,11 +52,8 @@ def show_sample_detector(container, project_id, samples, on_back):
     )
 
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
-    def threaded_find_and_show(project_id, samples, tree):
-        positions = find_sample_positions(project_id, samples)
-        # container.after(0, lambda: Messagebox.show_info(f"Detekovány vzorky: {len(positions)}. Zobrazují se v tabulce níže."))
+    def threaded_find_and_show(image_label, tree, project_id, samples):
+        positions = find_sample_positions(image_label, tree, project_id, samples)
+        container.after(0, lambda: Messagebox.show_info(f"Detekovány {len(positions)} vzorky. Výsledky jsou v tabulce."))
 
-        for i, (pos, items) in enumerate(positions):
-            tree.insert("", "end", values=(f"{samples[i]}", f"{pos}", f"{items}"))
-
-    threading.Thread(target=threaded_find_and_show, args=(project_id, samples, tree), daemon=True).start()
+    threading.Thread(target=threaded_find_and_show, args=(image_label, tree, project_id, samples), daemon=True).start()

@@ -4,7 +4,7 @@ import time
 from pypylon import pylon
 from PIL import Image, ImageTk
 import config
-import core.camera_manager
+
 
 camera = None
 microscope = None
@@ -110,7 +110,7 @@ def start_camera_preview(image_label, update_position_callback=None):
     if preview_running:
         return
 
-    preview_running = True
+
     if actual_camera is None or camera is None or microscope is None:
         print("[Camera] Inicializuji kameru...")
         try:
@@ -121,6 +121,7 @@ def start_camera_preview(image_label, update_position_callback=None):
             print(f"[Camera] Chyba při inicializaci kamery: {e}")
             return
 
+    preview_running = True
 
     def preview_loop():
         global camera, microscope, actual_camera, preview_running, live_frame, live_frame_lock
@@ -161,8 +162,8 @@ def start_camera_preview(image_label, update_position_callback=None):
                 image_label.after(100, update)
 
 
-        actual_camera.StopGrabbing()
-        actual_camera.Close()
+        # actual_camera.StopGrabbing()
+        # actual_camera.Close()
 
     # spustíme náhled ve vlákně, aby neblokoval GUI
     threading.Thread(target=preview_loop, daemon=True).start()
@@ -182,13 +183,13 @@ def release_camera():
     """
     Korektně zavře připojení ke kameře.
     """
-    global camera
+    global camera, microscope, actual_camera
     try:
-        if camera and camera.IsGrabbing():
-            camera.StopGrabbing()
-        if camera and camera.IsOpen():
-            camera.Close()
-        camera = None
+        if actual_camera and actual_camera.IsGrabbing():
+            actual_camera.StopGrabbing()
+        if actual_camera and actual_camera.IsOpen():
+            actual_camera.Close()
+        actual_camera = None
         print("[Camera] Kamera uvolněna.")
     except Exception as e:
         print("[Camera] Chyba při uvolňování kamery:", e)

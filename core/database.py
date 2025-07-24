@@ -32,12 +32,16 @@ def init_db():
 
     c.execute('''
         CREATE TABLE IF NOT EXISTS project_sample_items (
-                  id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  sample_id INTEGER,
-                  name TEXT,
-                  notes TEXT,
-                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                  FOREIGN KEY(sample_id) REFERENCES project_samples(id)
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            sample_id INTEGER,
+            name TEXT,
+            notes TEXT,
+            x_center REAL,
+            y_center REAL,
+            radius REAL,
+            image_path TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(sample_id) REFERENCES project_samples(id)
         )
     ''')
 
@@ -101,21 +105,13 @@ def delete_project(project_id):
     conn.commit()
     conn.close()
 
-
-
-
-def save_project_samples_to_db(project_id: int, sample_codes: list[str], sample_positions: list[tuple[str, list]]):
-    if len(sample_codes) != len(sample_positions):
-        logger.error(f"[DB] Počet kódů ({len(sample_codes)}) neodpovídá počtu pozic ({len(sample_positions)})")
-        raise ValueError("Počet EAN kódů neodpovídá počtu pozic.")
-
+def save_project_sample_to_db(project_id: int, position: str, code: str):
     conn = sqlite3.connect("data/database.db")
     c = conn.cursor()
 
-    for code, (position, items) in zip(sample_codes, sample_positions):
-        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        c.execute("INSERT INTO project_samples (project_id, position, ean_code, created_at) VALUES (?, ?, ?, ?)", (project_id, position,code, now))
-        logger.info(f"[DB] Uložen vzorek {code} na pozici {position}.")
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    c.execute("INSERT INTO project_samples (project_id, position, ean_code, created_at) VALUES (?, ?, ?, ?)", (project_id, position, code, now))
+    logger.info(f"[DB] Uložen vzorek {code} na pozici {position}.")
 
     conn.commit()
     conn.close()
