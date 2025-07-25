@@ -109,7 +109,7 @@ def create_camera_preview(parent, frame_width, frame_height, get_position, start
     preview_frame.pack(side="right", fill="both", expand=True)
 
     Label(preview_frame, text="Zobrazení kamery", font=("Helvetica", 14, "bold")).pack()
-    image_label = Label(preview_frame, width=int(config.frame_width), height=int(config.frame_height))
+    image_label = Label(preview_frame, width=config.frame_width, height=config.frame_height)
     image_label.pack()
 
     position_label = Label(preview_frame, text="Status: ---, X: ---, Y: ---, Z: ---", font=("Helvetica", 10))

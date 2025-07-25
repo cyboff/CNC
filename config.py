@@ -34,12 +34,12 @@ WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1500)
 WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 1000)
 
 # Rozměry výstupního rámce (např. zobrazení videa)
-frame_width = float(get_setting("frame_width"))
-frame_height = float(get_setting("frame_height"))
+frame_width = int(get_setting("frame_width"))
+frame_height = int(get_setting("frame_height"))
 
 # Rozlišení kamery (v pixelech)
-image_width = float(get_setting("image_width"))
-image_height = float(get_setting("image_height"))
+image_width = int(get_setting("image_width"))
+image_height = int(get_setting("image_height"))
 
 # Velikost zorného pole kamery (v mm)
 Xmm = float(get_setting("Xmm"))

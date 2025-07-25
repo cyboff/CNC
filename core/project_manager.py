@@ -1,13 +1,21 @@
 import os
-from datetime import datetime
 import re
+import cv2
+from core.database import get_project_by_id
 
-def create_project_folder(project_id, project_name):
+def create_project_folder(project_id):
+    # Získání složky projektu podle ID
+    result = get_project_by_id(project_id)
+    if not result:
+        return None
+    project_id = result[0]  # ID je první sloupec v DB
+    project_name = result[1]
+    created_at = result[3]
     # Normalizace jména
     safe_name = re.sub(r'\W+', '_', project_name).strip('_')
-    timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M")
-    folder_name = f"{timestamp}_{project_id}_{safe_name}"
-    project_path = os.path.join("projects", folder_name)
+    timestamp = created_at.replace(" ", "_").replace(":", "_").replace("-", "_")
+    projects_dir = f"{timestamp}_{project_id}_{project_name}"
+    project_path = os.path.join("projects", projects_dir)
 
     os.makedirs(project_path, exist_ok=True)
     os.makedirs(os.path.join(project_path, "images"), exist_ok=True)
@@ -19,3 +27,51 @@ def create_project_folder(project_id, project_name):
         f.write(f"Created: {timestamp}\n")
 
     return project_path
+
+def get_project_folder(project_id):
+    # Získání složky projektu podle ID
+    result = get_project_by_id(project_id)
+    if not result:
+        return None
+    project_id = result[0]  # ID je první sloupec v DB
+    project_name = result[1]
+    created_at = result[3]
+    # Normalizace jména
+    safe_name = re.sub(r'\W+', '_', project_name).strip('_')
+    timestamp = created_at.replace(" ", "_").replace(":", "_").replace("-", "_")
+    projects_dir = f"{timestamp}_{project_id}_{project_name}"
+    project_path = os.path.join("projects", projects_dir)
+    if os.path.exists(project_path):
+        return project_path
+    else:
+        print(f"Složka projektu {project_path} neexistuje.")
+    return None
+
+def save_image_to_project(project_id, image, filename):
+    project_folder = get_project_folder(project_id)
+    if not project_folder:
+        print(f"Projekt s ID {project_id} nebyl nalezen.")
+        return False
+
+    image_path = os.path.join(project_folder, "images", filename)
+    cv2.imwrite(image_path, image)
+    print(f"Obrázek uložen do {image_path}")
+    return True
+
+def get_image_from_project(project_id, filename):
+    project_folder = get_project_folder(project_id)
+    if not project_folder:
+        print(f"Projekt s ID {project_id} nebyl nalezen.")
+        return None
+
+    image_path = os.path.join(project_folder, "images", filename)
+    if not os.path.exists(image_path):
+        print(f"Obrázek {image_path} neexistuje.")
+        return None
+
+    image = cv2.imread(image_path)
+    if image is None:
+        print(f"Chyba při načítání obrázku {image_path}.")
+        return None
+
+    return image

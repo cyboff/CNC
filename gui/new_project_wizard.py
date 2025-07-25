@@ -42,19 +42,20 @@ def open_new_project_wizard(container, on_back):
         # Získání ID nového projektu
         conn = sqlite3.connect("data/database.db")
         c = conn.cursor()
-        c.execute("SELECT id FROM projects ORDER BY created_at DESC")
+        c.execute("SELECT id, created_at FROM projects ORDER BY created_at DESC")
         project_id = c.fetchone()[0]
-        print(f"Uložen projekt s ID: {project_id}")
+        created_at = c.fetchone()[1]
+        # print(f"Do databáze byl vložen projekt s ID: {project_id} vytvořený {created_at}")
         conn.close()
 
         # Vytvoření složky projektu
-        project_path = create_project_folder(project_id, name)
+        project_path = create_project_folder(project_id)
         logger.info(f"Vytvořena složka projektu: {project_path}")
 
         # Pokračuj na scan vzorků
         for widget in container.winfo_children():
             widget.destroy()
-        print(f"Krok 1: Uložen projekt {name} s ID {project_id}")
+        print(f"Krok 1: Uložen projekt {name} s ID {project_id} vytvořený {created_at}")
         sample_scanner(container, project_id, on_back)
 
     ttk.Button(container, text="Uložit a pokračovat", bootstyle="success", command=save_project).pack(pady=20)

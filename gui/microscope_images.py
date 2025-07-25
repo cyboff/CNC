@@ -13,16 +13,15 @@ from process.find_process import find_sample_positions
 from PIL import Image, ImageTk
 import cv2
 from core.logger import logger
-from gui.microscope_images import show_microscope_images
 
 
 update_position_timer = None
 
-def show_sample_detector(container, project_id, samples, on_back):
+def show_microscope_images(container, project_id, samples, on_back):
     for widget in container.winfo_children():
         widget.destroy()
-    print(f"Krok 3: Spouštím detekci vzorků pro projekt {project_id} s {len(samples)} vzorky")
-    create_header(container, "CNC Sample Detector - Krok 3: Hledání vzorků", on_back)
+    print(f"Krok 4: Spouštím snímaní mikroskopem pro projekt {project_id} s {len(samples)} vzorky")
+    create_header(container, "CNC Sample Detector - Krok 4: Snímání mikroskopem", on_back)
     create_footer(container)
 
     main_frame = ttk.Frame(container)
@@ -64,7 +63,7 @@ def show_sample_detector(container, project_id, samples, on_back):
             else:
                 print("[FIND] Náhled již neexistuje, nemohu zobrazit obrázek.")
 
-    def on_click(event):
+    def on_double_click(event):
         item = tree.selection()
         if item:
             values = tree.item(item[0], "values")
@@ -72,7 +71,7 @@ def show_sample_detector(container, project_id, samples, on_back):
             position = values[1]
             show_image(project_id, image_label, sample_id, position)
 
-    tree.bind("<Button-1>", on_click)
+    tree.bind("<Double-1>", on_double_click)
 
     # VPRAVO – kamera
     core.camera_manager.preview_running = False
@@ -85,8 +84,8 @@ def show_sample_detector(container, project_id, samples, on_back):
     )
 
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
-    def threaded_find_and_show(container, image_label, tree, project_id, samples):
-        positions = find_sample_positions(container, image_label, tree, project_id, samples)
+    def threaded_find_and_show(image_label, tree, project_id, samples):
+        positions = find_sample_positions(image_label, tree, project_id, samples)
         container.after(0, lambda: Messagebox.show_info(f"Detekovány {len(positions)} vzorky. Výsledky jsou v tabulce."))
         def stop_camera_preview():
             core.camera_manager.stop_camera_preview()
@@ -101,28 +100,4 @@ def show_sample_detector(container, project_id, samples, on_back):
                 position = values[1]
                 show_image(project_id, image_label, sample_id, position)
         container.after(1000, show_image_first_row)  # Zobrazí první řádek v tabulce po dokončení hledání
-    t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
-    t.start()
-
-    # Přidání tlačítek pro opakování detekce a pokračování na mikroskop
-    button_frame = ttk.Frame(container)
-    button_frame.pack(pady=10)
-
-    def get_microscope_images(container, tree, project_id, samples):
-        if not tree.get_children():
-            Messagebox.show_error("Musíte detekovat alespoň 1 vzorek.")
-            return
-        logger.info(f"[FIND] Spouštím proces MICROSCOPE pro projekt {project_id}")
-        for widget in container.winfo_children():
-            widget.destroy()
-        show_microscope_images(container, project_id, samples, on_back)
-
-    def restart_sample_detector():
-        logger.info(f"[FIND] Opakuji hledání vzorků pro projekt {project_id}")
-        for widget in container.winfo_children():
-            widget.destroy()
-        core.camera_manager.stop_camera_preview()
-        show_sample_detector(container, project_id, samples, on_back)
-
-    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="primary",command=restart_sample_detector).pack(side="left", padx=10)
-    ttk.Button(button_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success", command=lambda: get_microscope_images(container, tree, project_id, samples)).pack(side="left", padx=10)
+    threading.Thread(target=threaded_find_and_show, args=(image_label, tree, project_id, samples), daemon=True).start()

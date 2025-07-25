@@ -14,7 +14,7 @@ camera_lock = threading.Lock()
 live_frame_lock = threading.Lock()
 live_frame = None
 
-def init_camera():
+def init_cameras():
     global camera, microscope
     tl_factory = pylon.TlFactory.GetInstance()
     devices = tl_factory.EnumerateDevices()
@@ -114,7 +114,7 @@ def start_camera_preview(image_label, update_position_callback=None):
     if actual_camera is None or camera is None or microscope is None:
         print("[Camera] Inicializuji kameru...")
         try:
-            camera, microscope = init_camera()
+            camera, microscope = init_cameras()
             actual_camera = camera  # Nastavíme aktuální kameru na hlavní kameru
             actual_camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
         except Exception as e:
@@ -159,7 +159,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(100, update)
+                image_label.after(0, update)
 
 
         # actual_camera.StopGrabbing()
@@ -176,6 +176,7 @@ def start_camera_preview(image_label, update_position_callback=None):
 def stop_camera_preview():
     global preview_running
     preview_running = False
+    release_camera()
 
 
 
