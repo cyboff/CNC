@@ -56,15 +56,9 @@ def save_image_to_project(project_id, image, filename):
     image_path = os.path.join(project_folder, "images", filename)
     cv2.imwrite(image_path, image)
     print(f"Obrázek uložen do {image_path}")
-    return True
+    return image_path
 
-def get_image_from_project(project_id, filename):
-    project_folder = get_project_folder(project_id)
-    if not project_folder:
-        print(f"Projekt s ID {project_id} nebyl nalezen.")
-        return None
-
-    image_path = os.path.join(project_folder, "images", filename)
+def get_image_from_project(image_path):
     if not os.path.exists(image_path):
         print(f"Obrázek {image_path} neexistuje.")
         return None

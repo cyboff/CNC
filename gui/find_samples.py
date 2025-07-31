@@ -1,24 +1,27 @@
 import threading
+import time
+import cv2
 from tkinter import ttk, Label
-
+from PIL import Image, ImageTk
 from ttkbootstrap.dialogs import Messagebox
-
 import config
 import core.camera_manager
 import core.motion_controller
+import gui.find_samples
 from core.camera_manager import start_camera_preview
-from core.motion_controller import move_axis
-from core.utils import create_back_button, create_header, create_footer, create_camera_preview
+from core.utils import create_back_button, create_header, create_footer, create_camera_preview, show_image
 from process.find_process import find_sample_positions
-from PIL import Image, ImageTk
-import cv2
 from core.logger import logger
 from gui.microscope_images import show_microscope_images
 
-
+positions = []
 update_position_timer = None
+stop_event = threading.Event()
+stop_event.clear()
 
-def show_sample_detector(container, project_id, samples, on_back):
+
+def show_find_samples(container, project_id, samples, on_back):
+    global stop_event
     for widget in container.winfo_children():
         widget.destroy()
     print(f"Krok 3: Spouštím detekci vzorků pro projekt {project_id} s {len(samples)} vzorky")
@@ -45,34 +48,15 @@ def show_sample_detector(container, project_id, samples, on_back):
     tree.column("Detected Items", width=100, anchor="center")
     tree.pack(fill="both", expand=True)
 
-    def show_image(project_id, image_label, sample_id, position):
-        print(f"[FIND] Zobrazuji náhled vzorku {sample_id} na pozici {position}")
-        filename = f"sample_{sample_id}_position_{position}.jpg"
-        img = core.project_manager.get_image_from_project(project_id, filename)
-        if img is None:
-            print(f"[FIND] Obrázek {filename} nebyl nalezen v projektu {project_id}.")
-            return
-        else:
-            # Zobrazíme náhled obrázku v GUI
-            img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
-            im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            imgtk = ImageTk.PhotoImage(image=im_pil)
-            if image_label.winfo_exists():
-                core.camera_manager.preview_running = False;  # Zastavíme živý náhled kamery
-                image_label.imgtk = imgtk  # Uchovat referenci, aby obrázek nezmizel
-                image_label.config(image=imgtk)
-            else:
-                print("[FIND] Náhled již neexistuje, nemohu zobrazit obrázek.")
-
     def on_click(event):
         item = tree.selection()
         if item:
             values = tree.item(item[0], "values")
-            sample_id = values[0]
+            ean_code = values[0]
             position = values[1]
-            show_image(project_id, image_label, sample_id, position)
+            show_image(image_label, project_id, ean_code, position)
 
-    tree.bind("<Button-1>", on_click)
+    tree.bind("<ButtonRelease-1>", on_click)
 
     # VPRAVO – kamera
     core.camera_manager.preview_running = False
@@ -85,6 +69,7 @@ def show_sample_detector(container, project_id, samples, on_back):
     )
 
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
+
     def threaded_find_and_show(container, image_label, tree, project_id, samples):
         positions = find_sample_positions(container, image_label, tree, project_id, samples)
         container.after(0, lambda: Messagebox.show_info(f"Detekovány {len(positions)} vzorky. Výsledky jsou v tabulce."))
@@ -97,10 +82,12 @@ def show_sample_detector(container, project_id, samples, on_back):
                 first_item = tree.get_children()[0]
                 tree.selection_set(first_item)
                 values = tree.item(first_item, "values")
-                sample_id = values[0]
+                ean_code = values[0]
                 position = values[1]
-                show_image(project_id, image_label, sample_id, position)
-        container.after(1000, show_image_first_row)  # Zobrazí první řádek v tabulce po dokončení hledání
+                show_image(image_label, project_id, ean_code, position)
+        container.after(2000, show_image_first_row)  # Zobrazí první řádek v tabulce po dokončení hledání
+
+    gui.find_samples.stop_event.clear()
     t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
     t.start()
 
@@ -108,21 +95,29 @@ def show_sample_detector(container, project_id, samples, on_back):
     button_frame = ttk.Frame(container)
     button_frame.pack(pady=10)
 
-    def get_microscope_images(container, tree, project_id, samples):
+    def restart_sample_detector(thread):
+        logger.info(f"[FIND] Opakuji hledání vzorků pro projekt {project_id}")
+        gui.find_samples.stop_event.set()
+        while thread.is_alive():
+            print("[FIND] Proces hledání vzorků již běží, čekám na dokončení...")
+            time.sleep(1)
+        gui.find_samples.stop_event.clear()
+        if tree.winfo_exists():
+            container.after(0, lambda: [tree.delete(item) for item in tree.get_children()])
+        # TODO: zde smazat všechny samples z databáze pro tento projekt, pokud existují
+        core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Restart živého náhledu
+        time.sleep(0.5)
+        t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
+        t.start()
+        return t
+
+    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="success",command=lambda: restart_sample_detector(t)).pack(side="left", padx=10)
+
+    def start_show_microscope_images(container, project_id, samples, on_back):
         if not tree.get_children():
             Messagebox.show_error("Musíte detekovat alespoň 1 vzorek.")
             return
         logger.info(f"[FIND] Spouštím proces MICROSCOPE pro projekt {project_id}")
-        for widget in container.winfo_children():
-            widget.destroy()
         show_microscope_images(container, project_id, samples, on_back)
 
-    def restart_sample_detector():
-        logger.info(f"[FIND] Opakuji hledání vzorků pro projekt {project_id}")
-        for widget in container.winfo_children():
-            widget.destroy()
-        core.camera_manager.stop_camera_preview()
-        show_sample_detector(container, project_id, samples, on_back)
-
-    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="primary",command=restart_sample_detector).pack(side="left", padx=10)
-    ttk.Button(button_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success", command=lambda: get_microscope_images(container, tree, project_id, samples)).pack(side="left", padx=10)
+    ttk.Button(button_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success", command=lambda: start_show_microscope_images(container, project_id, samples, on_back)).pack(side="left", padx=10)

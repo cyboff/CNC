@@ -4,10 +4,15 @@ import platform
 import threading
 import ttkbootstrap as ttk
 from PIL import Image, ImageTk
+
+from core.database import get_samples_by_project_id
 from core.logger import logger
 from config import APP_NAME, VERSION, COMPANY
 import config
 from tkinter import Label
+import cv2
+from core.project_manager import get_image_from_project
+import core.camera_manager
 
 def create_step_header(parent, text: str):
     """Vytvoří záhlaví kroku s popisným textem."""
@@ -130,3 +135,27 @@ def create_camera_preview(parent, frame_width, frame_height, get_position, start
     update_position()
 
     return preview_frame, image_label, position_label
+
+def show_image(image_label, project_id, ean, pos):
+    print(f"Zobrazuji náhled vzorku {ean} na pozici {pos}")
+    samples_from_db = get_samples_by_project_id(project_id)
+    for sample_id, position, ean_code, image_path in samples_from_db:
+        if ean == ean_code and pos == position:
+            break
+    else:
+        image_path = None
+    img = get_image_from_project(image_path)
+    if img is None:
+        print(f"Obrázek {image_path} nebyl nalezen v projektu {project_id}.")
+        return
+    else:
+        # Zobrazíme náhled obrázku v GUI
+        img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
+        im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        imgtk = ImageTk.PhotoImage(image=im_pil)
+        if image_label.winfo_exists():
+            core.camera_manager.preview_running = False;  # Zastavíme živý náhled kamery
+            image_label.imgtk = imgtk  # Uchovat referenci, aby obrázek nezmizel
+            image_label.config(image=imgtk)
+        else:
+            print("Náhled již neexistuje, nemohu zobrazit obrázek.")

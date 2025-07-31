@@ -2270,3 +2270,1539 @@
 2025-07-25 15:20:41,000 [INFO] [SCAN] Spouštím proces FIND pro projekt 81
 2025-07-25 15:20:42,960 [INFO] [DB] Uložen vzorek 14 na pozici A1.
 2025-07-25 15:20:54,843 [INFO] [FIND] Opakuji hledání vzorků pro projekt 81
+2025-07-25 15:44:45,993 [INFO] Aplikace spuštěna
+2025-07-25 15:44:45,994 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:44:49,052 [INFO] Klik: Nové měření
+2025-07-25 15:44:51,642 [INFO] Vytvořena složka projektu: projects\2025_07_25_15_44_51_82_2r
+2025-07-25 15:44:52,978 [INFO] Načten EAN kód: 2r
+2025-07-25 15:44:53,361 [INFO] Načten EAN kód: r
+2025-07-25 15:44:54,166 [INFO] Načten EAN kód: rrt
+2025-07-25 15:44:56,016 [INFO] [SCAN] Spouštím proces FIND pro projekt 82
+2025-07-25 15:44:56,947 [INFO] [FIND] Opakuji hledání vzorků pro projekt 82
+2025-07-25 15:47:49,134 [INFO] Aplikace spuštěna
+2025-07-25 15:47:49,135 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:47:53,114 [INFO] Zavírám sériový port CNC
+2025-07-25 15:48:28,484 [INFO] Aplikace spuštěna
+2025-07-25 15:48:28,485 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:48:30,015 [INFO] Klik: Nové měření
+2025-07-25 15:48:32,061 [INFO] Vytvořena složka projektu: projects\2025_07_25_15_48_32_83_re
+2025-07-25 15:48:33,226 [INFO] Načten EAN kód: 243
+2025-07-25 15:48:34,448 [WARNING] EAN kód 243 byl již načten
+2025-07-25 15:48:34,997 [INFO] Načten EAN kód: 4
+2025-07-25 15:48:36,233 [INFO] Načten EAN kód: 5
+2025-07-25 15:48:38,203 [INFO] [SCAN] Spouštím proces FIND pro projekt 83
+2025-07-25 15:48:39,327 [INFO] [FIND] Opakuji hledání vzorků pro projekt 83
+2025-07-25 15:48:51,289 [INFO] [DB] Uložen vzorek 243 na pozici A1.
+2025-07-25 15:49:08,098 [INFO] [DB] Uložen vzorek 4 na pozici A2.
+2025-07-25 15:49:24,923 [INFO] [DB] Uložen vzorek 5 na pozici B1.
+2025-07-25 15:50:32,685 [INFO] Aplikace spuštěna
+2025-07-25 15:50:32,685 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:50:34,623 [INFO] Klik: Nové měření
+2025-07-25 15:50:37,000 [INFO] Vytvořena složka projektu: projects\2025_07_25_15_50_36_84_rq
+2025-07-25 15:50:38,644 [INFO] Načten EAN kód: qr
+2025-07-25 15:50:39,160 [INFO] Načten EAN kód: r
+2025-07-25 15:50:39,699 [INFO] Načten EAN kód: q
+2025-07-25 15:50:41,618 [INFO] [SCAN] Spouštím proces FIND pro projekt 84
+2025-07-25 15:50:42,577 [INFO] [FIND] Opakuji hledání vzorků pro projekt 84
+2025-07-25 15:51:02,609 [INFO] [DB] Uložen vzorek qr na pozici A1.
+2025-07-25 15:55:30,683 [INFO] Aplikace spuštěna
+2025-07-25 15:55:30,684 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:55:32,759 [INFO] Klik: Nové měření
+2025-07-25 15:55:34,652 [INFO] Vytvořena složka projektu: projects\2025_07_25_15_55_34_85_2er
+2025-07-25 15:55:35,907 [INFO] Načten EAN kód: 3
+2025-07-25 15:55:37,185 [WARNING] EAN kód 3 byl již načten
+2025-07-25 15:55:38,082 [INFO] Načten EAN kód: 5t
+2025-07-25 15:55:38,821 [INFO] Načten EAN kód: t
+2025-07-25 15:55:40,712 [INFO] [SCAN] Spouštím proces FIND pro projekt 85
+2025-07-25 15:55:41,849 [INFO] [FIND] Opakuji hledání vzorků pro projekt 85
+2025-07-25 15:57:29,463 [INFO] Aplikace spuštěna
+2025-07-25 15:57:29,463 [INFO] Zobrazení domovské obrazovky
+2025-07-25 15:57:31,165 [INFO] Klik: Nové měření
+2025-07-25 15:57:33,666 [INFO] Vytvořena složka projektu: projects\2025_07_25_15_57_33_86_2r3
+2025-07-25 15:57:35,766 [INFO] Načten EAN kód: 23\
+2025-07-25 15:57:36,317 [INFO] Načten EAN kód: 3
+2025-07-25 15:57:37,585 [INFO] Načten EAN kód: 33
+2025-07-25 15:57:40,020 [INFO] [SCAN] Spouštím proces FIND pro projekt 86
+2025-07-25 15:57:40,967 [INFO] [FIND] Opakuji hledání vzorků pro projekt 86
+2025-07-25 15:58:03,169 [INFO] [DB] Uložen vzorek 23\ na pozici A1.
+2025-07-25 16:00:41,283 [INFO] Aplikace spuštěna
+2025-07-25 16:00:41,283 [INFO] Zobrazení domovské obrazovky
+2025-07-25 16:00:43,562 [INFO] Klik: Nové měření
+2025-07-25 16:00:45,762 [INFO] Vytvořena složka projektu: projects\2025_07_25_16_00_45_87_e
+2025-07-25 16:00:47,047 [INFO] Načten EAN kód: w
+2025-07-25 16:00:49,366 [WARNING] EAN kód w byl již načten
+2025-07-25 16:00:50,550 [INFO] [SCAN] Spouštím proces FIND pro projekt 87
+2025-07-25 16:01:05,312 [INFO] [DB] Uložen vzorek w na pozici A1.
+2025-07-25 16:01:06,911 [INFO] [FIND] Opakuji hledání vzorků pro projekt 87
+2025-07-25 16:01:51,630 [INFO] Aplikace spuštěna
+2025-07-25 16:01:51,630 [INFO] Zobrazení domovské obrazovky
+2025-07-25 16:01:54,422 [INFO] Klik: Nové měření
+2025-07-25 16:01:56,941 [INFO] Vytvořena složka projektu: projects\2025_07_25_16_01_56_88_24
+2025-07-25 16:01:58,180 [INFO] Načten EAN kód: 243
+2025-07-25 16:01:58,692 [INFO] Načten EAN kód: 2
+2025-07-25 16:01:59,955 [WARNING] EAN kód 2 byl již načten
+2025-07-25 16:02:01,069 [INFO] Načten EAN kód: 5
+2025-07-25 16:02:02,828 [INFO] [SCAN] Spouštím proces FIND pro projekt 88
+2025-07-25 16:02:04,585 [INFO] [DB] Uložen vzorek 243 na pozici A1.
+2025-07-25 16:02:13,594 [INFO] [FIND] Opakuji hledání vzorků pro projekt 88
+2025-07-28 08:55:59,941 [INFO] Aplikace spuštěna
+2025-07-28 08:55:59,941 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:02:41,770 [INFO] Klik: Nové měření
+2025-07-28 09:02:44,438 [INFO] Vytvořena složka projektu: projects\2025_07_28_09_02_44_89_3241
+2025-07-28 09:02:46,328 [INFO] Načten EAN kód: 2134
+2025-07-28 09:02:47,213 [INFO] Načten EAN kód: 4213
+2025-07-28 09:02:47,999 [INFO] Načten EAN kód: 213
+2025-07-28 09:02:49,854 [INFO] [SCAN] Spouštím proces FIND pro projekt 89
+2025-07-28 09:03:05,957 [INFO] [DB] Uložen vzorek 2134 na pozici A1.
+2025-07-28 09:03:43,550 [INFO] [FIND] Opakuji hledání vzorků pro projekt 89
+2025-07-28 09:04:30,756 [INFO] [DB] Uložen vzorek 213 na pozici B1.
+2025-07-28 09:04:38,117 [INFO] [FIND] Opakuji hledání vzorků pro projekt 89
+2025-07-28 09:05:26,547 [INFO] [DB] Uložen vzorek 213 na pozici B1.
+2025-07-28 09:05:34,691 [INFO] [FIND] Opakuji hledání vzorků pro projekt 89
+2025-07-28 09:05:57,133 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:05:58,324 [INFO] Zavírám sériový port CNC
+2025-07-28 09:08:09,703 [INFO] Aplikace spuštěna
+2025-07-28 09:08:09,703 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:08:17,649 [INFO] Klik: Nové měření
+2025-07-28 09:08:20,367 [INFO] Vytvořena složka projektu: projects\2025_07_28_09_08_20_90_214
+2025-07-28 09:08:21,749 [INFO] Načten EAN kód: 125
+2025-07-28 09:08:23,059 [WARNING] EAN kód 125 byl již načten
+2025-07-28 09:08:23,928 [INFO] Načten EAN kód: 51
+2025-07-28 09:08:24,468 [INFO] Načten EAN kód: 1
+2025-07-28 09:08:26,504 [INFO] [SCAN] Spouštím proces FIND pro projekt 90
+2025-07-28 09:08:41,246 [INFO] [DB] Uložen vzorek 125 na pozici A1.
+2025-07-28 09:09:14,847 [INFO] [DB] Uložen vzorek 1 na pozici B1.
+2025-07-28 09:09:21,312 [INFO] [FIND] Opakuji hledání vzorků pro projekt 90
+2025-07-28 09:09:37,267 [INFO] [DB] Uložen vzorek 125 na pozici A1.
+2025-07-28 09:09:54,073 [INFO] [DB] Uložen vzorek 51 na pozici A2.
+2025-07-28 09:10:10,895 [INFO] [DB] Uložen vzorek 1 na pozici B1.
+2025-07-28 09:10:20,022 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:10:20,601 [INFO] Zavírám sériový port CNC
+2025-07-28 09:12:45,844 [INFO] Aplikace spuštěna
+2025-07-28 09:12:45,845 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:12:48,397 [INFO] Klik: Nové měření
+2025-07-28 09:12:50,426 [INFO] Vytvořena složka projektu: projects\2025_07_28_09_12_50_91_123
+2025-07-28 09:12:52,007 [INFO] Načten EAN kód: 342
+2025-07-28 09:12:52,610 [INFO] Načten EAN kód: 23
+2025-07-28 09:12:53,307 [INFO] Načten EAN kód: 2
+2025-07-28 09:12:54,907 [INFO] [SCAN] Spouštím proces FIND pro projekt 91
+2025-07-28 09:13:10,143 [INFO] [DB] Uložen vzorek 342 na pozici A1.
+2025-07-28 09:13:26,946 [INFO] [DB] Uložen vzorek 23 na pozici A2.
+2025-07-28 09:13:43,760 [INFO] [DB] Uložen vzorek 2 na pozici B1.
+2025-07-28 09:13:51,317 [INFO] [FIND] Opakuji hledání vzorků pro projekt 91
+2025-07-28 09:14:07,097 [INFO] [DB] Uložen vzorek 342 na pozici A1.
+2025-07-28 09:14:23,394 [INFO] [DB] Uložen vzorek 23 na pozici A2.
+2025-07-28 09:14:40,204 [INFO] [DB] Uložen vzorek 2 na pozici B1.
+2025-07-28 09:15:32,907 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:15:34,436 [INFO] Zavírám sériový port CNC
+2025-07-28 09:16:29,868 [INFO] Aplikace spuštěna
+2025-07-28 09:16:29,868 [INFO] Zobrazení domovské obrazovky
+2025-07-28 09:16:44,910 [INFO] Zavírám sériový port CNC
+2025-07-28 13:56:02,374 [INFO] Aplikace spuštěna
+2025-07-28 13:56:02,375 [INFO] Zobrazení domovské obrazovky
+2025-07-28 13:56:17,427 [INFO] Klik: Nové měření
+2025-07-28 13:56:20,817 [INFO] Vytvořena složka projektu: projects\2025_07_28_13_56_20_92_234
+2025-07-28 13:56:22,470 [INFO] Načten EAN kód: 5432
+2025-07-28 13:56:22,979 [INFO] Načten EAN kód: 3245
+2025-07-28 13:56:24,274 [WARNING] EAN kód 5432 byl již načten
+2025-07-28 13:56:25,175 [INFO] Načten EAN kód: 32
+2025-07-28 13:56:27,439 [INFO] [SCAN] Spouštím proces FIND pro projekt 92
+2025-07-28 13:56:42,834 [INFO] [DB] Uložen vzorek 5432 na pozici A1.
+2025-07-28 14:03:36,344 [INFO] [DB] Uložen vzorek 3245 na pozici A2.
+2025-07-28 14:08:43,700 [INFO] [DB] Uložen vzorek 32 na pozici B1.
+2025-07-28 14:20:01,179 [INFO] Zavírám sériový port CNC
+2025-07-28 14:42:37,166 [INFO] Aplikace spuštěna
+2025-07-28 14:42:37,167 [INFO] Zobrazení domovské obrazovky
+2025-07-28 14:42:44,851 [INFO] Klik: Nové měření
+2025-07-28 14:42:48,291 [INFO] Vytvořena složka projektu: projects\2025_07_28_14_42_48_93_q234
+2025-07-28 14:42:50,034 [INFO] Načten EAN kód: 2543
+2025-07-28 14:42:50,844 [INFO] Načten EAN kód: 2345
+2025-07-28 14:42:51,904 [INFO] Načten EAN kód: 232
+2025-07-28 14:42:53,233 [INFO] Načten EAN kód: 22
+2025-07-28 14:42:54,142 [INFO] [SCAN] Spouštím proces FIND pro projekt 93
+2025-07-28 14:43:08,358 [INFO] [DB] Uložen vzorek 2543 na pozici A1.
+2025-07-28 14:46:49,644 [INFO] Zobrazení domovské obrazovky
+2025-07-28 14:46:51,323 [INFO] Zavírám sériový port CNC
+2025-07-28 14:49:19,650 [INFO] Aplikace spuštěna
+2025-07-28 14:49:19,650 [INFO] Zobrazení domovské obrazovky
+2025-07-28 14:49:23,448 [INFO] Zavírám sériový port CNC
+2025-07-28 14:50:16,545 [INFO] Aplikace spuštěna
+2025-07-28 14:50:16,545 [INFO] Zobrazení domovské obrazovky
+2025-07-28 14:50:18,822 [INFO] Zavírám sériový port CNC
+2025-07-28 15:02:36,283 [INFO] Aplikace spuštěna
+2025-07-28 15:02:36,284 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:02:39,575 [INFO] Klik: Nové měření
+2025-07-28 15:02:45,064 [INFO] Vytvořena složka projektu: projects\2025_07_28_15_02_45_94_2345
+2025-07-28 15:02:46,448 [INFO] Načten EAN kód: 5423
+2025-07-28 15:02:47,257 [INFO] Načten EAN kód: 345
+2025-07-28 15:02:47,718 [INFO] Načten EAN kód: 23
+2025-07-28 15:02:48,358 [INFO] Načten EAN kód: 3
+2025-07-28 15:02:49,164 [INFO] [SCAN] Spouštím proces FIND pro projekt 94
+2025-07-28 15:03:03,865 [INFO] [DB] Uložen vzorek 5423 na pozici A1.
+2025-07-28 15:08:00,715 [INFO] [DB] Uložen vzorek 345 na pozici A2.
+2025-07-28 15:16:33,044 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:16:33,949 [INFO] Zavírám sériový port CNC
+2025-07-28 15:16:57,361 [INFO] Aplikace spuštěna
+2025-07-28 15:16:57,361 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:16:59,705 [INFO] Klik: Nové měření
+2025-07-28 15:17:02,335 [INFO] Vytvořena složka projektu: projects\2025_07_28_15_17_02_95_524
+2025-07-28 15:17:03,758 [INFO] Načten EAN kód: 5324
+2025-07-28 15:17:04,290 [INFO] Načten EAN kód: 3254
+2025-07-28 15:17:05,168 [INFO] Načten EAN kód: 2
+2025-07-28 15:17:27,203 [WARNING] EAN kód 2 byl již načten
+2025-07-28 15:17:31,575 [INFO] Načten EAN kód: 3
+2025-07-28 15:17:33,234 [INFO] [SCAN] Spouštím proces FIND pro projekt 95
+2025-07-28 15:17:55,629 [INFO] [DB] Uložen vzorek 5324 na pozici A1.
+2025-07-28 15:18:27,514 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:18:29,186 [INFO] Zavírám sériový port CNC
+2025-07-28 15:20:17,195 [INFO] Aplikace spuštěna
+2025-07-28 15:20:17,195 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:20:19,988 [INFO] Klik: Nové měření
+2025-07-28 15:20:22,397 [INFO] Vytvořena složka projektu: projects\2025_07_28_15_20_22_96_2341
+2025-07-28 15:20:23,800 [INFO] Načten EAN kód: 2341
+2025-07-28 15:20:25,639 [INFO] [SCAN] Spouštím proces FIND pro projekt 96
+2025-07-28 15:20:44,398 [INFO] [DB] Uložen vzorek 2341 na pozici A1.
+2025-07-28 15:23:06,780 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:23:26,963 [INFO] Dvojklik na projekt ID 96
+2025-07-28 15:23:26,972 [INFO] Zobrazení detailu měření ID 96
+2025-07-28 15:23:29,319 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:23:32,989 [INFO] Zavírám sériový port CNC
+2025-07-28 15:26:01,201 [INFO] Aplikace spuštěna
+2025-07-28 15:26:01,201 [INFO] Zobrazení domovské obrazovky
+2025-07-28 15:26:03,265 [INFO] Klik: Nové měření
+2025-07-28 15:26:16,835 [INFO] Vytvořena složka projektu: projects\2025_07_28_15_26_16_97_2143
+2025-07-28 15:26:18,620 [INFO] Načten EAN kód: 45
+2025-07-28 15:26:21,745 [INFO] [SCAN] Spouštím proces FIND pro projekt 97
+2025-07-28 15:26:39,168 [INFO] [DB] Uložen vzorek 45 na pozici A1.
+2025-07-28 15:32:08,110 [INFO] Zavírám sériový port CNC
+2025-07-29 09:45:12,130 [INFO] Aplikace spuštěna
+2025-07-29 09:45:12,130 [INFO] Zobrazení domovské obrazovky
+2025-07-29 09:45:58,290 [INFO] Aplikace spuštěna
+2025-07-29 09:45:58,290 [INFO] Zobrazení domovské obrazovky
+2025-07-29 09:46:02,572 [INFO] Klik: Nové měření
+2025-07-29 09:46:06,021 [INFO] Vytvořena složka projektu: projects\2025_07_29_09_46_06_98_143124
+2025-07-29 09:46:08,377 [INFO] Načten EAN kód: 14
+2025-07-29 09:46:09,231 [INFO] Načten EAN kód: 1423
+2025-07-29 09:46:09,988 [INFO] Načten EAN kód: 1234
+2025-07-29 09:46:13,112 [INFO] Načten EAN kód: 1235
+2025-07-29 09:46:15,422 [INFO] [SCAN] Spouštím proces FIND pro projekt 98
+2025-07-29 09:48:27,627 [INFO] Aplikace spuštěna
+2025-07-29 09:48:27,627 [INFO] Zobrazení domovské obrazovky
+2025-07-29 09:53:04,961 [INFO] Klik: Nové měření
+2025-07-29 09:53:08,060 [INFO] Vytvořena složka projektu: projects\2025_07_29_09_53_08_99_123
+2025-07-29 09:53:14,022 [INFO] Načten EAN kód: 23
+2025-07-29 09:53:15,922 [INFO] Načten EAN kód: 24
+2025-07-29 09:53:17,598 [INFO] Načten EAN kód: 25
+2025-07-29 09:53:20,431 [INFO] [SCAN] Spouštím proces FIND pro projekt 99
+2025-07-29 09:53:23,130 [INFO] [DB] Uložen vzorek 23 na pozici A1.
+2025-07-29 09:53:23,137 [INFO] [DB] Uložen Drát 1 vzorku 242 - x:704 y:574 r:426.
+2025-07-29 09:53:39,926 [INFO] [DB] Uložen vzorek 24 na pozici A2.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 1 vzorku 243 - x:587 y:447 r:105.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 2 vzorku 243 - x:793 y:492 r:104.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 3 vzorku 243 - x:938 y:640 r:104.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 4 vzorku 243 - x:595 y:656 r:105.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 5 vzorku 243 - x:771 y:758 r:105.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 6 vzorku 243 - x:509 y:912 r:106.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 7 vzorku 243 - x:892 y:926 r:107.
+2025-07-29 09:53:39,934 [INFO] [DB] Uložen Drát 8 vzorku 243 - x:699 y:981 r:108.
+2025-07-29 09:53:56,733 [INFO] [DB] Uložen vzorek 25 na pozici B1.
+2025-07-29 09:53:56,738 [INFO] [DB] Uložen Drát 1 vzorku 244 - x:796 y:642 r:610.
+2025-07-29 10:01:03,417 [INFO] Aplikace spuštěna
+2025-07-29 10:01:03,418 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:01:16,519 [INFO] Klik: Nové měření
+2025-07-29 10:01:25,068 [INFO] Vytvořena složka projektu: projects\2025_07_29_10_01_25_2_asdf
+2025-07-29 10:03:49,674 [INFO] Aplikace spuštěna
+2025-07-29 10:03:49,674 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:03:51,603 [INFO] Klik: Nové měření
+2025-07-29 10:08:19,778 [INFO] Zavírám sériový port CNC
+2025-07-29 10:08:28,721 [INFO] Aplikace spuštěna
+2025-07-29 10:08:28,721 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:08:30,698 [INFO] Klik: Nové měření
+2025-07-29 10:08:34,537 [INFO] Vytvořena složka projektu: projects\2025_07_29_10_08_34_1_wqerq
+2025-07-29 10:08:39,633 [INFO] Načten EAN kód: 13
+2025-07-29 10:08:45,296 [INFO] Načten EAN kód: 14
+2025-07-29 10:08:46,553 [INFO] Načten EAN kód: 15
+2025-07-29 10:08:48,196 [INFO] Načten EAN kód: 16
+2025-07-29 10:08:48,885 [INFO] [SCAN] Spouštím proces FIND pro projekt 1
+2025-07-29 10:09:04,100 [INFO] [DB] Uložen vzorek 13 na pozici A1.
+2025-07-29 10:09:04,106 [INFO] [DB] Uložen Drát 1 vzorku 1 - x:745 y:561 r:427.
+2025-07-29 10:09:20,411 [INFO] [DB] Uložen vzorek 14 na pozici A2.
+2025-07-29 10:09:20,418 [INFO] [DB] Uložen Drát 1 vzorku 2 - x:589 y:448 r:105.
+2025-07-29 10:09:20,418 [INFO] [DB] Uložen Drát 2 vzorku 2 - x:794 y:492 r:104.
+2025-07-29 10:09:20,418 [INFO] [DB] Uložen Drát 3 vzorku 2 - x:939 y:640 r:104.
+2025-07-29 10:09:20,418 [INFO] [DB] Uložen Drát 4 vzorku 2 - x:596 y:656 r:105.
+2025-07-29 10:09:20,419 [INFO] [DB] Uložen Drát 5 vzorku 2 - x:772 y:757 r:105.
+2025-07-29 10:09:20,419 [INFO] [DB] Uložen Drát 6 vzorku 2 - x:509 y:913 r:106.
+2025-07-29 10:09:20,419 [INFO] [DB] Uložen Drát 7 vzorku 2 - x:893 y:926 r:107.
+2025-07-29 10:09:20,419 [INFO] [DB] Uložen Drát 8 vzorku 2 - x:700 y:982 r:108.
+2025-07-29 10:09:36,720 [INFO] [DB] Uložen vzorek 15 na pozici B1.
+2025-07-29 10:09:36,727 [INFO] [DB] Uložen Drát 1 vzorku 3 - x:795 y:641 r:610.
+2025-07-29 10:09:53,036 [INFO] [DB] Uložen vzorek 16 na pozici B2.
+2025-07-29 10:09:53,043 [INFO] [DB] Uložen Drát 1 vzorku 4 - x:546 y:273 r:241.
+2025-07-29 10:09:53,043 [INFO] [DB] Uložen Drát 2 vzorku 4 - x:1058 y:362 r:243.
+2025-07-29 10:09:53,043 [INFO] [DB] Uložen Drát 3 vzorku 4 - x:964 y:829 r:242.
+2025-07-29 10:09:53,043 [INFO] [DB] Uložen Drát 4 vzorku 4 - x:422 y:861 r:242.
+2025-07-29 10:17:44,031 [INFO] Aplikace spuštěna
+2025-07-29 10:17:44,031 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:17:46,848 [INFO] Klik: Nové měření
+2025-07-29 10:17:49,416 [INFO] Vytvořena složka projektu: projects\2025_07_29_10_17_49_2_213
+2025-07-29 10:17:50,962 [INFO] Načten EAN kód: 231
+2025-07-29 10:17:51,609 [INFO] Načten EAN kód: 123
+2025-07-29 10:17:52,612 [INFO] Načten EAN kód: 213
+2025-07-29 10:17:54,567 [INFO] Načten EAN kód: 321
+2025-07-29 10:17:55,211 [INFO] [SCAN] Spouštím proces FIND pro projekt 2
+2025-07-29 10:18:09,916 [INFO] [DB] Uložen vzorek 231 na pozici A1.
+2025-07-29 10:18:09,920 [INFO] [DB] Uložen Drát 1 vzorku 5 - x:743 y:561 r:427.
+2025-07-29 10:18:26,738 [INFO] [DB] Uložen vzorek 123 na pozici A2.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 1 vzorku 6 - x:587 y:448 r:105.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 2 vzorku 6 - x:792 y:492 r:104.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 3 vzorku 6 - x:937 y:640 r:104.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 4 vzorku 6 - x:594 y:656 r:105.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 5 vzorku 6 - x:769 y:758 r:106.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 6 vzorku 6 - x:507 y:913 r:106.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 7 vzorku 6 - x:891 y:926 r:107.
+2025-07-29 10:18:26,744 [INFO] [DB] Uložen Drát 8 vzorku 6 - x:698 y:981 r:108.
+2025-07-29 10:18:43,544 [INFO] [DB] Uložen vzorek 213 na pozici B1.
+2025-07-29 10:18:43,550 [INFO] [DB] Uložen Drát 1 vzorku 7 - x:794 y:641 r:610.
+2025-07-29 10:18:46,839 [INFO] [DB] Uložen vzorek 321 na pozici B2.
+2025-07-29 10:18:46,845 [INFO] [DB] Uložen Drát 1 vzorku 8 - x:787 y:641 r:610.
+2025-07-29 10:19:22,670 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:19:25,889 [INFO] Dvojklik na projekt ID 2
+2025-07-29 10:19:25,897 [INFO] Zobrazení detailu měření ID 2
+2025-07-29 10:19:33,558 [INFO] Zobrazení domovské obrazovky
+2025-07-29 10:20:00,812 [INFO] Zavírám sériový port CNC
+2025-07-29 11:47:05,955 [INFO] Aplikace spuštěna
+2025-07-29 11:47:05,955 [INFO] Zobrazení domovské obrazovky
+2025-07-29 11:47:10,807 [INFO] Klik: Nové měření
+2025-07-29 11:47:14,135 [INFO] Vytvořena složka projektu: projects\2025_07_29_11_47_14_3_2134
+2025-07-29 11:47:15,790 [INFO] Načten EAN kód: 342
+2025-07-29 11:47:16,689 [INFO] Načten EAN kód: 234
+2025-07-29 11:47:17,609 [INFO] Načten EAN kód: 24
+2025-07-29 11:47:18,747 [INFO] Načten EAN kód: 2
+2025-07-29 11:47:19,432 [INFO] [SCAN] Spouštím proces FIND pro projekt 3
+2025-07-29 11:47:35,136 [INFO] [DB] Uložen vzorek 342 na pozici A1.
+2025-07-29 13:28:44,404 [INFO] Aplikace spuštěna
+2025-07-29 13:28:44,405 [INFO] Zobrazení domovské obrazovky
+2025-07-29 13:28:52,859 [INFO] Klik: Nové měření
+2025-07-29 13:28:56,497 [INFO] Vytvořena složka projektu: projects\2025_07_29_13_28_56_4_wq
+2025-07-29 13:29:03,576 [INFO] Načten EAN kód: 243
+2025-07-29 13:29:04,264 [INFO] Načten EAN kód: 234
+2025-07-29 13:29:05,866 [INFO] Načten EAN kód: 23
+2025-07-29 13:29:06,926 [INFO] Načten EAN kód: 4
+2025-07-29 13:29:07,527 [INFO] [SCAN] Spouštím proces FIND pro projekt 4
+2025-07-29 13:29:23,438 [INFO] [DB] Uložen vzorek 243 na pozici A1.
+2025-07-29 13:31:10,300 [INFO] Aplikace spuštěna
+2025-07-29 13:31:10,300 [INFO] Zobrazení domovské obrazovky
+2025-07-29 13:31:13,482 [INFO] Zavírám sériový port CNC
+2025-07-29 13:31:49,501 [INFO] Aplikace spuštěna
+2025-07-29 13:31:49,502 [INFO] Zobrazení domovské obrazovky
+2025-07-29 13:31:53,472 [INFO] Klik: Nové měření
+2025-07-29 13:31:56,820 [INFO] Vytvořena složka projektu: projects\2025_07_29_13_31_56_5_234
+2025-07-29 13:31:58,232 [INFO] Načten EAN kód: 432
+2025-07-29 13:31:58,918 [INFO] Načten EAN kód: 342
+2025-07-29 13:31:59,578 [INFO] Načten EAN kód: 33
+2025-07-29 13:32:01,728 [WARNING] EAN kód 33 byl již načten
+2025-07-29 13:32:03,025 [INFO] Načten EAN kód: 4
+2025-07-29 13:32:04,010 [INFO] [SCAN] Spouštím proces FIND pro projekt 5
+2025-07-29 13:32:22,987 [INFO] [DB] Uložen vzorek 342 na pozici A2.
+2025-07-29 13:32:22,994 [INFO] [DB] Uložen drát 1 vzorku 11 - x:593 y:448 r:105.
+2025-07-29 13:32:22,994 [INFO] [DB] Uložen drát 2 vzorku 11 - x:798 y:492 r:104.
+2025-07-29 13:32:22,994 [INFO] [DB] Uložen drát 3 vzorku 11 - x:943 y:640 r:104.
+2025-07-29 13:32:22,995 [INFO] [DB] Uložen drát 4 vzorku 11 - x:599 y:655 r:105.
+2025-07-29 13:32:22,995 [INFO] [DB] Uložen drát 5 vzorku 11 - x:775 y:757 r:105.
+2025-07-29 13:32:22,995 [INFO] [DB] Uložen drát 6 vzorku 11 - x:513 y:912 r:106.
+2025-07-29 13:32:22,995 [INFO] [DB] Uložen drát 7 vzorku 11 - x:897 y:926 r:107.
+2025-07-29 13:32:22,995 [INFO] [DB] Uložen drát 8 vzorku 11 - x:703 y:981 r:108.
+2025-07-29 13:32:39,802 [INFO] [DB] Uložen vzorek 33 na pozici B1.
+2025-07-29 13:32:39,807 [INFO] [DB] Uložen drát 1 vzorku 12 - x:797 y:641 r:609.
+2025-07-29 13:32:56,620 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-07-29 13:32:56,625 [INFO] [DB] Uložen drát 1 vzorku 13 - x:547 y:273 r:241.
+2025-07-29 13:32:56,625 [INFO] [DB] Uložen drát 2 vzorku 13 - x:1059 y:361 r:242.
+2025-07-29 13:32:56,625 [INFO] [DB] Uložen drát 3 vzorku 13 - x:966 y:829 r:242.
+2025-07-29 13:32:56,625 [INFO] [DB] Uložen drát 4 vzorku 13 - x:424 y:861 r:242.
+2025-07-29 13:33:03,254 [INFO] [FIND] Opakuji hledání vzorků pro projekt 5
+2025-07-29 13:33:19,188 [INFO] [DB] Uložen vzorek 432 na pozici A1.
+2025-07-29 13:33:19,194 [INFO] [DB] Uložen drát 1 vzorku 14 - x:744 y:561 r:426.
+2025-07-29 13:33:35,506 [INFO] [DB] Uložen vzorek 342 na pozici A2.
+2025-07-29 13:33:35,512 [INFO] [DB] Uložen drát 1 vzorku 15 - x:587 y:448 r:105.
+2025-07-29 13:33:35,512 [INFO] [DB] Uložen drát 2 vzorku 15 - x:793 y:492 r:104.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 3 vzorku 15 - x:938 y:641 r:104.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 4 vzorku 15 - x:594 y:656 r:105.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 5 vzorku 15 - x:770 y:759 r:106.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 6 vzorku 15 - x:508 y:914 r:105.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 7 vzorku 15 - x:893 y:926 r:106.
+2025-07-29 13:33:35,513 [INFO] [DB] Uložen drát 8 vzorku 15 - x:698 y:982 r:108.
+2025-07-29 13:33:52,000 [INFO] [DB] Uložen vzorek 33 na pozici B1.
+2025-07-29 13:33:52,006 [INFO] [DB] Uložen drát 1 vzorku 16 - x:795 y:641 r:610.
+2025-07-29 13:34:08,344 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-07-29 13:34:08,349 [INFO] [DB] Uložen drát 1 vzorku 17 - x:546 y:272 r:241.
+2025-07-29 13:34:08,350 [INFO] [DB] Uložen drát 2 vzorku 17 - x:1058 y:360 r:242.
+2025-07-29 13:34:08,350 [INFO] [DB] Uložen drát 3 vzorku 17 - x:965 y:829 r:242.
+2025-07-29 13:34:08,350 [INFO] [DB] Uložen drát 4 vzorku 17 - x:423 y:861 r:242.
+2025-07-29 13:34:31,336 [INFO] Zavírám sériový port CNC
+2025-07-29 13:38:51,485 [INFO] Aplikace spuštěna
+2025-07-29 13:38:51,485 [INFO] Zobrazení domovské obrazovky
+2025-07-29 13:38:54,721 [INFO] Klik: Nové měření
+2025-07-29 13:38:57,977 [INFO] Vytvořena složka projektu: projects\2025_07_29_13_38_57_6_2re
+2025-07-29 13:38:59,318 [INFO] Načten EAN kód: 234
+2025-07-29 13:38:59,713 [INFO] Načten EAN kód: 2
+2025-07-29 13:39:00,578 [INFO] Načten EAN kód: 34
+2025-07-29 13:39:01,142 [INFO] Načten EAN kód: 5
+2025-07-29 13:39:02,056 [INFO] [SCAN] Spouštím proces FIND pro projekt 6
+2025-07-29 13:39:17,479 [INFO] [DB] Uložen vzorek 234 na pozici A1.
+2025-07-29 13:39:17,485 [INFO] [DB] Uložen drát 1 vzorku 18 - x:744 y:561 r:427.
+2025-07-29 13:39:34,286 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-07-29 13:39:34,293 [INFO] [DB] Uložen drát 1 vzorku 19 - x:586 y:447 r:105.
+2025-07-29 13:39:34,293 [INFO] [DB] Uložen drát 2 vzorku 19 - x:793 y:492 r:104.
+2025-07-29 13:39:34,293 [INFO] [DB] Uložen drát 3 vzorku 19 - x:938 y:640 r:104.
+2025-07-29 13:39:34,293 [INFO] [DB] Uložen drát 4 vzorku 19 - x:594 y:656 r:104.
+2025-07-29 13:39:34,293 [INFO] [DB] Uložen drát 5 vzorku 19 - x:770 y:758 r:105.
+2025-07-29 13:39:34,294 [INFO] [DB] Uložen drát 6 vzorku 19 - x:507 y:913 r:105.
+2025-07-29 13:39:34,294 [INFO] [DB] Uložen drát 7 vzorku 19 - x:893 y:925 r:106.
+2025-07-29 13:39:34,294 [INFO] [DB] Uložen drát 8 vzorku 19 - x:697 y:981 r:108.
+2025-07-29 13:39:51,100 [INFO] [DB] Uložen vzorek 34 na pozici B1.
+2025-07-29 13:39:51,106 [INFO] [DB] Uložen drát 1 vzorku 20 - x:794 y:641 r:610.
+2025-07-29 13:40:07,439 [INFO] [DB] Uložen vzorek 5 na pozici B2.
+2025-07-29 13:40:07,448 [INFO] [DB] Uložen drát 1 vzorku 21 - x:545 y:273 r:241.
+2025-07-29 13:40:07,448 [INFO] [DB] Uložen drát 2 vzorku 21 - x:1058 y:361 r:242.
+2025-07-29 13:40:07,449 [INFO] [DB] Uložen drát 3 vzorku 21 - x:964 y:829 r:242.
+2025-07-29 13:40:07,449 [INFO] [DB] Uložen drát 4 vzorku 21 - x:422 y:861 r:242.
+2025-07-29 13:43:23,591 [INFO] Aplikace spuštěna
+2025-07-29 13:43:23,591 [INFO] Zobrazení domovské obrazovky
+2025-07-29 13:43:25,405 [INFO] Klik: Nové měření
+2025-07-29 13:43:28,595 [INFO] Vytvořena složka projektu: projects\2025_07_29_13_43_28_7_124
+2025-07-29 13:43:30,046 [INFO] Načten EAN kód: 21
+2025-07-29 13:43:31,666 [INFO] [SCAN] Spouštím proces FIND pro projekt 7
+2025-07-29 13:43:46,427 [INFO] [DB] Uložen vzorek 21 na pozici A1.
+2025-07-29 13:43:46,434 [INFO] [DB] Uložen drát 1 vzorku 22 - x:743 y:561 r:427.
+2025-07-29 13:44:25,676 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 7
+2025-07-29 14:01:42,537 [INFO] Aplikace spuštěna
+2025-07-29 14:01:42,538 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:01:44,259 [INFO] Klik: Nové měření
+2025-07-29 14:01:46,453 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_01_46_8_3421
+2025-07-29 14:01:47,751 [INFO] Načten EAN kód: 2341
+2025-07-29 14:01:48,296 [INFO] Načten EAN kód: 2134
+2025-07-29 14:01:50,445 [WARNING] EAN kód 2134 byl již načten
+2025-07-29 14:01:51,329 [INFO] [SCAN] Spouštím proces FIND pro projekt 8
+2025-07-29 14:01:53,087 [INFO] [DB] Uložen vzorek 2341 na pozici A1.
+2025-07-29 14:01:53,093 [INFO] [DB] Uložen drát 1 vzorku 23 - x:743 y:561 r:426.
+2025-07-29 14:02:09,396 [INFO] [DB] Uložen vzorek 2134 na pozici A2.
+2025-07-29 14:02:09,402 [INFO] [DB] Uložen drát 1 vzorku 24 - x:587 y:447 r:105.
+2025-07-29 14:02:09,402 [INFO] [DB] Uložen drát 2 vzorku 24 - x:793 y:492 r:104.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 3 vzorku 24 - x:938 y:640 r:104.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 4 vzorku 24 - x:594 y:656 r:105.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 5 vzorku 24 - x:770 y:758 r:105.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 6 vzorku 24 - x:507 y:913 r:105.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 7 vzorku 24 - x:892 y:925 r:106.
+2025-07-29 14:02:09,403 [INFO] [DB] Uložen drát 8 vzorku 24 - x:697 y:981 r:108.
+2025-07-29 14:02:16,559 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 8
+2025-07-29 14:15:06,527 [INFO] Aplikace spuštěna
+2025-07-29 14:15:06,528 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:15:09,045 [INFO] Klik: Nové měření
+2025-07-29 14:15:11,201 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_15_11_9_2431
+2025-07-29 14:15:12,928 [INFO] Načten EAN kód: 1234
+2025-07-29 14:15:14,315 [INFO] Načten EAN kód: 12
+2025-07-29 14:15:16,453 [INFO] [SCAN] Spouštím proces FIND pro projekt 9
+2025-07-29 14:15:31,875 [INFO] [DB] Uložen vzorek 1234 na pozici A1.
+2025-07-29 14:15:31,882 [INFO] [DB] Uložen drát 1 vzorku 25 - x:743 y:561 r:427.
+2025-07-29 14:15:48,681 [INFO] [DB] Uložen vzorek 12 na pozici A2.
+2025-07-29 14:15:48,687 [INFO] [DB] Uložen drát 1 vzorku 26 - x:587 y:448 r:105.
+2025-07-29 14:15:48,687 [INFO] [DB] Uložen drát 2 vzorku 26 - x:792 y:492 r:104.
+2025-07-29 14:15:48,687 [INFO] [DB] Uložen drát 3 vzorku 26 - x:937 y:641 r:104.
+2025-07-29 14:15:48,688 [INFO] [DB] Uložen drát 4 vzorku 26 - x:594 y:656 r:105.
+2025-07-29 14:15:48,688 [INFO] [DB] Uložen drát 5 vzorku 26 - x:769 y:759 r:105.
+2025-07-29 14:15:48,688 [INFO] [DB] Uložen drát 6 vzorku 26 - x:507 y:914 r:105.
+2025-07-29 14:15:48,688 [INFO] [DB] Uložen drát 7 vzorku 26 - x:892 y:926 r:106.
+2025-07-29 14:15:48,688 [INFO] [DB] Uložen drát 8 vzorku 26 - x:697 y:982 r:108.
+2025-07-29 14:15:59,755 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 9
+2025-07-29 14:17:17,255 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:17:26,274 [INFO] Zavírám sériový port CNC
+2025-07-29 14:27:33,680 [INFO] Aplikace spuštěna
+2025-07-29 14:27:33,680 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:27:36,163 [INFO] Klik: Nové měření
+2025-07-29 14:27:38,290 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_27_38_10_12
+2025-07-29 14:27:39,458 [INFO] Načten EAN kód: 2
+2025-07-29 14:27:40,118 [INFO] Načten EAN kód: 3
+2025-07-29 14:27:40,577 [INFO] Načten EAN kód: 5
+2025-07-29 14:27:42,041 [WARNING] EAN kód 5 byl již načten
+2025-07-29 14:27:42,717 [INFO] Načten EAN kód: 6
+2025-07-29 14:27:46,443 [INFO] [SCAN] Spouštím proces FIND pro projekt 10
+2025-07-29 14:28:01,160 [INFO] [DB] Uložen vzorek 2 na pozici A1.
+2025-07-29 14:28:01,168 [INFO] [DB] Uložen drát 1 vzorku 27 - x:743 y:561 r:426.
+2025-07-29 14:28:17,964 [INFO] [DB] Uložen vzorek 3 na pozici A2.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 1 vzorku 28 - x:587 y:448 r:105.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 2 vzorku 28 - x:792 y:493 r:104.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 3 vzorku 28 - x:938 y:640 r:104.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 4 vzorku 28 - x:594 y:656 r:105.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 5 vzorku 28 - x:770 y:758 r:105.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 6 vzorku 28 - x:507 y:914 r:105.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 7 vzorku 28 - x:892 y:926 r:106.
+2025-07-29 14:28:17,970 [INFO] [DB] Uložen drát 8 vzorku 28 - x:698 y:982 r:108.
+2025-07-29 14:28:34,793 [INFO] [DB] Uložen vzorek 5 na pozici B1.
+2025-07-29 14:28:34,799 [INFO] [DB] Uložen drát 1 vzorku 29 - x:794 y:641 r:609.
+2025-07-29 14:28:51,101 [INFO] [DB] Uložen vzorek 6 na pozici B2.
+2025-07-29 14:28:51,108 [INFO] [DB] Uložen drát 1 vzorku 30 - x:545 y:273 r:241.
+2025-07-29 14:28:51,108 [INFO] [DB] Uložen drát 2 vzorku 30 - x:1057 y:360 r:242.
+2025-07-29 14:28:51,108 [INFO] [DB] Uložen drát 3 vzorku 30 - x:964 y:829 r:242.
+2025-07-29 14:28:51,108 [INFO] [DB] Uložen drát 4 vzorku 30 - x:422 y:861 r:242.
+2025-07-29 14:34:11,911 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 10
+2025-07-29 14:34:18,719 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:34:19,861 [INFO] Zavírám sériový port CNC
+2025-07-29 14:35:59,035 [INFO] Aplikace spuštěna
+2025-07-29 14:35:59,035 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:36:00,822 [INFO] Klik: Nové měření
+2025-07-29 14:36:02,751 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_36_02_11_4312
+2025-07-29 14:36:04,642 [INFO] Načten EAN kód: 234
+2025-07-29 14:36:05,238 [INFO] Načten EAN kód: 23
+2025-07-29 14:36:06,853 [INFO] [SCAN] Spouštím proces FIND pro projekt 11
+2025-07-29 14:36:22,055 [INFO] [DB] Uložen vzorek 234 na pozici A1.
+2025-07-29 14:36:22,061 [INFO] [DB] Uložen drát 1 vzorku 31 - x:743 y:561 r:427.
+2025-07-29 14:36:38,353 [INFO] [DB] Uložen vzorek 23 na pozici A2.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 1 vzorku 32 - x:587 y:448 r:104.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 2 vzorku 32 - x:793 y:492 r:104.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 3 vzorku 32 - x:938 y:640 r:104.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 4 vzorku 32 - x:594 y:656 r:105.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 5 vzorku 32 - x:770 y:759 r:105.
+2025-07-29 14:36:38,359 [INFO] [DB] Uložen drát 6 vzorku 32 - x:508 y:913 r:105.
+2025-07-29 14:36:38,360 [INFO] [DB] Uložen drát 7 vzorku 32 - x:893 y:926 r:106.
+2025-07-29 14:36:38,360 [INFO] [DB] Uložen drát 8 vzorku 32 - x:697 y:982 r:108.
+2025-07-29 14:36:59,384 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 11
+2025-07-29 14:37:22,755 [INFO] Zavírám sériový port CNC
+2025-07-29 14:39:45,654 [INFO] Aplikace spuštěna
+2025-07-29 14:39:45,654 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:45:42,742 [INFO] Zavírám sériový port CNC
+2025-07-29 14:53:30,445 [INFO] Aplikace spuštěna
+2025-07-29 14:53:30,445 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:53:32,284 [INFO] Klik: Nové měření
+2025-07-29 14:53:34,751 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_53_34_12_243
+2025-07-29 14:53:36,275 [INFO] Načten EAN kód: 342
+2025-07-29 14:53:36,872 [INFO] Načten EAN kód: 2
+2025-07-29 14:53:39,004 [INFO] [SCAN] Spouštím proces FIND pro projekt 12
+2025-07-29 14:53:54,212 [INFO] [DB] Uložen vzorek 342 na pozici A1.
+2025-07-29 14:53:54,218 [INFO] [DB] Uložen drát 1 vzorku 33 - x:743 y:561 r:426.
+2025-07-29 14:54:11,015 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 1 vzorku 34 - x:587 y:448 r:105.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 2 vzorku 34 - x:792 y:492 r:104.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 3 vzorku 34 - x:937 y:641 r:104.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 4 vzorku 34 - x:594 y:656 r:105.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 5 vzorku 34 - x:769 y:758 r:105.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 6 vzorku 34 - x:507 y:913 r:105.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 7 vzorku 34 - x:891 y:925 r:106.
+2025-07-29 14:54:11,025 [INFO] [DB] Uložen drát 8 vzorku 34 - x:697 y:981 r:108.
+2025-07-29 14:54:18,155 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 12
+2025-07-29 14:56:36,943 [INFO] Aplikace spuštěna
+2025-07-29 14:56:36,944 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:56:38,627 [INFO] Klik: Nové měření
+2025-07-29 14:56:40,685 [INFO] Vytvořena složka projektu: projects\2025_07_29_14_56_40_13_4321
+2025-07-29 14:56:41,906 [INFO] Načten EAN kód: 243
+2025-07-29 14:56:42,514 [INFO] Načten EAN kód: 432
+2025-07-29 14:56:44,648 [INFO] [SCAN] Spouštím proces FIND pro projekt 13
+2025-07-29 14:57:00,119 [INFO] [DB] Uložen vzorek 243 na pozici A1.
+2025-07-29 14:57:00,126 [INFO] [DB] Uložen drát 1 vzorku 35 - x:743 y:561 r:426.
+2025-07-29 14:57:16,937 [INFO] [DB] Uložen vzorek 432 na pozici A2.
+2025-07-29 14:57:16,943 [INFO] [DB] Uložen drát 1 vzorku 36 - x:587 y:448 r:105.
+2025-07-29 14:57:16,943 [INFO] [DB] Uložen drát 2 vzorku 36 - x:792 y:492 r:104.
+2025-07-29 14:57:16,943 [INFO] [DB] Uložen drát 3 vzorku 36 - x:937 y:641 r:104.
+2025-07-29 14:57:16,943 [INFO] [DB] Uložen drát 4 vzorku 36 - x:594 y:656 r:104.
+2025-07-29 14:57:16,943 [INFO] [DB] Uložen drát 5 vzorku 36 - x:769 y:759 r:105.
+2025-07-29 14:57:16,944 [INFO] [DB] Uložen drát 6 vzorku 36 - x:507 y:914 r:105.
+2025-07-29 14:57:16,944 [INFO] [DB] Uložen drát 7 vzorku 36 - x:892 y:926 r:106.
+2025-07-29 14:57:16,944 [INFO] [DB] Uložen drát 8 vzorku 36 - x:698 y:982 r:108.
+2025-07-29 14:57:23,788 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 13
+2025-07-29 14:57:56,359 [INFO] Zobrazení domovské obrazovky
+2025-07-29 14:58:00,717 [INFO] Zavírám sériový port CNC
+2025-07-29 15:23:34,172 [INFO] Aplikace spuštěna
+2025-07-29 15:23:34,173 [INFO] Zobrazení domovské obrazovky
+2025-07-29 15:23:36,474 [INFO] Klik: Nové měření
+2025-07-29 15:23:38,783 [INFO] Vytvořena složka projektu: projects\2025_07_29_15_23_38_14_324
+2025-07-29 15:23:40,015 [INFO] Načten EAN kód: 342
+2025-07-29 15:23:40,667 [INFO] Načten EAN kód: 23
+2025-07-29 15:23:42,156 [WARNING] EAN kód 23 byl již načten
+2025-07-29 15:23:45,974 [INFO] [SCAN] Spouštím proces FIND pro projekt 14
+2025-07-29 15:24:00,692 [INFO] [DB] Uložen vzorek 342 na pozici A1.
+2025-07-29 15:24:00,697 [INFO] [DB] Uložen drát 1 vzorku 37 - x:743 y:561 r:426.
+2025-07-29 15:24:16,989 [INFO] [DB] Uložen vzorek 23 na pozici A2.
+2025-07-29 15:24:16,995 [INFO] [DB] Uložen drát 1 vzorku 38 - x:587 y:448 r:105.
+2025-07-29 15:24:16,995 [INFO] [DB] Uložen drát 2 vzorku 38 - x:792 y:492 r:104.
+2025-07-29 15:24:16,995 [INFO] [DB] Uložen drát 3 vzorku 38 - x:937 y:641 r:104.
+2025-07-29 15:24:16,995 [INFO] [DB] Uložen drát 4 vzorku 38 - x:594 y:656 r:105.
+2025-07-29 15:24:16,995 [INFO] [DB] Uložen drát 5 vzorku 38 - x:769 y:759 r:105.
+2025-07-29 15:24:16,996 [INFO] [DB] Uložen drát 6 vzorku 38 - x:507 y:913 r:106.
+2025-07-29 15:24:16,996 [INFO] [DB] Uložen drát 7 vzorku 38 - x:891 y:925 r:106.
+2025-07-29 15:24:16,996 [INFO] [DB] Uložen drát 8 vzorku 38 - x:697 y:982 r:108.
+2025-07-29 15:24:23,845 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 14
+2025-07-29 15:25:07,753 [INFO] Aplikace spuštěna
+2025-07-29 15:25:07,754 [INFO] Zobrazení domovské obrazovky
+2025-07-29 15:25:09,835 [INFO] Klik: Nové měření
+2025-07-29 15:25:12,225 [INFO] Vytvořena složka projektu: projects\2025_07_29_15_25_12_15_3
+2025-07-29 15:25:13,760 [INFO] Načten EAN kód: 32
+2025-07-29 15:25:15,676 [INFO] [SCAN] Spouštím proces FIND pro projekt 15
+2025-07-29 15:25:30,597 [INFO] [DB] Uložen vzorek 32 na pozici A1.
+2025-07-29 15:25:30,605 [INFO] [DB] Uložen drát 1 vzorku 39 - x:743 y:561 r:427.
+2025-07-29 15:25:36,827 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 15
+2025-07-29 15:25:58,263 [INFO] Zobrazení domovské obrazovky
+2025-07-29 15:26:00,117 [INFO] Zavírám sériový port CNC
+2025-07-30 11:44:28,120 [INFO] Aplikace spuštěna
+2025-07-30 11:44:28,121 [INFO] Zobrazení domovské obrazovky
+2025-07-30 11:44:34,513 [INFO] Klik: Nové měření
+2025-07-30 11:44:38,100 [INFO] Vytvořena složka projektu: projects\2025_07_30_11_44_38_16_34
+2025-07-30 11:44:39,621 [INFO] Načten EAN kód: 32
+2025-07-30 11:44:40,299 [INFO] Načten EAN kód: 432
+2025-07-30 11:44:41,102 [INFO] Načten EAN kód: 23
+2025-07-30 11:44:43,282 [INFO] [SCAN] Spouštím proces FIND pro projekt 16
+2025-07-30 11:44:58,884 [INFO] [DB] Uložen vzorek 32 na pozici A1.
+2025-07-30 11:44:58,891 [INFO] [DB] Uložen drát 1 vzorku 40 - x:749 y:560 r:426.
+2025-07-30 11:45:15,181 [INFO] [DB] Uložen vzorek 432 na pozici A2.
+2025-07-30 11:45:15,187 [INFO] [DB] Uložen drát 1 vzorku 41 - x:590 y:447 r:104.
+2025-07-30 11:45:15,187 [INFO] [DB] Uložen drát 2 vzorku 41 - x:794 y:492 r:104.
+2025-07-30 11:45:15,187 [INFO] [DB] Uložen drát 3 vzorku 41 - x:939 y:640 r:103.
+2025-07-30 11:45:15,188 [INFO] [DB] Uložen drát 4 vzorku 41 - x:595 y:655 r:104.
+2025-07-30 11:45:15,188 [INFO] [DB] Uložen drát 5 vzorku 41 - x:771 y:759 r:105.
+2025-07-30 11:45:15,188 [INFO] [DB] Uložen drát 6 vzorku 41 - x:509 y:913 r:105.
+2025-07-30 11:45:15,188 [INFO] [DB] Uložen drát 7 vzorku 41 - x:894 y:925 r:105.
+2025-07-30 11:45:15,188 [INFO] [DB] Uložen drát 8 vzorku 41 - x:698 y:982 r:106.
+2025-07-30 11:45:31,999 [INFO] [DB] Uložen vzorek 23 na pozici B1.
+2025-07-30 11:45:32,005 [INFO] [DB] Uložen drát 1 vzorku 42 - x:791 y:641 r:609.
+2025-07-30 11:46:01,284 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 16
+2025-07-30 11:46:30,681 [INFO] Zavírám sériový port CNC
+2025-07-30 11:49:06,232 [INFO] Aplikace spuštěna
+2025-07-30 11:49:06,233 [INFO] Zobrazení domovské obrazovky
+2025-07-30 11:49:08,938 [INFO] Klik: Nové měření
+2025-07-30 11:49:11,168 [INFO] Vytvořena složka projektu: projects\2025_07_30_11_49_11_17_e2r
+2025-07-30 11:49:12,393 [INFO] Načten EAN kód: 32
+2025-07-30 11:49:13,069 [INFO] Načten EAN kód: 4
+2025-07-30 11:49:15,295 [INFO] Načten EAN kód: 56
+2025-07-30 11:49:18,118 [INFO] [SCAN] Spouštím proces FIND pro projekt 17
+2025-07-30 11:49:33,317 [INFO] [DB] Uložen vzorek 32 na pozici A1.
+2025-07-30 11:49:33,322 [INFO] [DB] Uložen drát 1 vzorku 43 - x:741 y:561 r:426.
+2025-07-30 11:49:49,621 [INFO] [DB] Uložen vzorek 4 na pozici A2.
+2025-07-30 11:49:49,628 [INFO] [DB] Uložen drát 1 vzorku 44 - x:584 y:448 r:104.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 2 vzorku 44 - x:789 y:492 r:104.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 3 vzorku 44 - x:935 y:640 r:104.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 4 vzorku 44 - x:591 y:656 r:104.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 5 vzorku 44 - x:767 y:759 r:105.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 6 vzorku 44 - x:505 y:913 r:105.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 7 vzorku 44 - x:890 y:925 r:105.
+2025-07-30 11:49:49,629 [INFO] [DB] Uložen drát 8 vzorku 44 - x:693 y:983 r:106.
+2025-07-30 11:50:05,938 [INFO] [DB] Uložen vzorek 56 na pozici B1.
+2025-07-30 11:50:05,944 [INFO] [DB] Uložen drát 1 vzorku 45 - x:791 y:641 r:609.
+2025-07-30 11:50:17,859 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 17
+2025-07-30 11:50:53,836 [INFO] Zavírám sériový port CNC
+2025-07-30 12:24:33,393 [INFO] Aplikace spuštěna
+2025-07-30 12:24:33,393 [INFO] Zobrazení domovské obrazovky
+2025-07-30 12:24:37,901 [INFO] Klik: Nové měření
+2025-07-30 12:24:42,741 [INFO] Vytvořena složka projektu: projects\2025_07_30_12_24_42_18_432
+2025-07-30 12:24:45,455 [INFO] Načten EAN kód: 35
+2025-07-30 12:24:46,031 [INFO] Načten EAN kód: 2345
+2025-07-30 12:24:49,041 [INFO] [SCAN] Spouštím proces FIND pro projekt 18
+2025-07-30 12:25:04,694 [INFO] [DB] Uložen vzorek 35 na pozici A1.
+2025-07-30 12:25:04,702 [INFO] [DB] Uložen drát 1 vzorku 46 - x:740 y:560 r:426.
+2025-07-30 12:25:20,999 [INFO] [DB] Uložen vzorek 2345 na pozici A2.
+2025-07-30 12:25:21,005 [INFO] [DB] Uložen drát 1 vzorku 47 - x:585 y:447 r:104.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 2 vzorku 47 - x:789 y:492 r:103.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 3 vzorku 47 - x:934 y:639 r:104.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 4 vzorku 47 - x:590 y:656 r:104.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 5 vzorku 47 - x:766 y:759 r:104.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 6 vzorku 47 - x:503 y:913 r:105.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 7 vzorku 47 - x:889 y:925 r:105.
+2025-07-30 12:25:21,006 [INFO] [DB] Uložen drát 8 vzorku 47 - x:693 y:982 r:106.
+2025-07-30 12:30:17,760 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 18
+2025-07-30 12:56:01,769 [INFO] Zavírám sériový port CNC
+2025-07-30 12:56:04,487 [INFO] Aplikace spuštěna
+2025-07-30 12:56:04,488 [INFO] Zobrazení domovské obrazovky
+2025-07-30 12:56:08,639 [INFO] Zavírám sériový port CNC
+2025-07-30 15:25:41,490 [INFO] Aplikace spuštěna
+2025-07-30 15:25:41,491 [INFO] Zobrazení domovské obrazovky
+2025-07-30 15:25:43,843 [INFO] Klik: Nové měření
+2025-07-30 15:25:46,553 [INFO] Vytvořena složka projektu: projects\2025_07_30_15_25_46_19_231
+2025-07-30 15:25:48,038 [INFO] Načten EAN kód: 3
+2025-07-30 15:25:48,776 [INFO] Načten EAN kód: 42
+2025-07-30 15:25:50,592 [INFO] [SCAN] Spouštím proces FIND pro projekt 19
+2025-07-30 15:26:05,768 [INFO] [DB] Uložen vzorek 3 na pozici A1.
+2025-07-30 15:26:05,773 [INFO] [DB] Uložen drát 1 vzorku 48 - x:739 y:561 r:426.
+2025-07-30 15:26:22,063 [INFO] [DB] Uložen vzorek 42 na pozici A2.
+2025-07-30 15:26:22,069 [INFO] [DB] Uložen drát 1 vzorku 49 - x:584 y:447 r:104.
+2025-07-30 15:26:22,069 [INFO] [DB] Uložen drát 2 vzorku 49 - x:788 y:492 r:104.
+2025-07-30 15:26:22,069 [INFO] [DB] Uložen drát 3 vzorku 49 - x:933 y:640 r:103.
+2025-07-30 15:26:22,070 [INFO] [DB] Uložen drát 4 vzorku 49 - x:590 y:655 r:104.
+2025-07-30 15:26:22,070 [INFO] [DB] Uložen drát 5 vzorku 49 - x:766 y:759 r:104.
+2025-07-30 15:26:22,070 [INFO] [DB] Uložen drát 6 vzorku 49 - x:503 y:913 r:105.
+2025-07-30 15:26:22,070 [INFO] [DB] Uložen drát 7 vzorku 49 - x:889 y:925 r:105.
+2025-07-30 15:26:22,070 [INFO] [DB] Uložen drát 8 vzorku 49 - x:692 y:982 r:106.
+2025-07-30 15:26:33,744 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 19
+2025-07-30 15:35:57,340 [INFO] Zavírám sériový port CNC
+2025-07-30 15:38:11,352 [INFO] Aplikace spuštěna
+2025-07-30 15:38:11,352 [INFO] Zobrazení domovské obrazovky
+2025-07-30 15:38:14,009 [INFO] Klik: Nové měření
+2025-07-30 15:38:19,417 [INFO] Vytvořena složka projektu: projects\2025_07_30_15_38_19_20_324
+2025-07-30 15:38:20,576 [INFO] Načten EAN kód: 324
+2025-07-30 15:38:21,125 [INFO] Načten EAN kód: 23
+2025-07-30 15:38:34,770 [INFO] [SCAN] Spouštím proces FIND pro projekt 20
+2025-07-30 15:38:56,977 [INFO] [DB] Uložen vzorek 324 na pozici A1.
+2025-07-30 15:38:56,984 [INFO] [DB] Uložen drát 1 vzorku 50 - x:1027 y:435 r:241.
+2025-07-30 15:38:56,984 [INFO] [DB] Uložen drát 2 vzorku 50 - x:485 y:462 r:241.
+2025-07-30 15:38:56,984 [INFO] [DB] Uložen drát 3 vzorku 50 - x:388 y:930 r:241.
+2025-07-30 15:38:56,984 [INFO] [DB] Uložen drát 4 vzorku 50 - x:898 y:1022 r:240.
+2025-07-30 15:39:13,278 [INFO] [DB] Uložen vzorek 23 na pozici A2.
+2025-07-30 15:39:13,284 [INFO] [DB] Uložen drát 1 vzorku 51 - x:651 y:662 r:610.
+2025-07-30 15:39:21,291 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 20
+2025-07-30 15:40:10,184 [INFO] Aplikace spuštěna
+2025-07-30 15:40:10,185 [INFO] Zobrazení domovské obrazovky
+2025-07-30 15:40:11,931 [INFO] Klik: Nové měření
+2025-07-30 15:40:14,968 [INFO] Vytvořena složka projektu: projects\2025_07_30_15_40_14_21_243
+2025-07-30 15:40:16,182 [INFO] Načten EAN kód: 324
+2025-07-30 15:40:17,203 [INFO] Načten EAN kód: 32
+2025-07-30 15:40:18,812 [INFO] [SCAN] Spouštím proces FIND pro projekt 21
+2025-07-30 15:40:34,255 [INFO] [DB] Uložen vzorek 324 na pozici A1.
+2025-07-30 15:40:34,260 [INFO] [DB] Uložen drát 1 vzorku 52 - x:1029 y:435 r:241.
+2025-07-30 15:40:34,260 [INFO] [DB] Uložen drát 2 vzorku 52 - x:487 y:462 r:241.
+2025-07-30 15:40:34,261 [INFO] [DB] Uložen drát 3 vzorku 52 - x:390 y:930 r:241.
+2025-07-30 15:40:34,261 [INFO] [DB] Uložen drát 4 vzorku 52 - x:900 y:1022 r:241.
+2025-07-30 15:40:50,570 [INFO] [DB] Uložen vzorek 32 na pozici A2.
+2025-07-30 15:40:50,575 [INFO] [DB] Uložen drát 1 vzorku 53 - x:651 y:662 r:610.
+2025-07-30 15:40:57,952 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 21
+2025-07-30 15:55:35,109 [INFO] Aplikace spuštěna
+2025-07-30 15:55:35,109 [INFO] Zobrazení domovské obrazovky
+2025-07-30 15:55:37,918 [INFO] Klik: Nové měření
+2025-07-30 15:55:40,315 [INFO] Vytvořena složka projektu: projects\2025_07_30_15_55_40_22_we
+2025-07-30 15:55:42,539 [INFO] Načten EAN kód: 213
+2025-07-30 15:55:42,997 [INFO] Načten EAN kód: 123
+2025-07-30 15:55:46,894 [INFO] Načten EAN kód: 2
+2025-07-30 15:55:48,709 [INFO] [SCAN] Spouštím proces FIND pro projekt 22
+2025-07-30 15:56:06,924 [INFO] [DB] Uložen vzorek 213 na pozici A1.
+2025-07-30 15:56:06,930 [INFO] [DB] Uložen drát 1 vzorku 54 - x:724 y:551 r:426.
+2025-07-30 15:56:23,231 [INFO] [DB] Uložen vzorek 123 na pozici A2.
+2025-07-30 15:56:23,237 [INFO] [DB] Uložen drát 1 vzorku 55 - x:577 y:439 r:104.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 2 vzorku 55 - x:782 y:480 r:103.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 3 vzorku 55 - x:930 y:626 r:103.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 4 vzorku 55 - x:587 y:647 r:104.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 5 vzorku 55 - x:764 y:748 r:104.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 6 vzorku 55 - x:505 y:906 r:106.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 7 vzorku 55 - x:890 y:912 r:105.
+2025-07-30 15:56:23,238 [INFO] [DB] Uložen drát 8 vzorku 55 - x:694 y:972 r:106.
+2025-07-30 15:56:40,046 [INFO] [DB] Uložen vzorek 2 na pozici B1.
+2025-07-30 15:56:40,051 [INFO] [DB] Uložen drát 1 vzorku 56 - x:780 y:628 r:609.
+2025-07-30 15:56:55,810 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 22
+2025-07-30 16:02:22,018 [INFO] Aplikace spuštěna
+2025-07-30 16:02:22,018 [INFO] Zobrazení domovské obrazovky
+2025-07-30 16:02:23,686 [INFO] Klik: Nové měření
+2025-07-30 16:02:25,795 [INFO] Vytvořena složka projektu: projects\2025_07_30_16_02_25_23_qwe
+2025-07-30 16:02:26,962 [INFO] Načten EAN kód: 3
+2025-07-30 16:02:27,861 [WARNING] EAN kód 3 byl již načten
+2025-07-30 16:02:29,188 [INFO] Načten EAN kód: 1
+2025-07-30 16:02:30,768 [WARNING] EAN kód 3 byl již načten
+2025-07-30 16:02:31,910 [WARNING] EAN kód 3 byl již načten
+2025-07-30 16:02:32,377 [INFO] Načten EAN kód: 4
+2025-07-30 16:02:35,947 [INFO] [SCAN] Spouštím proces FIND pro projekt 23
+2025-07-30 16:02:52,351 [INFO] [DB] Uložen vzorek 3 na pozici A1.
+2025-07-30 16:02:52,356 [INFO] [DB] Uložen drát 1 vzorku 57 - x:725 y:551 r:426.
+2025-07-30 16:03:09,156 [INFO] [DB] Uložen vzorek 1 na pozici A2.
+2025-07-30 16:03:09,165 [INFO] [DB] Uložen drát 1 vzorku 58 - x:578 y:439 r:104.
+2025-07-30 16:03:09,165 [INFO] [DB] Uložen drát 2 vzorku 58 - x:783 y:480 r:103.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 3 vzorku 58 - x:930 y:625 r:104.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 4 vzorku 58 - x:587 y:647 r:105.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 5 vzorku 58 - x:765 y:747 r:104.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 6 vzorku 58 - x:505 y:906 r:105.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 7 vzorku 58 - x:890 y:911 r:105.
+2025-07-30 16:03:09,166 [INFO] [DB] Uložen drát 8 vzorku 58 - x:695 y:972 r:106.
+2025-07-30 16:03:12,459 [INFO] [DB] Uložen vzorek 4 na pozici B1.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 1 vzorku 59 - x:586 y:430 r:104.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 2 vzorku 59 - x:792 y:471 r:104.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 3 vzorku 59 - x:939 y:617 r:103.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 4 vzorku 59 - x:596 y:638 r:104.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 5 vzorku 59 - x:773 y:738 r:104.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 6 vzorku 59 - x:514 y:897 r:106.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 7 vzorku 59 - x:899 y:903 r:105.
+2025-07-30 16:03:12,465 [INFO] [DB] Uložen drát 8 vzorku 59 - x:704 y:963 r:106.
+2025-07-30 16:03:33,078 [INFO] [FIND] Opakuji hledání vzorků pro projekt 23
+2025-07-30 16:03:48,770 [INFO] [DB] Uložen vzorek 3 na pozici A1.
+2025-07-30 16:03:48,776 [INFO] [DB] Uložen drát 1 vzorku 60 - x:726 y:551 r:426.
+2025-07-30 16:04:05,620 [INFO] [DB] Uložen vzorek 1 na pozici A2.
+2025-07-30 16:04:05,629 [INFO] [DB] Uložen drát 1 vzorku 61 - x:578 y:439 r:104.
+2025-07-30 16:04:05,629 [INFO] [DB] Uložen drát 2 vzorku 61 - x:783 y:480 r:103.
+2025-07-30 16:04:05,630 [INFO] [DB] Uložen drát 3 vzorku 61 - x:931 y:626 r:103.
+2025-07-30 16:04:05,630 [INFO] [DB] Uložen drát 4 vzorku 61 - x:588 y:647 r:105.
+2025-07-30 16:04:05,630 [INFO] [DB] Uložen drát 5 vzorku 61 - x:765 y:748 r:104.
+2025-07-30 16:04:05,630 [INFO] [DB] Uložen drát 6 vzorku 61 - x:506 y:906 r:106.
+2025-07-30 16:04:05,631 [INFO] [DB] Uložen drát 7 vzorku 61 - x:891 y:912 r:105.
+2025-07-30 16:04:05,631 [INFO] [DB] Uložen drát 8 vzorku 61 - x:696 y:972 r:106.
+2025-07-30 16:04:22,465 [INFO] [DB] Uložen vzorek 4 na pozici B1.
+2025-07-30 16:04:22,473 [INFO] [DB] Uložen drát 1 vzorku 62 - x:781 y:628 r:609.
+2025-07-30 16:06:50,971 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 23
+2025-07-31 08:54:56,872 [INFO] Aplikace spuštěna
+2025-07-31 08:54:56,872 [INFO] Zobrazení domovské obrazovky
+2025-07-31 08:55:05,936 [INFO] Klik: Nové měření
+2025-07-31 08:55:08,716 [INFO] Vytvořena složka projektu: projects\2025_07_31_08_55_08_24_qwe
+2025-07-31 08:55:10,060 [INFO] Načten EAN kód: qew
+2025-07-31 08:55:11,543 [INFO] Načten EAN kód: q
+2025-07-31 08:55:12,907 [INFO] Načten EAN kód: qr
+2025-07-31 08:55:15,534 [INFO] [SCAN] Spouštím proces FIND pro projekt 24
+2025-07-31 08:55:31,354 [INFO] [DB] Uložen vzorek qew na pozici A1.
+2025-07-31 08:55:31,359 [INFO] [DB] Uložen drát 1 vzorku 63 - x:737 y:562 r:426.
+2025-07-31 08:55:47,646 [INFO] [DB] Uložen vzorek q na pozici A2.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 1 vzorku 64 - x:584 y:451 r:104.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 2 vzorku 64 - x:789 y:492 r:103.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 3 vzorku 64 - x:937 y:638 r:103.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 4 vzorku 64 - x:594 y:659 r:104.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 5 vzorku 64 - x:771 y:759 r:104.
+2025-07-31 08:55:47,653 [INFO] [DB] Uložen drát 6 vzorku 64 - x:512 y:918 r:106.
+2025-07-31 08:55:47,654 [INFO] [DB] Uložen drát 7 vzorku 64 - x:897 y:924 r:105.
+2025-07-31 08:55:47,654 [INFO] [DB] Uložen drát 8 vzorku 64 - x:702 y:984 r:106.
+2025-07-31 08:56:03,951 [INFO] [DB] Uložen vzorek qr na pozici B1.
+2025-07-31 08:56:03,957 [INFO] [DB] Uložen drát 1 vzorku 65 - x:783 y:640 r:609.
+2025-07-31 08:56:22,990 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 24
+2025-07-31 08:56:23,960 [INFO] [MICROSCOPE] Získávám snímky z mikroskopu pro vzorek qew na pozici A1 s 1 položkami.
+2025-07-31 08:58:43,015 [INFO] [MICROSCOPE] Získávám snímky z mikroskopu pro vzorek q na pozici A2 s 8 položkami.
+2025-07-31 09:03:07,292 [INFO] [MICROSCOPE] Získávám snímky z mikroskopu pro vzorek qr na pozici B1 s 1 položkami.
+2025-07-31 09:14:16,509 [INFO] Zobrazení domovské obrazovky
+2025-07-31 09:14:17,973 [INFO] Klik: Nové měření
+2025-07-31 09:14:26,171 [INFO] Vytvořena složka projektu: projects\2025_07_31_09_14_26_25_23
+2025-07-31 09:14:34,007 [INFO] Načten EAN kód: 894202032302107264
+2025-07-31 09:14:40,830 [INFO] Načten EAN kód: 216167900
+2025-07-31 09:14:45,401 [INFO] [SCAN] Spouštím proces FIND pro projekt 25
+2025-07-31 09:15:09,900 [INFO] Zavírám sériový port CNC
+2025-07-31 09:15:26,933 [INFO] Aplikace spuštěna
+2025-07-31 09:15:26,935 [INFO] Zobrazení domovské obrazovky
+2025-07-31 09:15:30,868 [INFO] Klik: Nové měření
+2025-07-31 09:15:33,357 [INFO] Vytvořena složka projektu: projects\2025_07_31_09_15_33_26_432
+2025-07-31 09:15:38,298 [INFO] Načten EAN kód: 894202032302107264
+2025-07-31 09:15:39,865 [INFO] Načten EAN kód: 216167900
+2025-07-31 09:15:42,479 [INFO] [SCAN] Spouštím proces FIND pro projekt 26
+2025-07-31 09:15:57,492 [INFO] [DB] Uložen vzorek 894202032302107264 na pozici A1.
+2025-07-31 09:15:57,499 [INFO] [DB] Uložen drát 1 vzorku 66 - x:726 y:564 r:426.
+2025-07-31 09:16:14,291 [INFO] [DB] Uložen vzorek 216167900 na pozici A2.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 1 vzorku 67 - x:578 y:452 r:104.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 2 vzorku 67 - x:783 y:493 r:104.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 3 vzorku 67 - x:931 y:638 r:103.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 4 vzorku 67 - x:587 y:659 r:104.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 5 vzorku 67 - x:765 y:760 r:104.
+2025-07-31 09:16:14,299 [INFO] [DB] Uložen drát 6 vzorku 67 - x:505 y:919 r:106.
+2025-07-31 09:16:14,300 [INFO] [DB] Uložen drát 7 vzorku 67 - x:890 y:924 r:105.
+2025-07-31 09:16:14,300 [INFO] [DB] Uložen drát 8 vzorku 67 - x:695 y:984 r:107.
+2025-07-31 09:16:25,505 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 26
+2025-07-31 09:16:26,676 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 09:18:37,237 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A2', -153.0, -210.0, -55.9) s 8 detekovanými kruhy.
+2025-07-31 09:24:03,388 [INFO] Zobrazení domovské obrazovky
+2025-07-31 09:24:05,375 [INFO] Klik: Manuální ovládání
+2025-07-31 09:24:05,381 [INFO] Kliknutí na manuální řízení
+2025-07-31 09:25:09,850 [INFO] Zavírám sériový port CNC
+2025-07-31 10:08:19,057 [INFO] Aplikace spuštěna
+2025-07-31 10:08:19,058 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:08:21,760 [INFO] Klik: Nové měření
+2025-07-31 10:08:24,439 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_08_24_27_eewqq
+2025-07-31 10:08:25,868 [INFO] Načten EAN kód: we
+2025-07-31 10:08:26,541 [INFO] Načten EAN kód: qwe
+2025-07-31 10:08:28,731 [INFO] [SCAN] Spouštím proces FIND pro projekt 27
+2025-07-31 10:08:50,543 [INFO] [DB] Uložen vzorek we na pozici A1.
+2025-07-31 10:08:50,551 [INFO] [DB] Uložen drát 1 vzorku 68 - x:722 y:563 r:426.
+2025-07-31 10:09:06,862 [INFO] [DB] Uložen vzorek qwe na pozici A2.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 1 vzorku 69 - x:577 y:451 r:104.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 2 vzorku 69 - x:782 y:492 r:104.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 3 vzorku 69 - x:930 y:637 r:103.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 4 vzorku 69 - x:586 y:658 r:104.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 5 vzorku 69 - x:764 y:759 r:104.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 6 vzorku 69 - x:504 y:918 r:105.
+2025-07-31 10:09:06,868 [INFO] [DB] Uložen drát 7 vzorku 69 - x:889 y:923 r:105.
+2025-07-31 10:09:06,869 [INFO] [DB] Uložen drát 8 vzorku 69 - x:695 y:984 r:106.
+2025-07-31 10:09:12,610 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 27
+2025-07-31 10:09:13,592 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 10:10:42,135 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:10:43,337 [INFO] Zavírám sériový port CNC
+2025-07-31 10:16:24,839 [INFO] Aplikace spuštěna
+2025-07-31 10:16:24,840 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:16:26,849 [INFO] Zavírám sériový port CNC
+2025-07-31 10:31:03,079 [INFO] Aplikace spuštěna
+2025-07-31 10:31:03,080 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:31:14,906 [INFO] Zavírám sériový port CNC
+2025-07-31 10:32:14,470 [INFO] Aplikace spuštěna
+2025-07-31 10:32:14,471 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:32:18,140 [INFO] Zavírám sériový port CNC
+2025-07-31 10:32:35,912 [INFO] Aplikace spuštěna
+2025-07-31 10:32:35,914 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:32:42,370 [INFO] Klik: Nové měření
+2025-07-31 10:32:45,037 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_32_45_28_34
+2025-07-31 10:32:46,457 [INFO] Načten EAN kód: 234
+2025-07-31 10:32:47,496 [INFO] Načten EAN kód: 224
+2025-07-31 10:32:49,060 [INFO] [SCAN] Spouštím proces FIND pro projekt 28
+2025-07-31 10:33:04,284 [INFO] [DB] Uložen vzorek 234 na pozici A1.
+2025-07-31 10:33:04,290 [INFO] [DB] Uložen drát 1 vzorku 70 - x:725 y:563 r:426.
+2025-07-31 10:33:20,587 [INFO] [DB] Uložen vzorek 224 na pozici A2.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 1 vzorku 71 - x:577 y:451 r:104.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 2 vzorku 71 - x:782 y:492 r:104.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 3 vzorku 71 - x:929 y:638 r:103.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 4 vzorku 71 - x:586 y:658 r:104.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 5 vzorku 71 - x:764 y:759 r:104.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 6 vzorku 71 - x:504 y:918 r:105.
+2025-07-31 10:33:20,593 [INFO] [DB] Uložen drát 7 vzorku 71 - x:889 y:924 r:105.
+2025-07-31 10:33:20,594 [INFO] [DB] Uložen drát 8 vzorku 71 - x:694 y:984 r:106.
+2025-07-31 10:33:28,120 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 28
+2025-07-31 10:33:29,114 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 10:35:04,605 [INFO] Zavírám sériový port CNC
+2025-07-31 10:36:55,984 [INFO] Aplikace spuštěna
+2025-07-31 10:36:55,985 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:38:01,336 [INFO] Aplikace spuštěna
+2025-07-31 10:38:01,337 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:38:17,909 [INFO] Aplikace spuštěna
+2025-07-31 10:38:17,910 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:38:19,972 [INFO] Klik: Nové měření
+2025-07-31 10:38:22,388 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_38_22_29_423
+2025-07-31 10:38:23,640 [INFO] Načten EAN kód: 423
+2025-07-31 10:38:24,552 [INFO] Načten EAN kód: 4
+2025-07-31 10:38:26,011 [INFO] [SCAN] Spouštím proces FIND pro projekt 29
+2025-07-31 10:38:41,719 [INFO] [DB] Uložen vzorek 423 na pozici A1.
+2025-07-31 10:38:41,728 [INFO] [DB] Uložen drát 1 vzorku 72 - x:742 y:562 r:426.
+2025-07-31 10:38:58,529 [INFO] [DB] Uložen vzorek 4 na pozici A2.
+2025-07-31 10:38:58,536 [INFO] [DB] Uložen drát 1 vzorku 73 - x:589 y:451 r:104.
+2025-07-31 10:38:58,536 [INFO] [DB] Uložen drát 2 vzorku 73 - x:794 y:492 r:104.
+2025-07-31 10:38:58,536 [INFO] [DB] Uložen drát 3 vzorku 73 - x:942 y:637 r:103.
+2025-07-31 10:38:58,536 [INFO] [DB] Uložen drát 4 vzorku 73 - x:598 y:659 r:104.
+2025-07-31 10:38:58,536 [INFO] [DB] Uložen drát 5 vzorku 73 - x:776 y:759 r:104.
+2025-07-31 10:38:58,537 [INFO] [DB] Uložen drát 6 vzorku 73 - x:516 y:917 r:105.
+2025-07-31 10:38:58,537 [INFO] [DB] Uložen drát 7 vzorku 73 - x:901 y:923 r:105.
+2025-07-31 10:38:58,537 [INFO] [DB] Uložen drát 8 vzorku 73 - x:707 y:984 r:106.
+2025-07-31 10:39:05,741 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 29
+2025-07-31 10:39:06,734 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 10:43:17,002 [INFO] Aplikace spuštěna
+2025-07-31 10:43:17,002 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:43:53,185 [INFO] Aplikace spuštěna
+2025-07-31 10:43:53,187 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:45:00,585 [INFO] Aplikace spuštěna
+2025-07-31 10:45:00,585 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:46:02,366 [INFO] Aplikace spuštěna
+2025-07-31 10:46:02,366 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:46:06,845 [INFO] Aplikace spuštěna
+2025-07-31 10:46:06,846 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:46:08,443 [INFO] Klik: Nové měření
+2025-07-31 10:46:10,591 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_46_10_30_ew
+2025-07-31 10:46:11,837 [INFO] Načten EAN kód: qw
+2025-07-31 10:46:13,382 [INFO] [SCAN] Spouštím proces FIND pro projekt 30
+2025-07-31 10:46:29,094 [INFO] [DB] Uložen vzorek qw na pozici A1.
+2025-07-31 10:46:29,100 [INFO] [DB] Uložen drát 1 vzorku 74 - x:735 y:563 r:426.
+2025-07-31 10:46:35,385 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 30
+2025-07-31 10:46:36,379 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 10:49:52,590 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:49:54,401 [INFO] Zavírám sériový port CNC
+2025-07-31 10:53:26,469 [INFO] Aplikace spuštěna
+2025-07-31 10:53:26,470 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:53:28,946 [INFO] Klik: Nové měření
+2025-07-31 10:53:31,836 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_53_31_31_qe
+2025-07-31 10:53:33,241 [INFO] Načten EAN kód: weq
+2025-07-31 10:53:35,106 [INFO] [SCAN] Spouštím proces FIND pro projekt 31
+2025-07-31 10:53:52,813 [INFO] [DB] Uložen vzorek weq na pozici A1.
+2025-07-31 10:53:52,821 [INFO] [DB] Uložen drát 1 vzorku 75 - x:724 y:564 r:426.
+2025-07-31 10:53:59,257 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 31
+2025-07-31 10:54:00,235 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 10:56:24,751 [INFO] Zavírám sériový port CNC
+2025-07-31 10:56:28,858 [INFO] Aplikace spuštěna
+2025-07-31 10:56:28,859 [INFO] Zobrazení domovské obrazovky
+2025-07-31 10:56:35,908 [INFO] Klik: Nové měření
+2025-07-31 10:56:41,557 [INFO] Vytvořena složka projektu: projects\2025_07_31_10_56_41_32_23
+2025-07-31 10:56:42,881 [INFO] Načten EAN kód: 2
+2025-07-31 10:56:44,891 [INFO] [SCAN] Spouštím proces FIND pro projekt 32
+2025-07-31 10:57:03,252 [INFO] [DB] Uložen vzorek 2 na pozici A1.
+2025-07-31 10:57:03,258 [INFO] [DB] Uložen drát 1 vzorku 76 - x:723 y:563 r:426.
+2025-07-31 10:57:10,019 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 32
+2025-07-31 10:57:11,048 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 11:00:10,975 [INFO] Zavírám sériový port CNC
+2025-07-31 11:00:40,338 [INFO] Aplikace spuštěna
+2025-07-31 11:00:40,340 [INFO] Zobrazení domovské obrazovky
+2025-07-31 11:00:45,080 [INFO] Klik: Nové měření
+2025-07-31 11:00:47,839 [INFO] Vytvořena složka projektu: projects\2025_07_31_11_00_47_33_3
+2025-07-31 11:00:52,956 [INFO] Načten EAN kód: 3
+2025-07-31 11:00:54,511 [INFO] [SCAN] Spouštím proces FIND pro projekt 33
+2025-07-31 11:01:11,963 [INFO] [FIND] Opakuji hledání vzorků pro projekt 33
+2025-07-31 11:01:14,209 [INFO] [DB] Uložen vzorek 3 na pozici A1.
+2025-07-31 11:01:14,216 [INFO] [DB] Uložen drát 1 vzorku 77 - x:724 y:564 r:426.
+2025-07-31 11:01:19,740 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 33
+2025-07-31 11:01:20,770 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 11:10:48,436 [INFO] Aplikace spuštěna
+2025-07-31 11:10:48,436 [INFO] Zobrazení domovské obrazovky
+2025-07-31 11:10:52,146 [INFO] Klik: Nové měření
+2025-07-31 11:10:53,442 [INFO] Vytvořena složka projektu: projects\2025_07_31_11_10_53_34_wer
+2025-07-31 11:10:55,207 [INFO] Načten EAN kód: rwe
+2025-07-31 11:10:56,646 [INFO] [SCAN] Spouštím proces FIND pro projekt 34
+2025-07-31 11:11:14,474 [INFO] [DB] Uložen vzorek rwe na pozici A1.
+2025-07-31 11:11:14,480 [INFO] [DB] Uložen drát 1 vzorku 78 - x:723 y:564 r:426.
+2025-07-31 11:11:21,326 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 34
+2025-07-31 11:11:22,322 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 11:15:19,797 [INFO] Zobrazení domovské obrazovky
+2025-07-31 11:15:27,559 [INFO] Zavírám sériový port CNC
+2025-07-31 11:29:11,251 [INFO] Aplikace spuštěna
+2025-07-31 11:29:11,251 [INFO] Zobrazení domovské obrazovky
+2025-07-31 11:29:15,164 [INFO] Klik: Nové měření
+2025-07-31 11:29:19,084 [INFO] Vytvořena složka projektu: projects\2025_07_31_11_29_19_35_qwe
+2025-07-31 11:29:20,864 [INFO] Načten EAN kód: w
+2025-07-31 11:29:22,654 [INFO] [SCAN] Spouštím proces FIND pro projekt 35
+2025-07-31 11:29:39,850 [INFO] [DB] Uložen vzorek w na pozici A1.
+2025-07-31 11:29:39,858 [INFO] [DB] Uložen drát 1 vzorku 79 - x:723 y:564 r:426.
+2025-07-31 11:29:45,345 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 35
+2025-07-31 11:29:46,311 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 11:40:43,501 [INFO] Zavírám sériový port CNC
+2025-07-31 11:47:25,167 [INFO] Aplikace spuštěna
+2025-07-31 11:47:25,167 [INFO] Zobrazení domovské obrazovky
+2025-07-31 11:47:28,140 [INFO] Klik: Nové měření
+2025-07-31 11:47:30,147 [INFO] Vytvořena složka projektu: projects\2025_07_31_11_47_30_36_e
+2025-07-31 11:47:34,410 [INFO] Načten EAN kód: w
+2025-07-31 11:47:36,179 [INFO] [SCAN] Spouštím proces FIND pro projekt 36
+2025-07-31 11:47:54,400 [INFO] [DB] Uložen vzorek w na pozici A1.
+2025-07-31 11:47:54,409 [INFO] [DB] Uložen drát 1 vzorku 80 - x:722 y:564 r:426.
+2025-07-31 11:48:02,361 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 36
+2025-07-31 11:48:03,365 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 11:52:34,451 [INFO] Zavírám sériový port CNC
+2025-07-31 12:42:04,121 [INFO] Aplikace spuštěna
+2025-07-31 12:42:04,122 [INFO] Zobrazení domovské obrazovky
+2025-07-31 12:42:05,985 [INFO] Klik: Nové měření
+2025-07-31 12:42:08,983 [INFO] Vytvořena složka projektu: projects\2025_07_31_12_42_08_37_23
+2025-07-31 12:42:10,546 [INFO] Načten EAN kód: 234
+2025-07-31 12:42:17,113 [INFO] [SCAN] Spouštím proces FIND pro projekt 37
+2025-07-31 12:42:34,338 [INFO] [DB] Uložen vzorek 234 na pozici A1.
+2025-07-31 12:42:34,344 [INFO] [DB] Uložen drát 1 vzorku 81 - x:722 y:564 r:426.
+2025-07-31 12:42:41,564 [INFO] [FIND] Opakuji hledání vzorků pro projekt 37
+2025-07-31 12:42:43,758 [INFO] [DB] Uložen vzorek 234 na pozici A1.
+2025-07-31 12:42:43,765 [INFO] [DB] Uložen drát 1 vzorku 82 - x:722 y:564 r:426.
+2025-07-31 12:42:49,304 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 37
+2025-07-31 12:42:51,095 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 12:48:22,726 [INFO] Aplikace spuštěna
+2025-07-31 12:48:22,726 [INFO] Zobrazení domovské obrazovky
+2025-07-31 12:48:24,670 [INFO] Klik: Nové měření
+2025-07-31 12:48:26,919 [INFO] Vytvořena složka projektu: projects\2025_07_31_12_48_26_38_wer
+2025-07-31 12:48:28,452 [INFO] Načten EAN kód: e
+2025-07-31 12:48:29,336 [INFO] Načten EAN kód: t
+2025-07-31 12:48:29,913 [INFO] Načten EAN kód: y
+2025-07-31 12:48:32,060 [INFO] [SCAN] Spouštím proces FIND pro projekt 38
+2025-07-31 12:48:48,806 [INFO] [DB] Uložen vzorek e na pozici A1.
+2025-07-31 12:48:48,811 [INFO] [DB] Uložen drát 1 vzorku 83 - x:723 y:564 r:426.
+2025-07-31 12:49:05,624 [INFO] [DB] Uložen vzorek t na pozici A2.
+2025-07-31 12:49:05,631 [INFO] [DB] Uložen drát 1 vzorku 84 - x:575 y:452 r:104.
+2025-07-31 12:49:05,631 [INFO] [DB] Uložen drát 2 vzorku 84 - x:780 y:493 r:103.
+2025-07-31 12:49:05,631 [INFO] [DB] Uložen drát 3 vzorku 84 - x:928 y:639 r:103.
+2025-07-31 12:49:05,632 [INFO] [DB] Uložen drát 4 vzorku 84 - x:585 y:660 r:105.
+2025-07-31 12:49:05,632 [INFO] [DB] Uložen drát 5 vzorku 84 - x:763 y:760 r:104.
+2025-07-31 12:49:05,632 [INFO] [DB] Uložen drát 6 vzorku 84 - x:502 y:919 r:105.
+2025-07-31 12:49:05,632 [INFO] [DB] Uložen drát 7 vzorku 84 - x:888 y:924 r:105.
+2025-07-31 12:49:05,632 [INFO] [DB] Uložen drát 8 vzorku 84 - x:693 y:984 r:107.
+2025-07-31 12:49:22,440 [INFO] [DB] Uložen vzorek y na pozici B1.
+2025-07-31 12:49:22,445 [INFO] [DB] Uložen drát 1 vzorku 85 - x:778 y:641 r:610.
+2025-07-31 12:49:29,361 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 38
+2025-07-31 12:49:30,383 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 12:55:44,492 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A2', -153.0, -210.0, -55.9) s 8 detekovanými kruhy.
+2025-07-31 13:07:01,202 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('B1', -197.0, -165.0, -55.9) s 1 detekovanými kruhy.
+2025-07-31 13:20:32,610 [INFO] Aplikace spuštěna
+2025-07-31 13:20:32,611 [INFO] Zobrazení domovské obrazovky
+2025-07-31 13:20:34,359 [INFO] Klik: Nové měření
+2025-07-31 13:20:38,090 [INFO] Vytvořena složka projektu: projects\2025_07_31_13_20_38_39_234
+2025-07-31 13:20:39,390 [INFO] Načten EAN kód: 23
+2025-07-31 13:20:39,951 [INFO] Načten EAN kód: 234
+2025-07-31 13:20:41,118 [INFO] Načten EAN kód: 22
+2025-07-31 13:20:43,689 [INFO] [SCAN] Spouštím proces FIND pro projekt 39
+2025-07-31 13:21:04,934 [INFO] [DB] Uložen vzorek 23 na pozici A1.
+2025-07-31 13:21:04,939 [INFO] [DB] Uložen drát 1 vzorku 86 - x:1027 y:455 r:241.
+2025-07-31 13:21:04,939 [INFO] [DB] Uložen drát 2 vzorku 86 - x:484 y:471 r:241.
+2025-07-31 13:21:04,939 [INFO] [DB] Uložen drát 3 vzorku 86 - x:379 y:937 r:241.
+2025-07-31 13:21:04,940 [INFO] [DB] Uložen drát 4 vzorku 86 - x:887 y:1039 r:241.
+2025-07-31 13:21:21,247 [INFO] [DB] Uložen vzorek 234 na pozici A2.
+2025-07-31 13:21:21,253 [INFO] [DB] Uložen drát 1 vzorku 87 - x:647 y:675 r:611.
+2025-07-31 13:21:37,562 [INFO] [DB] Uložen vzorek 22 na pozici B1.
+2025-07-31 13:21:37,567 [INFO] [DB] Uložen drát 1 vzorku 88 - x:729 y:331 r:107.
+2025-07-31 13:21:37,567 [INFO] [DB] Uložen drát 2 vzorku 88 - x:534 y:390 r:105.
+2025-07-31 13:21:37,567 [INFO] [DB] Uložen drát 3 vzorku 88 - x:920 y:396 r:105.
+2025-07-31 13:21:37,567 [INFO] [DB] Uložen drát 4 vzorku 88 - x:661 y:555 r:105.
+2025-07-31 13:21:37,567 [INFO] [DB] Uložen drát 5 vzorku 88 - x:838 y:655 r:104.
+2025-07-31 13:21:37,568 [INFO] [DB] Uložen drát 6 vzorku 88 - x:495 y:676 r:103.
+2025-07-31 13:21:37,568 [INFO] [DB] Uložen drát 7 vzorku 88 - x:643 y:821 r:103.
+2025-07-31 13:21:37,568 [INFO] [DB] Uložen drát 8 vzorku 88 - x:848 y:862 r:104.
+2025-07-31 13:24:34,280 [INFO] Aplikace spuštěna
+2025-07-31 13:24:34,281 [INFO] Zobrazení domovské obrazovky
+2025-07-31 13:24:36,693 [INFO] Klik: Nové měření
+2025-07-31 13:24:39,003 [INFO] Vytvořena složka projektu: projects\2025_07_31_13_24_38_40_ewq
+2025-07-31 13:24:40,522 [INFO] Načten EAN kód: w
+2025-07-31 13:24:41,570 [INFO] Načten EAN kód: qw
+2025-07-31 13:24:43,207 [INFO] Načten EAN kód: qrr
+2025-07-31 13:24:45,024 [INFO] [SCAN] Spouštím proces FIND pro projekt 40
+2025-07-31 13:25:00,443 [INFO] [DB] Uložen vzorek w na pozici A1.
+2025-07-31 13:25:00,451 [INFO] [DB] Uložen drát 1 vzorku 89 - x:1030 y:455 r:241.
+2025-07-31 13:25:00,451 [INFO] [DB] Uložen drát 2 vzorku 89 - x:487 y:471 r:241.
+2025-07-31 13:25:00,451 [INFO] [DB] Uložen drát 3 vzorku 89 - x:381 y:937 r:241.
+2025-07-31 13:25:00,451 [INFO] [DB] Uložen drát 4 vzorku 89 - x:890 y:1040 r:241.
+2025-07-31 13:25:16,753 [INFO] [DB] Uložen vzorek qw na pozici A2.
+2025-07-31 13:25:16,759 [INFO] [DB] Uložen drát 1 vzorku 90 - x:648 y:675 r:611.
+2025-07-31 13:25:33,561 [INFO] [DB] Uložen vzorek qrr na pozici B1.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 1 vzorku 91 - x:730 y:330 r:107.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 2 vzorku 91 - x:536 y:390 r:105.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 3 vzorku 91 - x:922 y:395 r:105.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 4 vzorku 91 - x:663 y:555 r:105.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 5 vzorku 91 - x:841 y:655 r:104.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 6 vzorku 91 - x:497 y:676 r:103.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 7 vzorku 91 - x:645 y:820 r:103.
+2025-07-31 13:25:33,568 [INFO] [DB] Uložen drát 8 vzorku 91 - x:850 y:862 r:103.
+2025-07-31 13:26:04,493 [INFO] Zavírám sériový port CNC
+2025-07-31 13:26:58,676 [INFO] Aplikace spuštěna
+2025-07-31 13:26:58,677 [INFO] Zobrazení domovské obrazovky
+2025-07-31 13:27:00,668 [INFO] Klik: Nové měření
+2025-07-31 13:27:02,886 [INFO] Vytvořena složka projektu: projects\2025_07_31_13_27_02_41_wer
+2025-07-31 13:27:04,571 [INFO] Načten EAN kód: wr
+2025-07-31 13:27:05,694 [INFO] Načten EAN kód: wre
+2025-07-31 13:27:06,400 [INFO] Načten EAN kód: w
+2025-07-31 13:27:08,298 [INFO] [SCAN] Spouštím proces FIND pro projekt 41
+2025-07-31 13:27:23,754 [INFO] [DB] Uložen vzorek wr na pozici A1.
+2025-07-31 13:27:23,761 [INFO] [DB] Uložen drát 1 vzorku 92 - x:1031 y:455 r:241.
+2025-07-31 13:27:23,761 [INFO] [DB] Uložen drát 2 vzorku 92 - x:488 y:471 r:241.
+2025-07-31 13:27:23,762 [INFO] [DB] Uložen drát 3 vzorku 92 - x:383 y:938 r:241.
+2025-07-31 13:27:23,762 [INFO] [DB] Uložen drát 4 vzorku 92 - x:891 y:1040 r:240.
+2025-07-31 13:27:40,081 [INFO] [DB] Uložen vzorek wre na pozici A2.
+2025-07-31 13:27:40,089 [INFO] [DB] Uložen drát 1 vzorku 93 - x:649 y:675 r:611.
+2025-07-31 13:27:56,393 [INFO] [DB] Uložen vzorek w na pozici B1.
+2025-07-31 13:27:56,400 [INFO] [DB] Uložen drát 1 vzorku 94 - x:731 y:331 r:107.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 2 vzorku 94 - x:536 y:390 r:105.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 3 vzorku 94 - x:922 y:396 r:105.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 4 vzorku 94 - x:662 y:555 r:104.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 5 vzorku 94 - x:840 y:655 r:104.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 6 vzorku 94 - x:497 y:676 r:103.
+2025-07-31 13:27:56,401 [INFO] [DB] Uložen drát 7 vzorku 94 - x:645 y:821 r:104.
+2025-07-31 13:27:56,402 [INFO] [DB] Uložen drát 8 vzorku 94 - x:850 y:862 r:104.
+2025-07-31 13:54:19,248 [INFO] Aplikace spuštěna
+2025-07-31 13:54:19,249 [INFO] Zobrazení domovské obrazovky
+2025-07-31 13:56:26,840 [INFO] Aplikace spuštěna
+2025-07-31 13:56:26,841 [INFO] Zobrazení domovské obrazovky
+2025-07-31 13:56:29,852 [INFO] Klik: Nové měření
+2025-07-31 13:56:32,228 [INFO] Vytvořena složka projektu: projects\2025_07_31_13_56_32_42_ewq
+2025-07-31 13:56:33,673 [INFO] Načten EAN kód: qw
+2025-07-31 13:56:34,324 [INFO] Načten EAN kód: qew
+2025-07-31 13:56:36,102 [WARNING] EAN kód qw byl již načten
+2025-07-31 13:56:36,840 [INFO] Načten EAN kód: er
+2025-07-31 13:56:39,443 [INFO] [SCAN] Spouštím proces FIND pro projekt 42
+2025-07-31 13:56:54,656 [INFO] [DB] Uložen vzorek qw na pozici A1.
+2025-07-31 13:56:54,662 [INFO] [DB] Uložen drát 1 vzorku 95 - x:1032 y:455 r:241.
+2025-07-31 13:56:54,662 [INFO] [DB] Uložen drát 2 vzorku 95 - x:488 y:470 r:241.
+2025-07-31 13:56:54,663 [INFO] [DB] Uložen drát 3 vzorku 95 - x:383 y:937 r:241.
+2025-07-31 13:56:54,663 [INFO] [DB] Uložen drát 4 vzorku 95 - x:891 y:1039 r:241.
+2025-07-31 13:57:11,460 [INFO] [DB] Uložen vzorek qew na pozici A2.
+2025-07-31 13:57:11,465 [INFO] [DB] Uložen drát 1 vzorku 96 - x:649 y:675 r:611.
+2025-07-31 13:57:28,273 [INFO] [DB] Uložen vzorek er na pozici B1.
+2025-07-31 13:57:28,284 [INFO] [DB] Uložen drát 1 vzorku 97 - x:731 y:330 r:107.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 2 vzorku 97 - x:536 y:390 r:105.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 3 vzorku 97 - x:922 y:396 r:105.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 4 vzorku 97 - x:663 y:554 r:105.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 5 vzorku 97 - x:841 y:655 r:104.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 6 vzorku 97 - x:497 y:676 r:103.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 7 vzorku 97 - x:645 y:820 r:103.
+2025-07-31 13:57:28,285 [INFO] [DB] Uložen drát 8 vzorku 97 - x:850 y:861 r:104.
+2025-07-31 13:57:42,861 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 42
+2025-07-31 13:57:44,183 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 4 detekovanými kruhy.
+2025-07-31 14:08:23,546 [INFO] Zavírám sériový port CNC
+2025-07-31 14:11:13,455 [INFO] Aplikace spuštěna
+2025-07-31 14:11:13,456 [INFO] Zobrazení domovské obrazovky
+2025-07-31 14:11:15,371 [INFO] Klik: Nové měření
+2025-07-31 14:11:17,878 [INFO] Vytvořena složka projektu: projects\2025_07_31_14_11_17_43_qwe
+2025-07-31 14:11:19,056 [INFO] Načten EAN kód: ew
+2025-07-31 14:11:19,589 [INFO] Načten EAN kód: qwe
+2025-07-31 14:11:21,160 [INFO] [SCAN] Spouštím proces FIND pro projekt 43
+2025-07-31 14:11:39,396 [INFO] [DB] Uložen vzorek ew na pozici A1.
+2025-07-31 14:11:39,402 [INFO] [DB] Uložen drát 1 vzorku 98 - x:1029 y:456 r:241.
+2025-07-31 14:11:39,403 [INFO] [DB] Uložen drát 2 vzorku 98 - x:486 y:472 r:241.
+2025-07-31 14:11:39,403 [INFO] [DB] Uložen drát 3 vzorku 98 - x:381 y:938 r:241.
+2025-07-31 14:11:39,403 [INFO] [DB] Uložen drát 4 vzorku 98 - x:889 y:1040 r:241.
+2025-07-31 14:11:56,210 [INFO] [DB] Uložen vzorek qwe na pozici A2.
+2025-07-31 14:11:56,217 [INFO] [DB] Uložen drát 1 vzorku 99 - x:648 y:675 r:611.
+2025-07-31 14:12:36,541 [INFO] Zavírám sériový port CNC
+2025-07-31 14:19:21,613 [INFO] Aplikace spuštěna
+2025-07-31 14:19:21,613 [INFO] Zobrazení domovské obrazovky
+2025-07-31 14:19:24,490 [INFO] Klik: Nové měření
+2025-07-31 14:19:26,727 [INFO] Vytvořena složka projektu: projects\2025_07_31_14_19_26_44_eqw
+2025-07-31 14:19:28,002 [INFO] Načten EAN kód: ewq
+2025-07-31 14:19:28,597 [INFO] Načten EAN kód: weq
+2025-07-31 14:19:29,588 [INFO] Načten EAN kód: qrq
+2025-07-31 14:19:31,450 [INFO] [SCAN] Spouštím proces FIND pro projekt 44
+2025-07-31 14:19:46,173 [INFO] [DB] Uložen vzorek ewq na pozici A1.
+2025-07-31 14:19:46,178 [INFO] [DB] Uložen drát 1 vzorku 100 - x:1031 y:455 r:241.
+2025-07-31 14:19:46,179 [INFO] [DB] Uložen drát 2 vzorku 100 - x:488 y:472 r:242.
+2025-07-31 14:19:46,179 [INFO] [DB] Uložen drát 3 vzorku 100 - x:383 y:938 r:241.
+2025-07-31 14:19:46,179 [INFO] [DB] Uložen drát 4 vzorku 100 - x:891 y:1041 r:240.
+2025-07-31 14:20:02,471 [INFO] [DB] Uložen vzorek weq na pozici A2.
+2025-07-31 14:20:02,477 [INFO] [DB] Uložen drát 1 vzorku 101 - x:649 y:675 r:611.
+2025-07-31 14:20:19,286 [INFO] [DB] Uložen vzorek qrq na pozici B1.
+2025-07-31 14:20:19,290 [INFO] [DB] Uložen drát 1 vzorku 102 - x:731 y:331 r:107.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 2 vzorku 102 - x:536 y:390 r:105.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 3 vzorku 102 - x:922 y:397 r:105.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 4 vzorku 102 - x:663 y:555 r:105.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 5 vzorku 102 - x:841 y:655 r:104.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 6 vzorku 102 - x:497 y:676 r:103.
+2025-07-31 14:20:19,291 [INFO] [DB] Uložen drát 7 vzorku 102 - x:645 y:821 r:103.
+2025-07-31 14:20:19,292 [INFO] [DB] Uložen drát 8 vzorku 102 - x:851 y:862 r:104.
+2025-07-31 14:20:41,771 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 44
+2025-07-31 14:20:42,762 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 4 detekovanými kruhy.
+2025-07-31 14:21:32,943 [INFO] Zavírám sériový port CNC
+2025-07-31 14:23:26,620 [INFO] Aplikace spuštěna
+2025-07-31 14:23:26,620 [INFO] Zobrazení domovské obrazovky
+2025-07-31 14:23:33,003 [INFO] Zavírám sériový port CNC
+2025-07-31 14:24:16,815 [INFO] Aplikace spuštěna
+2025-07-31 14:24:16,817 [INFO] Zobrazení domovské obrazovky
+2025-07-31 14:24:20,785 [INFO] Klik: Nové měření
+2025-07-31 14:24:24,324 [INFO] Vytvořena složka projektu: projects\2025_07_31_14_24_24_45_143
+2025-07-31 14:24:25,466 [INFO] Načten EAN kód: 21
+2025-07-31 14:24:26,867 [INFO] Načten EAN kód: 22
+2025-07-31 14:24:28,391 [INFO] Načten EAN kód: 23
+2025-07-31 14:24:29,726 [INFO] Načten EAN kód: 24
+2025-07-31 14:24:32,795 [INFO] [SCAN] Spouštím proces FIND pro projekt 45
+2025-07-31 14:24:51,850 [INFO] [DB] Uložen vzorek 21 na pozici A1.
+2025-07-31 14:24:51,858 [INFO] [DB] Uložen drát 1 vzorku 103 - x:1030 y:455 r:241.
+2025-07-31 14:24:51,859 [INFO] [DB] Uložen drát 2 vzorku 103 - x:487 y:472 r:242.
+2025-07-31 14:24:51,859 [INFO] [DB] Uložen drát 3 vzorku 103 - x:382 y:938 r:241.
+2025-07-31 14:24:51,859 [INFO] [DB] Uložen drát 4 vzorku 103 - x:890 y:1040 r:240.
+2025-07-31 14:25:08,669 [INFO] [DB] Uložen vzorek 22 na pozici A2.
+2025-07-31 14:25:08,675 [INFO] [DB] Uložen drát 1 vzorku 104 - x:649 y:675 r:611.
+2025-07-31 14:25:25,472 [INFO] [DB] Uložen vzorek 23 na pozici B1.
+2025-07-31 14:25:25,479 [INFO] [DB] Uložen drát 1 vzorku 105 - x:731 y:331 r:107.
+2025-07-31 14:25:25,479 [INFO] [DB] Uložen drát 2 vzorku 105 - x:536 y:391 r:105.
+2025-07-31 14:25:25,479 [INFO] [DB] Uložen drát 3 vzorku 105 - x:922 y:397 r:105.
+2025-07-31 14:25:25,479 [INFO] [DB] Uložen drát 4 vzorku 105 - x:662 y:554 r:104.
+2025-07-31 14:25:25,480 [INFO] [DB] Uložen drát 5 vzorku 105 - x:840 y:655 r:104.
+2025-07-31 14:25:25,480 [INFO] [DB] Uložen drát 6 vzorku 105 - x:497 y:676 r:103.
+2025-07-31 14:25:25,480 [INFO] [DB] Uložen drát 7 vzorku 105 - x:645 y:821 r:103.
+2025-07-31 14:25:25,480 [INFO] [DB] Uložen drát 8 vzorku 105 - x:850 y:862 r:104.
+2025-07-31 14:25:41,775 [INFO] [DB] Uložen vzorek 24 na pozici B2.
+2025-07-31 14:25:41,781 [INFO] [DB] Uložen drát 1 vzorku 106 - x:708 y:751 r:427.
+2025-07-31 14:25:58,618 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 45
+2025-07-31 14:25:59,839 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 4 detekovanými kruhy.
+2025-07-31 14:27:46,773 [INFO] Zavírám sériový port CNC
+2025-07-31 14:42:41,134 [INFO] Aplikace spuštěna
+2025-07-31 14:42:41,134 [INFO] Zobrazení domovské obrazovky
+2025-07-31 14:42:44,136 [INFO] Klik: Nové měření
+2025-07-31 14:43:07,027 [INFO] Vytvořena složka projektu: projects\2025_07_31_14_43_07_46_pokus1
+2025-07-31 14:43:13,438 [INFO] Načten EAN kód: 1111
+2025-07-31 14:43:16,063 [INFO] Načten EAN kód: 1112
+2025-07-31 14:43:18,468 [INFO] Načten EAN kód: 1114
+2025-07-31 14:43:25,081 [INFO] Načten EAN kód: 1115
+2025-07-31 14:43:27,847 [INFO] [SCAN] Spouštím proces FIND pro projekt 46
+2025-07-31 14:43:45,487 [INFO] [DB] Uložen vzorek 1111 na pozici A1.
+2025-07-31 14:43:45,494 [INFO] [DB] Uložen drát 1 vzorku 107 - x:1031 y:455 r:242.
+2025-07-31 14:43:45,495 [INFO] [DB] Uložen drát 2 vzorku 107 - x:487 y:471 r:241.
+2025-07-31 14:43:45,495 [INFO] [DB] Uložen drát 3 vzorku 107 - x:382 y:937 r:241.
+2025-07-31 14:43:45,495 [INFO] [DB] Uložen drát 4 vzorku 107 - x:890 y:1040 r:240.
+2025-07-31 14:44:01,799 [INFO] [DB] Uložen vzorek 1112 na pozici A2.
+2025-07-31 14:44:01,807 [INFO] [DB] Uložen drát 1 vzorku 108 - x:648 y:675 r:611.
+2025-07-31 14:44:18,607 [INFO] [DB] Uložen vzorek 1114 na pozici B1.
+2025-07-31 14:44:18,614 [INFO] [DB] Uložen drát 1 vzorku 109 - x:731 y:331 r:107.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 2 vzorku 109 - x:536 y:390 r:105.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 3 vzorku 109 - x:922 y:396 r:105.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 4 vzorku 109 - x:662 y:555 r:104.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 5 vzorku 109 - x:840 y:655 r:104.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 6 vzorku 109 - x:497 y:676 r:103.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 7 vzorku 109 - x:645 y:821 r:103.
+2025-07-31 14:44:18,615 [INFO] [DB] Uložen drát 8 vzorku 109 - x:850 y:862 r:104.
+2025-07-31 14:44:35,407 [INFO] [DB] Uložen vzorek 1115 na pozici B2.
+2025-07-31 14:44:35,414 [INFO] [DB] Uložen drát 1 vzorku 110 - x:708 y:752 r:427.
+2025-07-31 14:44:53,050 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 46
+2025-07-31 14:44:54,069 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici ('A1', -197.0, -210.0, -55.9) s 4 detekovanými kruhy.
+2025-07-31 14:45:11,827 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 371 - x:-123.962 y:-161.274.
+2025-07-31 14:45:21,564 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 371 - x:-124.265 y:-159.305.
+2025-07-31 14:45:31,299 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 371 - x:-125.147 y:-157.519.
+2025-07-31 14:45:41,071 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 371 - x:-126.527 y:-156.081.
+2025-07-31 14:45:50,793 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 371 - x:-128.275 y:-155.125.
+2025-07-31 14:46:00,517 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 371 - x:-130.229 y:-154.74.
+2025-07-31 14:46:10,306 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 371 - x:-132.209 y:-154.962.
+2025-07-31 14:46:20,054 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 371 - x:-134.03 y:-155.769.
+2025-07-31 14:46:29,763 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 371 - x:-135.524 y:-157.087.
+2025-07-31 14:46:39,504 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 371 - x:-136.552 y:-158.794.
+2025-07-31 14:46:49,220 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 371 - x:-137.018 y:-160.731.
+2025-07-31 14:46:59,004 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 371 - x:-136.879 y:-162.718.
+2025-07-31 14:47:08,813 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 371 - x:-136.148 y:-164.572.
+2025-07-31 14:47:18,487 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 371 - x:-134.893 y:-166.119.
+2025-07-31 14:47:28,284 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 371 - x:-133.23 y:-167.216.
+2025-07-31 14:47:37,958 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 371 - x:-131.314 y:-167.762.
+2025-07-31 14:47:47,793 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 371 - x:-129.323 y:-167.706.
+2025-07-31 14:47:57,504 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 371 - x:-127.441 y:-167.053.
+2025-07-31 14:48:07,202 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 371 - x:-125.843 y:-165.863.
+2025-07-31 14:48:16,936 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 371 - x:-124.677 y:-164.247.
+2025-07-31 14:48:32,157 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 372 - x:-138.688 y:-160.834.
+2025-07-31 14:48:41,873 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 372 - x:-138.993 y:-158.866.
+2025-07-31 14:48:52,169 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 372 - x:-139.879 y:-157.081.
+2025-07-31 14:49:01,951 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 372 - x:-141.262 y:-155.648.
+2025-07-31 14:49:11,633 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 372 - x:-143.015 y:-154.7.
+2025-07-31 14:49:21,325 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 372 - x:-144.971 y:-154.326.
+2025-07-31 14:49:31,589 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 372 - x:-146.95 y:-154.561.
+2025-07-31 14:49:41,855 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 372 - x:-148.764 y:-155.384.
+2025-07-31 14:49:51,442 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 372 - x:-150.245 y:-156.716.
+2025-07-31 14:50:01,136 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 372 - x:-151.254 y:-158.434.
+2025-07-31 14:50:10,737 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 372 - x:-151.697 y:-160.376.
+2025-07-31 14:50:20,980 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 372 - x:-151.531 y:-162.361.
+2025-07-31 14:50:30,710 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 372 - x:-150.773 y:-164.204.
+2025-07-31 14:50:40,229 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 372 - x:-149.494 y:-165.731.
+2025-07-31 14:50:50,482 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 372 - x:-147.813 y:-166.8.
+2025-07-31 14:51:00,213 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 372 - x:-145.887 y:-167.31.
+2025-07-31 14:51:09,954 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 372 - x:-143.897 y:-167.215.
+2025-07-31 14:51:19,754 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 372 - x:-142.029 y:-166.522.
+2025-07-31 14:51:29,524 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 372 - x:-140.458 y:-165.297.
+2025-07-31 14:51:39,242 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 372 - x:-139.331 y:-163.655.
+2025-07-31 14:51:54,842 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 373 - x:-141.526 y:-148.036.
+2025-07-31 14:52:04,915 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 373 - x:-141.83 y:-146.067.
+2025-07-31 14:52:15,086 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 373 - x:-142.716 y:-144.283.
+2025-07-31 14:52:24,808 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 373 - x:-144.1 y:-142.85.
+2025-07-31 14:52:34,584 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 373 - x:-145.852 y:-141.902.
+2025-07-31 14:52:44,860 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 373 - x:-147.809 y:-141.528.
+2025-07-31 14:52:55,165 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 373 - x:-149.787 y:-141.763.
+2025-07-31 14:53:04,856 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 373 - x:-151.601 y:-142.585.
+2025-07-31 14:53:15,101 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 373 - x:-153.082 y:-143.918.
+2025-07-31 14:53:25,415 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 373 - x:-154.091 y:-145.635.
+2025-07-31 14:53:28,959 [INFO] Zavírám sériový port CNC
+2025-07-31 15:02:25,790 [INFO] Aplikace spuštěna
+2025-07-31 15:02:25,790 [INFO] Zobrazení domovské obrazovky
+2025-07-31 15:02:28,919 [INFO] Klik: Nové měření
+2025-07-31 15:02:31,610 [INFO] Vytvořena složka projektu: projects\2025_07_31_15_02_31_47_qw
+2025-07-31 15:02:33,781 [INFO] Načten EAN kód: qw
+2025-07-31 15:02:35,358 [WARNING] EAN kód qw byl již načten
+2025-07-31 15:02:36,020 [INFO] Načten EAN kód: r
+2025-07-31 15:02:36,905 [INFO] Načten EAN kód: rrt
+2025-07-31 15:02:41,017 [INFO] Načten EAN kód: 56
+2025-07-31 15:02:43,820 [INFO] [SCAN] Spouštím proces FIND pro projekt 47
+2025-07-31 15:03:01,773 [INFO] [DB] Uložen vzorek qw na pozici A1.
+2025-07-31 15:03:01,780 [INFO] [DB] Uložen drát 1 vzorku 111 - x:1030 y:455 r:241.
+2025-07-31 15:03:01,780 [INFO] [DB] Uložen drát 2 vzorku 111 - x:487 y:471 r:241.
+2025-07-31 15:03:01,781 [INFO] [DB] Uložen drát 3 vzorku 111 - x:381 y:937 r:241.
+2025-07-31 15:03:01,781 [INFO] [DB] Uložen drát 4 vzorku 111 - x:890 y:1041 r:241.
+2025-07-31 15:03:18,584 [INFO] [DB] Uložen vzorek r na pozici A2.
+2025-07-31 15:03:18,591 [INFO] [DB] Uložen drát 1 vzorku 112 - x:648 y:675 r:611.
+2025-07-31 15:03:35,403 [INFO] [DB] Uložen vzorek rrt na pozici B1.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 1 vzorku 113 - x:731 y:331 r:107.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 2 vzorku 113 - x:536 y:391 r:105.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 3 vzorku 113 - x:922 y:396 r:105.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 4 vzorku 113 - x:663 y:555 r:105.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 5 vzorku 113 - x:841 y:656 r:104.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 6 vzorku 113 - x:497 y:676 r:103.
+2025-07-31 15:03:35,410 [INFO] [DB] Uložen drát 7 vzorku 113 - x:645 y:822 r:103.
+2025-07-31 15:03:35,411 [INFO] [DB] Uložen drát 8 vzorku 113 - x:850 y:862 r:104.
+2025-07-31 15:03:51,718 [INFO] [DB] Uložen vzorek 56 na pozici B2.
+2025-07-31 15:03:51,727 [INFO] [DB] Uložen drát 1 vzorku 114 - x:708 y:752 r:427.
+2025-07-31 15:04:10,453 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 47
+2025-07-31 15:04:11,499 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku qw s 4 detekovanými dráty.
+2025-07-31 15:04:29,815 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 385 - x:-124.016 y:-161.274.
+2025-07-31 15:04:39,597 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 385 - x:-124.32 y:-159.305.
+2025-07-31 15:04:49,283 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 385 - x:-125.206 y:-157.521.
+2025-07-31 15:04:59,063 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 385 - x:-126.59 y:-156.087.
+2025-07-31 15:05:08,760 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 385 - x:-128.342 y:-155.139.
+2025-07-31 15:05:18,562 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 385 - x:-130.299 y:-154.766.
+2025-07-31 15:05:28,252 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 385 - x:-132.277 y:-155.001.
+2025-07-31 15:05:37,979 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 385 - x:-134.091 y:-155.823.
+2025-07-31 15:05:47,737 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 385 - x:-135.573 y:-157.155.
+2025-07-31 15:05:57,506 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 385 - x:-136.581 y:-158.873.
+2025-07-31 15:06:07,232 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 385 - x:-137.024 y:-160.816.
+2025-07-31 15:06:16,666 [INFO] Zavírám sériový port CNC
+2025-07-31 15:10:36,995 [INFO] Aplikace spuštěna
+2025-07-31 15:10:36,996 [INFO] Zobrazení domovské obrazovky
+2025-07-31 15:10:45,818 [INFO] Klik: Nové měření
+2025-07-31 15:10:50,119 [INFO] Vytvořena složka projektu: projects\2025_07_31_15_10_50_1_213
+2025-07-31 15:10:51,495 [INFO] Načten EAN kód: 21
+2025-07-31 15:10:52,898 [INFO] Načten EAN kód: 22
+2025-07-31 15:10:53,862 [INFO] Načten EAN kód: 23
+2025-07-31 15:10:54,678 [INFO] Načten EAN kód: 24
+2025-07-31 15:10:57,439 [INFO] [SCAN] Spouštím proces FIND pro projekt 1
+2025-07-31 15:11:14,682 [INFO] [DB] Uložen vzorek 21 na pozici A1.
+2025-07-31 15:11:14,690 [INFO] [DB] Uložen drát 1 vzorku 1 - x:1031 y:455 r:241.
+2025-07-31 15:11:14,690 [INFO] [DB] Uložen drát 2 vzorku 1 - x:487 y:472 r:241.
+2025-07-31 15:11:14,690 [INFO] [DB] Uložen drát 3 vzorku 1 - x:382 y:938 r:241.
+2025-07-31 15:11:14,690 [INFO] [DB] Uložen drát 4 vzorku 1 - x:890 y:1041 r:240.
+2025-07-31 15:11:31,514 [INFO] [DB] Uložen vzorek 22 na pozici A2.
+2025-07-31 15:11:31,522 [INFO] [DB] Uložen drát 1 vzorku 2 - x:648 y:675 r:611.
+2025-07-31 15:11:48,331 [INFO] [DB] Uložen vzorek 23 na pozici B1.
+2025-07-31 15:11:48,337 [INFO] [DB] Uložen drát 1 vzorku 3 - x:731 y:331 r:107.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 2 vzorku 3 - x:536 y:391 r:105.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 3 vzorku 3 - x:923 y:396 r:105.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 4 vzorku 3 - x:663 y:555 r:105.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 5 vzorku 3 - x:841 y:655 r:104.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 6 vzorku 3 - x:497 y:677 r:103.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 7 vzorku 3 - x:645 y:822 r:103.
+2025-07-31 15:11:48,338 [INFO] [DB] Uložen drát 8 vzorku 3 - x:851 y:862 r:104.
+2025-07-31 15:12:04,630 [INFO] [DB] Uložen vzorek 24 na pozici B2.
+2025-07-31 15:12:04,635 [INFO] [DB] Uložen drát 1 vzorku 4 - x:708 y:752 r:427.
+2025-07-31 15:12:27,880 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 1
+2025-07-31 15:12:28,888 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 21 s 4 detekovanými dráty.
+2025-07-31 15:12:46,557 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 1 - x:-123.989 y:-161.274.
+2025-07-31 15:12:56,363 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 1 - x:-124.293 y:-159.305.
+2025-07-31 15:13:06,634 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 1 - x:-125.179 y:-157.521.
+2025-07-31 15:13:16,324 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 1 - x:-126.563 y:-156.087.
+2025-07-31 15:13:26,108 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 1 - x:-128.315 y:-155.139.
+2025-07-31 15:13:35,806 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 1 - x:-130.272 y:-154.766.
+2025-07-31 15:13:46,183 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 1 - x:-132.25 y:-155.001.
+2025-07-31 15:13:55,836 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 1 - x:-134.064 y:-155.823.
+2025-07-31 15:14:05,594 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 1 - x:-135.545 y:-157.155.
+2025-07-31 15:38:43,425 [INFO] Aplikace spuštěna
+2025-07-31 15:38:43,425 [INFO] Zobrazení domovské obrazovky
+2025-07-31 15:38:45,042 [INFO] Klik: Nové měření
+2025-07-31 15:38:47,656 [INFO] Zavírám sériový port CNC
+2025-07-31 15:39:52,612 [INFO] Aplikace spuštěna
+2025-07-31 15:39:52,612 [INFO] Zobrazení domovské obrazovky
+2025-07-31 15:40:03,813 [INFO] Klik: Nové měření
+2025-07-31 15:40:06,911 [INFO] Vytvořena složka projektu: projects\2025_07_31_15_40_06_1_ew
+2025-07-31 15:40:08,093 [INFO] Načten EAN kód: wer
+2025-07-31 15:40:09,175 [WARNING] EAN kód wer byl již načten
+2025-07-31 15:40:09,780 [INFO] Načten EAN kód: r
+2025-07-31 15:40:10,285 [INFO] Načten EAN kód: t
+2025-07-31 15:40:10,999 [INFO] Načten EAN kód: g
+2025-07-31 15:40:14,044 [INFO] [SCAN] Spouštím proces FIND pro projekt 1
+2025-07-31 15:40:31,292 [INFO] [DB] Uložen vzorek wer na pozici A1.
+2025-07-31 15:40:31,299 [INFO] [DB] Uložen drát 1 vzorku 1 - x:1030 y:455 r:241.
+2025-07-31 15:40:31,299 [INFO] [DB] Uložen drát 2 vzorku 1 - x:487 y:472 r:241.
+2025-07-31 15:40:31,299 [INFO] [DB] Uložen drát 3 vzorku 1 - x:382 y:938 r:241.
+2025-07-31 15:40:31,299 [INFO] [DB] Uložen drát 4 vzorku 1 - x:890 y:1041 r:240.
+2025-07-31 15:40:48,106 [INFO] [DB] Uložen vzorek r na pozici A2.
+2025-07-31 15:40:48,111 [INFO] [DB] Uložen drát 1 vzorku 2 - x:648 y:675 r:611.
+2025-07-31 15:41:04,915 [INFO] [DB] Uložen vzorek t na pozici B1.
+2025-07-31 15:41:04,921 [INFO] [DB] Uložen drát 1 vzorku 3 - x:731 y:331 r:107.
+2025-07-31 15:41:04,921 [INFO] [DB] Uložen drát 2 vzorku 3 - x:536 y:390 r:105.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 3 vzorku 3 - x:922 y:397 r:105.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 4 vzorku 3 - x:662 y:555 r:104.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 5 vzorku 3 - x:840 y:655 r:104.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 6 vzorku 3 - x:497 y:676 r:103.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 7 vzorku 3 - x:645 y:821 r:103.
+2025-07-31 15:41:04,922 [INFO] [DB] Uložen drát 8 vzorku 3 - x:850 y:862 r:104.
+2025-07-31 15:41:21,218 [INFO] [DB] Uložen vzorek g na pozici B2.
+2025-07-31 15:41:21,224 [INFO] [DB] Uložen drát 1 vzorku 4 - x:708 y:752 r:427.
+2025-07-31 15:41:26,967 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 1
+2025-07-31 15:41:28,000 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku wer s 4 detekovanými dráty.
+2025-07-31 15:41:46,422 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 1 - x:-124.016 y:-161.274.
+2025-07-31 15:41:56,164 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 1 - x:-124.32 y:-159.305.
+2025-07-31 15:42:05,924 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 1 - x:-125.206 y:-157.521.
+2025-07-31 15:42:15,686 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 1 - x:-126.59 y:-156.087.
+2025-07-31 15:42:25,419 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 1 - x:-128.342 y:-155.139.
+2025-07-31 15:42:35,154 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 1 - x:-130.299 y:-154.766.
+2025-07-31 15:42:44,910 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 1 - x:-132.277 y:-155.001.
+2025-07-31 15:42:54,680 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 1 - x:-134.091 y:-155.823.
+2025-07-31 15:43:04,452 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 1 - x:-135.573 y:-157.155.
+2025-07-31 15:43:14,186 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 1 - x:-136.581 y:-158.873.
+2025-07-31 15:43:23,854 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 1 - x:-137.024 y:-160.816.
+2025-07-31 15:43:34,136 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 1 - x:-136.859 y:-162.801.
+2025-07-31 15:43:43,910 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 1 - x:-136.101 y:-164.643.
+2025-07-31 15:43:53,658 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 1 - x:-134.821 y:-166.17.
+2025-07-31 15:44:03,407 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 1 - x:-133.14 y:-167.239.
+2025-07-31 15:44:13,186 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 1 - x:-131.215 y:-167.75.
+2025-07-31 15:44:22,938 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 1 - x:-129.225 y:-167.654.
+2025-07-31 15:44:32,639 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 1 - x:-127.357 y:-166.962.
+2025-07-31 15:44:42,439 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 1 - x:-125.786 y:-165.737.
+2025-07-31 15:44:52,113 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 1 - x:-124.658 y:-164.094.
+2025-07-31 15:45:07,061 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 2 - x:-138.688 y:-160.807.
+2025-07-31 15:45:16,795 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 2 - x:-138.993 y:-158.838.
+2025-07-31 15:45:26,523 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 2 - x:-139.879 y:-157.054.
+2025-07-31 15:45:36,314 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 2 - x:-141.262 y:-155.62.
+2025-07-31 15:45:46,056 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 2 - x:-143.015 y:-154.673.
+2025-07-31 15:45:55,761 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 2 - x:-144.971 y:-154.299.
+2025-07-31 15:46:05,540 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 2 - x:-146.95 y:-154.534.
+2025-07-31 15:46:15,226 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 2 - x:-148.764 y:-155.356.
+2025-07-31 15:46:25,006 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 2 - x:-150.245 y:-156.689.
+2025-07-31 15:46:34,738 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 2 - x:-151.254 y:-158.406.
+2025-07-31 15:46:44,478 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 2 - x:-151.697 y:-160.349.
+2025-07-31 15:46:54,219 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 2 - x:-151.531 y:-162.334.
+2025-07-31 15:47:03,953 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 2 - x:-150.773 y:-164.176.
+2025-07-31 15:47:13,680 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 2 - x:-149.494 y:-165.703.
+2025-07-31 15:47:23,391 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 2 - x:-147.813 y:-166.772.
+2025-07-31 15:47:33,674 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 2 - x:-145.887 y:-167.283.
+2025-07-31 15:47:43,386 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 2 - x:-143.897 y:-167.187.
+2025-07-31 15:47:53,680 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 2 - x:-142.029 y:-166.495.
+2025-07-31 15:48:03,436 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 2 - x:-140.458 y:-165.27.
+2025-07-31 15:48:13,123 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 2 - x:-139.331 y:-163.627.
+2025-07-31 15:48:28,530 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 3 - x:-141.526 y:-148.008.
+2025-07-31 15:48:38,229 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 3 - x:-141.83 y:-146.04.
+2025-07-31 15:48:48,484 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 3 - x:-142.716 y:-144.255.
+2025-07-31 15:48:58,207 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 3 - x:-144.1 y:-142.822.
+2025-07-31 15:49:07,937 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 3 - x:-145.852 y:-141.874.
+2025-07-31 15:49:17,686 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 3 - x:-147.809 y:-141.5.
+2025-07-31 15:49:27,458 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 3 - x:-149.787 y:-141.736.
+2025-07-31 15:49:37,149 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 3 - x:-151.601 y:-142.558.
+2025-07-31 15:49:47,479 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 3 - x:-153.082 y:-143.89.
+2025-07-31 15:49:57,159 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 3 - x:-154.091 y:-145.608.
+2025-07-31 15:50:16,157 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 3 - x:-154.368 y:-149.536.
+2025-07-31 15:50:25,841 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 3 - x:-153.611 y:-151.378.
+2025-07-31 15:50:45,369 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 3 - x:-150.65 y:-153.974.
+2025-07-31 15:50:55,071 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 3 - x:-148.724 y:-154.484.
+2025-07-31 15:51:05,352 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 3 - x:-146.735 y:-154.389.
+2025-07-31 15:51:15,107 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 3 - x:-144.867 y:-153.696.
+2025-07-31 15:51:24,906 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 3 - x:-143.295 y:-152.472.
+2025-07-31 15:51:34,607 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 3 - x:-142.168 y:-150.829.
+2025-07-31 15:51:49,479 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 4 - x:-127.826 y:-145.18.
+2025-07-31 15:51:59,176 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 4 - x:-128.132 y:-143.211.
+2025-07-31 15:52:09,451 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 4 - x:-129.021 y:-141.429.
+2025-07-31 15:52:19,190 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 4 - x:-130.409 y:-140.0.
+2025-07-31 15:52:28,939 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 4 - x:-132.165 y:-139.06.
+2025-07-31 15:52:38,693 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 4 - x:-134.124 y:-138.697.
+2025-07-31 15:52:48,470 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 4 - x:-136.101 y:-138.946.
+2025-07-31 15:52:58,214 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 4 - x:-137.908 y:-139.784.
+2025-07-31 15:53:07,956 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 4 - x:-139.376 y:-141.13.
+2025-07-31 15:53:17,689 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 4 - x:-140.366 y:-142.859.
+2025-07-31 15:53:27,432 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 4 - x:-140.785 y:-144.806.
+2025-07-31 15:53:37,167 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 4 - x:-140.593 y:-146.789.
+2025-07-31 15:53:46,854 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 4 - x:-139.808 y:-148.62.
+2025-07-31 15:53:56,602 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 4 - x:-138.505 y:-150.126.
+2025-07-31 15:54:06,342 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 4 - x:-136.805 y:-151.166.
+2025-07-31 15:54:16,181 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 4 - x:-134.871 y:-151.641.
+2025-07-31 15:54:25,894 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 4 - x:-132.883 y:-151.506.
+2025-07-31 15:54:35,673 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 4 - x:-131.03 y:-150.774.
+2025-07-31 15:54:45,417 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 4 - x:-129.487 y:-149.514.
+2025-07-31 15:54:55,094 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 4 - x:-128.399 y:-147.846.
+2025-07-31 15:54:55,132 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A2 vzorku r s 1 detekovanými dráty.
+2025-07-31 15:55:16,085 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 5 - x:-80.34 y:-155.232.
+2025-07-31 15:55:26,346 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 5 - x:-80.461 y:-153.236.
+2025-07-31 15:55:45,812 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 5 - x:-81.418 y:-149.363.
+2025-07-31 15:55:55,567 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 5 - x:-82.241 y:-147.541.
+2025-07-31 15:56:05,281 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 5 - x:-83.277 y:-145.832.
+2025-07-31 15:56:15,039 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 5 - x:-84.512 y:-144.261.
+2025-07-31 15:56:24,744 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 5 - x:-85.929 y:-142.85.
+2025-07-31 15:56:35,003 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 5 - x:-87.505 y:-141.621.
+2025-07-31 15:56:45,327 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 5 - x:-89.218 y:-140.591.
+2025-07-31 15:56:55,108 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 5 - x:-91.043 y:-139.776.
+2025-07-31 15:57:04,746 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 5 - x:-92.953 y:-139.188.
+2025-07-31 15:57:14,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 5 - x:-94.921 y:-138.835.
+2025-07-31 15:57:25,301 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 5 - x:-96.916 y:-138.722.
+2025-07-31 15:57:35,032 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 5 - x:-98.911 y:-138.851.
+2025-07-31 15:57:44,820 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 5 - x:-100.875 y:-139.22.
+2025-07-31 15:57:54,589 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 5 - x:-102.781 y:-139.823.
+2025-07-31 15:58:04,274 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 5 - x:-104.599 y:-140.653.
+2025-07-31 15:58:14,124 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 5 - x:-106.304 y:-141.696.
+2025-07-31 15:58:24,223 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 5 - x:-107.87 y:-142.938.
+2025-07-31 15:58:33,908 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 5 - x:-109.275 y:-144.36.
+2025-07-31 15:58:43,635 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 5 - x:-110.498 y:-145.941.
+2025-07-31 15:59:03,184 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 5 - x:-112.328 y:-149.486.
+2025-07-31 15:59:12,923 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 5 - x:-112.909 y:-151.399.
+2025-07-31 15:59:22,681 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 5 - x:-113.255 y:-153.368.
+2025-07-31 15:59:32,409 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 5 - x:-113.36 y:-155.364.
+2025-07-31 15:59:42,090 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 5 - x:-113.223 y:-157.358.
+2025-07-31 16:00:01,612 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 5 - x:-112.234 y:-161.224.
+2025-07-31 16:00:11,353 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 5 - x:-111.398 y:-163.039.
+2025-07-31 16:00:21,046 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 5 - x:-110.348 y:-164.74.
+2025-07-31 16:00:30,804 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 5 - x:-109.1 y:-166.301.
+2025-07-31 16:00:40,526 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 5 - x:-107.672 y:-167.7.
+2025-07-31 16:00:50,323 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 5 - x:-106.086 y:-168.916.
+2025-07-31 16:01:00,064 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 5 - x:-104.365 y:-169.932.
+2025-07-31 16:01:09,804 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 5 - x:-102.533 y:-170.733.
+2025-07-31 16:01:19,527 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 5 - x:-100.619 y:-171.306.
+2025-07-31 16:01:29,269 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 5 - x:-98.649 y:-171.643.
+2025-07-31 16:01:39,003 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 5 - x:-96.652 y:-171.741.
+2025-07-31 16:01:48,836 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 5 - x:-94.659 y:-171.596.
+2025-07-31 16:01:59,180 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 5 - x:-92.697 y:-171.211.
+2025-07-31 16:02:18,467 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 5 - x:-88.985 y:-169.748.
+2025-07-31 16:02:28,082 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 5 - x:-87.288 y:-168.691.
+2025-07-31 16:02:37,714 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 5 - x:-85.732 y:-167.437.
+2025-07-31 16:02:47,535 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 5 - x:-84.338 y:-166.004.
+2025-07-31 16:02:57,260 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 5 - x:-83.128 y:-164.413.
+2025-07-31 16:03:06,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 5 - x:-82.119 y:-162.688.
+2025-07-31 16:03:16,720 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 5 - x:-81.326 y:-160.853.
+2025-07-31 16:03:26,480 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 5 - x:-80.761 y:-158.936.
+2025-07-31 16:03:26,504 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici B1 vzorku t s 8 detekovanými dráty.
+2025-07-31 16:03:48,217 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 6 - x:-135.716 y:-119.679.
+2025-07-31 16:03:57,969 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 6 - x:-136.381 y:-117.835.
+2025-07-31 16:04:07,672 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 6 - x:-138.069 y:-116.839.
+2025-07-31 16:04:17,477 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 6 - x:-140.005 y:-117.148.
+2025-07-31 16:04:27,229 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 6 - x:-141.298 y:-118.621.
+2025-07-31 16:04:36,907 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 6 - x:-141.355 y:-120.581.
+2025-07-31 16:04:47,185 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 6 - x:-140.148 y:-122.126.
+2025-07-31 16:04:57,523 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 6 - x:-138.233 y:-122.546.
+2025-07-31 16:05:07,214 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 6 - x:-136.49 y:-121.649.
+2025-07-31 16:05:18,987 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 7 - x:-141.039 y:-118.059.
+2025-07-31 16:05:28,730 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 7 - x:-141.715 y:-116.22.
+2025-07-31 16:05:48,203 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 7 - x:-145.345 y:-115.631.
+2025-07-31 16:05:57,948 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 7 - x:-146.568 y:-117.161.
+2025-07-31 16:06:07,690 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 7 - x:-146.508 y:-119.119.
+2025-07-31 16:06:17,420 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 7 - x:-145.194 y:-120.572.
+2025-07-31 16:06:27,766 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 7 - x:-143.252 y:-120.827.
+2025-07-31 16:06:42,580 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 8 - x:-130.609 y:-117.867.
+2025-07-31 16:06:52,316 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 8 - x:-131.285 y:-116.028.
+2025-07-31 16:07:02,098 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 8 - x:-132.991 y:-115.066.
+2025-07-31 16:07:11,848 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 8 - x:-134.915 y:-115.439.

@@ -43,8 +43,9 @@ def open_new_project_wizard(container, on_back):
         conn = sqlite3.connect("data/database.db")
         c = conn.cursor()
         c.execute("SELECT id, created_at FROM projects ORDER BY created_at DESC")
-        project_id = c.fetchone()[0]
-        created_at = c.fetchone()[1]
+        row = c.fetchone()
+        project_id = row[0]
+        created_at = row[1]
         # print(f"Do databáze byl vložen projekt s ID: {project_id} vytvořený {created_at}")
         conn.close()
 

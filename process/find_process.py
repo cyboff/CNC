@@ -3,20 +3,23 @@
 Modul pro najíždění na základní pozici a detekci vzorků pomocí hlavní kamery.
 Vrací seznam souřadnic vzorků [(x1, y1), (x2, y2), ...].
 """
+from os import waitpid
+
 import cv2
 import numpy as np
 from ttkbootstrap.dialogs import Messagebox
 
 import config
 import core.camera_manager
+import gui.find_samples
 from core.camera_manager import switch_camera, get_image, preview_running
 from core.logger import logger
 from core.motion_controller import move_to_home_position, move_to_coordinates
-from core.database import save_project_sample_to_db
+from core.database import save_project_sample_to_db, save_sample_items_to_db
 from config import camera_offset_x, camera_offset_y, microscope_offset_x, microscope_offset_y
 from PIL import Image, ImageTk
 import time
-from pypylon import pylon
+from core.project_manager import save_image_to_project
 
 def move_to_sample_center(x: float, y: float):
     """
@@ -31,59 +34,62 @@ def move_to_sample_center(x: float, y: float):
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
     items = []  # Počet detekovaných drátů pro každý vzorek
-    for code in sample_codes:
-        sample_position = config.sample_positions_mm[sample_codes.index(code)]
-        (pos, x, y, z) = sample_position
-        print(f"[FIND] Najíždím na pozici {pos} vzorku {code}: ({x}, {y}, {z})")
-        move_to_coordinates(x, y, z)
-        print("[FIND] Snímám fotku hlavní kamerou...")
-        core.camera_manager.preview_running = False # Zastavíme živý náhled, abychom mohli získat snímek
-        time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
+    while not gui.find_samples.stop_event.is_set(): # Kontrola, zda není proces přerušen, například při stisku tlačítka Opakovat hledání
+        for code in sample_codes:
+            sample_position = config.sample_positions_mm[sample_codes.index(code)]
+            (pos, x, y, z) = sample_position
+            print(f"[FIND] Najíždím na pozici {pos} vzorku {code}: ({x}, {y}, {z})")
+            move_to_coordinates(x, y, z)
+            print("[FIND] Snímám fotku hlavní kamerou...")
+            core.camera_manager.preview_running = False # Zastavíme živý náhled, abychom mohli získat snímek
+            time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
 
-        img = core.camera_manager.get_image()
-        if img is not None:
-            # Aplikujeme korekční matici pro perspektivní transformaci
-            img = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
-            print(f"[FIND] Detekuji počet a pozici drátů ve vzorku {code}")
-            # Detekce kruhů na obrázku - výsledek
-            items = find_circles(img)
+            img = core.camera_manager.get_image()
+            if img is not None:
+                # Aplikujeme korekční matici pro perspektivní transformaci
+                img = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
 
-            for i, (x, y, r) in enumerate(items):
-                cv2.putText(img, str(i+1), (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255))
-                cv2.circle(img, (x, y), 2, (0, 0, 255), 2)
-                cv2.circle(img, (x,y), r, (0, 0, 255), 2)
-            # Uložíme obrázek do projektu
-            core.project_manager.save_image_to_project(project_id, img, f"sample_{code}_position_{pos}.jpg")
-            # Zobrazíme náhled obrázku v GUI
-            img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
-            im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            imgtk = ImageTk.PhotoImage(image=im_pil)
-            if image_label.winfo_exists():
-                image_label.imgtk = imgtk  # Uchovat referenci, aby obrázek nezmizel
-                image_label.config(image=imgtk)
-            else: print("[FIND] Náhled již neexistuje, nemohu zobrazit obrázek.")
-        else:
-            print("[FIND] Chyba při získávání snímku z kamery, obrázek je None.")
+                # Detekce kruhů na obrázku
+                print(f"[FIND] Detekuji počet a pozici drátů ve vzorku {code}")
+                items = find_circles(img)
 
-        if not items:
-            print(f"[FIND] Žádné dráty nebyly detekovány na pozici {pos} vzorku {code}.")
-            image_label.after(0, lambda: Messagebox.show_warning(
-                "Žádné dráty nebyly detekovány",
-                f"Na pozici {pos} vzorku {code} nebyly detekovány žádné dráty. Zkontrolujte, zda je vzorek správně umístěn."
-            ))
-        else:
-            print(f"[FIND] Detekováno {len(items)} drátů na pozici {pos} vzorku {code}.")
-            sample_positions.append((pos,items))  # Přidat pozici a počet detekovaných drátů
-            if tree.winfo_exists():
-                container.after(0, lambda: tree.insert("", "end", values=(f"{code}", f"{pos}", f"{len(items)}")))
-            # Uložit vzorek do databáze
-            save_project_sample_to_db(project_id, pos, code)
-            #TODO: Přidat detekované a dráty do databáze
-        time.sleep(2.0)  # Počkáme, aby se obrázek načetl a zobrazil
-        core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Restart živého náhledu
-        time.sleep(0.5)
-    return sample_positions
+                for i, (x, y, r) in enumerate(items):
+                    cv2.putText(img, str(i+1), (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255))
+                    cv2.circle(img, (x, y), 2, (0, 0, 255), 2)
+                    cv2.circle(img, (x,y), r, (0, 0, 255), 2)
+                # Uložíme obrázek do projektu
+                image_path = save_image_to_project(project_id, img, f"sample_{code}_position_{pos}.jpg")
+                # Zobrazíme náhled obrázku v GUI
+                img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
+                im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+                imgtk = ImageTk.PhotoImage(image=im_pil)
+                if image_label.winfo_exists():
+                    image_label.imgtk = imgtk  # Uchovat referenci, aby obrázek nezmizel
+                    image_label.config(image=imgtk)
+                else: print("[FIND] Náhled již neexistuje, nemohu zobrazit obrázek.")
+            else:
+                print("[FIND] Chyba při získávání snímku z kamery, obrázek je None.")
+
+            if not items:
+                print(f"[FIND] Žádné dráty nebyly detekovány na pozici {pos} vzorku {code}.")
+                image_label.after(0, lambda: Messagebox.show_warning(
+                    "Žádné dráty nebyly detekovány",
+                    f"Na pozici {pos} vzorku {code} nebyly detekovány žádné dráty. Zkontrolujte, zda je vzorek správně umístěn."
+                ))
+            else:
+                print(f"[FIND] Detekováno {len(items)} drátů na pozici {pos} vzorku {code}.")
+                sample_positions.append((pos,items))  # Přidat pozici a počet detekovaných drátů
+                if tree.winfo_exists():
+                    container.after(0, lambda: tree.insert("", "end", values=(f"{code}", f"{pos}", f"{len(items)}")))
+                # Uložit vzorek do databáze
+                sample_id = save_project_sample_to_db(project_id, pos, code, image_path)  # Uložíme vzorek do databáze
+                save_sample_items_to_db(sample_id, items)  # Uložíme detekované dráty do databáze
+            time.sleep(2.0)  # Počkáme, aby se obrázek načetl a zobrazil
+            core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Restart živého náhledu
+            time.sleep(0.5)
+        return sample_positions
+    pass
 
 def find_circles(image):
     """
@@ -165,3 +171,76 @@ def find_circles(image):
     if circles is not None:
         return circles
     return []
+
+def get_microscope_images(image_label, project_id, position, ean_code, items):
+    """
+    Převádí detekované kruhy na GRBL příkazy pro pohyb.
+    """
+    fXmm = config.fXmm
+    fYmm = config.fYmm
+    offXmm = config.offXmm
+    offYmm = config.offYmm
+    precision = 2.0 # Přesnost pohybu v mm
+    # precision = 0.5  # Přesnost pohybu v mm
+    sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
+    (pos, mpos_x, mpos_y, mpos_z) = sample_position
+    logger.info(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {position} vzorku {ean_code} s {len(items)} detekovanými dráty.")
+    print(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {sample_position} s {len(items)} detekovanými dráty.")
+    for (id, pos_index, x_center, y_center, radius) in items:
+        abs_x = x_center * fXmm + offXmm + mpos_x
+        abs_y = y_center * fYmm + offYmm + mpos_y
+        abs_z = mpos_z
+        abs_r = radius * fXmm
+        # Přesuneme mikroskop nad střed drátu (jen pro ladění)
+        # core.motion_controller.move_to_position(abs_x, abs_y, abs_z)
+        # core.camera_manager.preview_running = False  # Zastavíme živý náhled, abychom mohli získat snímek
+        # time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
+        for step in range(0, int(2 * np.pi * abs_r / precision)):
+            angle = (step / (2 * np.pi * abs_r / precision)) * 2 * np.pi
+            px = round(abs_x + abs_r * np.cos(angle), 3)
+            py = round(abs_y + abs_r * np.sin(angle), 3)
+            core.motion_controller.move_to_position(px, py, abs_z-0.5) # Posuneme mikroskop o 0,5 mm pod vzorek
+            print(f"[FIND] Získávám snímek {step} z mikroskopu...")
+            # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
+            max_sharpness = 0
+            sharpest_img = None
+            # Posunujeme mikroskop o 0.5 mm nad vzorek
+            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+0.5} M3 S750 F10")
+            time.sleep(0.5) # Počkáme, aby se obnovila odpověď z GRBL
+            while core.motion_controller.grbl_status != "Idle":
+                img = core.camera_manager.get_image()
+                if img is not None:
+                    # Aplikujeme korekční matici pro perspektivní transformaci
+                    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
+                    (h,w) = img.shape[:2]
+                    # Měření ostrosti obrázku Laplacianem není spolehlivé, tenengrad se zdá být lepší
+                    # sharpness = cv2.Laplacian(img, cv2.CV_64F).var()
+                    def tenengrad_sharpness(img):
+                        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                        gx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+                        gy = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+                        fm = gx ** 2 + gy ** 2
+                        return np.mean(fm)
+
+                    sharpness = tenengrad_sharpness(img)
+                    print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
+                    if sharpness > max_sharpness:
+                        max_sharpness = sharpness
+                        sharpest_img = img.copy()  # Uložíme nejostřejší obrázek
+                else:
+                    print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
+            if max_sharpness > 0 and sharpest_img is not None:
+                print(f"[MICROSCOPE] Nejostřejší obrázek pro krok {step}: {max_sharpness:.3f}")
+                # Uložíme nejostřejší obrázek do projektu
+                image_path = save_image_to_project(project_id, sharpest_img, f"microscope_{ean_code}_{pos_index}_{step}.jpg")
+                # Uložíme snímek do databáze
+                core.database.save_sample_item_positions_to_db(id, step, px, py, image_path)
+                # Zobrazíme nejostřejší obrázek v GUI
+                img = cv2.resize(sharpest_img, (int(w // 2), int(h // 2)))  # Změna velikosti na rozměry náhledu
+                im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+                imgtk = ImageTk.PhotoImage(image=im_pil)
+                if image_label.winfo_exists():
+                    image_label.imgtk = imgtk  # Uchovat referenci, aby obrázek nezmizel
+                    image_label.config(image=imgtk)
+                else:
+                    print("[MICROSCOPE] Náhled již neexistuje, nemohu zobrazit obrázek.")
