@@ -180,6 +180,7 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
     fYmm = config.fYmm
     offXmm = config.offXmm
     offYmm = config.offYmm
+    # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
     precision = 2.0 # Přesnost pohybu v mm
     # precision = 0.5  # Přesnost pohybu v mm
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)

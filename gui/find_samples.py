@@ -1,18 +1,16 @@
 import threading
 import time
-import cv2
-from tkinter import ttk, Label
-from PIL import Image, ImageTk
+from tkinter import ttk
 from ttkbootstrap.dialogs import Messagebox
 import config
 import core.camera_manager
 import core.motion_controller
-import gui.find_samples
 from core.camera_manager import start_camera_preview
-from core.utils import create_back_button, create_header, create_footer, create_camera_preview, show_image
+from core.utils import create_header, create_footer, create_camera_preview, show_image
 from process.find_process import find_sample_positions
 from core.logger import logger
 from gui.microscope_images import show_microscope_images
+from core.database import delete_sample_items_from_project
 
 positions = []
 update_position_timer = None
@@ -87,7 +85,7 @@ def show_find_samples(container, project_id, samples, on_back):
                 show_image(image_label, project_id, ean_code, position)
         container.after(2000, show_image_first_row)  # Zobrazí první řádek v tabulce po dokončení hledání
 
-    gui.find_samples.stop_event.clear()
+    stop_event.clear()
     t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
     t.start()
 
@@ -95,23 +93,26 @@ def show_find_samples(container, project_id, samples, on_back):
     button_frame = ttk.Frame(container)
     button_frame.pack(pady=10)
 
-    def restart_sample_detector(thread):
+    def restart_sample_detector(thread, container, image_label, tree, project_id, samples):
+        global stop_event
         logger.info(f"[FIND] Opakuji hledání vzorků pro projekt {project_id}")
-        gui.find_samples.stop_event.set()
+        stop_event.set()
         while thread.is_alive():
             print("[FIND] Proces hledání vzorků již běží, čekám na dokončení...")
             time.sleep(1)
-        gui.find_samples.stop_event.clear()
+        stop_event.clear()
+        # Smaže všechny samples z databáze pro tento projekt, pokud existují
         if tree.winfo_exists():
             container.after(0, lambda: [tree.delete(item) for item in tree.get_children()])
-        # TODO: zde smazat všechny samples z databáze pro tento projekt, pokud existují
-        core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Restart živého náhledu
+        delete_sample_items_from_project(project_id)
+        # Restart živého náhledu
+        core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
         time.sleep(0.5)
         t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
         t.start()
         return t
 
-    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="success",command=lambda: restart_sample_detector(t)).pack(side="left", padx=10)
+    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="success",command=lambda: restart_sample_detector(t,container, image_label, tree, project_id, samples)).pack(side="left", padx=10)
 
     def start_show_microscope_images(container, project_id, samples, on_back):
         if not tree.get_children():

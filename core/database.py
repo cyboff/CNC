@@ -113,7 +113,7 @@ def save_project_sample_to_db(project_id: int, position: str, code: str, image_p
 def get_samples_by_project_id(project_id: int):
     conn = sqlite3.connect("data/database.db")
     c = conn.cursor()
-    c.execute("SELECT id, position, ean_code, image_path FROM project_samples WHERE project_id = ? ORDER BY created_at ASC", (project_id,))
+    c.execute("SELECT id, position, ean_code, image_path FROM project_samples WHERE project_id = ?", (project_id,))
     rows = c.fetchall()
     conn.close()
     return rows
@@ -134,23 +134,33 @@ def save_sample_items_to_db(sample_id, items = list):
     conn.commit()
     conn.close()
 
+def delete_sample_items_from_project(project_id: int):
+    conn = sqlite3.connect("data/database.db")
+    c = conn.cursor()
+    c.execute("DELETE FROM project_sample_item_positions WHERE sample_item_id IN (SELECT id FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id = ?))", (project_id,))
+    c.execute("DELETE FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id = ?)", (project_id,))
+    c.execute("DELETE FROM project_samples WHERE project_id = ?", (project_id,))
+    conn.commit()
+    conn.close()
+    logger.info(f"[DB] Všechny položky vzorků pro projekt {project_id} byly smazány.")
+
 def get_sample_items_by_sample_id(sample_id: int):
     conn = sqlite3.connect("data/database.db")
     c = conn.cursor()
-    c.execute("SELECT id, position_index, x_center, y_center, radius FROM project_sample_items WHERE sample_id = ? ORDER BY created_at ASC", (sample_id,))
+    c.execute("SELECT id, position_index, x_center, y_center, radius FROM project_sample_items WHERE sample_id = ?", (sample_id,))
     rows = c.fetchall()
     conn.close()
     return rows
 
-def save_sample_item_positions_to_db(id:int, step:int, px:float, py:float, image_path:str = None):
+def save_sample_item_positions_to_db(item_id:int, step:int, px:float, py:float, image_path:str = None):
     conn = sqlite3.connect("data/database.db")
     c = conn.cursor()
 
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     c.execute(
         "INSERT INTO project_sample_item_positions (sample_item_id, position_index, x_coord, y_coord, image_path, created_at) VALUES (?, ?, ?, ?, ?, ?)",
-        (id, step, px, py, image_path, now))
-    logger.info(f"[DB] Do databáze byl uložen snímek mikroskopu {step} pro položku {id} - x:{px} y:{py}.")
+        (item_id, step, px, py, image_path, now))
+    logger.info(f"[DB] Do databáze byl uložen snímek mikroskopu {step} pro položku {item_id} - x:{px} y:{py}.")
 
     conn.commit()
     conn.close()
