@@ -124,7 +124,7 @@ def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.2f} Y{y:.2f} Z{z:.2f} M3 S750 F2000")  # G90 je absolutní pohyb, F2000 je rychlost posuvu
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F2000")  # G90 je absolutní pohyb, F2000 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 def move_to_home_position():

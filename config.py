@@ -21,8 +21,6 @@ CNC_TIMEOUT = 1  # v sekundách
 CNC_RTS = get_setting("CNC_RTS") == "False"
 CNC_DTR = get_setting("CNC_DTR") == "False"
 
-correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
-
 # === Výchozí rozměry okna ===
 def safe_int(value, default=1000):
     try:
@@ -51,6 +49,7 @@ fYmm = Ymm / image_height
 
 # Korekční matice pro transformaci perspektivy
 correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
+correction_matrix_microscope = np.array(json.loads(get_setting("correction_matrix_microscope")))
 
 # Autofocus kroky (od hrubého po jemný)
 autofocus_steps = get_setting("autofocus_steps")

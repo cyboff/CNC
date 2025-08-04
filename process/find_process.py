@@ -12,9 +12,8 @@ from ttkbootstrap.dialogs import Messagebox
 import config
 import core.camera_manager
 import gui.find_samples
-from core.camera_manager import switch_camera, get_image, preview_running
 from core.logger import logger
-from core.motion_controller import move_to_home_position, move_to_coordinates
+from core.motion_controller import move_to_coordinates
 from core.database import save_project_sample_to_db, save_sample_items_to_db
 from config import camera_offset_x, camera_offset_y, microscope_offset_x, microscope_offset_y
 from PIL import Image, ImageTk
@@ -188,6 +187,8 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
     logger.info(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {position} vzorku {ean_code} s {len(items)} detekovanými dráty.")
     print(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {sample_position} s {len(items)} detekovanými dráty.")
     for (id, pos_index, x_center, y_center, radius) in items:
+        coordinates = cv2.perspectiveTransform(np.array([[[x_center, y_center]]], dtype=np.float32), config.correction_matrix_microscope)[0][0]
+        r_coordinates = cv2.perspectiveTransform(np.array([[[x_center+radius, y_center]]], dtype=np.float32), config.correction_matrix_microscope)[0][0]
         abs_x = x_center * fXmm + offXmm + mpos_x
         abs_y = y_center * fYmm + offYmm + mpos_y
         abs_z = mpos_z

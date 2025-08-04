@@ -7,7 +7,7 @@ from core.motion_controller import move_axis, grbl_home, grbl_clear_alarm, grbl_
 import core.motion_controller
 from process.images_process import run_autofocus, run_fine_focus
 from process.find_process import find_sample_positions
-from core.camera_manager import start_camera_preview, switch_camera
+from core.camera_manager import start_camera_preview, switch_camera, calibrate_camera
 import core.camera_manager
 import threading
 
@@ -102,7 +102,7 @@ def show_manual_controller(container, on_back):
     # MODRÁ skupina
     add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=find_sample_positions, daemon=True).start())
     add_action_button(control_frame, "🎥 Přepnout kameru", lambda: threading.Thread(target=switch_camera, daemon=True).start())
-    add_action_button(control_frame, "🔧 Jemné ostření", run_fine_focus)
+    add_action_button(control_frame, "🔧 Kalibrovat", lambda: threading.Thread(target=calibrate_camera, args=(container,image_label), daemon=True).start())
     add_action_button(control_frame, "🎯 Zaostřit", run_autofocus)
 
     # VPRAVO – kamera
