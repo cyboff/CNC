@@ -15,24 +15,17 @@ import gui.find_samples
 from core.logger import logger
 from core.motion_controller import move_to_coordinates
 from core.database import save_project_sample_to_db, save_sample_items_to_db
-from config import camera_offset_x, camera_offset_y, microscope_offset_x, microscope_offset_y
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
-
-def move_to_sample_center(x: float, y: float):
-    """
-    Najede mikroskopem na střed vzorku s ohledem na offsety kamery a mikroskopu.
-    """
-    real_x = x + camera_offset_x + microscope_offset_x
-    real_y = y + camera_offset_y + microscope_offset_y
-    print(f"[FIND] Najíždím na upravenou pozici: ({real_x}, {real_y})")
-    move_to_coordinates(real_x, real_y)
 
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
     items = []  # Počet detekovaných drátů pro každý vzorek
+    if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
+        core.camera_manager.switch_camera()
+
     while not gui.find_samples.stop_event.is_set(): # Kontrola, zda není proces přerušen, například při stisku tlačítka Opakovat hledání
         for code in sample_codes:
             sample_position = config.sample_positions_mm[sample_codes.index(code)]
@@ -41,7 +34,7 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
             move_to_coordinates(x, y, z)
             print("[FIND] Snímám fotku hlavní kamerou...")
             core.camera_manager.preview_running = False # Zastavíme živý náhled, abychom mohli získat snímek
-            time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
+            time.sleep(0.5)  # Počkáme, aby se proces náhledu zastavil
 
             img = core.camera_manager.get_image()
             if img is not None:
@@ -165,7 +158,7 @@ def find_circles(image):
                 (x, y), r = cv2.minEnclosingCircle(cnt)
                 x, y, r = int(x), int(y), int(r)
                 if 30 < r < 650:  # filter by radius
-                    circles.append((x, y, r))
+                    circles.append((x, y, r-1))
 
     if circles is not None:
         return circles
@@ -175,10 +168,6 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
     """
     Převádí detekované kruhy na GRBL příkazy pro pohyb.
     """
-    fXmm = config.fXmm
-    fYmm = config.fYmm
-    offXmm = config.offXmm
-    offYmm = config.offYmm
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
     precision = 2.0 # Přesnost pohybu v mm
     # precision = 0.5  # Přesnost pohybu v mm
@@ -187,12 +176,12 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
     logger.info(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {position} vzorku {ean_code} s {len(items)} detekovanými dráty.")
     print(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {sample_position} s {len(items)} detekovanými dráty.")
     for (id, pos_index, x_center, y_center, radius) in items:
-        coordinates = cv2.perspectiveTransform(np.array([[[x_center, y_center]]], dtype=np.float32), config.correction_matrix_microscope)[0][0]
-        r_coordinates = cv2.perspectiveTransform(np.array([[[x_center+radius, y_center]]], dtype=np.float32), config.correction_matrix_microscope)[0][0]
-        abs_x = x_center * fXmm + offXmm + mpos_x
-        abs_y = y_center * fYmm + offYmm + mpos_y
+        grbl_center = cv2.perspectiveTransform(np.array([[[x_center, y_center]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
+        grbl_radius = cv2.perspectiveTransform(np.array([[[x_center+radius, y_center]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
+        abs_x = grbl_center[0] + mpos_x
+        abs_y = grbl_center[1] + mpos_y
         abs_z = mpos_z
-        abs_r = radius * fXmm
+        abs_r = grbl_radius[0] - grbl_center[0]  # Vypočítáme absolutní poloměr kruhu
         # Přesuneme mikroskop nad střed drátu (jen pro ladění)
         # core.motion_controller.move_to_position(abs_x, abs_y, abs_z)
         # core.camera_manager.preview_running = False  # Zastavíme živý náhled, abychom mohli získat snímek
@@ -202,13 +191,14 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
             px = round(abs_x + abs_r * np.cos(angle), 3)
             py = round(abs_y + abs_r * np.sin(angle), 3)
             core.motion_controller.move_to_position(px, py, abs_z-0.5) # Posuneme mikroskop o 0,5 mm pod vzorek
+            time.sleep(0.5)
             print(f"[FIND] Získávám snímek {step} z mikroskopu...")
             # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
             max_sharpness = 0
             sharpest_img = None
             # Posunujeme mikroskop o 0.5 mm nad vzorek
-            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+0.5} M3 S750 F10")
-            time.sleep(0.5) # Počkáme, aby se obnovila odpověď z GRBL
+            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+0.5} M3 S750 F5")
+            time.sleep(0.75) # Počkáme, aby se obnovila odpověď z GRBL
             while core.motion_controller.grbl_status != "Idle":
                 img = core.camera_manager.get_image()
                 if img is not None:
@@ -238,7 +228,7 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
                 # Uložíme snímek do databáze
                 core.database.save_sample_item_positions_to_db(id, step, px, py, image_path)
                 # Zobrazíme nejostřejší obrázek v GUI
-                img = cv2.resize(sharpest_img, (int(w // 2), int(h // 2)))  # Změna velikosti na rozměry náhledu
+                img = cv2.resize(sharpest_img, (int(w // 4), int(h // 4)))  # Změna velikosti na rozměry náhledu
                 im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
                 imgtk = ImageTk.PhotoImage(image=im_pil)
                 if image_label.winfo_exists():

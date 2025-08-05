@@ -65,7 +65,17 @@ def send_gcode(command: str):
         print("[GRBL] Port není otevřený")
 
     print(f"[GRBL] Posílám: {command}")
-    cnc_serial.write((command + "\n").encode())
+    # Zamezení blokování při zápisu na sériový port
+    cnc_serial.flush()  # Vyprázdníme buffer před zápisem
+    for attempt in range(3):
+        try:
+            cnc_serial.write((command + "\n").encode())
+            break
+        except serial.SerialTimeoutException:
+            print(f"[GRBL] Chyba: Timeout při zápisu na sériový port (pokus {attempt + 1})")
+            time.sleep(0.2)
+    else:
+        print("[GRBL] Nepodařilo se odeslat příkaz po 3 pokusech.")
 
     while True:
         line = cnc_serial.readline().decode().strip()

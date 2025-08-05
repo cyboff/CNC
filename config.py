@@ -39,17 +39,9 @@ frame_height = int(get_setting("frame_height"))
 image_width = int(get_setting("image_width"))
 image_height = int(get_setting("image_height"))
 
-# Velikost zorného pole kamery (v mm)
-Xmm = float(get_setting("Xmm"))
-Ymm = float(get_setting("Ymm"))
-
-# Přepočtové faktory z pixelů na mm
-fXmm = Xmm / image_width
-fYmm = Ymm / image_height
-
 # Korekční matice pro transformaci perspektivy
 correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
-correction_matrix_microscope = np.array(json.loads(get_setting("correction_matrix_microscope")))
+correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
 
 # Autofocus kroky (od hrubého po jemný)
 autofocus_steps = get_setting("autofocus_steps")
@@ -57,18 +49,6 @@ autofocus_steps = get_setting("autofocus_steps")
 # Výchozí pozice osy Z (např. výška mikroskopu)
 default_Z_position = float(get_setting("default_Z_position"))
 last_Z_position = default_Z_position  # lze měnit runtime
-
-# Offset hlavní kamery vůči nástroji
-camera_offset_x = float(get_setting("camera_offset_x"))
-camera_offset_y = float(get_setting("camera_offset_y"))
-
-# Offset mikroskopu vůči nástroji
-microscope_offset_x = float(get_setting("microscope_offset_x"))
-microscope_offset_y = float(get_setting("microscope_offset_y"))
-
-# Spočítaný offset mezi středem kamery a mikroskopu (pro kontrolu nebo 2D zarovnání)
-offXmm = float(get_setting("offXmm"))
-offYmm = float(get_setting("offYmm"))
 
 # Předdefinované pozice vzorků (center point)
 sample_positions_mm = [
@@ -78,6 +58,9 @@ sample_positions_mm = [
     ("B2", -153.0, -165.0, default_Z_position),
 ]
 
-# Speciální pozice (např. pro pin)
-pin_camera_position = (-215.930, -229.450, default_Z_position)
-pin_microscope_position = (-157.920, -174.750, -54.660)
+# Předdefinované pozice rohů kalibračního obrázku (pro GRBL)
+calib_z = -56.900
+calib_corners_grbl = [(-157.900, -174.100, calib_z),  # Top-left corner
+                      (-119.900, -174.100, calib_z),  # Top-right corner
+                      (-119.900, -136.100, calib_z),  # Bottom-right corner
+                      (-157.900, -136.100, calib_z)]  # Bottom-left corner
