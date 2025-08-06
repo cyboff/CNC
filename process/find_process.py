@@ -164,7 +164,7 @@ def find_circles(image):
         return circles
     return []
 
-def get_microscope_images(image_label, project_id, position, ean_code, items):
+def get_microscope_images(container, image_label, project_id, position, ean_code, items):
     """
     Převádí detekované kruhy na GRBL příkazy pro pohyb.
     """
@@ -190,14 +190,14 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
             angle = (step / (2 * np.pi * abs_r / precision)) * 2 * np.pi
             px = round(abs_x + abs_r * np.cos(angle), 3)
             py = round(abs_y + abs_r * np.sin(angle), 3)
-            core.motion_controller.move_to_position(px, py, abs_z-0.5) # Posuneme mikroskop o 0,5 mm pod vzorek
+            core.motion_controller.move_to_position(px, py, abs_z-1.0) # Posuneme mikroskop o 1 mm pod vzorek
             time.sleep(0.5)
             print(f"[FIND] Získávám snímek {step} z mikroskopu...")
             # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
             max_sharpness = 0
             sharpest_img = None
-            # Posunujeme mikroskop o 0.5 mm nad vzorek
-            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+0.5} M3 S750 F5")
+            # Posunujeme mikroskop o 1 mm nad vzorek
+            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+1} M3 S750 F5")
             time.sleep(0.75) # Počkáme, aby se obnovila odpověď z GRBL
             while core.motion_controller.grbl_status != "Idle":
                 img = core.camera_manager.get_image()
@@ -236,3 +236,4 @@ def get_microscope_images(image_label, project_id, position, ean_code, items):
                     image_label.config(image=imgtk)
                 else:
                     print("[MICROSCOPE] Náhled již neexistuje, nemohu zobrazit obrázek.")
+    container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))

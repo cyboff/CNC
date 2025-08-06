@@ -169,7 +169,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(0, update)
+                image_label.after(30, update)
 
 
         # actual_camera.StopGrabbing()

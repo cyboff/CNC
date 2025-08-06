@@ -82,8 +82,8 @@ def show_microscope_images(container, project_id, samples, on_back):
             items = get_sample_items_by_sample_id(sample_id)
             container.after(0, lambda: tree.insert("", "end", values=(ean_code, position, len(items))))
             container.after(0, lambda: show_image(image_label, project_id, ean_code, position))
-            get_microscope_images(image_label, project_id, position, ean_code, items)
-            container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))
+            time.sleep(0.5)  # Pauza mezi jednotlivými snímky, aby se stihly zobrazit
+            get_microscope_images(container, image_label, project_id, position, ean_code, items)
 
     t = threading.Thread(target=threaded_get_microscope_images, args=(container, image_label, tree, project_id), daemon=True)
     t.start()
