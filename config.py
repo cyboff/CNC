@@ -58,9 +58,6 @@ sample_positions_mm = [
     ("B2", -153.0, -165.0, default_Z_position),
 ]
 
-# Předdefinované pozice rohů kalibračního obrázku (pro GRBL)
+# Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
 calib_z = -56.900
-calib_corners_grbl = [(-157.900, -174.100, calib_z),  # Top-left corner
-                      (-119.900, -174.100, calib_z),  # Top-right corner
-                      (-119.900, -136.100, calib_z),  # Bottom-right corner
-                      (-157.900, -136.100, calib_z)]  # Bottom-left corner
+calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))

@@ -153,7 +153,7 @@ def start_camera_preview(image_label, update_position_callback=None):
 
                     # Rozměry a střed
                     h, w = img_rgb.shape[:2]
-                    cx, cy = w // 2, h // 2
+                    cx, cy = int(w // 2 - 1) , int(h // 2 - 1)
 
                     # Křížek ve středu
                     cv2.line(img_rgb, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
@@ -220,6 +220,9 @@ def calibrate_camera(container, image_label):
     (pos, x, y, z) = sample_position
     calib_z = config.calib_z
     calib_corners_grbl = config.calib_corners_grbl
+    # force width and height to be a fixed size square
+    image_width = config.image_width
+    image_height = config.image_height
     print(f"[FIND] Najíždím na pozici {pos}: ({x}, {y}, {calib_z})")
     move_to_coordinates(x, y, calib_z)
     print("[FIND] Snímám fotku hlavní kamerou...")
@@ -227,9 +230,7 @@ def calibrate_camera(container, image_label):
     # time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
     camera_calibration_successful = False
     cv2.pts_src = []  # Proměnná pro ukládání vybraných bodů myši
-    # force width and height to be a fixed size square
-    image_width = 1400
-    image_height = 1400
+
 
     print("[Camera] Spouštím kalibraci kamery...")
     while not camera_calibration_successful:
@@ -238,8 +239,8 @@ def calibrate_camera(container, image_label):
         if image is not None:
             h, w = image.shape[:2]
             # Ensure the image is in color (BGR) for drawing colored shapes/text
-            if len(image.shape) == 2 or image.shape[2] == 1:
-                image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
             # --- Perspective Correction with Mouse Clicks ---
             # Allow user to select four points by clicking on the image window
@@ -250,12 +251,14 @@ def calibrate_camera(container, image_label):
 
             # Create window and resize to fit the screen
             cv2.namedWindow("Kliknete mysi na 4 body v rozich", cv2.WINDOW_NORMAL)
-            cv2.resizeWindow("Kliknete mysi na 4 body v rozich", int(camera.Width.Max / 2), int(camera.Height.Max / 2))
+            cv2.resizeWindow("Kliknete mysi na 4 body v rozich", 1000, 1000)
             cv2.setMouseCallback("Kliknete mysi na 4 body v rozich", select_point)
 
             img_for_selection = image.copy()
             for pt in getattr(cv2, 'pts_src', []):
-                cv2.circle(img_for_selection, tuple(pt), 5, (0, 0, 255), -1)
+                cv2.circle(img_for_selection, tuple(pt), 15, (0, 0, 255), 2)
+                cv2.line(img_for_selection, (pt[0] - 5, pt[1]), (pt[0] + 5, pt[1]), (0, 0, 255), 2)
+                cv2.line(img_for_selection, (pt[0], pt[1] - 5), (pt[0], pt[1] + 5), (0, 0, 255), 2)
             cv2.imshow("Kliknete mysi na 4 body v rozich", img_for_selection)
 
             if len(cv2.pts_src) < 4:
@@ -300,7 +303,7 @@ def calibrate_camera(container, image_label):
 
     if actual_camera is None or actual_camera == camera:
         switch_camera()  # Přepneme na mikroskop, pokud je aktuálně hlavní kamera
-    microscope.ExposureTimeAbs.Value = 10000
+    microscope.ExposureTimeAbs.Value = 15000
     microscope_calibration_successful = False
     while not microscope_calibration_successful:
         # Corners of the image in microscope coordinates
@@ -309,17 +312,20 @@ def calibrate_camera(container, image_label):
         while len(pts_grbl) < 4:
 
             for corners in calib_corners_grbl:
-                move_to_coordinates(corners[0], corners[1], corners[2])  # Move to the first corner position
+                move_to_coordinates(corners[0]+x, corners[1]+y, calib_z)  # Move to the first corner position
                 while True:
                     image = core.camera_manager.get_image()
                     if image is not None:
                         image = cv2.resize(image, (image.shape[1] // 4, image.shape[0] // 4))
                         h, w = image.shape[:2]
+                        cx, cy = int(w // 2 - 1), int(h // 2 - 1)
                         # Ensure the image is in color (BGR) for drawing colored shapes/text
                         image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-                        # Nakreslíme křížek do středu obrazu s tlustší čarou a jasně zelenou barvou
-                        cv2.line(image, (w // 2 - 15, h // 2), (w // 2 + 15, h // 2), (0, 255, 0), 1)
-                        cv2.line(image, (w // 2, h // 2 - 15), (w // 2, h // 2 + 15), (0, 255, 0), 1)
+
+                        # Křížek ve středu
+                        cv2.line(image, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
+                        cv2.line(image, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
+
                         # Create window and resize to fit the screen
                         cv2.namedWindow("Najedte na roh krizkem a zmacknete q", cv2.WINDOW_NORMAL)
                         cv2.imshow("Najedte na roh krizkem a zmacknete q", image)
@@ -342,17 +348,27 @@ def calibrate_camera(container, image_label):
         # save the correction matrix to config
         print(f"[CALIBRATION] Korekční matice mikroskopu: {correction_matrix_grbl}")
         set_setting("correction_matrix_grbl", correction_matrix_grbl.tolist())
+        print(f"[CALIBRATION] Ukládám korekční body kalibračního vzorku {pts_grbl}")
+        set_setting("calib_corners_grbl", pts_grbl.tolist())
         # Znovu načti korekční matici pro transformaci perspektivy,
         # aby se potvrdilo správné uložení
         config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
-        # Najedeme mikroskopem na střed čtverce, abychom ověřili správnost kalibrace
-        center_coordinates = cv2.perspectiveTransform(np.array([[[int(image_width // 2), int(image_height // 2)]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
-        print(f"[CALIBRATION] Střed čtverce v mikroskopu: ({center_coordinates[0]+x}, {center_coordinates[1]+y})")
-        move_to_coordinates(center_coordinates[0]+x, center_coordinates[1]+y, calib_z)
+        config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
+
+        # Najedeme mikroskopem na body čtverce, abychom ověřili správnost kalibrace
+        test_coordinates = np.float32([[0, 0], [image_width - 1, 0], [image_width - 1, image_height - 1], [0, image_height - 1], [image_width // 2, image_height // 2]])
+
+        for test_point in test_coordinates:
+            # Transform the test point using the correction matrix
+            transformed_point = cv2.perspectiveTransform(np.array([[[test_point[0], test_point[1]]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
+            print(f"[CALIBRATION] Testovací bod {test_point} se transformoval na: {transformed_point}")
+
+            move_to_coordinates(transformed_point[0]+x, transformed_point[1]+y, calib_z) # přidáme souřadnice vzorku A1
+            time.sleep(5)
         # Zobrazíme uživateli, že má zkontrolovat střed čtverce
         answer = None
         answer = tkinter.messagebox.askquestion("Kalibrace mikroskopu", "Je kalibrace v pořádku? Klikněte na 'No' pro opakování.")
-        if answer == "No":
+        if answer == "no":
             # Pokud uživatel odpoví "No", vymažeme body a začneme znovu
             print("[FIND] Kalibrace kamery nebyla úspěšná, opakujeme proces.")
             pts_grbl = []
@@ -362,5 +378,8 @@ def calibrate_camera(container, image_label):
             microscope_calibration_successful = True
             microscope.ExposureTimeAbs.Value = 3000 # Reset exposure time to default for microscope
             switch_camera()
+            move_to_coordinates(x,y, calib_z)  # Return to the original position after calibration
+
+
 
 
