@@ -73,7 +73,7 @@ def send_gcode(command: str):
             break
         except serial.SerialTimeoutException:
             print(f"[GRBL] Chyba: Timeout při zápisu na sériový port (pokus {attempt + 1})")
-            time.sleep(0.2)
+            time.sleep(0.5)
     else:
         print("[GRBL] Nepodařilo se odeslat příkaz po 3 pokusech.")
 
@@ -127,14 +127,15 @@ def grbl_abort():
     Nouzové přerušení (ctrl-x)
     """
     global cnc_serial
-    cnc_serial.write(b'\x18')  # Ctrl-X
+    send_gcode("\x18")  # Odeslání Ctrl-X jako G-code příkazu
+    time.sleep(0.5)  # Krátká prodleva pro stabilitu
     print("[GRBL] Abort odeslán (Ctrl-X)")
 
 def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F2000")  # G90 je absolutní pohyb, F2000 je rychlost posuvu
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 def move_to_home_position():

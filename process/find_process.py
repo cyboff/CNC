@@ -13,12 +13,20 @@ import config
 import core.camera_manager
 import gui.find_samples
 from core.logger import logger
-from core.motion_controller import move_to_coordinates
+from core.motion_controller import move_to_coordinates, grbl_abort, grbl_clear_alarm
 from core.database import save_project_sample_to_db, save_sample_items_to_db
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
 
+
+# Měření ostrosti obrázku Laplacianem není spolehlivé, Tenengrad metoda je mnohem lepší
+def tenengrad_sharpness(img):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+    gy = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+    fm = gx ** 2 + gy ** 2
+    return np.mean(fm)
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
@@ -205,20 +213,17 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     # Aplikujeme korekční matici pro perspektivní transformaci
                     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
                     (h,w) = img.shape[:2]
-                    # Měření ostrosti obrázku Laplacianem není spolehlivé, tenengrad se zdá být lepší
-                    # sharpness = cv2.Laplacian(img, cv2.CV_64F).var()
-                    def tenengrad_sharpness(img):
-                        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-                        gx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
-                        gy = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
-                        fm = gx ** 2 + gy ** 2
-                        return np.mean(fm)
-
+                    # Vypočítáme ostrost obrázku pomocí Tenengrad metody
                     sharpness = tenengrad_sharpness(img)
                     print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
                     if sharpness > max_sharpness:
                         max_sharpness = sharpness
                         sharpest_img = img.copy()  # Uložíme nejostřejší obrázek
+                    if sharpness < max_sharpness * 0.8:  # Pokud ostrost klesne pod 80% max ostrosti, ukončíme snímání
+                        print(f"[MICROSCOPE] Ostrost klesla pod 80% max ostrosti ({sharpness:.3f} < {max_sharpness * 0.8:.3f}), ukončuji snímání.")
+                        # TODO: Je to potřeba pořádně ověřit, zda přerušení funguje správně
+                        grbl_abort()
+                        grbl_clear_alarm()
                 else:
                     print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
             if max_sharpness > 0 and sharpest_img is not None:
