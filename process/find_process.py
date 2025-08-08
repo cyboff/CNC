@@ -218,7 +218,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     if sharpness > max_sharpness:
                         max_sharpness = sharpness
                         sharpest_img = img.copy()  # Uložíme nejostřejší obrázek
-                    if sharpness < max_sharpness * 0.8:  # Pokud ostrost klesne pod 80% max ostrosti, ukončíme snímání
+                    if sharpness < max_sharpness * 0.6:  # Pokud ostrost klesne pod 60% max ostrosti, ukončíme snímání
                         print(f"[MICROSCOPE] Ostrost klesla pod 80% max ostrosti ({sharpness:.3f} < {max_sharpness * 0.8:.3f}), ukončuji snímání.")
                         # TODO: Je to potřeba pořádně ověřit, zda přerušení funguje správně
                         grbl_abort()

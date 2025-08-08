@@ -495,10 +495,10 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
 
         pts_src = np.float32(cv2.pts_src[:4])
         pts_dst = np.float32([
-            [0, 0],
-            [image_width - 1, 0],
-            [image_width - 1, image_height - 1],
-            [0, image_height - 1]
+            [1, 1],
+            [image_width, 1],
+            [image_width, image_height],
+            [1, image_height]
         ])
         correction_matrix = cv2.getPerspectiveTransform(pts_src, pts_dst)
         set_setting("correction_matrix", correction_matrix.tolist())
@@ -518,16 +518,18 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         core.camera_manager.microscope.ExposureTimeAbs.Value = 15000
         pts_grbl = []
         current_corner_index = 0
-        move_to_coordinates(calib_corners_grbl[0][0] + base_x,
-                             calib_corners_grbl[0][1] + base_y,
-                             calib_z)
+        threading.Thread(
+            target=move_to_coordinates,
+            args=(calib_corners_grbl[0][0] + base_x, calib_corners_grbl[0][1] + base_y, calib_z),
+            daemon=True
+        ).start()
 
     def finish_microscope_calib():
         pts_dst = np.float32([
-            [0, 0],
-            [image_width - 1, 0],
-            [image_width - 1, image_height - 1],
-            [0, image_height - 1]
+            [1, 1],
+            [image_width, 1],
+            [image_width, image_height],
+            [1, image_height]
         ])
         pts_grbl_np = np.float32(pts_grbl[:4])
         correction_matrix_grbl = cv2.getPerspectiveTransform(pts_dst, pts_grbl_np)
@@ -539,12 +541,15 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         # Ověření kalibrace mikroskopu
         def verify_microscope_calibration():
             nonlocal calib_step
+            calib_step = "done"
+            core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
+            print("[CALIBRATION] Ověřuji kalibraci mikroskopu...")
             test_coordinates = np.float32([
                 [0, 0],
                 [image_width - 1, 0],
                 [image_width - 1, image_height - 1],
                 [0, image_height - 1],
-                [image_width // 2, image_height // 2]
+                [image_width // 2 - 1, image_height // 2 - 1]
             ])
             for test_point in test_coordinates:
                 transformed_point = cv2.perspectiveTransform(np.array([[[test_point[0], test_point[1]]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
@@ -557,8 +562,6 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 move_to_coordinates(base_x, base_y, calib_z)
                 messagebox.showinfo("Kalibrace", "Kalibrace dokončena.")
                 unregister_calibration_hotkeys()
-                calib_step = "done"
-                core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
             else:
                 start_microscope_calib()
 
