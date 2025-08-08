@@ -8,7 +8,6 @@ from os import waitpid
 import cv2
 import numpy as np
 from ttkbootstrap.dialogs import Messagebox
-
 import config
 import core.camera_manager
 import gui.find_samples

@@ -87,6 +87,33 @@ def show_manual_controller(container, on_back):
     btn("Z+\n↑", lambda: move_z(step()), 0, 3)
     btn("Z-\n↓", lambda: move_z(-step()), 2, 3)
 
+    # Bind pro stisk klávesy
+    def on_key_press(event):
+        key = event.keysym.lower()
+
+        try:
+            if getattr(core.camera_manager, "calibration_active", False):
+                if key == "q" and getattr(core.camera_manager, "_calibration_on_q", None):
+                    core.camera_manager._calibration_on_q()
+                    return "break"  # zastaví bubbling
+        except Exception:
+            pass
+
+        if key == "up":
+            move_y(step())
+        elif key == "down":
+            move_y(-step())
+        elif key == "left":
+            move_x(-step())
+        elif key == "right":
+            move_x(step())
+        elif key == "prior":  # PgUp
+            move_z(step())
+        elif key == "next":   # PgDown
+            move_z(-step())
+
+    container.bind_all("<KeyPress>", on_key_press)
+
     # === TLAČÍTKA ===
 
     def add_action_button(parent, text, command):
@@ -102,7 +129,7 @@ def show_manual_controller(container, on_back):
     # MODRÁ skupina
     add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=find_sample_positions, daemon=True).start())
     add_action_button(control_frame, "🎥 Přepnout kameru", lambda: threading.Thread(target=switch_camera, daemon=True).start())
-    add_action_button(control_frame, "🔧 Kalibrovat", lambda: threading.Thread(target=calibrate_camera, args=(container,image_label), daemon=True).start())
+    add_action_button(control_frame, "🔧 Kalibrovat", lambda: threading.Thread(target=calibrate_camera, args=(container, image_label, move_x, move_y, move_z, step), daemon=True).start())
     add_action_button(control_frame, "🎯 Zaostřit", run_autofocus)
 
     # VPRAVO – kamera

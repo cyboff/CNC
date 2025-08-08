@@ -5934,3 +5934,148 @@
 2025-08-07 15:47:37,287 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 235 - x:-140.31900024414062 y:-164.4980010986328.
 2025-08-07 15:47:51,923 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 235 - x:-140.1699981689453 y:-166.48500061035156.
 2025-08-07 15:48:06,387 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 235 - x:-139.4290008544922 y:-168.33399963378906.
+2025-08-08 09:17:31,071 [INFO] Aplikace spuštěna
+2025-08-08 09:17:31,072 [INFO] Zobrazení domovské obrazovky
+2025-08-08 09:18:02,299 [INFO] Klik: Manuální ovládání
+2025-08-08 09:18:02,307 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:15:35,951 [INFO] Zavírám sériový port CNC
+2025-08-08 10:15:41,967 [INFO] Aplikace spuštěna
+2025-08-08 10:15:41,967 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:15:47,491 [INFO] Zavírám sériový port CNC
+2025-08-08 10:18:50,226 [INFO] Aplikace spuštěna
+2025-08-08 10:18:50,226 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:18:55,434 [INFO] Klik: Manuální ovládání
+2025-08-08 10:18:55,440 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:23:41,195 [INFO] Zavírám sériový port CNC
+2025-08-08 10:26:10,834 [INFO] Aplikace spuštěna
+2025-08-08 10:26:10,834 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:26:14,366 [INFO] Klik: Manuální ovládání
+2025-08-08 10:26:14,373 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:27:23,850 [INFO] Zavírám sériový port CNC
+2025-08-08 10:31:23,962 [INFO] Aplikace spuštěna
+2025-08-08 10:31:23,962 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:31:27,344 [INFO] Klik: Manuální ovládání
+2025-08-08 10:31:27,350 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:32:50,170 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:32:51,737 [INFO] Klik: Manuální ovládání
+2025-08-08 10:32:51,743 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:33:28,460 [INFO] Zavírám sériový port CNC
+2025-08-08 10:33:37,654 [INFO] Aplikace spuštěna
+2025-08-08 10:33:37,655 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:33:40,658 [INFO] Klik: Nastavení
+2025-08-08 10:33:40,664 [INFO] Kliknutí na nastavení
+2025-08-08 10:33:43,062 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:33:44,208 [INFO] Klik: Manuální ovládání
+2025-08-08 10:33:44,214 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:36:17,663 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:36:20,330 [INFO] Zavírám sériový port CNC
+2025-08-08 10:41:32,068 [INFO] Aplikace spuštěna
+2025-08-08 10:41:32,068 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:41:36,211 [INFO] Klik: Manuální ovládání
+2025-08-08 10:41:36,217 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:44:10,508 [INFO] Zavírám sériový port CNC
+2025-08-08 10:47:48,720 [INFO] Aplikace spuštěna
+2025-08-08 10:47:48,721 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:47:53,682 [INFO] Klik: Manuální ovládání
+2025-08-08 10:47:53,688 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:50:03,977 [INFO] Zavírám sériový port CNC
+2025-08-08 10:53:45,723 [INFO] Aplikace spuštěna
+2025-08-08 10:53:45,724 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:53:47,420 [INFO] Klik: Nastavení
+2025-08-08 10:53:47,427 [INFO] Kliknutí na nastavení
+2025-08-08 10:53:51,644 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:53:53,800 [INFO] Klik: Manuální ovládání
+2025-08-08 10:53:53,807 [INFO] Kliknutí na manuální řízení
+2025-08-08 10:55:50,856 [INFO] Zavírám sériový port CNC
+2025-08-08 10:59:19,466 [INFO] Aplikace spuštěna
+2025-08-08 10:59:19,466 [INFO] Zobrazení domovské obrazovky
+2025-08-08 10:59:23,459 [INFO] Klik: Manuální ovládání
+2025-08-08 10:59:23,464 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:04:08,034 [INFO] Aplikace spuštěna
+2025-08-08 11:04:08,035 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:04:11,148 [INFO] Klik: Manuální ovládání
+2025-08-08 11:04:11,155 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:04:43,940 [INFO] Zavírám sériový port CNC
+2025-08-08 11:07:38,269 [INFO] Aplikace spuštěna
+2025-08-08 11:07:38,269 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:07:41,333 [INFO] Klik: Manuální ovládání
+2025-08-08 11:07:41,338 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:12:05,460 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:12:06,306 [INFO] Zavírám sériový port CNC
+2025-08-08 11:13:59,888 [INFO] Aplikace spuštěna
+2025-08-08 11:13:59,889 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:14:04,534 [INFO] Klik: Manuální ovládání
+2025-08-08 11:14:04,542 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:16:17,055 [INFO] Aplikace spuštěna
+2025-08-08 11:16:17,055 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:16:20,627 [INFO] Klik: Manuální ovládání
+2025-08-08 11:16:20,635 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:17:34,301 [INFO] Zavírám sériový port CNC
+2025-08-08 11:33:06,166 [INFO] Aplikace spuštěna
+2025-08-08 11:33:06,166 [INFO] Zobrazení domovské obrazovky
+2025-08-08 11:33:10,457 [INFO] Klik: Manuální ovládání
+2025-08-08 11:33:10,464 [INFO] Kliknutí na manuální řízení
+2025-08-08 11:36:40,236 [INFO] Zavírám sériový port CNC
+2025-08-08 12:37:42,924 [INFO] Aplikace spuštěna
+2025-08-08 12:37:42,924 [INFO] Zobrazení domovské obrazovky
+2025-08-08 12:37:45,763 [INFO] Klik: Manuální ovládání
+2025-08-08 12:37:45,772 [INFO] Kliknutí na manuální řízení
+2025-08-08 12:38:17,379 [INFO] Zobrazení domovské obrazovky
+2025-08-08 12:38:18,286 [INFO] Zavírám sériový port CNC
+2025-08-08 12:39:10,193 [INFO] Aplikace spuštěna
+2025-08-08 12:39:10,193 [INFO] Zobrazení domovské obrazovky
+2025-08-08 12:39:14,246 [INFO] Klik: Manuální ovládání
+2025-08-08 12:39:14,255 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:11:19,366 [INFO] Aplikace spuštěna
+2025-08-08 13:11:19,367 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:11:27,991 [INFO] Klik: Manuální ovládání
+2025-08-08 13:11:27,998 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:18:56,550 [INFO] Aplikace spuštěna
+2025-08-08 13:18:56,551 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:19:01,806 [INFO] Klik: Manuální ovládání
+2025-08-08 13:19:01,813 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:21:39,302 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:21:40,561 [INFO] Klik: Manuální ovládání
+2025-08-08 13:21:40,567 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:21:55,914 [INFO] Zavírám sériový port CNC
+2025-08-08 13:28:57,639 [INFO] Aplikace spuštěna
+2025-08-08 13:28:57,640 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:29:02,633 [INFO] Klik: Manuální ovládání
+2025-08-08 13:29:02,640 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:31:23,406 [INFO] Aplikace spuštěna
+2025-08-08 13:31:23,407 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:31:27,687 [INFO] Klik: Manuální ovládání
+2025-08-08 13:31:27,694 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:32:41,638 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:32:43,160 [INFO] Klik: Manuální ovládání
+2025-08-08 13:32:43,170 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:43:28,479 [INFO] Aplikace spuštěna
+2025-08-08 13:43:28,479 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:43:38,118 [INFO] Klik: Manuální ovládání
+2025-08-08 13:43:38,128 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:50:56,605 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:50:58,674 [INFO] Klik: Manuální ovládání
+2025-08-08 13:50:58,680 [INFO] Kliknutí na manuální řízení
+2025-08-08 13:51:18,609 [INFO] Zavírám sériový port CNC
+2025-08-08 13:56:43,402 [INFO] Aplikace spuštěna
+2025-08-08 13:56:43,403 [INFO] Zobrazení domovské obrazovky
+2025-08-08 13:56:53,913 [INFO] Klik: Manuální ovládání
+2025-08-08 13:56:53,919 [INFO] Kliknutí na manuální řízení
+2025-08-08 14:00:00,431 [INFO] Zobrazení domovské obrazovky
+2025-08-08 14:00:01,567 [INFO] Zavírám sériový port CNC
+2025-08-08 14:16:38,537 [INFO] Aplikace spuštěna
+2025-08-08 14:16:38,537 [INFO] Zobrazení domovské obrazovky
+2025-08-08 14:16:43,450 [INFO] Klik: Manuální ovládání
+2025-08-08 14:16:43,458 [INFO] Kliknutí na manuální řízení
+2025-08-08 14:17:11,395 [INFO] Zavírám sériový port CNC
+2025-08-08 14:42:18,612 [INFO] Aplikace spuštěna
+2025-08-08 14:42:18,612 [INFO] Zobrazení domovské obrazovky
+2025-08-08 14:42:27,831 [INFO] Klik: Nové měření
+2025-08-08 14:42:30,077 [INFO] Zobrazení domovské obrazovky
+2025-08-08 14:42:31,331 [INFO] Klik: Manuální ovládání
+2025-08-08 14:42:31,339 [INFO] Kliknutí na manuální řízení
+2025-08-08 14:50:16,496 [INFO] Aplikace spuštěna
+2025-08-08 14:50:16,497 [INFO] Zobrazení domovské obrazovky
+2025-08-08 14:50:18,478 [INFO] Klik: Manuální ovládání
+2025-08-08 14:50:18,485 [INFO] Kliknutí na manuální řízení
+2025-08-08 14:54:35,129 [INFO] Zavírám sériový port CNC
