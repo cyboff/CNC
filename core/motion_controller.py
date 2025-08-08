@@ -121,6 +121,7 @@ def grbl_clear_alarm():
     Odblokuje ALARM stav ($X)
     """
     send_gcode("$X")
+    time.sleep(0.5)
 
 def grbl_abort():
     """
