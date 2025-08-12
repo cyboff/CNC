@@ -38,8 +38,8 @@ def init_cameras():
     camera.GainRaw.Value = 0
     camera.ReverseX.Value = True
     camera.ReverseY.Value = True
-    camera.Width.SetValue(min(camera.Width.GetMax(), config.image_width))
-    camera.Height.SetValue(min(camera.Height.GetMax(), config.image_height))
+    camera.Width.SetValue(min(camera.Width.GetMax(), 1500))
+    camera.Height.SetValue(min(camera.Height.GetMax(), 1500))
     try:
         camera.CenterX.SetValue(True)
         camera.CenterY.SetValue(True)

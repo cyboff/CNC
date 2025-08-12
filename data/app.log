@@ -6265,3 +6265,83 @@
 2025-08-12 11:13:27,947 [INFO] Aplikace spuštěna
 2025-08-12 11:13:27,947 [INFO] Zobrazení domovské obrazovky
 2025-08-12 11:13:29,714 [INFO] Zavírám sériový port CNC
+2025-08-12 11:31:53,615 [INFO] Aplikace spuštěna
+2025-08-12 11:31:53,616 [INFO] Zobrazení domovské obrazovky
+2025-08-12 11:33:03,512 [INFO] Klik: Manuální ovládání
+2025-08-12 11:33:03,519 [INFO] Kliknutí na manuální řízení
+2025-08-12 11:36:34,533 [INFO] Zobrazení domovské obrazovky
+2025-08-12 11:36:35,791 [INFO] Klik: Manuální ovládání
+2025-08-12 11:36:35,798 [INFO] Kliknutí na manuální řízení
+2025-08-12 11:41:41,466 [INFO] Zobrazení domovské obrazovky
+2025-08-12 11:41:44,392 [INFO] Klik: Manuální ovládání
+2025-08-12 11:41:44,399 [INFO] Kliknutí na manuální řízení
+2025-08-12 11:46:17,042 [INFO] Zobrazení domovské obrazovky
+2025-08-12 11:46:20,032 [INFO] Klik: Manuální ovládání
+2025-08-12 11:46:20,040 [INFO] Kliknutí na manuální řízení
+2025-08-12 11:50:36,226 [INFO] Zobrazení domovské obrazovky
+2025-08-12 11:50:37,362 [INFO] Klik: Nové měření
+2025-08-12 11:50:40,232 [INFO] Vytvořena složka projektu: projects\2025_08_12_11_50_40_31_32
+2025-08-12 11:50:41,938 [INFO] Načten EAN kód: 3
+2025-08-12 11:50:45,592 [INFO] [SCAN] Spouštím proces FIND pro projekt 31
+2025-08-12 11:50:50,196 [INFO] [DB] Uložen vzorek 3 na pozici A1.
+2025-08-12 11:50:50,202 [INFO] [DB] Uložen drát 1 vzorku 75 - x:715 y:593 r:452.
+2025-08-12 11:51:55,205 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 31
+2025-08-12 11:51:56,704 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 3 s 1 detekovanými dráty.
+2025-08-12 11:52:27,228 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 251 - x:-127.7969970703125 y:-158.88499450683594.
+2025-08-12 11:52:43,404 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 251 - x:-127.96900177001953 y:-156.89500427246094.
+2025-08-12 11:53:00,105 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 251 - x:-128.4810028076172 y:-154.96499633789062.
+2025-08-12 11:53:17,509 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 251 - x:-129.31700134277344 y:-153.1510009765625.
+2025-08-12 11:53:35,068 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 251 - x:-130.4530029296875 y:-151.5070037841797.
+2025-08-12 11:53:52,365 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 251 - x:-131.85499572753906 y:-150.08399963378906.
+2025-08-12 11:54:09,129 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 251 - x:-133.47999572753906 y:-148.92300415039062.
+2025-08-12 11:54:26,098 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 251 - x:-135.281005859375 y:-148.05799865722656.
+2025-08-12 11:54:42,662 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 251 - x:-137.2030029296875 y:-147.51600646972656.
+2025-08-12 11:54:59,205 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 251 - x:-139.19000244140625 y:-147.31300354003906.
+2025-08-12 11:55:16,274 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 251 - x:-141.18299865722656 y:-147.4550018310547.
+2025-08-12 11:55:33,337 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 251 - x:-143.12100219726562 y:-147.93699645996094.
+2025-08-12 11:55:51,319 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 251 - x:-144.947998046875 y:-148.7449951171875.
+2025-08-12 11:56:08,728 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 251 - x:-146.60899353027344 y:-149.85499572753906.
+2025-08-12 11:56:25,542 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 251 - x:-148.0540008544922 y:-151.23399353027344.
+2025-08-12 11:56:42,589 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 251 - x:-149.24000549316406 y:-152.84100341796875.
+2025-08-12 11:56:58,245 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 251 - x:-150.1320037841797 y:-154.6280059814453.
+2025-08-12 11:57:14,754 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 251 - x:-150.70399475097656 y:-156.54200744628906.
+2025-08-12 11:57:33,241 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 251 - x:-150.93800354003906 y:-158.5260009765625.
+2025-08-12 11:57:48,934 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 251 - x:-150.8280029296875 y:-160.52000427246094.
+2025-08-12 11:58:06,546 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 251 - x:-150.37600708007812 y:-162.46600341796875.
+2025-08-12 11:58:23,712 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 251 - x:-149.5959930419922 y:-164.30499267578125.
+2025-08-12 11:58:40,208 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 251 - x:-148.51199340820312 y:-165.98300170898438.
+2025-08-12 11:58:56,564 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 251 - x:-147.156005859375 y:-167.44900512695312.
+2025-08-12 11:59:12,973 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 251 - x:-145.56700134277344 y:-168.66000366210938.
+2025-08-12 11:59:29,430 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 251 - x:-143.79400634765625 y:-169.5800018310547.
+2025-08-12 11:59:45,860 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 251 - x:-141.88900756835938 y:-170.1820068359375.
+2025-08-12 12:00:02,326 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 251 - x:-139.91000366210938 y:-170.44700622558594.
+2025-08-12 12:00:18,798 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 251 - x:-137.91400146484375 y:-170.36700439453125.
+2025-08-12 12:00:36,707 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 251 - x:-135.96099853515625 y:-169.9459991455078.
+2025-08-12 12:00:53,898 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 251 - x:-134.11000061035156 y:-169.19500732421875.
+2025-08-12 12:01:10,463 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 251 - x:-132.41600036621094 y:-168.13699340820312.
+2025-08-12 12:01:26,879 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 251 - x:-130.9290008544922 y:-166.80299377441406.
+2025-08-12 12:01:43,781 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 251 - x:-129.6929931640625 y:-165.23399353027344.
+2025-08-12 12:02:00,685 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 251 - x:-128.74600219726562 y:-163.47500610351562.
+2025-08-12 12:02:17,725 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 251 - x:-128.11500549316406 y:-161.5800018310547.
+2025-08-12 12:38:32,503 [INFO] Aplikace spuštěna
+2025-08-12 12:38:32,503 [INFO] Zobrazení domovské obrazovky
+2025-08-12 12:38:58,894 [INFO] Klik: Manuální ovládání
+2025-08-12 12:38:58,901 [INFO] Kliknutí na manuální řízení
+2025-08-12 12:39:46,211 [INFO] Zobrazení domovské obrazovky
+2025-08-12 12:39:48,817 [INFO] Klik: Manuální ovládání
+2025-08-12 12:39:48,824 [INFO] Kliknutí na manuální řízení
+2025-08-12 12:51:10,538 [INFO] Zavírám sériový port CNC
+2025-08-12 13:43:01,651 [INFO] Aplikace spuštěna
+2025-08-12 13:43:01,652 [INFO] Zobrazení domovské obrazovky
+2025-08-12 13:43:03,936 [INFO] Klik: Nastavení
+2025-08-12 13:43:03,944 [INFO] Kliknutí na nastavení
+2025-08-12 13:43:17,114 [INFO] Zobrazení domovské obrazovky
+2025-08-12 13:43:20,747 [INFO] Klik: Manuální ovládání
+2025-08-12 13:43:20,758 [INFO] Kliknutí na manuální řízení
+2025-08-12 13:49:07,472 [INFO] Zobrazení domovské obrazovky
+2025-08-12 13:49:09,939 [INFO] Klik: Manuální ovládání
+2025-08-12 13:49:09,948 [INFO] Kliknutí na manuální řízení
+2025-08-12 13:54:23,563 [INFO] Zobrazení domovské obrazovky
+2025-08-12 13:54:26,481 [INFO] Klik: Manuální ovládání
+2025-08-12 13:54:26,489 [INFO] Kliknutí na manuální řízení
+2025-08-12 14:01:36,536 [INFO] Zavírám sériový port CNC
