@@ -441,9 +441,13 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
 
             current_corner_index += 1
             if current_corner_index < len(calib_corners_grbl):
-                move_to_coordinates(calib_corners_grbl[current_corner_index][0] + base_x,
-                                    calib_corners_grbl[current_corner_index][1] + base_y,
-                                    calib_z)
+                threading.Thread(
+                    target=move_to_coordinates,
+                    args=(calib_corners_grbl[current_corner_index][0] + base_x,
+                          calib_corners_grbl[current_corner_index][1] + base_y,
+                          calib_z),
+                    daemon=True
+                ).start()
             else:
                 finish_microscope_calib()
 
