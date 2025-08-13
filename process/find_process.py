@@ -176,8 +176,9 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
     Převádí detekované kruhy na GRBL příkazy pro pohyb.
     """
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
-    precision = 2.0 # Přesnost pohybu v mm
-    # precision = 0.5  # Přesnost pohybu v mm
+    precision = 5.0 # Přesnost pohybu v mm
+    # precision = 0.5  # Přesnost pohybu x-y v mm
+    z_step = 0.5  # Posun osy z v mm pro fokusy
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
     (pos, mpos_x, mpos_y, mpos_z) = sample_position
     logger.info(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {position} vzorku {ean_code} s {len(items)} detekovanými dráty.")
@@ -197,37 +198,57 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             angle = (step / (2 * np.pi * abs_r / precision)) * 2 * np.pi
             px = round(abs_x + abs_r * np.cos(angle), 3)
             py = round(abs_y + abs_r * np.sin(angle), 3)
-            core.motion_controller.move_to_position(px, py, abs_z-1.0) # Posuneme mikroskop o 1 mm pod vzorek
-            time.sleep(0.5)
-            print(f"[FIND] Získávám snímek {step} z mikroskopu...")
-            # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
             max_sharpness = 0
-            sharpest_img = None
-            # Posunujeme mikroskop o 1 mm nad vzorek
-            core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+1} M3 S750 F5")
-            time.sleep(0.75) # Počkáme, aby se obnovila odpověď z GRBL
-            while core.motion_controller.grbl_status != "Idle":
-                img = core.camera_manager.get_image()
-                if img is not None:
-                    # Aplikujeme korekční matici pro perspektivní transformaci
-                    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
-                    (h,w) = img.shape[:2]
-                    # Vypočítáme ostrost obrázku pomocí Tenengrad metody
-                    sharpness = tenengrad_sharpness(img)
-                    print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
-                    if sharpness > max_sharpness:
-                        max_sharpness = sharpness
-                        sharpest_img = img.copy()  # Uložíme nejostřejší obrázek
-                    if sharpness < max_sharpness * 0.6:  # Pokud ostrost klesne pod 60% max ostrosti, ukončíme snímání
-                        print(f"[MICROSCOPE] Ostrost klesla pod 80% max ostrosti ({sharpness:.3f} < {max_sharpness * 0.8:.3f}), ukončuji snímání.")
-                        # TODO: Je to potřeba pořádně ověřit, zda přerušení funguje správně
-                        grbl_abort()
-                        grbl_clear_alarm()
-                else:
-                    print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
-            if max_sharpness > 0 and sharpest_img is not None:
-                print(f"[MICROSCOPE] Nejostřejší obrázek pro krok {step}: {max_sharpness:.3f}")
-                # Uložíme nejostřejší obrázek do projektu
+            max_errors = 3
+            errors = 0
+            attempt = 1
+            while errors > max_errors or max_sharpness < 500:
+                # Pokud se snímek získá bez chyby, nebudeme opakovat
+                core.motion_controller.move_to_position(px, py, abs_z-z_step) # Posuneme mikroskop o z-step pod vzorek
+                time.sleep(0.5)
+                print(f"[FIND] Získávám snímek {step} z mikroskopu... (pokus {attempt})")
+                # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
+                max_sharpness = 0
+                errors = 0
+                sharpest_img = None
+                # Posunujeme mikroskop o z_step nad vzorek
+                core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+z_step} M3 S750 F5")
+                time.sleep(0.75) # Počkáme, aby se obnovila odpověď z GRBL
+                timeout = time.time() + 120  # Nastavíme timeout na 120 sekund
+                while core.motion_controller.grbl_status != "Idle":
+                    if time.time() > timeout:  # Pokud GRBL neodpovídá déle než 120 sekund, přerušíme
+                        print("[MICROSCOPE] GRBL neodpovídá, přerušuji snímání.")
+                        break
+
+                    img = core.camera_manager.get_image()
+                    if img is not None:
+                        # Aplikujeme korekční matici pro perspektivní transformaci
+                        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Převod na RGB pro PIL
+                        (h,w) = img.shape[:2]
+                        # Vypočítáme ostrost obrázku pomocí Tenengrad metody
+                        sharpness = tenengrad_sharpness(img)
+                        print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
+                        if sharpness > max_sharpness:
+                            max_sharpness = sharpness
+                            sharpest_img = img.copy()  # Uložíme nejostřejší obrázek
+                    else:
+                        print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
+                        errors += 1
+                        if errors > max_errors:
+                            break  # Pokud se vyskytnou chyby v získávání snímků (lagy v přenosu apod.), ukončíme snímání a opakujeme
+
+                    if sharpness < max_sharpness * 0.75 and sharpest_img is not None:  # Pokud ostrost klesne pod 75% max ostrosti, ukončíme snímání a šetříme procesor
+                        print(f"[MICROSCOPE] Ostrost klesla pod 75% max. ostrosti ({sharpness:.3f} < {max_sharpness * 0.75:.3f}), ukončuji snímání.")
+                        break
+                # Pokud nebyla žádná chyba, neopakuj cyklus, i když max_sharpness < 500 (například při špatně detekovaném okraji)
+                if errors == 0:
+                    break
+                attempt += 1
+                if attempt > 5: # Pokud se pokusíme více než 5x, ukončíme snímání
+                    print("[MICROSCOPE] Příliš mnoho pokusů, ukončuji snímání.")
+                    break
+
+            if sharpest_img is not None:
                 image_path = save_image_to_project(project_id, sharpest_img, f"microscope_{ean_code}_{pos_index}_{step}.jpg")
                 # Uložíme snímek do databáze
                 core.database.save_sample_item_positions_to_db(id, step, px, py, image_path)
@@ -240,4 +261,5 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     image_label.config(image=imgtk)
                 else:
                     print("[MICROSCOPE] Náhled již neexistuje, nemohu zobrazit obrázek.")
+
     container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))
