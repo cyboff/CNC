@@ -2,6 +2,7 @@ import ttkbootstrap as ttk
 from ttkbootstrap.dialogs import Messagebox
 import tkinter as tk
 
+import config
 from core.logger import logger
 from core.utils import create_header, create_footer, create_back_button
 from gui.find_samples import show_find_samples
@@ -36,8 +37,8 @@ def sample_scanner(container, project_id, on_back):
             Messagebox.show_info("Kód už byl načten.")
             logger.warning(f"EAN kód {code} byl již načten")
             entry.delete(0, "end")
-        if len(samples) > 3:
-            Messagebox.show_info("Načteny všechny 4 vzorky. Pokračujte na měření.")
+        if len(samples) > len(config.sample_positions_mm) -1:
+            Messagebox.show_info(f"Načteno všech {len(config.sample_positions_mm)} vzorků. Pokračujte na měření.")
             # start_find_samples(container, project_id, samples)
 
     entry.bind("<Return>", on_scan)

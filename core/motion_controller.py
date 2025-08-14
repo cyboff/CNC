@@ -36,8 +36,8 @@ def init_grbl():
             grbl_last_position, grbl_status = grbl_update_position()
             # print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
-            print("Failed to update position")
-        position_timer = threading.Timer(0.5, update_position) #update pozice každých 0.5s, častěji nestíhá GRBL odpovídat
+            print("Chyba při aktualizaci pozice GRBL")
+        position_timer = threading.Timer(0.5, update_position) #update pozice každých 0.5s, častěji nestíhá Arduino GRBL odpovídat
         position_timer.daemon = True
         position_timer.start()
 
@@ -47,13 +47,13 @@ def init_grbl():
 
         if grbl_last_position != "0.000,0.000,0.000":
             x, y, z = [float(val) for val in grbl_last_position.split(",")]
-            print(f"Machine Position (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
+            print(f"[GRBL] Stav:{grbl_status} , Pozice (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
         else:
-            print("MPos not found – trying to home the machine")
+            print("MPos nenalezena, provedu Homing a nastavím na výchozí hodnoty")
             grbl_clear_alarm()
             grbl_home()
     except:
-        print("Failed to initialize GRBL")
+        print("Chyba inicializace GRBL")
 
 def send_gcode(command: str):
     """
@@ -100,9 +100,9 @@ def grbl_home():
     global cnc_serial, grbl_last_position, grbl_status, position_lock
     try:
         send_gcode("$H")
-        print("🏠 GRBL Home sent")
+        print("🏠 GRBL Home odesláno")
     except Exception as e:
-        print("⚠️  Error sending Home:", e)
+        print("⚠️  Chyba zasílání Home:", e)
         return
 
     # Počkej na konec homing sekvence
@@ -201,8 +201,8 @@ def grbl_wait_for_idle():
     Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
     # print("[GRBL] Waiting for Idle:", grbl_status)
-    time.sleep(0.5)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.5s, aby se stihl aktualizovat
+    time.sleep(0.6)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.6s, aby se stihl aktualizovat
     while True:
         if grbl_status == "Idle":
             break
-        time.sleep(0.5)
+        time.sleep(0.6)

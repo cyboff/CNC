@@ -336,7 +336,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     last_centers = [None, None, None, None]  # TL, TR, BR, BL
     auto_ok = False                           # máme 4 stabilní rohy?
 
-
+    base_x, base_y, base_z = 0, 0, 0
     # Parametry
     image_width = config.image_width
     image_height = config.image_height
@@ -349,7 +349,8 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
         switch_camera()
 
-    # Najedeme na startovní pozici
+    # TODO: Najedeme na startovní pozici (momentálně je jiná výška Z pro kalibrační terč než pro vzorky, proto použijeme calib_z)
+    # výchozí pozice pro Z by se měla odvíjet od zafokusování mikroskopu
     move_to_coordinates(base_x, base_y, calib_z)
 
     def get_frame_with_overlays():
@@ -424,16 +425,17 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         image_label.after(100, refresh_image)
 
     def on_q():
-        nonlocal calib_step, current_corner_index, pts_grbl, pts_src
+        nonlocal calib_step, current_corner_index, pts_grbl, pts_src, base_x, base_y, base_z
         # potvrzení auto detekce rohů hlavní kamery
         if calib_step == "main_camera":
             if len(pts_src) == 4:
+                # Získáme aktuální pozici GRBL
+                base_x, base_y, base_z = [float(val) for val in core.motion_controller.grbl_last_position.split(",")]
                 finish_main_camera_calib()
             else:
                 print("[CALIBRATION] Ještě nemám 4 stabilní body.")
             return
 
-        # původní část pro mikroskop nech beze změny:
         if calib_step == "microscope":
             pos_x, pos_y, pos_z = [float(val) for val in core.motion_controller.grbl_last_position.split(",")]
             pts_grbl.append([pos_x - base_x, pos_y - base_y])
@@ -557,5 +559,175 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
 
     # Start náhledu
     refresh_image()
+
+# --- Autofokus mikroskopu (Tenengrad) ----------------------------------------
+# Měření ostrosti obrázku Laplacianem není spolehlivé, Tenengrad metoda je mnohem lepší
+def tenengrad_sharpness(gray: np.ndarray) -> float:
+    """
+    Tenengrad (Sobel) míra ostrosti: průměr z (Gx^2 + Gy^2).
+    Očekává grayscale (8bit).
+    """
+    if gray.ndim == 3:
+        gray = cv2.cvtColor(gray, cv2.COLOR_BGR2GRAY)
+    gx = cv2.Sobel(gray, cv2.CV_32F, 1, 0, ksize=3)
+    gy = cv2.Sobel(gray, cv2.CV_32F, 0, 1, ksize=3)
+    fm = gx * gx + gy * gy
+    return float(np.mean(fm))
+
+def _grab_focus_frame():
+    """
+    Bezpečné sejmutí snímku z aktuální kamery (preferujeme mikroskop),
+    s malým zpožděním na uklidnění po pohybu osy Z.
+    """
+    # počkej chvilku na uklidnění vibrací a expozici
+    time.sleep(0.08)
+    img = get_image()
+    # fallback, zkus ještě jednou
+    if img is None:
+        time.sleep(0.05)
+        img = get_image()
+    return img
+
+def _ensure_microscope():
+    """
+    Přepni na mikroskop, pokud ještě není aktivní.
+    """
+    global actual_camera, microscope, camera
+    if microscope is None:
+        raise RuntimeError("Mikroskopická kamera není k dispozici.")
+    if actual_camera is None or actual_camera is camera:
+        switch_camera()
+
+def autofocus_z(
+    search_heights_mm=getattr(config, "autofocus_steps", (0.05, 0.01, 0.002)),
+    settle_s=0.08,
+    max_steps_per_level=120,
+    overshoot_backtrack=2,
+    verbose=True,
+):
+    """
+    Vícestupňový hill-climb autofokus v ose Z pomocí Tenengrad ostrosti.
+
+    Algoritmus:
+      1) Na aktuální Z změříme ostrost.
+      2) Zkusíme +krok. Pokud se zlepší, pokračujeme stejným směrem.
+         Pokud ne, zkusíme opačný směr (–krok).
+      3) Pokud přijdou 3 po sobě jdoucí kroky s horší ostrostí,
+         vrátíme se na nejlepší Z aktuální úrovně (o N*step zpět)
+         a pokračujeme jemnějším krokem.
+      4) Po dojetí všech úrovní se nastaví nejlepší nalezené Z.
+
+    Návratová hodnota: (best_z, best_score)
+    """
+    _ensure_microscope()
+
+    # Přečti aktuální pozici stroje
+    try:
+        pos_x, pos_y, pos_z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
+    except Exception:
+        # Pokud není k dispozici, zkus získat přímo snímek a pokračuj
+        img0 = _grab_focus_frame()
+        if img0 is None:
+            raise RuntimeError("Nelze získat snímek pro autofokus.")
+        # Bez znalosti Z nemůžeme jezdit -> chyba
+        raise RuntimeError("Nelze načíst aktuální GRBL pozici (grbl_last_position).")
+
+    # Pomocná funkce pro přesun na Z
+    def goto_z(z_target):
+        move_to_coordinates(pos_x, pos_y, z_target)
+        # čas na uklidnění
+        time.sleep(settle_s)
+
+    # Změř startovní ostrost
+    img = _grab_focus_frame()
+    if img is None:
+        raise RuntimeError("Kamera nevrací snímky (autofokus).")
+    best_score = tenengrad_sharpness(img)
+    best_z = pos_z
+    if verbose:
+        print(f"[AF] Start Z={best_z:.6f} mm, score={best_score:.2f}")
+
+    current_z = pos_z
+
+    for level, step in enumerate(search_heights_mm, start=1):
+        if verbose:
+            print(f"[AF] Level {level}: step={step} mm")
+
+        # Nejprve detekuj výhodnější směr (nahoru vs. dolů)
+        trial_scores = []
+        # Zkus +step
+        goto_z(current_z + step)
+        img_p = _grab_focus_frame()
+        s_plus = tenengrad_sharpness(img_p) if img_p is not None else -np.inf
+        # Zpět
+        goto_z(current_z)
+
+        # Zkus -step
+        goto_z(current_z - step)
+        img_m = _grab_focus_frame()
+        s_minus = tenengrad_sharpness(img_m) if img_m is not None else -np.inf
+        # Vrať se na výchozí
+        goto_z(current_z)
+
+        if s_plus >= s_minus:
+            direction = +1
+            if verbose:
+                print(f"[AF]  Preferuji směr + (s+={s_plus:.2f} >= s-={s_minus:.2f})")
+        else:
+            direction = -1
+            if verbose:
+                print(f"[AF]  Preferuji směr - (s-={s_minus:.2f} > s+={s_plus:.2f})")
+
+        worse_in_row = 0
+        steps_done = 0
+        local_best_z = best_z
+        local_best_score = best_score
+
+        while steps_done < max_steps_per_level:
+            # Udělej krok ve zvoleném směru
+            current_z = current_z + direction * step
+            goto_z(current_z)
+            img = _grab_focus_frame()
+            if img is None:
+                if verbose:
+                    print("[AF]  Varování: žádný snímek, krok přeskočen.")
+                continue
+            score = tenengrad_sharpness(img)
+            steps_done += 1
+
+            if verbose:
+                print(f"[AF]   Z={current_z:.6f} mm -> score={score:.2f}")
+
+            if score > local_best_score:
+                local_best_score = score
+                local_best_z = current_z
+                worse_in_row = 0
+                # průběžně aktualizuj i globální best
+                if score > best_score:
+                    best_score = score
+                    best_z = current_z
+            else:
+                worse_in_row += 1
+
+            # 3× po sobě horší? vrať se a jdi na jemnější krok
+            if worse_in_row >= overshoot_backtrack:
+                if verbose:
+                    print(f"[AF]   {overshoot_backtrack}× horší v řadě -> návrat na nejlepší a jemnější krok.")
+                # návrat na doposud nejlepší v úrovni
+                goto_z(local_best_z)
+                current_z = local_best_z
+                break  # přejdeme na další (jemnější) level
+
+        # Po ukončení levelu se drž lokálního maxima
+        goto_z(local_best_z)
+        current_z = local_best_z
+        if verbose:
+            print(f"[AF] Level {level} best: Z={local_best_z:.6f} mm, score={local_best_score:.2f}")
+
+    # Na konci nastav globální nejlepší
+    goto_z(best_z)
+    if verbose:
+        print(f"[AF] DONE -> Z={best_z:.6f} mm, score={best_score:.2f}")
+    return best_z, best_score
 
 

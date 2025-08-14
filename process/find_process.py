@@ -17,15 +17,7 @@ from core.database import save_project_sample_to_db, save_sample_items_to_db
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
-
-
-# Měření ostrosti obrázku Laplacianem není spolehlivé, Tenengrad metoda je mnohem lepší
-def tenengrad_sharpness(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    gx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
-    gy = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
-    fm = gx ** 2 + gy ** 2
-    return np.mean(fm)
+from core.camera_manager import tenengrad_sharpness, autofocus_z
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
@@ -41,7 +33,7 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
             move_to_coordinates(x, y, z)
             print("[FIND] Snímám fotku hlavní kamerou...")
             core.camera_manager.preview_running = False # Zastavíme živý náhled, abychom mohli získat snímek
-            time.sleep(0.5)  # Počkáme, aby se proces náhledu zastavil
+            time.sleep(1.0)  # Počkáme, aby se proces náhledu zastavil
 
             img = core.camera_manager.get_image()
             if img is not None:
@@ -72,9 +64,7 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
 
             if not items:
                 print(f"[FIND] Žádné dráty nebyly detekovány na pozici {pos} vzorku {code}.")
-                image_label.after(0, lambda: Messagebox.show_warning(
-                    "Žádné dráty nebyly detekovány",
-                    f"Na pozici {pos} vzorku {code} nebyly detekovány žádné dráty. Zkontrolujte, zda je vzorek správně umístěn."
+                image_label.after(0, lambda: Messagebox.show_warning(f"Na pozici {pos} vzorku {code} nebyly detekovány žádné dráty. Zkontrolujte, zda je vzorek správně umístěn."
                 ))
             else:
                 print(f"[FIND] Detekováno {len(items)} drátů na pozici {pos} vzorku {code}.")
@@ -176,11 +166,12 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
     Převádí detekované kruhy na GRBL příkazy pro pohyb.
     """
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
-    precision = 5.0 # Přesnost pohybu v mm
-    # precision = 0.5  # Přesnost pohybu x-y v mm
+    precision = 5.0 # Přesnost pohybu v mm - hrubý krok pro ověřování funkce
+    # precision = 0.5  # Přesnost pohybu x-y v mm - krok vhodný do produkce
     z_step = 0.5  # Posun osy z v mm pro fokusy
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
     (pos, mpos_x, mpos_y, mpos_z) = sample_position
+    abs_z = mpos_z
     logger.info(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {position} vzorku {ean_code} s {len(items)} detekovanými dráty.")
     print(f"[MICROSCOPE] Získávám mikroskopické obrázky pro pozici {sample_position} s {len(items)} detekovanými dráty.")
     for (id, pos_index, x_center, y_center, radius) in items:
@@ -188,12 +179,21 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
         grbl_radius = cv2.perspectiveTransform(np.array([[[x_center+radius, y_center]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
         abs_x = grbl_center[0] + mpos_x
         abs_y = grbl_center[1] + mpos_y
-        abs_z = mpos_z
         abs_r = grbl_radius[0] - grbl_center[0]  # Vypočítáme absolutní poloměr kruhu
-        # Přesuneme mikroskop nad střed drátu (jen pro ladění)
-        # core.motion_controller.move_to_position(abs_x, abs_y, abs_z)
-        # core.camera_manager.preview_running = False  # Zastavíme živý náhled, abychom mohli získat snímek
-        # time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
+
+        if pos_index == 1:
+            # Pokud je to první kruh, autofocusujeme na střed drátu (stačí jen jednou, odchylky na vzorku jsou běžně do 0.05mm)
+            core.camera_manager.start_camera_preview(image_label, update_position_callback=None)  # Spustíme živý náhled kamery
+            core.motion_controller.move_to_position(abs_x, abs_y, abs_z)
+            best_z, _ = autofocus_z()  # Automatické zaostření na středu drátu
+            if best_z is not None:
+                abs_z = best_z
+                z_step = 0.25  # Zmenšíme na jemnější krok po zaostření
+                print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
+            core.camera_manager.preview_running = False  # Zastavíme živý náhled, abychom mohli získat snímek
+            time.sleep(0.25)  # Počkáme, aby se proces náhledu zastavil
+
+        # TODO: pro robustnost možná bude třeba přidat ještě kroky i s abs_r-0.25 a abs_r+0.25 kvůli odchylkám v detekci kruhu
         for step in range(0, int(2 * np.pi * abs_r / precision)):
             angle = (step / (2 * np.pi * abs_r / precision)) * 2 * np.pi
             px = round(abs_x + abs_r * np.cos(angle), 3)
@@ -204,8 +204,10 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             attempt = 1
             while errors > max_errors or max_sharpness < 500:
                 # Pokud se snímek získá bez chyby, nebudeme opakovat
-                core.motion_controller.move_to_position(px, py, abs_z-z_step) # Posuneme mikroskop o z-step pod vzorek
-                time.sleep(0.5)
+
+                # Posuneme mikroskop na pozici o z_step pod vzorek a pak pomalu posouváme o z_step nad vzorek a průběžně snímáme kamerou - je to rychlejší než autofokus
+                core.motion_controller.move_to_position(px, py, abs_z-z_step)
+                time.sleep(0.25)
                 print(f"[FIND] Získávám snímek {step} z mikroskopu... (pokus {attempt})")
                 # Pomalu posunujeme mikroskop na výšku o 0,5 mm nad vzorek a získáváme obrázky
                 max_sharpness = 0
@@ -213,8 +215,8 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 sharpest_img = None
                 # Posunujeme mikroskop o z_step nad vzorek
                 core.motion_controller.send_gcode(f"G90 G1 Z{abs_z+z_step} M3 S750 F5")
-                time.sleep(0.75) # Počkáme, aby se obnovila odpověď z GRBL
-                timeout = time.time() + 120  # Nastavíme timeout na 120 sekund
+                time.sleep(0.6) # Počkáme, aby se obnovila odpověď z GRBL
+                timeout = time.time() + 120  # Nastavíme timeout na provedení na 120 sekund
                 while core.motion_controller.grbl_status != "Idle":
                     if time.time() > timeout:  # Pokud GRBL neodpovídá déle než 120 sekund, přerušíme
                         print("[MICROSCOPE] GRBL neodpovídá, přerušuji snímání.")
@@ -241,7 +243,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         print(f"[MICROSCOPE] Ostrost klesla pod 75% max. ostrosti ({sharpness:.3f} < {max_sharpness * 0.75:.3f}), ukončuji snímání.")
                         break
                 # Pokud nebyla žádná chyba, neopakuj cyklus, i když max_sharpness < 500 (například při špatně detekovaném okraji)
-                if errors == 0:
+                if errors == 0 and attempt > 2:
                     break
                 attempt += 1
                 if attempt > 5: # Pokud se pokusíme více než 5x, ukončíme snímání
@@ -263,3 +265,4 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     print("[MICROSCOPE] Náhled již neexistuje, nemohu zobrazit obrázek.")
 
     container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))
+    print(f"[MICROSCOPE] Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány.")

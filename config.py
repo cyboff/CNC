@@ -1,4 +1,4 @@
-from core.settings import get_setting
+from core.settings import get_setting, set_setting
 import json
 import numpy as np
 
@@ -44,19 +44,14 @@ correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
 correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
 
 # Autofocus kroky (od hrubého po jemný)
-autofocus_steps = get_setting("autofocus_steps")
+autofocus_steps = json.loads(get_setting("autofocus_steps"))
 
 # Výchozí pozice osy Z (např. výška mikroskopu)
 default_Z_position = float(get_setting("default_Z_position"))
 last_Z_position = default_Z_position  # lze měnit runtime
 
 # Předdefinované pozice vzorků (center point)
-sample_positions_mm = [
-    ("A1", -197.0, -210.0, default_Z_position),
-    ("A2", -153.0, -210.0, default_Z_position),
-    ("B1", -197.0, -165.0, default_Z_position),
-    ("B2", -153.0, -165.0, default_Z_position),
-]
+sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 
 # Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
 calib_z = -56.900
