@@ -56,3 +56,7 @@ sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 # Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
 calib_z = -56.800
 calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
+
+anti_backlash_axes = "XYZ"
+anti_backlash_mm = 0.02
+anti_backlash_final_dir = {'X': +1, 'Y': +1, 'Z': +1}

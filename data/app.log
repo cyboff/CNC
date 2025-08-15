@@ -7991,3 +7991,32 @@
 2025-08-15 14:09:38,723 [INFO] Zobrazení domovské obrazovky
 2025-08-15 14:09:41,194 [INFO] Klik: Manuální ovládání
 2025-08-15 14:09:41,200 [INFO] Kliknutí na manuální řízení
+2025-08-15 14:33:19,801 [INFO] Zavírám sériový port CNC
+2025-08-15 14:36:53,995 [INFO] Aplikace spuštěna
+2025-08-15 14:36:53,995 [INFO] Zobrazení domovské obrazovky
+2025-08-15 14:36:56,476 [INFO] Klik: Manuální ovládání
+2025-08-15 14:36:56,483 [INFO] Kliknutí na manuální řízení
+2025-08-15 14:46:12,983 [INFO] Zobrazení domovské obrazovky
+2025-08-15 14:46:14,367 [INFO] Klik: Nové měření
+2025-08-15 14:46:31,348 [INFO] Vytvořena složka projektu: projects\2025_08_15_14_46_31_57_1123
+2025-08-15 14:46:43,432 [INFO] Načten EAN kód: 32
+2025-08-15 14:46:48,399 [INFO] [SCAN] Spouštím proces FIND pro projekt 57
+2025-08-15 14:46:53,117 [INFO] [DB] Uložen vzorek 32 na pozici A1.
+2025-08-15 14:46:53,123 [INFO] [DB] Uložen drát 1 vzorku 133 - x:638 y:637 r:452.
+2025-08-15 14:47:00,590 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 57
+2025-08-15 14:47:02,345 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 32 s 1 detekovanými dráty.
+2025-08-15 14:48:25,000 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 445 - x:-129.80099487304688 y:-157.3040008544922.
+2025-08-15 14:48:39,963 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 445 - x:-130.8699951171875 y:-152.4600067138672.
+2025-08-15 14:48:55,604 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 445 - x:-133.87899780273438 y:-148.51600646972656.
+2025-08-15 14:49:11,257 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 445 - x:-138.26800537109375 y:-146.20399475097656.
+2025-08-15 14:49:24,874 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 445 - x:-143.22300720214844 y:-145.95399475097656.
+2025-08-15 14:49:40,070 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 445 - x:-147.82200622558594 y:-147.81300354003906.
+2025-08-15 14:49:55,816 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 445 - x:-151.21200561523438 y:-151.4340057373047.
+2025-08-15 14:50:10,884 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 445 - x:-152.76300048828125 y:-156.14700317382812.
+2025-08-15 14:50:24,493 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 445 - x:-152.18600463867188 y:-161.07400512695312.
+2025-08-15 14:50:39,648 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 445 - x:-149.58999633789062 y:-165.30099487304688.
+2025-08-15 14:50:55,408 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 445 - x:-145.4550018310547 y:-168.04200744628906.
+2025-08-15 14:51:09,372 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 445 - x:-140.55099487304688 y:-168.78900146484375.
+2025-08-15 14:51:24,299 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 445 - x:-135.78799438476562 y:-167.40199279785156.
+2025-08-15 14:51:39,933 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 445 - x:-132.05099487304688 y:-164.13999938964844.
+2025-08-15 14:54:58,237 [INFO] Zavírám sériový port CNC
