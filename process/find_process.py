@@ -69,7 +69,8 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
             else:
                 print(f"[FIND] Detekováno {len(items)} drátů na pozici {pos} vzorku {code}.")
                 sample_positions.append((pos,items))  # Přidat pozici a počet detekovaných drátů
-                if tree.winfo_exists():
+                if tree is not None and tree.winfo_exists():
+                    # Přidáme řádek do tabulky s pozicí, kódem
                     container.after(0, lambda: tree.insert("", "end", values=(f"{code}", f"{pos}", f"{len(items)}")))
                 # Uložit vzorek do databáze
                 sample_id = save_project_sample_to_db(project_id, pos, code, image_path)  # Uložíme vzorek do databáze

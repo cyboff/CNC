@@ -4,7 +4,7 @@ import numpy as np
 
 # === Obecné nastavení programu ===
 APP_NAME = "CNC Sample Detector"
-VERSION = "0.9.0"
+VERSION = "0.9.5"
 COMPANY = "S.S.K. a.s."
 
 # === Cesty ===
@@ -54,5 +54,5 @@ last_Z_position = default_Z_position  # lze měnit runtime
 sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 
 # Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
-calib_z = -56.900
+calib_z = -56.800
 calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))

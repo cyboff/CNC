@@ -284,6 +284,21 @@ def _detect_circle_in_roi(gray, roi_box, min_r, max_r, seed=None):
     cx, cy, r = int(c[0]) + x0, int(c[1]) + y0, int(c[2])
     return float(cx), float(cy), float(r)
 
+def _refine_center(gray, x, y, win=9):
+    x_i, y_i = int(round(x)), int(round(y))
+    x0 = max(0, x_i - win); y0 = max(0, y_i - win)
+    x1 = min(gray.shape[1], x_i + win + 1); y1 = min(gray.shape[0], y_i + win + 1)
+    roi = gray[y0:y1, x0:x1]
+    if roi.size == 0:
+        return float(x), float(y)
+    edges = cv2.Canny(cv2.GaussianBlur(roi, (3,3), 0), 50, 150)
+    m = cv2.moments(edges, binaryImage=True)
+    if m["m00"] > 1e-6:
+        cx = x0 + m["m10"]/m["m00"]
+        cy = y0 + m["m01"]/m["m00"]
+        return float(cx), float(cy)
+    return float(x), float(y)
+
 def _detect_four_corners(gray, last_centers, img_w):
     """Vrátí [TL, TR, BR, BL] (může obsahovat None). Aplikuje EMA + deadband."""
     R = _radius_px(img_w)
@@ -300,6 +315,9 @@ def _detect_four_corners(gray, last_centers, img_w):
             continue
 
         new_pt = (res[0], res[1])
+        rx, ry = _refine_center(gray, new_pt[0], new_pt[1], win=9)
+        new_pt = (rx, ry)
+
         # deadband
         if last_centers and last_centers[i] is not None:
             dx = abs(new_pt[0] - last_centers[i][0])
@@ -327,23 +345,30 @@ def unregister_calibration_hotkeys():
 
 
 def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
-    pts_src= []
-    calib_step = "main_camera"
-    pts_grbl = []
-    current_corner_index = 0
-    last_frame = None  # poslední snímek v originálním rozlišení
-    # --- auto-detekce rohu: stav ---
-    last_centers = [None, None, None, None]  # TL, TR, BR, BL
-    auto_ok = False                           # máme 4 stabilní rohy?
-
-    base_x, base_y, base_z = 0, 0, 0
     # Parametry
     image_width = config.image_width
     image_height = config.image_height
+    base_x, base_y, base_z = 0, 0, 0
     sample_position = config.sample_positions_mm[0]
     (pos, base_x, base_y, base_z) = sample_position
     calib_z = config.calib_z
     calib_corners_grbl = config.calib_corners_grbl
+    prev_correction_matrix_main = getattr(config, "correction_matrix", None)
+    pts_src = []
+    pts_grbl = []
+    pts_dst = np.float32([
+        [0, 0],
+        [image_width - 1, 0],
+        [image_width - 1, image_height - 1],
+        [0, image_height - 1]
+    ])
+    calib_step = "main_camera"
+
+    current_corner_index = 0
+    last_frame = None  # poslední snímek v originálním rozlišení
+    # --- auto-detekce rohu: stav ---
+    last_centers = [None, None, None, None]  # TL, TR, BR, BL
+    auto_ok = False  # máme 4 stabilní rohy?
 
     # Přepnutí na hlavní kameru
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
@@ -379,7 +404,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
             auto_ok = all(c is not None for c in centers)
             # Ulož do pts_src v pořadí TL, TR, BR, BL
             if auto_ok:
-                pts_src = [[int(round(x)), int(round(y))] for (x, y) in centers]
+                pts_src = [[float(x), float(y)] for (x, y) in centers]
 
             # overlay ROI a body
             for (x0, y0, x1, y1) in _corner_rois(w, h):
@@ -425,7 +450,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         image_label.after(100, refresh_image)
 
     def on_q():
-        nonlocal calib_step, current_corner_index, pts_grbl, pts_src, base_x, base_y, base_z
+        nonlocal calib_step, current_corner_index, pts_grbl, pts_src, calib_corners_grbl, base_x, base_y, base_z
         # potvrzení auto detekce rohů hlavní kamery
         if calib_step == "main_camera":
             if len(pts_src) == 4:
@@ -454,24 +479,20 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 finish_microscope_calib()
 
     def finish_main_camera_calib():
-        nonlocal calib_step, pts_src, pts_grbl, current_corner_index, last_frame, auto_ok
+        nonlocal calib_step, pts_src, pts_grbl, current_corner_index, last_frame, auto_ok, last_centers
 
         pts_src = np.float32(pts_src[:4])
-        pts_dst = np.float32([
-            [0, 0],
-            [image_width-1, 0],
-            [image_width-1, image_height-1],
-            [0, image_height-1]
-        ])
         correction_matrix = cv2.getPerspectiveTransform(pts_src, pts_dst)
-        set_setting("correction_matrix", correction_matrix.tolist())
-        config.correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
+        config.correction_matrix = correction_matrix
         print("[CALIBRATION] Korekční matice hlavní kamery:", correction_matrix)
-        print("[CALIBRATION] Kalibrační matice config:", config.correction_matrix)
         calib_step = "main_camera_done"
         core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
 
         if messagebox.askquestion("Kalibrace", "Je kalibrace hlavní kamery v pořádku?") == "yes":
+            # Uložení korekční matice do databáze
+            set_setting("correction_matrix", correction_matrix.tolist())
+            config.correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
+            print("[CALIBRATION] Kalibrační matice hlavní kamery uložena:", config.correction_matrix)
             calib_step = "microscope"
             start_microscope_calib()
         else:
@@ -486,14 +507,39 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
             print("[CALIBRATION] Opakuji kalibraci hlavní kamery...")
             refresh_image()
 
-
     def start_microscope_calib():
-        nonlocal current_corner_index, pts_grbl
+        nonlocal current_corner_index, pts_grbl, calib_corners_grbl, prev_correction_matrix_main
         if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.camera:
             switch_camera()
         core.camera_manager.microscope.ExposureTimeAbs.Value = 15000
         pts_grbl = []
         current_corner_index = 0
+        print(f"[CALIBRATION] Začínám kalibraci mikroskopu.")
+
+        # >>> Klíč: nové rectified -> mm pomocí kombinace starých/nových matic
+        if (config.correction_matrix_grbl is not None and
+                prev_correction_matrix_main is not None and
+                config.correction_matrix is not None):
+            H_rectnew_to_mm = (
+                    config.correction_matrix_grbl.astype(np.float64) @
+                    prev_correction_matrix_main.astype(np.float64) @
+                    np.linalg.inv(config.correction_matrix.astype(np.float64))
+            )
+            # normalizace tak, aby H[2,2] == 1
+            H_rectnew_to_mm /= H_rectnew_to_mm[2, 2]
+            pts_dst_np = np.array(pts_dst[None, :, :], dtype=np.float32)  # (1,4,2)
+            calib_corners_grbl = cv2.perspectiveTransform(pts_dst_np, H_rectnew_to_mm.astype(np.float32))[0]
+            print(f"[CALIBRATION] Rohy mikroskopu (aktuální, z kombinované homografie): {calib_corners_grbl}")
+        else:
+            # Fallback, když není předchozí kalibrace k dispozici
+            if config.correction_matrix_grbl is not None:
+                calib_corners_grbl = cv2.perspectiveTransform(
+                    np.array(pts_dst[None, :, :], dtype=np.float32),
+                    config.correction_matrix_grbl
+                )[0]
+            else:
+                calib_corners_grbl = config.calib_corners_grbl
+
         threading.Thread(
             target=move_to_coordinates,
             args=(calib_corners_grbl[0][0] + base_x, calib_corners_grbl[0][1] + base_y, calib_z),
@@ -501,26 +547,11 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         ).start()
 
     def finish_microscope_calib():
-        pts_dst = np.float32([
-            [0, 0],
-            [image_width-1, 0],
-            [image_width-1, image_height-1],
-            [0, image_height-1]
-        ])
         pts_grbl_np = np.float32(pts_grbl[:4])
         correction_matrix_grbl = cv2.getPerspectiveTransform(pts_dst, pts_grbl_np)
-        # # Testovací reprojekce - hledání chyby kalibrace
-        # proj = cv2.perspectiveTransform(pts_dst.reshape(-1, 1, 2), correction_matrix_grbl).reshape(-1, 2)
-        # err = proj - pts_grbl_np
-        # print("[CALIBRATION][MICRO] Reprojekce kalibračních rohů (mm):")
-        # for i, (p_img, p_mach, e) in enumerate(zip(pts_dst, pts_grbl_np, err)):
-        #     print(f"  {i}: img {p_img} -> mach {proj[i]} ; real {p_mach} ; err {e}")
-        # print("  RMS err (mm):", float(np.sqrt((err ** 2).sum() / len(err))))
-        # uložení korekční matice a rohů
-        set_setting("correction_matrix_grbl", correction_matrix_grbl.tolist())
-        set_setting("calib_corners_grbl", pts_grbl_np.tolist())
-        config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
-        config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
+        config.correction_matrix_grbl = correction_matrix_grbl
+        config.calib_corners_grbl = pts_grbl_np
+
         print("[CALIBRATION] Korekční matice mikroskopu:", correction_matrix_grbl)
         print("[CALIBRATION] Korekční matice mikroskopu config:", config.correction_matrix_grbl)
         # Ověření kalibrace mikroskopu
@@ -540,8 +571,13 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 transformed_point = cv2.perspectiveTransform(np.array([[[test_point[0], test_point[1]]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
                 print(f"[CALIBRATION] Testovací bod {test_point} se transformoval na: {transformed_point}")
                 move_to_coordinates(transformed_point[0] + base_x, transformed_point[1] + base_y, calib_z)
-                time.sleep(5)
+                time.sleep(2)
             if messagebox.askquestion("Kalibrace mikroskopu", "Je kalibrace mikroskopu v pořádku?") == "yes":
+                # uložení korekční matice a rohů
+                set_setting("correction_matrix_grbl", correction_matrix_grbl.tolist())
+                set_setting("calib_corners_grbl", pts_grbl_np.tolist())
+                config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
+                config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
                 core.camera_manager.microscope.ExposureTimeAbs.Value = 3000
                 switch_camera()
                 move_to_coordinates(base_x, base_y, calib_z)
@@ -599,10 +635,10 @@ def _ensure_microscope():
         switch_camera()
 
 def autofocus_z(
-    search_heights_mm=getattr(config, "autofocus_steps", (0.05, 0.01, 0.002)),
+    search_heights_mm=getattr(config, "autofocus_steps", (0.1, 0.01, 0.002)),
     settle_s=0.08,
     max_steps_per_level=120,
-    overshoot_backtrack=2,
+    overshoot_backtrack=3, # kolik kroků zpět při 3× horší ostrosti
     verbose=True,
 ):
     """
@@ -619,7 +655,7 @@ def autofocus_z(
 
     Návratová hodnota: (best_z, best_score)
     """
-    _ensure_microscope()
+    # _ensure_microscope()
 
     # Přečti aktuální pozici stroje
     try:

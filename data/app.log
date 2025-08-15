@@ -7686,3 +7686,308 @@
 2025-08-14 13:49:40,346 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 389 - x:-93.43800354003906 y:-106.97799682617188.
 2025-08-14 13:50:04,897 [INFO] Zobrazení domovské obrazovky
 2025-08-14 13:50:09,492 [INFO] Zavírám sériový port CNC
+2025-08-14 14:15:11,629 [INFO] Aplikace spuštěna
+2025-08-14 14:15:11,629 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:15:14,558 [INFO] Klik: Manuální ovládání
+2025-08-14 14:15:14,564 [INFO] Kliknutí na manuální řízení
+2025-08-14 14:19:22,389 [INFO] Aplikace spuštěna
+2025-08-14 14:19:22,390 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:19:25,123 [INFO] Klik: Manuální ovládání
+2025-08-14 14:19:25,129 [INFO] Kliknutí na manuální řízení
+2025-08-14 14:19:53,814 [INFO] Aplikace spuštěna
+2025-08-14 14:19:53,814 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:19:55,643 [INFO] Klik: Manuální ovládání
+2025-08-14 14:19:55,650 [INFO] Kliknutí na manuální řízení
+2025-08-14 14:20:08,101 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-14 14:20:08,109 [INFO] [DB] Uložen drát 1 vzorku 118 - x:763 y:775 r:647.
+2025-08-14 14:20:25,514 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-14 14:20:25,521 [INFO] [DB] Uložen drát 1 vzorku 119 - x:756 y:619 r:453.
+2025-08-14 14:20:42,924 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-14 14:20:42,931 [INFO] [DB] Uložen drát 1 vzorku 120 - x:991 y:321 r:255.
+2025-08-14 14:20:42,931 [INFO] [DB] Uložen drát 2 vzorku 120 - x:382 y:513 r:256.
+2025-08-14 14:20:42,932 [INFO] [DB] Uložen drát 3 vzorku 120 - x:1178 y:838 r:256.
+2025-08-14 14:20:42,932 [INFO] [DB] Uložen drát 4 vzorku 120 - x:697 y:996 r:256.
+2025-08-14 14:21:00,312 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-14 14:21:00,318 [INFO] [DB] Uložen drát 1 vzorku 121 - x:773 y:387 r:110.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 2 vzorku 121 - x:913 y:559 r:110.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 3 vzorku 121 - x:642 y:565 r:112.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 4 vzorku 121 - x:398 y:719 r:110.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 5 vzorku 121 - x:721 y:763 r:112.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 6 vzorku 121 - x:939 y:776 r:110.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 7 vzorku 121 - x:511 y:904 r:111.
+2025-08-14 14:21:00,319 [INFO] [DB] Uložen drát 8 vzorku 121 - x:712 y:985 r:112.
+2025-08-14 14:23:00,159 [INFO] Zavírám sériový port CNC
+2025-08-14 14:23:36,777 [INFO] Aplikace spuštěna
+2025-08-14 14:23:36,778 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:23:39,237 [INFO] Klik: Manuální ovládání
+2025-08-14 14:23:39,246 [INFO] Kliknutí na manuální řízení
+2025-08-14 14:26:18,217 [INFO] Aplikace spuštěna
+2025-08-14 14:26:18,217 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:26:21,081 [INFO] Klik: Manuální ovládání
+2025-08-14 14:26:21,087 [INFO] Kliknutí na manuální řízení
+2025-08-14 14:32:51,860 [INFO] Zavírám sériový port CNC
+2025-08-14 14:54:15,706 [INFO] Aplikace spuštěna
+2025-08-14 14:54:15,707 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:54:18,306 [INFO] Klik: Nastavení
+2025-08-14 14:54:18,311 [INFO] Kliknutí na nastavení
+2025-08-14 14:55:36,095 [INFO] Zavírám sériový port CNC
+2025-08-14 14:56:36,917 [INFO] Aplikace spuštěna
+2025-08-14 14:56:36,918 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:56:38,978 [INFO] Klik: Nastavení
+2025-08-14 14:56:38,984 [INFO] Kliknutí na nastavení
+2025-08-14 14:56:51,554 [INFO] Nastavení uložena
+2025-08-14 14:57:02,185 [INFO] Nastavení uložena
+2025-08-14 14:57:03,378 [INFO] Zavírám sériový port CNC
+2025-08-14 14:57:30,905 [INFO] Aplikace spuštěna
+2025-08-14 14:57:30,905 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:57:32,949 [INFO] Klik: Nastavení
+2025-08-14 14:57:32,955 [INFO] Kliknutí na nastavení
+2025-08-14 14:57:44,675 [INFO] Nastavení uložena
+2025-08-14 14:57:45,796 [INFO] Zavírám sériový port CNC
+2025-08-14 14:58:45,286 [INFO] Aplikace spuštěna
+2025-08-14 14:58:45,286 [INFO] Zobrazení domovské obrazovky
+2025-08-14 14:58:51,260 [INFO] Klik: Nové měření
+2025-08-14 14:59:04,444 [INFO] Zavírám sériový port CNC
+2025-08-14 15:00:38,270 [INFO] Aplikace spuštěna
+2025-08-14 15:00:38,270 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:00:40,143 [INFO] Klik: Manuální ovládání
+2025-08-14 15:00:40,150 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:01:13,382 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-14 15:01:13,388 [INFO] [DB] Uložen drát 1 vzorku 122 - x:765 y:776 r:648.
+2025-08-14 15:01:30,760 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-14 15:01:30,768 [INFO] [DB] Uložen drát 1 vzorku 123 - x:758 y:619 r:453.
+2025-08-14 15:01:48,154 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-14 15:01:48,159 [INFO] [DB] Uložen drát 1 vzorku 124 - x:992 y:321 r:255.
+2025-08-14 15:01:48,159 [INFO] [DB] Uložen drát 2 vzorku 124 - x:384 y:513 r:256.
+2025-08-14 15:01:48,159 [INFO] [DB] Uložen drát 3 vzorku 124 - x:1178 y:838 r:257.
+2025-08-14 15:01:48,159 [INFO] [DB] Uložen drát 4 vzorku 124 - x:700 y:995 r:257.
+2025-08-14 15:02:05,541 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-14 15:02:05,546 [INFO] [DB] Uložen drát 1 vzorku 125 - x:774 y:386 r:110.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 2 vzorku 125 - x:915 y:559 r:110.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 3 vzorku 125 - x:644 y:564 r:112.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 4 vzorku 125 - x:399 y:719 r:111.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 5 vzorku 125 - x:720 y:763 r:113.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 6 vzorku 125 - x:941 y:776 r:110.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 7 vzorku 125 - x:513 y:904 r:112.
+2025-08-14 15:02:05,547 [INFO] [DB] Uložen drát 8 vzorku 125 - x:713 y:983 r:113.
+2025-08-14 15:02:42,597 [INFO] Zavírám sériový port CNC
+2025-08-14 15:06:51,253 [INFO] Aplikace spuštěna
+2025-08-14 15:06:51,254 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:06:53,160 [INFO] Klik: Manuální ovládání
+2025-08-14 15:06:53,165 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:07:01,713 [INFO] Zavírám sériový port CNC
+2025-08-14 15:07:09,549 [INFO] Aplikace spuštěna
+2025-08-14 15:07:09,549 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:07:11,341 [INFO] Klik: Manuální ovládání
+2025-08-14 15:07:11,347 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:19:19,911 [INFO] Zavírám sériový port CNC
+2025-08-14 15:19:28,291 [INFO] Aplikace spuštěna
+2025-08-14 15:19:28,291 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:19:31,139 [INFO] Klik: Manuální ovládání
+2025-08-14 15:19:31,146 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:20:08,010 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:20:09,116 [INFO] Zavírám sériový port CNC
+2025-08-14 15:20:45,547 [INFO] Aplikace spuštěna
+2025-08-14 15:20:45,547 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:20:47,590 [INFO] Klik: Manuální ovládání
+2025-08-14 15:20:47,598 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:22:34,671 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-14 15:22:34,678 [INFO] [DB] Uložen drát 1 vzorku 126 - x:758 y:620 r:456.
+2025-08-14 15:22:52,908 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-14 15:22:52,997 [INFO] [DB] Uložen drát 1 vzorku 127 - x:994 y:319 r:257.
+2025-08-14 15:22:52,998 [INFO] [DB] Uložen drát 2 vzorku 127 - x:382 y:512 r:258.
+2025-08-14 15:22:52,998 [INFO] [DB] Uložen drát 3 vzorku 127 - x:1179 y:838 r:261.
+2025-08-14 15:22:52,999 [INFO] [DB] Uložen drát 4 vzorku 127 - x:702 y:997 r:261.
+2025-08-14 15:23:10,407 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-14 15:23:10,413 [INFO] [DB] Uložen drát 1 vzorku 128 - x:776 y:385 r:111.
+2025-08-14 15:23:10,413 [INFO] [DB] Uložen drát 2 vzorku 128 - x:917 y:558 r:111.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 3 vzorku 128 - x:645 y:565 r:115.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 4 vzorku 128 - x:398 y:720 r:113.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 5 vzorku 128 - x:719 y:763 r:115.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 6 vzorku 128 - x:942 y:777 r:111.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 7 vzorku 128 - x:514 y:905 r:114.
+2025-08-14 15:23:10,414 [INFO] [DB] Uložen drát 8 vzorku 128 - x:711 y:987 r:115.
+2025-08-14 15:25:09,178 [INFO] Zavírám sériový port CNC
+2025-08-14 15:25:19,867 [INFO] Aplikace spuštěna
+2025-08-14 15:25:19,868 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:25:22,496 [INFO] Klik: Manuální ovládání
+2025-08-14 15:25:22,503 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:25:31,351 [INFO] Zavírám sériový port CNC
+2025-08-14 15:25:39,583 [INFO] Aplikace spuštěna
+2025-08-14 15:25:39,584 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:25:41,227 [INFO] Klik: Manuální ovládání
+2025-08-14 15:25:41,234 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:25:45,046 [INFO] Zavírám sériový port CNC
+2025-08-14 15:26:00,874 [INFO] Aplikace spuštěna
+2025-08-14 15:26:00,874 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:26:02,597 [INFO] Klik: Manuální ovládání
+2025-08-14 15:26:02,608 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:37:08,496 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-14 15:37:08,503 [INFO] [DB] Uložen drát 1 vzorku 129 - x:756 y:711 r:647.
+2025-08-14 15:37:25,884 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-14 15:37:25,890 [INFO] [DB] Uložen drát 1 vzorku 130 - x:754 y:556 r:452.
+2025-08-14 15:37:28,697 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:37:38,630 [INFO] Klik: Manuální ovládání
+2025-08-14 15:37:38,636 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:37:43,873 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-14 15:37:43,880 [INFO] [DB] Uložen drát 1 vzorku 131 - x:985 y:250 r:254.
+2025-08-14 15:37:43,880 [INFO] [DB] Uložen drát 2 vzorku 131 - x:378 y:442 r:256.
+2025-08-14 15:37:43,880 [INFO] [DB] Uložen drát 3 vzorku 131 - x:1172 y:765 r:257.
+2025-08-14 15:37:43,880 [INFO] [DB] Uložen drát 4 vzorku 131 - x:694 y:923 r:257.
+2025-08-14 15:38:01,256 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 1 vzorku 132 - x:762 y:321 r:109.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 2 vzorku 132 - x:903 y:494 r:110.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 3 vzorku 132 - x:632 y:499 r:112.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 4 vzorku 132 - x:388 y:654 r:111.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 5 vzorku 132 - x:710 y:696 r:112.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 6 vzorku 132 - x:929 y:710 r:109.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 7 vzorku 132 - x:503 y:838 r:112.
+2025-08-14 15:38:01,264 [INFO] [DB] Uložen drát 8 vzorku 132 - x:702 y:918 r:112.
+2025-08-14 15:38:05,613 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:38:08,880 [INFO] Klik: Manuální ovládání
+2025-08-14 15:38:08,891 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:41:57,846 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:41:59,345 [INFO] Klik: Nastavení
+2025-08-14 15:41:59,351 [INFO] Kliknutí na nastavení
+2025-08-14 15:42:05,501 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:42:07,964 [INFO] Zavírám sériový port CNC
+2025-08-14 15:45:15,073 [INFO] Aplikace spuštěna
+2025-08-14 15:45:15,074 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:45:18,569 [INFO] Klik: Manuální ovládání
+2025-08-14 15:45:18,576 [INFO] Kliknutí na manuální řízení
+2025-08-14 15:46:11,232 [INFO] Zobrazení domovské obrazovky
+2025-08-14 15:46:12,860 [INFO] Klik: Manuální ovládání
+2025-08-14 15:46:12,867 [INFO] Kliknutí na manuální řízení
+2025-08-15 08:55:37,751 [INFO] Aplikace spuštěna
+2025-08-15 08:55:37,752 [INFO] Zobrazení domovské obrazovky
+2025-08-15 08:56:43,796 [INFO] Klik: Manuální ovládání
+2025-08-15 08:56:43,802 [INFO] Kliknutí na manuální řízení
+2025-08-15 08:58:39,050 [INFO] Zobrazení domovské obrazovky
+2025-08-15 08:58:40,728 [INFO] Klik: Manuální ovládání
+2025-08-15 08:58:40,734 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:00:40,051 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:00:42,231 [INFO] Klik: Manuální ovládání
+2025-08-15 09:00:42,238 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:00:52,513 [INFO] Zavírám sériový port CNC
+2025-08-15 09:09:28,510 [INFO] Aplikace spuštěna
+2025-08-15 09:09:28,510 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:09:34,272 [INFO] Klik: Manuální ovládání
+2025-08-15 09:09:34,278 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:10:53,574 [INFO] Zavírám sériový port CNC
+2025-08-15 09:13:12,888 [INFO] Aplikace spuštěna
+2025-08-15 09:13:12,889 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:13:15,235 [INFO] Klik: Manuální ovládání
+2025-08-15 09:13:15,243 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:18:29,154 [INFO] Zavírám sériový port CNC
+2025-08-15 09:25:44,618 [INFO] Aplikace spuštěna
+2025-08-15 09:25:44,618 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:26:45,848 [INFO] Zavírám sériový port CNC
+2025-08-15 09:33:02,655 [INFO] Aplikace spuštěna
+2025-08-15 09:33:02,655 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:33:05,129 [INFO] Klik: Manuální ovládání
+2025-08-15 09:33:05,135 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:36:19,767 [INFO] Zavírám sériový port CNC
+2025-08-15 09:48:45,654 [INFO] Aplikace spuštěna
+2025-08-15 09:48:45,655 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:48:50,177 [INFO] Klik: Manuální ovládání
+2025-08-15 09:48:50,184 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:49:37,161 [INFO] Zavírám sériový port CNC
+2025-08-15 09:53:02,736 [INFO] Aplikace spuštěna
+2025-08-15 09:53:02,736 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:53:05,403 [INFO] Klik: Manuální ovládání
+2025-08-15 09:53:05,410 [INFO] Kliknutí na manuální řízení
+2025-08-15 09:58:49,812 [INFO] Zavírám sériový port CNC
+2025-08-15 09:59:19,452 [INFO] Aplikace spuštěna
+2025-08-15 09:59:19,452 [INFO] Zobrazení domovské obrazovky
+2025-08-15 09:59:23,069 [INFO] Klik: Manuální ovládání
+2025-08-15 09:59:23,076 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:02:18,708 [INFO] Aplikace spuštěna
+2025-08-15 10:02:18,709 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:02:20,873 [INFO] Klik: Manuální ovládání
+2025-08-15 10:02:20,880 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:04:42,711 [INFO] Aplikace spuštěna
+2025-08-15 10:04:42,711 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:04:44,856 [INFO] Klik: Manuální ovládání
+2025-08-15 10:04:44,863 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:09:29,800 [INFO] Aplikace spuštěna
+2025-08-15 10:09:29,800 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:09:33,905 [INFO] Klik: Manuální ovládání
+2025-08-15 10:09:33,911 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:12:04,718 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:12:05,827 [INFO] Klik: Nastavení
+2025-08-15 10:12:05,833 [INFO] Kliknutí na nastavení
+2025-08-15 10:12:13,123 [INFO] Zavírám sériový port CNC
+2025-08-15 10:22:25,261 [INFO] Aplikace spuštěna
+2025-08-15 10:22:25,262 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:22:27,215 [INFO] Klik: Manuální ovládání
+2025-08-15 10:22:27,223 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:23:31,817 [INFO] Zavírám sériový port CNC
+2025-08-15 10:24:45,075 [INFO] Aplikace spuštěna
+2025-08-15 10:24:45,075 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:24:46,868 [INFO] Klik: Manuální ovládání
+2025-08-15 10:24:46,876 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:26:02,083 [INFO] Aplikace spuštěna
+2025-08-15 10:26:02,084 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:26:04,049 [INFO] Klik: Manuální ovládání
+2025-08-15 10:26:04,057 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:28:54,554 [INFO] Aplikace spuštěna
+2025-08-15 10:28:54,554 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:28:57,966 [INFO] Klik: Manuální ovládání
+2025-08-15 10:28:57,973 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:35:58,942 [INFO] Aplikace spuštěna
+2025-08-15 10:35:58,943 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:36:02,073 [INFO] Klik: Manuální ovládání
+2025-08-15 10:36:02,080 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:39:32,599 [INFO] Zavírám sériový port CNC
+2025-08-15 10:41:53,873 [INFO] Aplikace spuštěna
+2025-08-15 10:41:53,874 [INFO] Zobrazení domovské obrazovky
+2025-08-15 10:41:57,185 [INFO] Klik: Manuální ovládání
+2025-08-15 10:41:57,191 [INFO] Kliknutí na manuální řízení
+2025-08-15 10:46:49,431 [INFO] Zavírám sériový port CNC
+2025-08-15 11:28:02,597 [INFO] Aplikace spuštěna
+2025-08-15 11:28:02,598 [INFO] Zobrazení domovské obrazovky
+2025-08-15 11:28:04,528 [INFO] Klik: Manuální ovládání
+2025-08-15 11:28:04,535 [INFO] Kliknutí na manuální řízení
+2025-08-15 11:29:47,939 [INFO] Aplikace spuštěna
+2025-08-15 11:29:47,939 [INFO] Zobrazení domovské obrazovky
+2025-08-15 11:29:49,786 [INFO] Klik: Manuální ovládání
+2025-08-15 11:29:49,795 [INFO] Kliknutí na manuální řízení
+2025-08-15 11:32:56,484 [INFO] Zobrazení domovské obrazovky
+2025-08-15 11:32:57,519 [INFO] Zavírám sériový port CNC
+2025-08-15 12:14:11,677 [INFO] Aplikace spuštěna
+2025-08-15 12:14:11,678 [INFO] Zobrazení domovské obrazovky
+2025-08-15 12:14:16,408 [INFO] Klik: Manuální ovládání
+2025-08-15 12:14:16,415 [INFO] Kliknutí na manuální řízení
+2025-08-15 12:19:10,605 [INFO] Aplikace spuštěna
+2025-08-15 12:19:10,605 [INFO] Zobrazení domovské obrazovky
+2025-08-15 12:19:13,964 [INFO] Klik: Manuální ovládání
+2025-08-15 12:19:13,970 [INFO] Kliknutí na manuální řízení
+2025-08-15 12:25:52,381 [INFO] Aplikace spuštěna
+2025-08-15 12:25:52,382 [INFO] Zobrazení domovské obrazovky
+2025-08-15 12:25:54,451 [INFO] Klik: Manuální ovládání
+2025-08-15 12:25:54,458 [INFO] Kliknutí na manuální řízení
+2025-08-15 12:47:23,825 [INFO] Aplikace spuštěna
+2025-08-15 12:47:23,825 [INFO] Zobrazení domovské obrazovky
+2025-08-15 12:47:27,317 [INFO] Klik: Manuální ovládání
+2025-08-15 12:47:27,324 [INFO] Kliknutí na manuální řízení
+2025-08-15 12:52:58,933 [INFO] Zavírám sériový port CNC
+2025-08-15 13:19:21,944 [INFO] Aplikace spuštěna
+2025-08-15 13:19:21,945 [INFO] Zobrazení domovské obrazovky
+2025-08-15 13:19:24,742 [INFO] Klik: Manuální ovládání
+2025-08-15 13:19:24,748 [INFO] Kliknutí na manuální řízení
+2025-08-15 13:20:42,589 [INFO] Aplikace spuštěna
+2025-08-15 13:20:42,589 [INFO] Zobrazení domovské obrazovky
+2025-08-15 13:20:44,924 [INFO] Klik: Manuální ovládání
+2025-08-15 13:20:44,932 [INFO] Kliknutí na manuální řízení
+2025-08-15 13:34:26,509 [INFO] Aplikace spuštěna
+2025-08-15 13:34:26,510 [INFO] Zobrazení domovské obrazovky
+2025-08-15 13:34:28,942 [INFO] Klik: Manuální ovládání
+2025-08-15 13:34:28,949 [INFO] Kliknutí na manuální řízení
+2025-08-15 13:51:01,953 [INFO] Zobrazení domovské obrazovky
+2025-08-15 13:51:03,831 [INFO] Klik: Manuální ovládání
+2025-08-15 13:51:03,838 [INFO] Kliknutí na manuální řízení
+2025-08-15 14:06:19,355 [INFO] Zavírám sériový port CNC
+2025-08-15 14:09:38,722 [INFO] Aplikace spuštěna
+2025-08-15 14:09:38,723 [INFO] Zobrazení domovské obrazovky
+2025-08-15 14:09:41,194 [INFO] Klik: Manuální ovládání
+2025-08-15 14:09:41,200 [INFO] Kliknutí na manuální řízení
