@@ -167,7 +167,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(100, update)
+                image_label.after(250, update) # asi není třeba plynulý pohyb, méně to zatěžuje přenosy a procesor
 
 
         # actual_camera.StopGrabbing()
@@ -202,6 +202,62 @@ def release_camera():
         print("[Camera] Kamera uvolněna.")
     except Exception as e:
         print("[Camera] Chyba při uvolňování kamery:", e)
+
+# Převody pixel -> mm
+def rectpx_to_mm_offset(u_rect: float, v_rect: float):
+    """
+    Pixel z WARPnutého (rectified) obrazu -> (dx, dy) v mm
+    vůči aktuálnímu base (tj. offset v rovině stolku).
+    Vyžaduje config.correction_matrix_grbl.
+    """
+    H = getattr(config, "correction_matrix_grbl", None)
+    if H is None:
+        raise RuntimeError("Neexistuje correction_matrix_grbl – dokonči kalibraci mikroskopu.")
+    pt = np.array([[[float(u_rect), float(v_rect)]]], dtype=np.float32)
+    out = cv2.perspectiveTransform(pt, H.astype(np.float32))[0][0]
+    return float(out[0]), float(out[1])
+
+def rectpx_to_grbl(u_rect: float, v_rect: float, base_xy=None, z=None):
+    """
+    Pixel z rectified 38×38mm -> absolutní GRBL (X,Y,Z).
+    base_xy je (X0,Y0) v okamžiku pořízení snímku (pokud None, vezme se grbl_last_position).
+    Z pokud None, vezme se config.calib_z.
+    """
+    if base_xy is None:
+        x0, y0, z0 = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
+    else:
+        x0, y0 = base_xy
+        z0 = z if z is not None else getattr(config, "calib_z", 0.0)
+    dx, dy = rectpx_to_mm_offset(u_rect, v_rect)
+    return x0 + dx, y0 + dy, z0
+
+def rectpx_scaled_to_grbl(u_scaled: float, v_scaled: float, scaled_w: int, scaled_h: int, base_xy=None, z=None):
+    """
+    Pokud detekuješ v downscalovaném náhledu (např. polovina),
+    převeď souřadnice na kanonické rect rozlišení (image_width × image_height)
+    a pak na GRBL.
+    """
+    W = int(config.image_width); H = int(config.image_height)
+    u = u_scaled * (W / float(scaled_w))
+    v = v_scaled * (H / float(scaled_h))
+    return rectpx_to_grbl(u, v, base_xy=base_xy, z=z)
+
+# použití:
+#
+# # 1) Získej frame a rect warp stejného rozlišení, v jakém proběhla kalibrace:
+# img_raw = core.camera_manager.get_image()
+# rect = cv2.warpPerspective(img_raw, config.correction_matrix,
+#                            (int(config.image_width), int(config.image_height)))  # raw -> rect
+# # 2) Ulož si base v okamžiku pořízení snímku (aby mezitím hlava nepopojela):
+# base_x, base_y, base_z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
+#
+# # 3) Najdi kruh/křížek v rect (u_rect, v_rect) – tvůj detektor
+# u_rect, v_rect = detected_center  # v pixelech rect obrazu
+#
+# # 4) Převod na GRBL a najeď mikroskopem:
+# gx, gy, gz = rectpx_to_grbl(u_rect, v_rect, base_xy=(base_x, base_y), z=config.calib_z)
+# core.motion_controller.move_to_position_antibacklash(gx, gy, gz, anti_backlash=True, wait_end=True)
+
 
 # Kalibrace kamery a mikroskopu
 # --- Auto detekce rohových fiducialů (kroužek + křížek) ---
@@ -346,12 +402,14 @@ def unregister_calibration_hotkeys():
 
 def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     # Parametry
+
     image_width = config.image_width
     image_height = config.image_height
     base_x, base_y, base_z = 0, 0, 0
     sample_position = config.sample_positions_mm[0]
     (pos, base_x, base_y, base_z) = sample_position
     calib_z = config.calib_z
+
     calib_corners_grbl = config.calib_corners_grbl
     prev_correction_matrix_main = getattr(config, "correction_matrix", None)
     pts_src = []
@@ -370,12 +428,47 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     last_centers = [None, None, None, None]  # TL, TR, BR, BL
     auto_ok = False  # máme 4 stabilní rohy?
 
-    # Přepnutí na hlavní kameru
-    if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
-        switch_camera()
+    # # --- PRE-FOCUS: uzamkni správné calib_z přes mikroskop ještě před kalibrací hlavní kamery ---
+    # try:
+    #     # 1) Vypočti střed terče v rectified prostoru (pixely) a převeď na mm pomocí dřívější mikroskopické vazby
+    #     cx_rect = (image_width - 1) / 2.0
+    #     cy_rect = (image_height - 1) / 2.0
+    #
+    #     target_x = base_x  # fallback
+    #     target_y = base_y  # fallback
+    #
+    #     if getattr(config, "correction_matrix_grbl", None) is not None:
+    #         center_px = np.array([[[cx_rect, cy_rect]]], dtype=np.float32)
+    #         center_mm = cv2.perspectiveTransform(center_px, config.correction_matrix_grbl.astype(np.float32))[0][0]
+    #         target_x = base_x + float(center_mm[0])  # correction_matrix_grbl vrací offsety v mm
+    #         target_y = base_y + float(center_mm[1])
+    #     elif getattr(config, "calib_corners_grbl", None) is not None and len(config.calib_corners_grbl) >= 4:
+    #         # fallback: střed = průměr dříve uložených rohů v mm
+    #         cc = np.array(config.calib_corners_grbl, dtype=np.float32)
+    #         mean_xy = cc.mean(axis=0)
+    #         target_x = base_x + float(mean_xy[0])
+    #         target_y = base_y + float(mean_xy[1])
+    #
+    #     # 2) Přepni na mikroskop, najeď na střed a proveď autofocus (Z)
+    #     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.camera:
+    #         switch_camera()
+    #     core.camera_manager.microscope.ExposureTimeAbs.Value = 15000
+    #
+    #     move_to_coordinates(target_x, target_y, calib_z)
+    #
+    #     best_z, best_score = autofocus_z()  # už máš implementováno níže v souboru
+    #     calib_z = float(best_z)  # aktualizujeme lokální proměnnou calib_z
+    #     config.calib_z = calib_z  # a i globální config, ať ji vidí zbytek kódu
+    #     set_setting("calib_z", calib_z)
+    #     print(f"[CALIBRATION] PRE-FOCUS: calib_z = {calib_z:.3f} mm (score={best_score:.1f})")
+    #
+    # except Exception as e:
+    #     print(f"[CALIBRATION] PRE-FOCUS přeskočen: {e}")
+    #
+    # # 3) Přepni zpět na hlavní kameru a pokračuj jako dřív, už s novým calib_z
+    # if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
+    #     switch_camera()
 
-    # TODO: Najedeme na startovní pozici (momentálně je jiná výška Z pro kalibrační terč než pro vzorky, proto použijeme calib_z)
-    # výchozí pozice pro Z by se měla odvíjet od zafokusování mikroskopu
     move_to_coordinates(base_x, base_y, calib_z)
 
     def get_frame_with_overlays():
@@ -638,7 +731,7 @@ def autofocus_z(
     search_heights_mm=getattr(config, "autofocus_steps", (0.1, 0.01, 0.002)),
     settle_s=0.08,
     max_steps_per_level=120,
-    overshoot_backtrack=3, # kolik kroků zpět při 3× horší ostrosti
+    overshoot_backtrack=2, # kolik dalších kroků po sobě s už horší ostrosti
     verbose=True,
 ):
     """
