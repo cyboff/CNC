@@ -13,6 +13,9 @@ DATABASE_PATH = "data/database.db"
 
 # === Kamera ===
 CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
+camera_exposure_time = int(get_setting("camera_exposure_time"))  # v milisekundách
+microscope_exposure_time = int(get_setting("microscope_exposure_time"))  # v milisekundách
+microscope_exposure_time_calib = int(get_setting("microscope_exposure_time_calib"))  # pro kalibrační obraz
 
 # GRBL / CNC nastavení
 CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
