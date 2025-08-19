@@ -7,7 +7,6 @@ import config
 import time
 import core.camera_manager
 import core.motion_controller
-from core.camera_manager import start_camera_preview, switch_camera
 from core.database import get_samples_by_project_id, get_sample_items_by_sample_id
 from core.utils import create_back_button, create_header, create_footer, create_camera_preview, show_image
 from process.find_process import get_microscope_images
@@ -46,7 +45,7 @@ def show_microscope_images(container, project_id, samples, on_back):
     # VPRAVO – kamera
     core.camera_manager.preview_running = False
     if core.camera_manager.actual_camera == core.camera_manager.camera:
-        switch_camera()
+        core.camera_manager.switch_camera()
 
 
     preview_frame, image_label, position_label = create_camera_preview(
@@ -54,7 +53,7 @@ def show_microscope_images(container, project_id, samples, on_back):
         config.frame_width,
         config.frame_height,
         lambda: (core.motion_controller.grbl_last_position, core.motion_controller.grbl_status),
-        start_camera_preview
+        core.camera_manager.start_camera_preview
     )
 
     def on_click(event):

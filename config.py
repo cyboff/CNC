@@ -1,10 +1,10 @@
-from core.settings import get_setting
+from core.settings import get_setting, set_setting
 import json
 import numpy as np
 
 # === Obecné nastavení programu ===
 APP_NAME = "CNC Sample Detector"
-VERSION = "0.9.0"
+VERSION = "0.9.5"
 COMPANY = "S.S.K. a.s."
 
 # === Cesty ===
@@ -13,6 +13,9 @@ DATABASE_PATH = "data/database.db"
 
 # === Kamera ===
 CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
+camera_exposure_time = int(get_setting("camera_exposure_time"))  # v milisekundách
+microscope_exposure_time = int(get_setting("microscope_exposure_time"))  # v milisekundách
+microscope_exposure_time_calib = int(get_setting("microscope_exposure_time_calib"))  # pro kalibrační obraz
 
 # GRBL / CNC nastavení
 CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
@@ -44,20 +47,19 @@ correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
 correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
 
 # Autofocus kroky (od hrubého po jemný)
-autofocus_steps = get_setting("autofocus_steps")
+autofocus_steps = json.loads(get_setting("autofocus_steps"))
 
 # Výchozí pozice osy Z (např. výška mikroskopu)
 default_Z_position = float(get_setting("default_Z_position"))
 last_Z_position = default_Z_position  # lze měnit runtime
 
 # Předdefinované pozice vzorků (center point)
-sample_positions_mm = [
-    ("A1", -197.0, -210.0, default_Z_position),
-    ("A2", -153.0, -210.0, default_Z_position),
-    ("B1", -197.0, -165.0, default_Z_position),
-    ("B2", -153.0, -165.0, default_Z_position),
-]
+sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 
 # Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
-calib_z = -56.900
+calib_z = -56.800
 calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
+
+anti_backlash_axes = "XYZ"
+anti_backlash_mm = 0.02
+anti_backlash_final_dir = {'X': +1, 'Y': +1, 'Z': +1}

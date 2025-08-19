@@ -36,8 +36,8 @@ def init_grbl():
             grbl_last_position, grbl_status = grbl_update_position()
             # print(f"[GRBL] Aktuální pozice: {grbl_last_position}, Stav: {grbl_status}")
         except:
-            print("Failed to update position")
-        position_timer = threading.Timer(0.5, update_position) #update pozice každých 0.5s, častěji nestíhá GRBL odpovídat
+            print("Chyba při aktualizaci pozice GRBL")
+        position_timer = threading.Timer(0.5, update_position) #update pozice každých 0.5s, častěji nestíhá Arduino GRBL odpovídat
         position_timer.daemon = True
         position_timer.start()
 
@@ -47,13 +47,13 @@ def init_grbl():
 
         if grbl_last_position != "0.000,0.000,0.000":
             x, y, z = [float(val) for val in grbl_last_position.split(",")]
-            print(f"Machine Position (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
+            print(f"[GRBL] Stav:{grbl_status} , Pozice (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
         else:
-            print("MPos not found – trying to home the machine")
+            print("MPos nenalezena, provedu Homing a nastavím na výchozí hodnoty")
             grbl_clear_alarm()
             grbl_home()
     except:
-        print("Failed to initialize GRBL")
+        print("Chyba inicializace GRBL")
 
 def send_gcode(command: str):
     """
@@ -85,6 +85,35 @@ def send_gcode(command: str):
         if line == "ok" or line.startswith("error"):
             break
 
+def _get_final_dir(axis: str) -> int:
+    """Směr finálního dojezdu pro osu (+1 nebo -1). Lze přepsat v configu jako dict anti_backlash_final_dir."""
+    try:
+        import config
+        d = getattr(config, "anti_backlash_final_dir", None)
+        if isinstance(d, dict) and axis in d and d[axis] in (-1, 1):
+            return int(d[axis])
+    except Exception:
+        pass
+    return 1  # default: +X, +Y, +Z
+
+def _get_ab_axes() -> set:
+    """Které osy řešit anti-backlash (např. 'XY' nebo 'XYZ')."""
+    try:
+        import config
+        s = getattr(config, "anti_backlash_axes", "XY")
+        return set(str(s).upper())
+    except Exception:
+        return set("XY")
+
+def _get_ab_amount() -> float:
+    """Velikost předpětí v mm (kolik 'přejedu' proti vůli před finálním dojezdem)."""
+    try:
+        import config
+        v = float(getattr(config, "anti_backlash_mm", 0.02))
+        return max(0.0, v)
+    except Exception:
+        return 0.02
+
 
 def move_axis(axis: str, value: float):
     """
@@ -100,9 +129,9 @@ def grbl_home():
     global cnc_serial, grbl_last_position, grbl_status, position_lock
     try:
         send_gcode("$H")
-        print("🏠 GRBL Home sent")
+        print("🏠 GRBL Home odesláno")
     except Exception as e:
-        print("⚠️  Error sending Home:", e)
+        print("⚠️  Chyba zasílání Home:", e)
         return
 
     # Počkej na konec homing sekvence
@@ -132,12 +161,87 @@ def grbl_abort():
     time.sleep(0.5)  # Krátká prodleva pro stabilitu
     print("[GRBL] Abort odeslán (Ctrl-X)")
 
+# Absolutní pohyb bez anti-backlashe
 def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
     send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
+
+# Absolutní pohyb s anti-backlashem
+# (předpětí proti vůli v závitové tyči, které se použije před finálním dojezdem)
+# -> pro každou osu vytvoříme 'approach' (předpětí proti vůli) a hned poté finální krátký dojezd
+# -> všechny bloky pošleme rychle za sebou (čekáme na ok), na konci případně jednou počkáme na Idle
+# -> pokud je anti_backlash=False, tak se použije jen finální dojezd
+def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_backlash: bool = True,
+                     wait_end: bool = True, feed_xy: int = 500, feed_z: int = 500):
+    """
+    Absolutní najíždění s volitelným anti-backlashem.
+    -> pro každou osu vytvoříme 'approach' (předpětí proti vůli) a hned poté finální krátký dojezd
+    -> všechny bloky pošleme rychle za sebou (čekáme na ok), na konci případně jednou počkáme na Idle
+    """
+    global grbl_status, grbl_last_position
+    from config import default_Z_position
+
+    if z is None:
+        z = default_Z_position
+
+    # světlo / modalita
+    send_gcode("M3 S750")
+    send_gcode("G90")  # absolutní režim
+
+    # aktuální pozice (best-effort)
+    try:
+        with position_lock:
+            cx, cy, cz = [float(v) for v in grbl_last_position.split(",")]
+    except Exception:
+        cx, cy, cz = 0.0, 0.0, 0.0
+
+    AB_AXES = _get_ab_axes()
+    AB_MM   = _get_ab_amount()
+    eps     = 1e-6
+
+    gcode_queue = []
+
+    def plan_axis(axis: str, current: float, target: float, feed: int):
+        """Naplánuje approach + final pro jednu osu bez čekání; vrátí nový 'current'."""
+        if abs(target - current) <= eps:
+            return current
+        if anti_backlash and AB_MM > 0.0 and axis in AB_AXES:
+            dirF = _get_final_dir(axis)  # +1 nebo -1
+            approach = target - dirF * AB_MM
+            # Bezpečný malý clamp: když už jsme 'za' approach ve směru finálního dojezdu, approach přeskoč
+            need_approach = (dirF > 0 and approach > current + eps) or (dirF < 0 and approach < current - eps)
+            if need_approach:
+                if axis == 'X':
+                    gcode_queue.append(f"G1 X{approach:.3f} F{feed}")
+                elif axis == 'Y':
+                    gcode_queue.append(f"G1 Y{approach:.3f} F{feed}")
+                else:
+                    gcode_queue.append(f"G1 Z{approach:.3f} F{feed}")
+        # finální krátký dojezd vždy
+        if axis == 'X':
+            gcode_queue.append(f"G1 X{target:.3f} F{feed}")
+        elif axis == 'Y':
+            gcode_queue.append(f"G1 Y{target:.3f} F{feed}")
+        else:
+            gcode_queue.append(f"G1 Z{target:.3f} F{feed}")
+        return target
+
+    # naplánuj osy postupně (per-axis), ale bez průběžného čekání na Idle
+    cx = plan_axis('X', cx, x, feed_xy)
+    cy = plan_axis('Y', cy, y, feed_xy)
+    cz = plan_axis('Z', cz, z, feed_z)
+
+    # odešli všechny bloky do GRBL (send_gcode čeká jen na 'ok', ne na fyzické dojetí)
+    for line in gcode_queue:
+        send_gcode(line)
+
+    # a teprve teď jednou počkat na dokončení celé sekvence (pokud chceme)
+    if wait_end:
+        grbl_wait_for_idle()  # jednorázově na závěr celé sady pohybů
+
 
 def move_to_home_position():
     print("[MOTION] Najíždím na výchozí pozici (-245, -245)")
@@ -201,8 +305,8 @@ def grbl_wait_for_idle():
     Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
     # print("[GRBL] Waiting for Idle:", grbl_status)
-    time.sleep(0.5)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.5s, aby se stihl aktualizovat
+    time.sleep(0.6)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.6s, aby se stihl aktualizovat
     while True:
         if grbl_status == "Idle":
             break
-        time.sleep(0.5)
+        time.sleep(0.6)

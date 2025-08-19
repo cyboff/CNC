@@ -5,7 +5,6 @@ from ttkbootstrap.dialogs import Messagebox
 import config
 import core.camera_manager
 import core.motion_controller
-from core.camera_manager import start_camera_preview
 from core.utils import create_header, create_footer, create_camera_preview, show_image
 from process.find_process import find_sample_positions
 from core.logger import logger
@@ -63,7 +62,7 @@ def show_find_samples(container, project_id, samples, on_back):
         config.frame_width,
         config.frame_height,
         lambda: (core.motion_controller.grbl_last_position, core.motion_controller.grbl_status),
-        start_camera_preview
+        core.camera_manager.start_camera_preview
     )
 
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
