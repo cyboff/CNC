@@ -24,6 +24,7 @@ def init_cameras():
     tl_factory = pylon.TlFactory.GetInstance()
     devices = tl_factory.EnumerateDevices()
     if not devices:
+        messagebox.showerror("Chyba kamery", "Kamera Basler nenalezena!")
         raise Exception("Kamera Basler nenalezena!")
     # Initialize both cameras and return them for later switching
     camera = pylon.InstantCamera(tl_factory.CreateDevice(devices[0]))
@@ -52,7 +53,11 @@ def init_cameras():
     if len(devices) > 1:
         microscope = pylon.InstantCamera(tl_factory.CreateDevice(devices[1]))
         print("Microskop", microscope.GetDeviceInfo().GetModelName())
-        microscope.Open()
+        try:
+           microscope.Open()
+        except Exception as e:
+            messagebox.showerror("Chyba mikroskopu", f"Chyba při připojování se k mikroskopu: {e}")
+            raise
         # microscope.GainAuto.SetValue("Continuous")
         # microscope.ExposureAuto.SetValue("Continuous")
         microscope.GainAuto.SetValue("Off")
@@ -142,12 +147,15 @@ def start_camera_preview(image_label, update_position_callback=None):
                     if actual_camera == microscope:
                         # For microscope, we don't apply correction matrix
                         live_frame = img
+                        sharpness = tenengrad_sharpness(live_frame)
                         live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 4, live_frame.shape[0] // 4))
                     else:
                         live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
                         live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 2, live_frame.shape[0] // 2))
                     # Převod na RGB
                     img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
+                    if actual_camera == microscope:
+                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
 
                     # Rozměry a střed
                     h, w = img_rgb.shape[:2]
@@ -728,9 +736,9 @@ def _ensure_microscope():
         switch_camera()
 
 def autofocus_z(
-    search_heights_mm=getattr(config, "autofocus_steps", (0.1, 0.01, 0.002)),
+    search_heights_mm=getattr(config, "autofocus_steps", (0.05, 0.01, 0.001)),
     settle_s=0.08,
-    max_steps_per_level=120,
+    max_steps_per_level=200,
     overshoot_backtrack=3, # kolik dalších kroků po sobě s už horší ostrosti
     verbose=True,
 ):

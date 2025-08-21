@@ -6,7 +6,7 @@ from core.logger import logger
 from core.motion_controller import move_axis, grbl_home, grbl_clear_alarm, grbl_abort
 import core.motion_controller
 from process.images_process import run_autofocus, run_fine_focus
-from process.find_process import find_sample_positions
+from gui.find_samples import show_find_samples
 from core.camera_manager import start_camera_preview, switch_camera, calibrate_camera, autofocus_z
 import core.camera_manager
 import threading
@@ -131,7 +131,7 @@ def show_manual_controller(container, on_back):
     add_action_button(control_frame, "🎯 Zaostřit", lambda: threading.Thread(target=autofocus_z, daemon=True).start())
     add_action_button(control_frame, "🎥 Přepnout kameru", lambda: threading.Thread(target=switch_camera, daemon=True).start())
     add_action_button(control_frame, "🔧 Kalibrovat kamery", lambda: threading.Thread(target=calibrate_camera, args=(container, image_label, move_x, move_y, move_z, step), daemon=True).start())
-    # add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=find_sample_positions, args=(container, image_label, None, None, [1, 2, 3, 4]), daemon=True).start())
+    add_action_button(control_frame, "🔎 Najdi vzorky", lambda: threading.Thread(target=show_find_samples, args=(container, 1, [1, 2, 3, 4], on_back), daemon=True).start())
 
     # VPRAVO – kamera
     core.camera_manager.preview_running = False

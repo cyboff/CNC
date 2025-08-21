@@ -24,7 +24,12 @@ def init_grbl():
     cnc_serial.timeout = 1
     cnc_serial.dtr = False
     cnc_serial.rts = False
-    cnc_serial.open()
+    try:
+        cnc_serial.open()
+    except Exception as e:
+        import tkinter.messagebox as mbox
+        mbox.showerror("Chyba při otevírání portu", f"Nepodařilo se otevřít sériový port:\n{e}")
+        raise
 
     time.sleep(2)
     cnc_serial.reset_input_buffer()
