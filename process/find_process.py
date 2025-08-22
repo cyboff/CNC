@@ -233,7 +233,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             previous_black_ratio = 0.0
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
-            while errors > max_errors or max_sharpness < 1000:
+            while errors > max_errors or max_sharpness < 800:
                 print(f"[FIND] Získávám snímek {step} z mikroskopu pro drát {pos_index} vzorku {ean_code} - (pokus {attempt})")
                 core.motion_controller.move_to_position(px, py, abs_z - z_step)
                 time.sleep(0.25)
@@ -275,7 +275,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 if errors < max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
                     # TODO: Limitní hodnoty max_sharpness je třeba odladit a přidat do settings
                     z_step += 0.1 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
-                    if max_sharpness < 1000 and black_ratio > 0.6: # Asi moc černého okraje na obrázku, zmenšíme poloměr
+                    if max_sharpness < 800 and black_ratio > 0.6: # Asi moc černého okraje na obrázku, zmenšíme poloměr
                         px = round(gx + (abs_r - 0.8 * (black_ratio - 0.5)) * np.cos(angle), 3) # 0.8 mm je cca šířka zorného pole mikroskopu
                         py = round(gy + (abs_r - 0.8 * (black_ratio - 0.5)) * np.sin(angle), 3)
                         print(f"[MICROSCOPE] Zvětšuji krok Z na {z_step:.3f} mm a zmenšuji poloměr o {(0.8 * (black_ratio - 0.5)):.3f} mm pro další pokus.")
@@ -294,7 +294,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     previous_black_ratio = black_ratio
                     max_sharpness = 0.0  # Resetujeme max ostrost pro další pokus
                 attempt += 1
-                if attempt > 10:  # Maximální počet pokusů
+                if attempt > 6:  # Maximální počet pokusů
                     print("[MICROSCOPE] Příliš mnoho pokusů, ukončuji snímání.")
                     break
 
