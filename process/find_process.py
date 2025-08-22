@@ -217,7 +217,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                                         verbose=True, )
                 if best_z is not None and abs(abs_z - best_z) < 1.0: # Pokud je změna menší než 1 mm, přijmeme ji, někdy autofocus "uskočí"
                     abs_z = float(best_z)
-                    z_step_begin = 0.25  # Zmenšíme na jemnější rozmezí pro zaostření
+                    z_step_begin = 0.15  # Zmenšíme na jemnější rozmezí pro zaostření
                     print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
 
                 core.camera_manager.preview_running = False
@@ -274,7 +274,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
 
                 if errors < max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
                     # TODO: Limitní hodnoty max_sharpness je třeba odladit a přidat do settings
-                    z_step += 0.1 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
+                    z_step += 0.2 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
                     if max_sharpness < 1000 and black_ratio > 0.6: # Asi moc černého okraje na obrázku, zmenšíme poloměr
                         px = round(gx + (abs_r - 0.8 * (black_ratio - 0.5)) * np.cos(angle), 3) # 0.8 mm je cca šířka zorného pole mikroskopu
                         py = round(gy + (abs_r - 0.8 * (black_ratio - 0.5)) * np.sin(angle), 3)
@@ -294,7 +294,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     previous_black_ratio = black_ratio
                     max_sharpness = 0.0  # Resetujeme max ostrost pro další pokus
                 attempt += 1
-                if attempt > 6:  # Maximální počet pokusů
+                if attempt > 5:  # Maximální počet pokusů
                     print("[MICROSCOPE] Příliš mnoho pokusů, ukončuji snímání.")
                     break
 
