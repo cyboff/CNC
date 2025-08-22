@@ -17,7 +17,7 @@ from core.database import save_project_sample_to_db, save_sample_items_to_db
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
-from core.camera_manager import tenengrad_sharpness, autofocus_z
+from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ratio
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
@@ -215,7 +215,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                                         max_steps_per_level=200,
                                         overshoot_backtrack=3,  # kolik dalších kroků po sobě s už horší ostrosti
                                         verbose=True, )
-                if best_z is not None:
+                if best_z is not None and abs(abs_z - best_z) < 1.0: # Pokud je změna menší než 1 mm, přijmeme ji, někdy autofocus "uskočí"
                     abs_z = float(best_z)
                     z_step_begin = 0.25  # Zmenšíme na jemnější rozmezí pro zaostření
                     print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
@@ -229,7 +229,8 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             errors = 0
             attempt = 1
             z_step = z_step_begin  # Začneme s počátečním krokem Z, v případě chyb zvětšíme
-
+            black_ratio = 0.0
+            previous_black_ratio = 0.0
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
             while errors > max_errors or max_sharpness < 1000:
@@ -254,32 +255,44 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                         (h, w) = img_rgb.shape[:2]
                         sharpness = tenengrad_sharpness(img_rgb)
+
                         print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
                         if sharpness > max_sharpness:
                             max_sharpness = sharpness
                             sharpest_img = img_rgb.copy()
+                            black_ratio, white_ratio = black_white_ratio(sharpest_img, use_otsu=False, thresh_val=100)
                     else:
                         print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
                         errors += 1
+                        sharpness = None
                         if errors > max_errors:
                             break
 
-                    if sharpness < max_sharpness * 0.5 and sharpest_img is not None:
-                        print(f"[MICROSCOPE] Ostrost klesla pod 50% max. ostrosti ({sharpness:.3f} z {max_sharpness:.3f}), ukončuji snímání.")
+                    if sharpness is not None and sharpness < max_sharpness * 0.5 and sharpest_img is not None:
+                        print(f"[MICROSCOPE] Ostrost klesla pod 50% max. ostrosti ({sharpness:.3f} z {max_sharpness:.3f}), poměr černé {black_ratio:.1%} - ukončuji snímání.")
                         break
 
-                if errors == 0: # Pokud nebyly žádné chyby snímání, pokračujeme v dalším pokusu
+                if errors < max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
                     # TODO: Limitní hodnoty max_sharpness je třeba odladit a přidat do settings
                     z_step += 0.1 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
-                    if max_sharpness < 1000: # Asi moc černého okraje na obrázku, zmenšíme poloměr
-                        px = round(gx + (abs_r - (0.1 * attempt)) * np.cos(angle), 3)
-                        py = round(gy + (abs_r - (0.1 * attempt)) * np.sin(angle), 3)
-                        print(f"[MICROSCOPE] Zvětšuji krok Z na {z_step:.3f} mm a zmenšuji poloměr o {(0.1 * attempt):.3f} mm pro další pokus.")
-                if max_sharpness > 2500: # Asi málo černého okraje na obrázku, zvětšíme poloměr
-                        px = round(gx + (abs_r + (0.1 * attempt)) * np.cos(angle), 3)
-                        py = round(gy + (abs_r + (0.1 * attempt)) * np.sin(angle), 3)
-                        max_sharpness = 0.0  # Resetujeme max ostrost pro další pokus
-                        print(f"[MICROSCOPE] Zvětšuji krok Z na {z_step:.3f} mm a zvětšuji poloměr o {(0.1 * attempt):.3f} mm pro další pokus.")
+                    if max_sharpness < 1000 and black_ratio > 0.6: # Asi moc černého okraje na obrázku, zmenšíme poloměr
+                        px = round(gx + (abs_r - 0.8 * (black_ratio - 0.5)) * np.cos(angle), 3) # 0.8 mm je cca šířka zorného pole mikroskopu
+                        py = round(gy + (abs_r - 0.8 * (black_ratio - 0.5)) * np.sin(angle), 3)
+                        print(f"[MICROSCOPE] Zvětšuji krok Z na {z_step:.3f} mm a zmenšuji poloměr o {(0.8 * (black_ratio - 0.5)):.3f} mm pro další pokus.")
+                if max_sharpness > 2000 and black_ratio < 0.4:
+                    # TODO: Ověřit logiku při dvou drátech vedle sebe
+                    if black_ratio > previous_black_ratio:
+                        # Málo černého okraje, zvětšíme poloměr
+                        px = round(gx + (abs_r + 0.8 * (0.5 - black_ratio)) * np.cos(angle), 3)
+                        py = round(gy + (abs_r + 0.8 * (0.5 - black_ratio)) * np.sin(angle), 3)
+                        print(f"[MICROSCOPE] Zvětšuji poloměr o {(0.8 * (0.5 - black_ratio)):.3f} mm pro další pokus.")
+                    else:
+                        # Pokud se black_ratio zmenšuje, zmenšíme poloměr
+                        px = round(gx + (abs_r - 0.8 * (0.5 - black_ratio)) * np.cos(angle), 3)
+                        py = round(gy + (abs_r - 0.8 * (0.5 - black_ratio)) * np.sin(angle), 3)
+                        print(f"[MICROSCOPE] Zmenšuji poloměr o {(0.8 * (0.5 - black_ratio)):.3f} mm pro další pokus.")
+                    previous_black_ratio = black_ratio
+                    max_sharpness = 0.0  # Resetujeme max ostrost pro další pokus
                 attempt += 1
                 if attempt > 10:  # Maximální počet pokusů
                     print("[MICROSCOPE] Příliš mnoho pokusů, ukončuji snímání.")
@@ -292,7 +305,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 # Náhled do GUI
                 img = cv2.resize(sharpest_img, (int(w // 4), int(h // 4)))
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                cv2.putText(img, f"Drat {pos_index} - Snimek {step} - Ostrost {max_sharpness:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                cv2.putText(img, f"Drat {pos_index} - Snimek {step} Ostrost: {max_sharpness:.2f}, Cerna: {black_ratio:.1%}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
                 im_pil = Image.fromarray(img)
                 imgtk = ImageTk.PhotoImage(image=im_pil)
                 if image_label.winfo_exists():

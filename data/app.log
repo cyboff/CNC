@@ -12096,3 +12096,1169 @@
 2025-08-21 15:29:14,799 [INFO] Klik: Manuální ovládání
 2025-08-21 15:29:14,807 [INFO] Kliknutí na manuální řízení
 2025-08-21 15:30:55,959 [INFO] Zavírám sériový port CNC
+2025-08-22 08:26:06,599 [INFO] Aplikace spuštěna
+2025-08-22 08:26:06,607 [INFO] Zobrazení domovské obrazovky
+2025-08-22 09:21:44,040 [INFO] Klik: Nové měření
+2025-08-22 09:21:47,570 [INFO] Vytvořena složka projektu: projects\2025_08_22_09_21_47_25_1
+2025-08-22 09:21:49,748 [INFO] Načten EAN kód: 1
+2025-08-22 09:21:51,121 [INFO] Načten EAN kód: 2
+2025-08-22 09:21:52,080 [INFO] Načten EAN kód: 3
+2025-08-22 09:21:52,882 [INFO] Načten EAN kód: 4
+2025-08-22 09:21:56,361 [INFO] [SCAN] Spouštím proces FIND pro projekt 25
+2025-08-22 09:22:10,029 [INFO] Zobrazení domovské obrazovky
+2025-08-22 09:22:11,641 [INFO] Klik: Nové měření
+2025-08-22 09:22:14,099 [INFO] Vytvořena složka projektu: projects\2025_08_22_09_22_14_26_12
+2025-08-22 09:22:15,858 [INFO] Načten EAN kód: 1
+2025-08-22 09:22:16,429 [INFO] Načten EAN kód: 2
+2025-08-22 09:22:16,962 [INFO] Načten EAN kód: 3
+2025-08-22 09:22:17,505 [INFO] Načten EAN kód: 4
+2025-08-22 09:22:21,812 [INFO] [SCAN] Spouštím proces FIND pro projekt 26
+2025-08-22 09:22:56,522 [INFO] Zavírám sériový port CNC
+2025-08-22 09:23:04,814 [INFO] Aplikace spuštěna
+2025-08-22 09:23:04,814 [INFO] Zobrazení domovské obrazovky
+2025-08-22 09:23:58,613 [INFO] Klik: Nové měření
+2025-08-22 09:24:03,613 [INFO] Vytvořena složka projektu: projects\2025_08_22_09_24_03_27_1
+2025-08-22 09:24:06,498 [INFO] Načten EAN kód: 1
+2025-08-22 09:24:07,223 [INFO] Načten EAN kód: 2
+2025-08-22 09:24:08,399 [INFO] Načten EAN kód: 3
+2025-08-22 09:24:09,032 [INFO] Načten EAN kód: 4
+2025-08-22 09:24:12,574 [INFO] [SCAN] Spouštím proces FIND pro projekt 27
+2025-08-22 09:24:29,301 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 09:24:29,309 [INFO] [DB] Uložen drát 1 vzorku 30 - x:899 y:673 r:451.
+2025-08-22 09:24:46,714 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-22 09:24:46,722 [INFO] [DB] Uložen drát 1 vzorku 31 - x:977 y:358 r:294.
+2025-08-22 09:24:46,722 [INFO] [DB] Uložen drát 2 vzorku 31 - x:467 y:703 r:300.
+2025-08-22 09:24:46,722 [INFO] [DB] Uložen drát 3 vzorku 31 - x:968 y:985 r:299.
+2025-08-22 09:25:04,755 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-22 09:25:04,760 [INFO] [DB] Uložen drát 1 vzorku 32 - x:1015 y:304 r:255.
+2025-08-22 09:25:04,761 [INFO] [DB] Uložen drát 2 vzorku 32 - x:482 y:523 r:257.
+2025-08-22 09:25:04,761 [INFO] [DB] Uložen drát 3 vzorku 32 - x:1100 y:931 r:254.
+2025-08-22 09:25:04,761 [INFO] [DB] Uložen drát 4 vzorku 32 - x:551 y:1026 r:262.
+2025-08-22 09:25:22,323 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-22 09:25:22,330 [INFO] [DB] Uložen drát 1 vzorku 33 - x:790 y:236 r:108.
+2025-08-22 09:25:22,330 [INFO] [DB] Uložen drát 2 vzorku 33 - x:984 y:543 r:109.
+2025-08-22 09:25:22,330 [INFO] [DB] Uložen drát 3 vzorku 33 - x:622 y:554 r:109.
+2025-08-22 09:25:22,330 [INFO] [DB] Uložen drát 4 vzorku 33 - x:1151 y:875 r:109.
+2025-08-22 09:25:22,330 [INFO] [DB] Uložen drát 5 vzorku 33 - x:762 y:893 r:109.
+2025-08-22 09:25:30,385 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 27
+2025-08-22 09:25:31,930 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 1 detekovanými dráty.
+2025-08-22 09:26:20,965 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 99 - x:-123.189 y:-156.77.
+2025-08-22 09:26:30,071 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 99 - x:-123.2 y:-156.269.
+2025-08-22 09:26:39,509 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 99 - x:-123.232 y:-155.768.
+2025-08-22 09:26:57,590 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 99 - x:-123.287 y:-155.27.
+2025-08-22 09:27:06,320 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 99 - x:-123.362 y:-154.774.
+2025-08-22 09:27:16,060 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 99 - x:-123.46 y:-154.282.
+2025-08-22 09:27:23,548 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 99 - x:-123.578 y:-153.794.
+2025-08-22 09:27:41,385 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 99 - x:-123.717 y:-153.312.
+2025-08-22 09:27:50,285 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 99 - x:-123.878 y:-152.837.
+2025-08-22 09:27:59,019 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 99 - x:-124.058 y:-152.369.
+2025-08-22 09:28:07,676 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 99 - x:-124.259 y:-151.909.
+2025-08-22 09:28:17,334 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 99 - x:-124.479 y:-151.459.
+2025-08-22 09:28:25,944 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 99 - x:-124.719 y:-151.018.
+2025-08-22 09:28:35,283 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 99 - x:-124.978 y:-150.588.
+2025-08-22 09:28:45,613 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 99 - x:-125.255 y:-150.17.
+2025-08-22 09:28:53,791 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 99 - x:-125.549 y:-149.764.
+2025-08-22 09:29:02,977 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 99 - x:-125.862 y:-149.372.
+2025-08-22 09:29:11,243 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 99 - x:-126.19 y:-148.993.
+2025-08-22 09:29:20,332 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 99 - x:-126.535 y:-148.629.
+2025-08-22 09:29:29,351 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 99 - x:-126.896 y:-148.28.
+2025-08-22 09:29:38,542 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 99 - x:-127.271 y:-147.947.
+2025-08-22 09:29:48,100 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 99 - x:-127.66 y:-147.631.
+2025-08-22 09:29:56,141 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 99 - x:-128.063 y:-147.331.
+2025-08-22 09:30:05,663 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 99 - x:-128.478 y:-147.05.
+2025-08-22 09:30:15,959 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 99 - x:-128.905 y:-146.787.
+2025-08-22 09:30:24,204 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 99 - x:-129.343 y:-146.542.
+2025-08-22 09:30:42,326 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 99 - x:-129.791 y:-146.317.
+2025-08-22 09:31:02,089 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 99 - x:-130.21 y:-146.019.
+2025-08-22 09:31:12,371 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 99 - x:-130.715 y:-145.926.
+2025-08-22 09:31:31,760 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 99 - x:-131.157 y:-145.665.
+2025-08-22 09:32:05,750 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 99 - x:-131.615 y:-145.423.
+2025-08-22 09:32:25,986 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 99 - x:-132.132 y:-145.395.
+2025-08-22 09:32:44,346 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 99 - x:-132.627 y:-145.291.
+2025-08-22 09:33:04,263 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 99 - x:-133.127 y:-145.209.
+2025-08-22 09:33:23,691 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 99 - x:-133.629 y:-145.149.
+2025-08-22 09:33:51,857 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 99 - x:-134.128 y:-145.011.
+2025-08-22 09:34:20,918 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 99 - x:-134.638 y:-144.994.
+2025-08-22 09:34:50,539 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 99 - x:-135.148 y:-145.0.
+2025-08-22 09:35:21,012 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 99 - x:-135.658 y:-145.027.
+2025-08-22 09:35:50,821 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 99 - x:-136.166 y:-145.077.
+2025-08-22 09:36:24,206 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 99 - x:-136.671 y:-145.149.
+2025-08-22 09:36:36,127 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 99 - x:-137.132 y:-145.438.
+2025-08-22 09:36:54,203 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 99 - x:-137.645 y:-145.454.
+2025-08-22 09:37:38,007 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 99 - x:-138.19 y:-145.398.
+2025-08-22 09:37:59,604 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 99 - x:-138.614 y:-145.746.
+2025-08-22 09:38:29,042 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 99 - x:-139.125 y:-145.83.
+2025-08-22 09:38:58,193 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 99 - x:-139.594 y:-146.029.
+2025-08-22 09:39:31,962 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 99 - x:-140.055 y:-146.248.
+2025-08-22 09:40:03,268 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 99 - x:-140.506 y:-146.487.
+2025-08-22 09:40:32,564 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 99 - x:-140.946 y:-146.746.
+2025-08-22 09:41:01,388 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 99 - x:-141.375 y:-147.023.
+2025-08-22 09:41:30,877 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 99 - x:-141.791 y:-147.318.
+2025-08-22 09:42:01,483 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 99 - x:-142.193 y:-147.632.
+2025-08-22 09:42:31,015 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 99 - x:-142.582 y:-147.962.
+2025-08-22 09:43:00,405 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 99 - x:-142.957 y:-148.309.
+2025-08-22 09:43:30,040 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 99 - x:-143.315 y:-148.672.
+2025-08-22 09:43:58,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 99 - x:-143.658 y:-149.05.
+2025-08-22 09:44:19,666 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 99 - x:-143.906 y:-149.504.
+2025-08-22 09:44:30,146 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 99 - x:-144.131 y:-149.966.
+2025-08-22 09:44:38,669 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 99 - x:-144.417 y:-150.378.
+2025-08-22 09:44:47,307 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 99 - x:-144.685 y:-150.802.
+2025-08-22 09:44:56,853 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 99 - x:-144.934 y:-151.237.
+2025-08-22 09:45:05,428 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 99 - x:-145.165 y:-151.683.
+2025-08-22 09:45:14,223 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 99 - x:-145.375 y:-152.138.
+2025-08-22 09:45:22,852 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 99 - x:-145.566 y:-152.602.
+2025-08-22 09:45:32,170 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 99 - x:-145.736 y:-153.074.
+2025-08-22 09:45:41,927 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 99 - x:-145.886 y:-153.553.
+2025-08-22 09:45:49,984 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 99 - x:-146.015 y:-154.037.
+2025-08-22 09:46:07,452 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 99 - x:-146.221 y:-154.508.
+2025-08-22 09:46:16,182 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 99 - x:-146.209 y:-155.021.
+2025-08-22 09:46:25,711 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 99 - x:-146.275 y:-155.519.
+2025-08-22 09:46:33,744 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 99 - x:-146.318 y:-156.018.
+2025-08-22 09:46:42,692 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 99 - x:-146.34 y:-156.52.
+2025-08-22 09:46:51,304 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 99 - x:-146.34 y:-157.021.
+2025-08-22 09:47:00,012 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 99 - x:-146.318 y:-157.522.
+2025-08-22 09:47:08,577 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 99 - x:-146.275 y:-158.022.
+2025-08-22 09:47:17,874 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 99 - x:-146.209 y:-158.519.
+2025-08-22 09:47:27,393 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 99 - x:-146.123 y:-159.014.
+2025-08-22 09:47:35,902 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 78 pro položku 99 - x:-146.015 y:-159.503.
+2025-08-22 09:47:54,255 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 79 pro položku 99 - x:-145.886 y:-159.988.
+2025-08-22 09:48:03,505 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 80 pro položku 99 - x:-145.736 y:-160.467.
+2025-08-22 09:48:22,052 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 81 pro položku 99 - x:-145.566 y:-160.939.
+2025-08-22 09:48:30,973 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 82 pro položku 99 - x:-145.375 y:-161.403.
+2025-08-22 09:48:39,796 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 83 pro položku 99 - x:-145.165 y:-161.858.
+2025-08-22 09:48:48,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 84 pro položku 99 - x:-144.934 y:-162.304.
+2025-08-22 09:48:58,478 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 85 pro položku 99 - x:-144.685 y:-162.739.
+2025-08-22 09:49:07,029 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 86 pro položku 99 - x:-144.417 y:-163.163.
+2025-08-22 09:49:35,200 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 87 pro položku 99 - x:-143.97 y:-163.457.
+2025-08-22 09:49:55,994 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 88 pro položku 99 - x:-143.75 y:-163.912.
+2025-08-22 09:50:06,231 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 89 pro položku 99 - x:-143.507 y:-164.36.
+2025-08-22 09:50:34,540 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 90 pro položku 99 - x:-143.025 y:-164.594.
+2025-08-22 09:50:44,861 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 91 pro položku 99 - x:-142.818 y:-165.088.
+2025-08-22 09:50:53,179 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 92 pro položku 99 - x:-142.45 y:-165.429.
+2025-08-22 09:51:12,431 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 93 pro položku 99 - x:-142.004 y:-165.676.
+2025-08-22 09:51:22,522 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 94 pro položku 99 - x:-141.671 y:-166.062.
+2025-08-22 09:51:31,395 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 95 pro položku 99 - x:-141.262 y:-166.352.
+2025-08-22 09:51:41,041 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 96 pro položku 99 - x:-140.841 y:-166.625.
+2025-08-22 09:51:59,971 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 97 pro položku 99 - x:-140.36 y:-166.791.
+2025-08-22 09:52:28,908 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 98 pro položku 99 - x:-139.876 y:-166.935.
+2025-08-22 09:52:38,906 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 99 pro položku 99 - x:-139.512 y:-167.329.
+2025-08-22 09:52:47,735 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 100 pro položku 99 - x:-139.051 y:-167.525.
+2025-08-22 09:53:05,077 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 101 pro položku 99 - x:-138.581 y:-167.7.
+2025-08-22 09:53:23,047 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 102 pro položku 99 - x:-138.104 y:-167.855.
+2025-08-22 09:53:32,014 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 103 pro položku 99 - x:-137.62 y:-167.99.
+2025-08-22 09:53:49,710 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 104 pro položku 99 - x:-137.132 y:-168.103.
+2025-08-22 09:53:58,862 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 105 pro položku 99 - x:-136.639 y:-168.195.
+2025-08-22 09:54:07,690 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 106 pro položku 99 - x:-136.142 y:-168.265.
+2025-08-22 09:54:16,434 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 107 pro položku 99 - x:-135.643 y:-168.314.
+2025-08-22 09:54:25,931 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 108 pro položku 99 - x:-135.142 y:-168.341.
+2025-08-22 09:54:34,037 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 109 pro položku 99 - x:-134.64 y:-168.346.
+2025-08-22 09:54:43,645 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 110 pro položku 99 - x:-134.139 y:-168.33.
+2025-08-22 09:54:52,342 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 111 pro položku 99 - x:-133.639 y:-168.292.
+2025-08-22 09:55:01,089 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 112 pro položku 99 - x:-133.141 y:-168.233.
+2025-08-22 09:55:09,665 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 113 pro položku 99 - x:-132.646 y:-168.151.
+2025-08-22 09:55:18,815 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 114 pro položku 99 - x:-132.155 y:-168.049.
+2025-08-22 09:55:28,311 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 115 pro položku 99 - x:-131.669 y:-167.925.
+2025-08-22 09:55:36,842 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 116 pro položku 99 - x:-131.188 y:-167.781.
+2025-08-22 09:55:45,614 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 117 pro položku 99 - x:-130.715 y:-167.615.
+2025-08-22 09:55:54,064 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 118 pro položku 99 - x:-130.249 y:-167.43.
+2025-08-22 09:56:03,169 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 119 pro položku 99 - x:-129.791 y:-167.224.
+2025-08-22 09:56:12,695 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 120 pro položku 99 - x:-129.343 y:-166.999.
+2025-08-22 09:56:20,495 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 121 pro položku 99 - x:-128.905 y:-166.754.
+2025-08-22 09:56:39,698 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 122 pro položku 99 - x:-128.532 y:-166.407.
+2025-08-22 09:56:49,885 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 123 pro položku 99 - x:-128.063 y:-166.209.
+2025-08-22 09:57:07,860 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 124 pro položku 99 - x:-127.66 y:-165.91.
+2025-08-22 09:57:16,372 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 125 pro položku 99 - x:-127.271 y:-165.594.
+2025-08-22 09:57:35,839 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 126 pro položku 99 - x:-126.964 y:-165.187.
+2025-08-22 09:57:56,308 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 127 pro položku 99 - x:-126.607 y:-164.842.
+2025-08-22 09:58:16,632 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 128 pro položku 99 - x:-126.265 y:-164.481.
+2025-08-22 09:58:27,165 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 129 pro položku 99 - x:-125.862 y:-164.169.
+2025-08-22 09:58:46,025 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 130 pro položku 99 - x:-125.629 y:-163.716.
+2025-08-22 09:59:04,843 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 131 pro položku 99 - x:-125.255 y:-163.371.
+2025-08-22 09:59:22,775 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 132 pro položku 99 - x:-124.978 y:-162.952.
+2025-08-22 09:59:41,698 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 133 pro položku 99 - x:-124.806 y:-162.473.
+2025-08-22 10:00:01,887 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 134 pro položku 99 - x:-124.568 y:-162.036.
+2025-08-22 10:00:12,916 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 135 pro položku 99 - x:-124.259 y:-161.631.
+2025-08-22 10:00:31,753 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 136 pro položku 99 - x:-124.151 y:-161.134.
+2025-08-22 10:00:41,830 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 137 pro položku 99 - x:-123.878 y:-160.704.
+2025-08-22 10:01:09,806 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 138 pro položku 99 - x:-123.908 y:-160.169.
+2025-08-22 10:01:19,759 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 139 pro položku 99 - x:-123.578 y:-159.746.
+2025-08-22 10:01:28,555 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 140 pro položku 99 - x:-123.46 y:-159.259.
+2025-08-22 10:01:37,314 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 141 pro položku 99 - x:-123.362 y:-158.767.
+2025-08-22 10:01:46,092 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 142 pro položku 99 - x:-123.287 y:-158.271.
+2025-08-22 10:01:54,870 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 143 pro položku 99 - x:-123.232 y:-157.772.
+2025-08-22 10:02:03,699 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 144 pro položku 99 - x:-123.2 y:-157.272.
+2025-08-22 10:02:04,231 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A2 vzorku 2 s 3 detekovanými dráty.
+2025-08-22 10:18:40,199 [INFO] Aplikace spuštěna
+2025-08-22 10:18:40,200 [INFO] Zobrazení domovské obrazovky
+2025-08-22 10:18:43,768 [INFO] Klik: Nové měření
+2025-08-22 10:18:46,505 [INFO] Vytvořena složka projektu: projects\2025_08_22_10_18_46_28_1
+2025-08-22 10:18:48,356 [INFO] Načten EAN kód: 1
+2025-08-22 10:18:49,988 [INFO] [SCAN] Spouštím proces FIND pro projekt 28
+2025-08-22 10:19:15,337 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 10:19:15,341 [INFO] [DB] Uložen drát 1 vzorku 34 - x:898 y:676 r:451.
+2025-08-22 10:19:22,755 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 28
+2025-08-22 10:19:24,471 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 1 detekovanými dráty.
+2025-08-22 10:20:23,444 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 112 - x:-123.214 y:-156.693.
+2025-08-22 10:20:31,846 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 112 - x:-123.225 y:-156.191.
+2025-08-22 10:20:40,861 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 112 - x:-123.258 y:-155.691.
+2025-08-22 10:20:49,265 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 112 - x:-123.312 y:-155.192.
+2025-08-22 10:20:58,228 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 112 - x:-123.388 y:-154.696.
+2025-08-22 10:21:07,242 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 112 - x:-123.485 y:-154.204.
+2025-08-22 10:21:16,256 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 112 - x:-123.603 y:-153.717.
+2025-08-22 10:21:24,658 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 112 - x:-123.743 y:-153.235.
+2025-08-22 10:21:33,626 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 112 - x:-123.903 y:-152.76.
+2025-08-22 10:21:42,077 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 112 - x:-124.084 y:-152.292.
+2025-08-22 10:21:51,090 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 112 - x:-124.284 y:-151.832.
+2025-08-22 10:21:59,607 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 112 - x:-124.505 y:-151.381.
+2025-08-22 10:22:08,599 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 112 - x:-124.745 y:-150.941.
+2025-08-22 10:22:17,661 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 112 - x:-125.003 y:-150.511.
+2025-08-22 10:22:36,069 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 112 - x:-125.28 y:-150.093.
+2025-08-22 10:22:44,560 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 112 - x:-125.575 y:-149.687.
+2025-08-22 10:22:53,834 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 112 - x:-125.887 y:-149.294.
+2025-08-22 10:23:02,743 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 112 - x:-126.216 y:-148.916.
+2025-08-22 10:23:11,256 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 112 - x:-126.561 y:-148.551.
+2025-08-22 10:23:20,394 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 112 - x:-126.921 y:-148.202.
+2025-08-22 10:23:28,925 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 112 - x:-127.297 y:-147.87.
+2025-08-22 10:23:37,773 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 112 - x:-127.686 y:-147.553.
+2025-08-22 10:23:46,343 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 112 - x:-128.088 y:-147.254.
+2025-08-22 10:23:55,541 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 112 - x:-128.504 y:-146.972.
+2025-08-22 10:24:05,051 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 112 - x:-128.931 y:-146.709.
+2025-08-22 10:24:13,614 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 112 - x:-129.368 y:-146.465.
+2025-08-22 10:24:22,822 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 112 - x:-129.817 y:-146.239.
+2025-08-22 10:24:31,499 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 112 - x:-130.274 y:-146.034.
+2025-08-22 10:24:40,232 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 112 - x:-130.74 y:-145.848.
+2025-08-22 10:24:57,930 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 112 - x:-131.214 y:-145.683.
+2025-08-22 10:25:06,698 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 112 - x:-131.694 y:-145.538.
+2025-08-22 10:25:15,300 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 112 - x:-132.18 y:-145.414.
+2025-08-22 10:25:23,938 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 112 - x:-132.671 y:-145.312.
+2025-08-22 10:25:33,212 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 112 - x:-133.166 y:-145.231.
+2025-08-22 10:25:41,307 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 112 - x:-133.664 y:-145.171.
+2025-08-22 10:25:59,052 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 112 - x:-134.164 y:-145.133.
+2025-08-22 10:26:07,808 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 112 - x:-134.666 y:-145.117.
+2025-08-22 10:26:16,554 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 112 - x:-135.167 y:-145.122.
+2025-08-22 10:26:25,343 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 112 - x:-135.668 y:-145.149.
+2025-08-22 10:26:43,605 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 112 - x:-136.167 y:-145.198.
+2025-08-22 10:26:52,420 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 112 - x:-136.664 y:-145.269.
+2025-08-22 10:27:01,234 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 112 - x:-137.157 y:-145.361.
+2025-08-22 10:27:10,034 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 112 - x:-137.646 y:-145.474.
+2025-08-22 10:27:28,015 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 112 - x:-138.129 y:-145.608.
+2025-08-22 10:27:36,848 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 112 - x:-138.606 y:-145.763.
+2025-08-22 10:27:45,571 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 112 - x:-139.076 y:-145.938.
+2025-08-22 10:27:54,325 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 112 - x:-139.538 y:-146.134.
+2025-08-22 10:28:03,608 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 112 - x:-139.991 y:-146.35.
+2025-08-22 10:28:11,781 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 112 - x:-140.434 y:-146.585.
+2025-08-22 10:28:20,819 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 112 - x:-140.867 y:-146.839.
+2025-08-22 10:28:28,959 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 112 - x:-141.288 y:-147.111.
+2025-08-22 10:28:37,807 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 112 - x:-141.697 y:-147.401.
+2025-08-22 10:28:46,554 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 112 - x:-142.093 y:-147.709.
+2025-08-22 10:28:55,285 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 112 - x:-142.475 y:-148.034.
+2025-08-22 10:29:04,750 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 112 - x:-142.843 y:-148.375.
+2025-08-22 10:29:22,517 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 112 - x:-143.196 y:-148.732.
+2025-08-22 10:29:31,390 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 112 - x:-143.533 y:-149.103.
+2025-08-22 10:29:40,212 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 112 - x:-143.853 y:-149.489.
+2025-08-22 10:29:49,038 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 112 - x:-144.157 y:-149.888.
+2025-08-22 10:30:06,641 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 112 - x:-144.443 y:-150.3.
+2025-08-22 10:30:15,437 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 112 - x:-144.711 y:-150.724.
+2025-08-22 10:30:24,153 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 112 - x:-144.96 y:-151.16.
+2025-08-22 10:30:32,935 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 112 - x:-145.19 y:-151.605.
+2025-08-22 10:30:51,149 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 112 - x:-145.401 y:-152.061.
+2025-08-22 10:31:00,048 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 112 - x:-145.591 y:-152.525.
+2025-08-22 10:31:08,847 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 112 - x:-145.762 y:-152.996.
+2025-08-22 10:31:17,624 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 112 - x:-145.912 y:-153.475.
+2025-08-22 10:31:27,432 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 112 - x:-146.041 y:-153.96.
+2025-08-22 10:31:36,216 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 112 - x:-146.148 y:-154.45.
+2025-08-22 10:31:45,140 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 112 - x:-146.235 y:-154.944.
+2025-08-22 10:31:53,961 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 112 - x:-146.3 y:-155.441.
+2025-08-22 10:32:02,761 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 112 - x:-146.343 y:-155.941.
+2025-08-22 10:32:20,627 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 112 - x:-146.365 y:-156.442.
+2025-08-22 10:32:29,599 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 112 - x:-146.365 y:-156.944.
+2025-08-22 10:32:38,372 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 112 - x:-146.343 y:-157.445.
+2025-08-22 10:32:47,104 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 112 - x:-146.3 y:-157.945.
+2025-08-22 10:33:04,943 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 112 - x:-146.235 y:-158.442.
+2025-08-22 10:33:22,416 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 112 - x:-146.148 y:-158.936.
+2025-08-22 10:33:31,655 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 78 pro položku 112 - x:-146.041 y:-159.426.
+2025-08-22 10:33:49,589 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 79 pro položku 112 - x:-145.912 y:-159.911.
+2025-08-22 10:33:59,060 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 80 pro položku 112 - x:-145.762 y:-160.389.
+2025-08-22 10:34:07,708 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 81 pro položku 112 - x:-145.591 y:-160.861.
+2025-08-22 10:34:16,396 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 82 pro položku 112 - x:-145.401 y:-161.325.
+2025-08-22 10:34:26,018 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 83 pro položku 112 - x:-145.19 y:-161.78.
+2025-08-22 10:34:34,044 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 84 pro položku 112 - x:-144.96 y:-162.226.
+2025-08-22 10:34:51,604 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 85 pro položku 112 - x:-144.711 y:-162.661.
+2025-08-22 10:35:00,781 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 86 pro položku 112 - x:-144.443 y:-163.085.
+2025-08-22 10:35:33,106 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 87 pro položku 112 - x:-144.157 y:-163.498.
+2025-08-22 10:35:55,215 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 88 pro položku 112 - x:-143.853 y:-163.897.
+2025-08-22 10:36:05,544 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 89 pro položku 112 - x:-143.533 y:-164.283.
+2025-08-22 10:36:14,858 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 90 pro položku 112 - x:-143.196 y:-164.654.
+2025-08-22 10:36:23,909 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 91 pro položku 112 - x:-142.843 y:-165.011.
+2025-08-22 10:36:32,915 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 92 pro položku 112 - x:-142.475 y:-165.352.
+2025-08-22 10:36:41,878 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 93 pro položku 112 - x:-142.093 y:-165.677.
+2025-08-22 10:36:49,673 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 94 pro položku 112 - x:-141.697 y:-165.984.
+2025-08-22 10:37:07,934 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 95 pro položku 112 - x:-141.288 y:-166.275.
+2025-08-22 10:37:16,955 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 96 pro položku 112 - x:-140.867 y:-166.547.
+2025-08-22 10:37:35,069 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 97 pro položku 112 - x:-140.434 y:-166.801.
+2025-08-22 10:37:44,324 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 98 pro položku 112 - x:-139.991 y:-167.036.
+2025-08-22 10:37:52,676 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 99 pro položku 112 - x:-139.538 y:-167.252.
+2025-08-22 10:38:01,689 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 100 pro položku 112 - x:-139.076 y:-167.447.
+2025-08-22 10:38:10,658 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 101 pro položku 112 - x:-138.606 y:-167.623.
+2025-08-22 10:38:19,623 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 102 pro položku 112 - x:-138.129 y:-167.778.
+2025-08-22 10:38:28,588 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 103 pro položku 112 - x:-137.646 y:-167.912.
+2025-08-22 10:38:37,603 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 104 pro položku 112 - x:-137.157 y:-168.025.
+2025-08-22 10:38:46,574 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 105 pro položku 112 - x:-136.664 y:-168.117.
+2025-08-22 10:38:55,490 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 106 pro položku 112 - x:-136.167 y:-168.188.
+2025-08-22 10:39:04,368 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 107 pro položku 112 - x:-135.668 y:-168.236.
+2025-08-22 10:39:13,239 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 108 pro položku 112 - x:-135.167 y:-168.264.
+2025-08-22 10:39:22,059 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 109 pro položku 112 - x:-134.666 y:-168.269.
+2025-08-22 10:39:31,200 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 110 pro položku 112 - x:-134.164 y:-168.253.
+2025-08-22 10:39:39,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 111 pro položku 112 - x:-133.664 y:-168.215.
+2025-08-22 10:39:48,740 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 112 pro položku 112 - x:-133.166 y:-168.155.
+2025-08-22 10:39:57,495 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 113 pro položku 112 - x:-132.671 y:-168.074.
+2025-08-22 10:40:06,097 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 114 pro položku 112 - x:-132.18 y:-167.971.
+2025-08-22 10:40:15,273 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 115 pro položku 112 - x:-131.694 y:-167.848.
+2025-08-22 10:40:24,459 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 116 pro položku 112 - x:-131.214 y:-167.703.
+2025-08-22 10:40:33,674 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 117 pro položku 112 - x:-130.74 y:-167.538.
+2025-08-22 10:40:42,827 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 118 pro položku 112 - x:-130.274 y:-167.352.
+2025-08-22 10:40:51,965 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 119 pro položku 112 - x:-129.817 y:-167.146.
+2025-08-22 10:41:00,516 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 120 pro položku 112 - x:-129.368 y:-166.921.
+2025-08-22 10:41:09,051 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 121 pro položku 112 - x:-128.931 y:-166.677.
+2025-08-22 10:41:18,210 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 122 pro položku 112 - x:-128.504 y:-166.413.
+2025-08-22 10:41:27,049 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 123 pro položku 112 - x:-128.088 y:-166.132.
+2025-08-22 10:41:35,624 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 124 pro položku 112 - x:-127.686 y:-165.833.
+2025-08-22 10:41:44,266 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 125 pro položku 112 - x:-127.297 y:-165.516.
+2025-08-22 10:41:52,804 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 126 pro položku 112 - x:-126.921 y:-165.183.
+2025-08-22 10:42:01,912 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 127 pro položku 112 - x:-126.561 y:-164.834.
+2025-08-22 10:43:08,339 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 128 pro položku 112 - x:-126.216 y:-164.47.
+2025-08-22 10:43:22,846 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 129 pro položku 112 - x:-125.887 y:-164.092.
+2025-08-22 10:43:32,991 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 130 pro položku 112 - x:-125.575 y:-163.699.
+2025-08-22 10:43:40,921 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 131 pro položku 112 - x:-125.28 y:-163.293.
+2025-08-22 10:43:50,292 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 132 pro položku 112 - x:-125.003 y:-162.875.
+2025-08-22 10:44:08,055 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 133 pro položku 112 - x:-124.745 y:-162.445.
+2025-08-22 10:47:03,354 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 134 pro položku 112 - x:-124.505 y:-162.004.
+2025-08-22 10:47:22,039 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 135 pro položku 112 - x:-124.284 y:-161.554.
+2025-08-22 10:47:31,145 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 136 pro položku 112 - x:-124.084 y:-161.094.
+2025-08-22 10:47:39,748 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 137 pro položku 112 - x:-123.903 y:-160.626.
+2025-08-22 10:47:48,804 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 138 pro položku 112 - x:-123.743 y:-160.151.
+2025-08-22 10:47:57,775 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 139 pro položku 112 - x:-123.603 y:-159.669.
+2025-08-22 10:48:07,146 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 140 pro položku 112 - x:-123.485 y:-159.182.
+2025-08-22 10:48:16,075 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 141 pro položku 112 - x:-123.388 y:-158.689.
+2025-08-22 10:48:25,230 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 142 pro položku 112 - x:-123.312 y:-158.194.
+2025-08-22 10:48:34,198 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 143 pro položku 112 - x:-123.258 y:-157.695.
+2025-08-22 10:48:43,164 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 144 pro položku 112 - x:-123.225 y:-157.194.
+2025-08-22 10:48:58,746 [INFO] Zobrazení domovské obrazovky
+2025-08-22 10:49:00,358 [INFO] Klik: Manuální ovládání
+2025-08-22 10:49:00,368 [INFO] Kliknutí na manuální řízení
+2025-08-22 10:52:10,814 [INFO] Zavírám sériový port CNC
+2025-08-22 11:00:48,967 [INFO] Aplikace spuštěna
+2025-08-22 11:00:48,967 [INFO] Zobrazení domovské obrazovky
+2025-08-22 11:00:52,332 [INFO] Klik: Nové měření
+2025-08-22 11:00:58,209 [INFO] Vytvořena složka projektu: projects\2025_08_22_11_00_58_29_1
+2025-08-22 11:01:01,563 [INFO] Načten EAN kód: 1
+2025-08-22 11:01:03,465 [INFO] Načten EAN kód: 2
+2025-08-22 11:01:04,224 [INFO] Načten EAN kód: 3
+2025-08-22 11:01:05,074 [INFO] Načten EAN kód: 4
+2025-08-22 11:01:08,303 [INFO] [SCAN] Spouštím proces FIND pro projekt 29
+2025-08-22 11:01:28,374 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 11:01:28,381 [INFO] [DB] Uložen drát 1 vzorku 35 - x:898 y:675 r:451.
+2025-08-22 11:01:45,777 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-22 11:01:45,783 [INFO] [DB] Uložen drát 1 vzorku 36 - x:977 y:359 r:294.
+2025-08-22 11:01:45,783 [INFO] [DB] Uložen drát 2 vzorku 36 - x:466 y:704 r:300.
+2025-08-22 11:01:45,783 [INFO] [DB] Uložen drát 3 vzorku 36 - x:968 y:986 r:299.
+2025-08-22 11:02:03,208 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-22 11:02:03,213 [INFO] [DB] Uložen drát 1 vzorku 37 - x:1015 y:305 r:255.
+2025-08-22 11:02:03,213 [INFO] [DB] Uložen drát 2 vzorku 37 - x:482 y:524 r:257.
+2025-08-22 11:02:03,213 [INFO] [DB] Uložen drát 3 vzorku 37 - x:1100 y:932 r:254.
+2025-08-22 11:02:03,213 [INFO] [DB] Uložen drát 4 vzorku 37 - x:552 y:1029 r:261.
+2025-08-22 11:02:20,809 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-22 11:02:20,817 [INFO] [DB] Uložen drát 1 vzorku 38 - x:789 y:237 r:108.
+2025-08-22 11:02:20,817 [INFO] [DB] Uložen drát 2 vzorku 38 - x:984 y:545 r:109.
+2025-08-22 11:02:20,817 [INFO] [DB] Uložen drát 3 vzorku 38 - x:621 y:555 r:109.
+2025-08-22 11:02:20,817 [INFO] [DB] Uložen drát 4 vzorku 38 - x:1150 y:876 r:109.
+2025-08-22 11:02:20,817 [INFO] [DB] Uložen drát 5 vzorku 38 - x:762 y:892 r:109.
+2025-08-22 11:02:51,071 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 29
+2025-08-22 11:02:53,001 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 1 detekovanými dráty.
+2025-08-22 11:03:50,245 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 113 - x:-123.214 y:-156.719.
+2025-08-22 11:03:59,366 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 113 - x:-123.225 y:-156.217.
+2025-08-22 11:04:08,318 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 113 - x:-123.258 y:-155.717.
+2025-08-22 11:04:16,818 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 113 - x:-123.312 y:-155.218.
+2025-08-22 11:04:25,497 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 113 - x:-123.388 y:-154.722.
+2025-08-22 11:04:34,757 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 113 - x:-123.485 y:-154.23.
+2025-08-22 11:04:44,004 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 113 - x:-123.604 y:-153.743.
+2025-08-22 11:04:53,350 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 113 - x:-123.743 y:-153.261.
+2025-08-22 11:05:11,326 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 113 - x:-123.903 y:-152.785.
+2025-08-22 11:05:20,714 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 113 - x:-124.084 y:-152.317.
+2025-08-22 11:05:38,268 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 113 - x:-124.284 y:-151.858.
+2025-08-22 11:05:56,238 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 113 - x:-124.505 y:-151.407.
+2025-08-22 11:06:05,008 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 113 - x:-124.745 y:-150.967.
+2025-08-22 11:06:14,735 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 113 - x:-125.003 y:-150.537.
+2025-08-22 11:06:22,969 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 113 - x:-125.28 y:-150.119.
+2025-08-22 11:06:40,868 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 113 - x:-125.575 y:-149.713.
+2025-08-22 11:06:49,838 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 113 - x:-125.887 y:-149.32.
+2025-08-22 11:06:59,738 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 113 - x:-126.216 y:-148.941.
+2025-08-22 11:07:07,480 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 113 - x:-126.561 y:-148.577.
+2025-08-22 11:07:25,500 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 113 - x:-126.921 y:-148.228.
+2025-08-22 11:07:34,641 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 113 - x:-127.297 y:-147.895.
+2025-08-22 11:07:43,199 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 113 - x:-127.686 y:-147.579.
+2025-08-22 11:07:51,844 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 113 - x:-128.088 y:-147.28.
+2025-08-22 11:08:10,160 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 113 - x:-128.504 y:-146.998.
+2025-08-22 11:08:19,024 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 113 - x:-128.931 y:-146.735.
+2025-08-22 11:08:27,720 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 113 - x:-129.369 y:-146.491.
+2025-08-22 11:08:37,047 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 113 - x:-129.817 y:-146.265.
+2025-08-22 11:08:54,803 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 113 - x:-130.274 y:-146.06.
+2025-08-22 11:09:12,679 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 113 - x:-130.74 y:-145.874.
+2025-08-22 11:09:21,574 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 113 - x:-131.214 y:-145.709.
+2025-08-22 11:09:39,737 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 113 - x:-131.694 y:-145.564.
+2025-08-22 11:09:48,721 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 113 - x:-132.18 y:-145.44.
+2025-08-22 11:09:57,574 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 113 - x:-132.671 y:-145.338.
+2025-08-22 11:10:06,452 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 113 - x:-133.166 y:-145.257.
+2025-08-22 11:10:24,691 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 113 - x:-133.664 y:-145.197.
+2025-08-22 11:10:33,842 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 113 - x:-134.164 y:-145.159.
+2025-08-22 11:10:42,304 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 113 - x:-134.666 y:-145.143.
+2025-08-22 11:10:51,344 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 113 - x:-135.167 y:-145.148.
+2025-08-22 11:11:09,407 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 113 - x:-135.668 y:-145.175.
+2025-08-22 11:11:18,187 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 113 - x:-136.167 y:-145.224.
+2025-08-22 11:11:26,693 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 113 - x:-136.664 y:-145.294.
+2025-08-22 11:11:35,822 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 113 - x:-137.157 y:-145.386.
+2025-08-22 11:11:45,349 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 113 - x:-137.646 y:-145.499.
+2025-08-22 11:11:53,333 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 113 - x:-138.129 y:-145.634.
+2025-08-22 11:12:10,822 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 113 - x:-138.606 y:-145.789.
+2025-08-22 11:12:19,405 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 113 - x:-139.076 y:-145.964.
+2025-08-22 11:12:27,891 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 113 - x:-139.538 y:-146.16.
+2025-08-22 11:12:36,994 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 113 - x:-139.991 y:-146.375.
+2025-08-22 11:12:46,539 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 113 - x:-140.434 y:-146.61.
+2025-08-22 11:12:55,069 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 113 - x:-140.867 y:-146.864.
+2025-08-22 11:13:04,294 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 113 - x:-141.288 y:-147.137.
+2025-08-22 11:13:13,381 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 113 - x:-141.697 y:-147.427.
+2025-08-22 11:13:21,884 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 113 - x:-142.093 y:-147.735.
+2025-08-22 11:13:31,494 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 113 - x:-142.475 y:-148.06.
+2025-08-22 11:13:40,001 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 113 - x:-142.843 y:-148.401.
+2025-08-22 11:13:49,451 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 113 - x:-143.196 y:-148.757.
+2025-08-22 11:13:58,072 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 113 - x:-143.533 y:-149.129.
+2025-08-22 11:14:06,807 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 113 - x:-143.853 y:-149.515.
+2025-08-22 11:14:16,048 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 113 - x:-144.157 y:-149.914.
+2025-08-22 11:14:24,645 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 113 - x:-144.443 y:-150.326.
+2025-08-22 11:14:42,722 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 113 - x:-144.711 y:-150.75.
+2025-08-22 11:14:51,921 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 113 - x:-144.96 y:-151.186.
+2025-08-22 11:15:01,573 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 113 - x:-145.19 y:-151.631.
+2025-08-22 11:15:10,205 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 113 - x:-145.401 y:-152.087.
+2025-08-22 11:15:19,630 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 113 - x:-145.592 y:-152.55.
+2025-08-22 11:15:28,363 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 113 - x:-145.762 y:-153.022.
+2025-08-22 11:15:37,638 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 113 - x:-145.912 y:-153.501.
+2025-08-22 11:15:47,305 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 113 - x:-146.041 y:-153.986.
+2025-08-22 11:15:55,387 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 113 - x:-146.149 y:-154.476.
+2025-08-22 11:16:04,203 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 113 - x:-146.235 y:-154.97.
+2025-08-22 11:16:12,876 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 113 - x:-146.3 y:-155.467.
+2025-08-22 11:16:21,737 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 113 - x:-146.343 y:-155.967.
+2025-08-22 11:16:30,966 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 113 - x:-146.365 y:-156.468.
+2025-08-22 11:16:39,032 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 113 - x:-146.365 y:-156.97.
+2025-08-22 11:16:56,757 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 113 - x:-146.343 y:-157.471.
+2025-08-22 11:17:05,541 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 113 - x:-146.3 y:-157.97.
+2025-08-22 11:17:15,019 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 113 - x:-146.235 y:-158.468.
+2025-08-22 11:17:23,228 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 113 - x:-146.149 y:-158.962.
+2025-08-22 11:17:32,343 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 78 pro položku 113 - x:-146.041 y:-159.452.
+2025-08-22 11:17:41,508 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 79 pro položku 113 - x:-145.912 y:-159.936.
+2025-08-22 11:17:50,086 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 80 pro položku 113 - x:-145.762 y:-160.415.
+2025-08-22 11:18:07,455 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 81 pro položku 113 - x:-145.592 y:-160.887.
+2025-08-22 11:18:25,497 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 82 pro položku 113 - x:-145.401 y:-161.351.
+2025-08-22 11:18:34,137 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 83 pro položku 113 - x:-145.19 y:-161.806.
+2025-08-22 11:18:52,431 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 84 pro položku 113 - x:-144.96 y:-162.252.
+2025-08-22 11:19:01,305 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 85 pro položku 113 - x:-144.711 y:-162.687.
+2025-08-22 11:19:09,944 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 86 pro položku 113 - x:-144.443 y:-163.111.
+2025-08-22 11:28:09,499 [INFO] Aplikace spuštěna
+2025-08-22 11:28:09,499 [INFO] Zobrazení domovské obrazovky
+2025-08-22 11:28:11,240 [INFO] Klik: Nové měření
+2025-08-22 11:28:14,737 [INFO] Vytvořena složka projektu: projects\2025_08_22_11_28_14_30_1
+2025-08-22 11:28:16,362 [INFO] Načten EAN kód: 1
+2025-08-22 11:28:17,100 [INFO] Načten EAN kód: 2
+2025-08-22 11:28:17,827 [INFO] Načten EAN kód: 3
+2025-08-22 11:28:18,492 [INFO] Načten EAN kód: 4
+2025-08-22 11:28:21,501 [INFO] [SCAN] Spouštím proces FIND pro projekt 30
+2025-08-22 11:28:38,923 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 11:28:38,930 [INFO] [DB] Uložen drát 1 vzorku 39 - x:898 y:676 r:451.
+2025-08-22 11:28:56,527 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-22 11:28:56,533 [INFO] [DB] Uložen drát 1 vzorku 40 - x:976 y:359 r:294.
+2025-08-22 11:28:56,533 [INFO] [DB] Uložen drát 2 vzorku 40 - x:467 y:703 r:300.
+2025-08-22 11:28:56,533 [INFO] [DB] Uložen drát 3 vzorku 40 - x:967 y:987 r:299.
+2025-08-22 11:29:14,042 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-22 11:29:14,049 [INFO] [DB] Uložen drát 1 vzorku 41 - x:1014 y:305 r:255.
+2025-08-22 11:29:14,049 [INFO] [DB] Uložen drát 2 vzorku 41 - x:481 y:524 r:257.
+2025-08-22 11:29:14,049 [INFO] [DB] Uložen drát 3 vzorku 41 - x:1100 y:932 r:254.
+2025-08-22 11:29:14,049 [INFO] [DB] Uložen drát 4 vzorku 41 - x:555 y:1024 r:257.
+2025-08-22 11:29:31,816 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-22 11:29:31,821 [INFO] [DB] Uložen drát 1 vzorku 42 - x:789 y:237 r:108.
+2025-08-22 11:29:31,821 [INFO] [DB] Uložen drát 2 vzorku 42 - x:983 y:545 r:109.
+2025-08-22 11:29:31,821 [INFO] [DB] Uložen drát 3 vzorku 42 - x:622 y:556 r:109.
+2025-08-22 11:29:31,821 [INFO] [DB] Uložen drát 4 vzorku 42 - x:1150 y:877 r:109.
+2025-08-22 11:29:31,821 [INFO] [DB] Uložen drát 5 vzorku 42 - x:761 y:894 r:109.
+2025-08-22 11:31:28,620 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 30
+2025-08-22 11:31:30,326 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 1 detekovanými dráty.
+2025-08-22 11:32:19,969 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 126 - x:-123.214 y:-156.693.
+2025-08-22 11:32:28,889 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 126 - x:-123.225 y:-156.191.
+2025-08-22 11:32:37,810 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 126 - x:-123.258 y:-155.691.
+2025-08-22 11:32:46,733 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 126 - x:-123.312 y:-155.192.
+2025-08-22 11:32:55,649 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 126 - x:-123.388 y:-154.696.
+2025-08-22 11:33:04,006 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 126 - x:-123.485 y:-154.204.
+2025-08-22 11:33:14,586 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 126 - x:-123.603 y:-153.717.
+2025-08-22 11:33:22,252 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 126 - x:-123.743 y:-153.235.
+2025-08-22 11:33:31,778 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 126 - x:-123.903 y:-152.76.
+2025-08-22 11:33:39,752 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 126 - x:-124.084 y:-152.292.
+2025-08-22 11:33:48,654 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 126 - x:-124.284 y:-151.832.
+2025-08-22 11:33:57,537 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 126 - x:-124.505 y:-151.381.
+2025-08-22 11:34:06,352 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 126 - x:-124.745 y:-150.941.
+2025-08-22 11:34:15,225 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 126 - x:-125.003 y:-150.511.
+2025-08-22 11:34:24,106 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 126 - x:-125.28 y:-150.093.
+2025-08-22 11:34:32,978 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 126 - x:-125.575 y:-149.687.
+2025-08-22 11:34:41,847 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 126 - x:-125.887 y:-149.294.
+2025-08-22 11:34:51,103 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 126 - x:-126.216 y:-148.916.
+2025-08-22 11:35:00,018 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 126 - x:-126.561 y:-148.551.
+2025-08-22 11:35:08,933 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 126 - x:-126.921 y:-148.202.
+2025-08-22 11:35:17,915 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 126 - x:-127.297 y:-147.87.
+2025-08-22 11:35:26,958 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 126 - x:-127.686 y:-147.553.
+2025-08-22 11:35:36,068 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 126 - x:-128.088 y:-147.254.
+2025-08-22 11:35:45,232 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 126 - x:-128.504 y:-146.972.
+2025-08-22 11:35:53,769 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 126 - x:-128.931 y:-146.709.
+2025-08-22 11:36:02,876 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 126 - x:-129.368 y:-146.465.
+2025-08-22 11:36:11,986 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 126 - x:-129.817 y:-146.239.
+2025-08-22 11:36:21,141 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 126 - x:-130.274 y:-146.034.
+2025-08-22 11:36:29,778 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 126 - x:-130.74 y:-145.848.
+2025-08-22 11:36:38,438 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 126 - x:-131.214 y:-145.683.
+2025-08-22 11:36:47,085 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 126 - x:-131.694 y:-145.538.
+2025-08-22 11:36:55,647 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 126 - x:-132.18 y:-145.414.
+2025-08-22 11:37:04,802 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 126 - x:-132.671 y:-145.312.
+2025-08-22 11:37:13,956 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 126 - x:-133.166 y:-145.231.
+2025-08-22 11:37:22,608 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 126 - x:-133.664 y:-145.171.
+2025-08-22 11:37:31,466 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 126 - x:-134.164 y:-145.133.
+2025-08-22 11:37:40,775 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 126 - x:-134.666 y:-145.117.
+2025-08-22 11:37:50,104 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 126 - x:-135.167 y:-145.122.
+2025-08-22 11:37:58,835 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 126 - x:-135.668 y:-145.149.
+2025-08-22 11:38:07,524 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 126 - x:-136.167 y:-145.198.
+2025-08-22 11:38:16,221 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 126 - x:-136.664 y:-145.269.
+2025-08-22 11:38:24,951 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 126 - x:-137.157 y:-145.361.
+2025-08-22 11:38:33,641 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 126 - x:-137.646 y:-145.474.
+2025-08-22 11:38:42,362 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 126 - x:-138.129 y:-145.608.
+2025-08-22 11:38:51,072 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 126 - x:-138.606 y:-145.763.
+2025-08-22 11:38:59,739 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 126 - x:-139.076 y:-145.938.
+2025-08-22 11:39:08,980 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 126 - x:-139.538 y:-146.134.
+2025-08-22 11:39:18,226 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 126 - x:-139.991 y:-146.35.
+2025-08-22 11:39:26,864 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 126 - x:-140.434 y:-146.585.
+2025-08-22 11:39:36,098 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 126 - x:-140.867 y:-146.839.
+2025-08-22 11:39:45,300 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 126 - x:-141.288 y:-147.111.
+2025-08-22 11:39:54,480 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 126 - x:-141.697 y:-147.401.
+2025-08-22 11:40:03,623 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 126 - x:-142.093 y:-147.709.
+2025-08-22 11:40:12,802 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 126 - x:-142.475 y:-148.034.
+2025-08-22 11:40:22,029 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 126 - x:-142.843 y:-148.375.
+2025-08-22 11:40:30,696 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 126 - x:-143.196 y:-148.732.
+2025-08-22 11:40:39,377 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 126 - x:-143.533 y:-149.103.
+2025-08-22 11:40:48,040 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 126 - x:-143.853 y:-149.489.
+2025-08-22 11:40:56,738 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 126 - x:-144.157 y:-149.888.
+2025-08-22 11:41:05,460 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 126 - x:-144.443 y:-150.3.
+2025-08-22 11:41:14,149 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 126 - x:-144.711 y:-150.724.
+2025-08-22 11:41:22,831 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 126 - x:-144.96 y:-151.16.
+2025-08-22 11:41:31,561 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 126 - x:-145.19 y:-151.605.
+2025-08-22 11:41:40,295 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 126 - x:-145.401 y:-152.061.
+2025-08-22 11:41:49,118 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 126 - x:-145.591 y:-152.525.
+2025-08-22 11:41:57,944 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 126 - x:-145.762 y:-152.996.
+2025-08-22 11:42:06,723 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 126 - x:-145.912 y:-153.475.
+2025-08-22 11:42:16,110 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 126 - x:-146.041 y:-153.96.
+2025-08-22 11:42:24,891 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 126 - x:-146.148 y:-154.45.
+2025-08-22 11:42:33,671 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 126 - x:-146.235 y:-154.944.
+2025-08-22 11:42:42,403 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 126 - x:-146.3 y:-155.441.
+2025-08-22 11:42:51,182 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 126 - x:-146.343 y:-155.941.
+2025-08-22 11:42:59,966 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 126 - x:-146.365 y:-156.442.
+2025-08-22 11:43:08,788 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 126 - x:-146.365 y:-156.944.
+2025-08-22 11:43:17,615 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 126 - x:-146.343 y:-157.445.
+2025-08-22 11:43:26,395 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 126 - x:-146.3 y:-157.945.
+2025-08-22 11:43:35,127 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 126 - x:-146.235 y:-158.442.
+2025-08-22 11:43:43,812 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 126 - x:-146.148 y:-158.936.
+2025-08-22 11:43:52,448 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 78 pro položku 126 - x:-146.041 y:-159.426.
+2025-08-22 11:44:01,135 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 79 pro položku 126 - x:-145.912 y:-159.911.
+2025-08-22 11:44:09,820 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 80 pro položku 126 - x:-145.762 y:-160.389.
+2025-08-22 11:44:18,458 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 81 pro položku 126 - x:-145.591 y:-160.861.
+2025-08-22 11:44:27,096 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 82 pro položku 126 - x:-145.401 y:-161.325.
+2025-08-22 11:44:36,299 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 83 pro položku 126 - x:-145.19 y:-161.78.
+2025-08-22 11:44:45,455 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 84 pro položku 126 - x:-144.96 y:-162.226.
+2025-08-22 11:44:54,670 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 85 pro položku 126 - x:-144.711 y:-162.661.
+2025-08-22 11:45:03,831 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 86 pro položku 126 - x:-144.443 y:-163.085.
+2025-08-22 11:45:23,316 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 87 pro položku 126 - x:-143.964 y:-163.357.
+2025-08-22 11:45:33,011 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 88 pro položku 126 - x:-143.853 y:-163.897.
+2025-08-22 11:45:42,072 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 89 pro položku 126 - x:-143.533 y:-164.283.
+2025-08-22 11:46:30,899 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 90 pro položku 126 - x:-143.196 y:-164.654.
+2025-08-22 11:46:44,139 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 91 pro položku 126 - x:-142.843 y:-165.011.
+2025-08-22 11:46:53,218 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 92 pro položku 126 - x:-142.475 y:-165.352.
+2025-08-22 11:47:01,664 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 93 pro položku 126 - x:-142.093 y:-165.677.
+2025-08-22 11:47:10,710 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 94 pro položku 126 - x:-141.697 y:-165.984.
+2025-08-22 11:47:19,784 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 95 pro položku 126 - x:-141.288 y:-166.275.
+2025-08-22 11:47:28,225 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 96 pro položku 126 - x:-140.867 y:-166.547.
+2025-08-22 11:47:37,283 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 97 pro položku 126 - x:-140.434 y:-166.801.
+2025-08-22 11:47:45,732 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 98 pro položku 126 - x:-139.991 y:-167.036.
+2025-08-22 11:47:54,723 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 99 pro položku 126 - x:-139.538 y:-167.252.
+2025-08-22 11:48:03,682 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 100 pro položku 126 - x:-139.076 y:-167.447.
+2025-08-22 11:48:12,680 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 101 pro položku 126 - x:-138.606 y:-167.623.
+2025-08-22 11:48:21,657 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 102 pro položku 126 - x:-138.129 y:-167.778.
+2025-08-22 11:48:30,663 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 103 pro položku 126 - x:-137.646 y:-167.912.
+2025-08-22 11:48:39,684 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 104 pro položku 126 - x:-137.157 y:-168.025.
+2025-08-22 11:48:48,088 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 105 pro položku 126 - x:-136.664 y:-168.117.
+2025-08-22 11:48:57,016 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 106 pro položku 126 - x:-136.167 y:-168.188.
+2025-08-22 11:49:06,006 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 107 pro položku 126 - x:-135.668 y:-168.236.
+2025-08-22 11:49:14,982 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 108 pro položku 126 - x:-135.167 y:-168.264.
+2025-08-22 11:49:23,339 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 109 pro položku 126 - x:-134.666 y:-168.269.
+2025-08-22 11:49:32,260 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 110 pro položku 126 - x:-134.164 y:-168.253.
+2025-08-22 11:49:41,182 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 111 pro položku 126 - x:-133.664 y:-168.215.
+2025-08-22 11:49:49,956 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 112 pro položku 126 - x:-133.166 y:-168.155.
+2025-08-22 11:49:58,735 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 113 pro položku 126 - x:-132.671 y:-168.074.
+2025-08-22 11:50:07,517 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 114 pro položku 126 - x:-132.18 y:-167.971.
+2025-08-22 11:50:16,293 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 115 pro položku 126 - x:-131.694 y:-167.848.
+2025-08-22 11:50:25,592 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 116 pro položku 126 - x:-131.214 y:-167.703.
+2025-08-22 11:50:34,277 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 117 pro položku 126 - x:-130.74 y:-167.538.
+2025-08-22 11:50:42,914 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 118 pro položku 126 - x:-130.274 y:-167.352.
+2025-08-22 11:50:52,124 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 119 pro položku 126 - x:-129.817 y:-167.146.
+2025-08-22 11:51:01,371 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 120 pro položku 126 - x:-129.368 y:-166.921.
+2025-08-22 11:51:10,053 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 121 pro položku 126 - x:-128.931 y:-166.677.
+2025-08-22 11:51:19,346 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 122 pro položku 126 - x:-128.504 y:-166.413.
+2025-08-22 11:51:28,035 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 123 pro položku 126 - x:-128.088 y:-166.132.
+2025-08-22 11:51:36,673 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 124 pro položku 126 - x:-127.686 y:-165.833.
+2025-08-22 11:51:45,872 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 125 pro položku 126 - x:-127.297 y:-165.516.
+2025-08-22 11:51:55,026 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 126 pro položku 126 - x:-126.921 y:-165.183.
+2025-08-22 11:52:04,134 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 127 pro položku 126 - x:-126.561 y:-164.834.
+2025-08-22 11:52:13,290 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 128 pro položku 126 - x:-126.216 y:-164.47.
+2025-08-22 11:52:22,442 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 129 pro položku 126 - x:-125.887 y:-164.092.
+2025-08-22 11:52:30,988 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 130 pro položku 126 - x:-125.575 y:-163.699.
+2025-08-22 11:52:39,580 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 131 pro položku 126 - x:-125.28 y:-163.293.
+2025-08-22 11:52:48,782 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 132 pro položku 126 - x:-125.003 y:-162.875.
+2025-08-22 11:52:57,942 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 133 pro položku 126 - x:-124.745 y:-162.445.
+2025-08-22 11:56:16,763 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 134 pro položku 126 - x:-124.505 y:-162.004.
+2025-08-22 11:56:48,503 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 135 pro položku 126 - x:-124.284 y:-161.554.
+2025-08-22 11:56:58,393 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 136 pro položku 126 - x:-124.084 y:-161.094.
+2025-08-22 11:57:07,048 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 137 pro položku 126 - x:-123.903 y:-160.626.
+2025-08-22 11:57:15,685 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 138 pro položku 126 - x:-123.743 y:-160.151.
+2025-08-22 11:57:24,273 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 139 pro položku 126 - x:-123.603 y:-159.669.
+2025-08-22 11:57:33,429 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 140 pro položku 126 - x:-123.485 y:-159.182.
+2025-08-22 11:57:42,585 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 141 pro položku 126 - x:-123.388 y:-158.689.
+2025-08-22 11:57:51,740 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 142 pro položku 126 - x:-123.312 y:-158.194.
+2025-08-22 11:58:00,872 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 143 pro položku 126 - x:-123.258 y:-157.695.
+2025-08-22 11:58:09,440 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 144 pro položku 126 - x:-123.225 y:-157.194.
+2025-08-22 11:58:09,976 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A2 vzorku 2 s 3 detekovanými dráty.
+2025-08-22 11:59:08,833 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 127 - x:-81.258 y:-164.878.
+2025-08-22 11:59:29,543 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 127 - x:-81.275 y:-164.374.
+2025-08-22 12:00:28,593 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 127 - x:-81.326 y:-163.872.
+2025-08-22 12:03:28,276 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 127 - x:-81.41 y:-163.375.
+2025-08-22 12:06:57,796 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 127 - x:-81.527 y:-162.884.
+2025-08-22 12:09:27,702 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 127 - x:-81.676 y:-162.402.
+2025-08-22 12:12:25,728 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 127 - x:-81.857 y:-161.932.
+2025-08-22 12:13:09,439 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 127 - x:-82.271 y:-161.576.
+2025-08-22 12:13:31,608 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 127 - x:-82.514 y:-161.151.
+2025-08-22 12:13:52,731 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 127 - x:-82.792 y:-160.75.
+2025-08-22 12:14:13,713 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 127 - x:-83.085 y:-160.36.
+2025-08-22 12:14:34,791 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 127 - x:-83.409 y:-159.997.
+2025-08-22 12:14:55,824 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 127 - x:-83.759 y:-159.66.
+2025-08-22 12:15:16,904 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 127 - x:-84.123 y:-159.339.
+2025-08-22 12:15:38,082 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 127 - x:-84.506 y:-159.043.
+2025-08-22 12:15:58,793 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 127 - x:-84.913 y:-158.78.
+2025-08-22 12:16:19,300 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 127 - x:-85.345 y:-158.563.
+2025-08-22 12:16:39,738 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 127 - x:-85.769 y:-158.335.
+2025-08-22 12:17:00,341 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 127 - x:-86.214 y:-158.15.
+2025-08-22 12:17:20,340 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 127 - x:-86.671 y:-157.998.
+2025-08-22 12:17:40,427 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 127 - x:-87.135 y:-157.869.
+2025-08-22 12:18:01,364 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 127 - x:-87.606 y:-157.768.
+2025-08-22 12:18:22,492 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 127 - x:-88.082 y:-157.691.
+2025-08-22 12:18:43,165 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 127 - x:-88.564 y:-157.645.
+2025-08-22 12:19:04,042 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 127 - x:-89.048 y:-157.633.
+2025-08-22 12:19:14,462 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 127 - x:-89.561 y:-157.369.
+2025-08-22 12:19:34,222 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 127 - x:-90.011 y:-157.731.
+2025-08-22 12:19:55,166 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 127 - x:-90.484 y:-157.836.
+2025-08-22 12:20:05,648 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 127 - x:-91.041 y:-157.67.
+2025-08-22 12:20:14,345 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 127 - x:-91.518 y:-157.835.
+2025-08-22 12:20:23,026 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 127 - x:-91.982 y:-158.032.
+2025-08-22 12:20:31,769 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 127 - x:-92.432 y:-158.26.
+2025-08-22 12:20:40,537 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 127 - x:-92.866 y:-158.517.
+2025-08-22 12:20:49,366 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 127 - x:-93.282 y:-158.802.
+2025-08-22 12:20:58,267 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 127 - x:-93.678 y:-159.115.
+2025-08-22 12:21:07,630 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 127 - x:-94.052 y:-159.453.
+2025-08-22 12:21:16,702 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 127 - x:-94.403 y:-159.815.
+2025-08-22 12:21:25,327 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 127 - x:-94.728 y:-160.201.
+2025-08-22 12:21:35,304 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 127 - x:-95.027 y:-160.607.
+2025-08-22 12:21:43,352 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 127 - x:-95.299 y:-161.032.
+2025-08-22 12:21:52,931 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 127 - x:-95.541 y:-161.474.
+2025-08-22 12:22:01,655 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 127 - x:-95.754 y:-161.932.
+2025-08-22 12:22:10,330 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 127 - x:-95.935 y:-162.402.
+2025-08-22 12:22:19,770 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 127 - x:-96.084 y:-162.884.
+2025-08-22 12:22:27,935 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 127 - x:-96.201 y:-163.375.
+2025-08-22 12:22:37,131 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 127 - x:-96.285 y:-163.872.
+2025-08-22 12:22:45,872 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 127 - x:-96.336 y:-164.374.
+2025-08-22 12:22:54,651 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 127 - x:-96.352 y:-164.878.
+2025-08-22 12:23:03,901 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 127 - x:-96.336 y:-165.382.
+2025-08-22 12:23:12,653 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 127 - x:-96.285 y:-165.884.
+2025-08-22 12:23:21,670 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 127 - x:-96.201 y:-166.381.
+2025-08-22 12:23:30,192 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 127 - x:-96.084 y:-166.872.
+2025-08-22 12:23:38,769 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 127 - x:-95.935 y:-167.353.
+2025-08-22 12:23:47,894 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 127 - x:-95.754 y:-167.824.
+2025-08-22 12:23:56,481 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 127 - x:-95.541 y:-168.282.
+2025-08-22 12:24:06,033 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 127 - x:-95.299 y:-168.724.
+2025-08-22 12:24:14,559 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 127 - x:-95.027 y:-169.149.
+2025-08-22 12:24:23,746 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 127 - x:-94.728 y:-169.555.
+2025-08-22 12:24:32,261 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 127 - x:-94.403 y:-169.94.
+2025-08-22 12:24:40,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 127 - x:-94.052 y:-170.303.
+2025-08-22 12:24:50,251 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 127 - x:-93.678 y:-170.641.
+2025-08-22 12:24:58,511 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 127 - x:-93.282 y:-170.954.
+2025-08-22 12:25:07,618 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 127 - x:-92.866 y:-171.239.
+2025-08-22 12:25:16,321 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 127 - x:-92.432 y:-171.496.
+2025-08-22 12:25:24,999 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 127 - x:-91.982 y:-171.724.
+2025-08-22 12:25:44,230 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 127 - x:-91.6 y:-172.135.
+2025-08-22 12:26:05,140 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 127 - x:-91.109 y:-172.304.
+2025-08-22 12:26:25,453 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 127 - x:-90.612 y:-172.456.
+2025-08-22 12:26:36,245 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 127 - x:-90.061 y:-172.32.
+2025-08-22 12:26:55,047 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 127 - x:-89.586 y:-172.636.
+2025-08-22 12:27:05,643 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 127 - x:-89.058 y:-172.421.
+2025-08-22 12:27:13,886 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 127 - x:-88.553 y:-172.421.
+2025-08-22 12:27:32,894 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 127 - x:-88.027 y:-172.618.
+2025-08-22 12:27:43,017 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 127 - x:-87.55 y:-172.32.
+2025-08-22 12:28:01,414 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 127 - x:-87.002 y:-172.444.
+2025-08-22 12:28:34,752 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 127 - x:-86.502 y:-172.304.
+2025-08-22 12:29:19,603 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 127 - x:-86.01 y:-172.135.
+2025-08-22 12:29:54,423 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 127 - x:-85.526 y:-171.945.
+2025-08-22 12:30:30,110 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 78 pro položku 127 - x:-85.064 y:-171.705.
+2025-08-22 12:31:06,021 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 79 pro položku 127 - x:-84.623 y:-171.429.
+2025-08-22 12:31:37,990 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 80 pro položku 127 - x:-84.329 y:-170.954.
+2025-08-22 12:31:59,145 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 81 pro položku 127 - x:-83.933 y:-170.641.
+2025-08-22 12:32:20,248 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 82 pro položku 127 - x:-83.559 y:-170.303.
+2025-08-22 12:32:41,231 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 83 pro položku 127 - x:-83.208 y:-169.94.
+2025-08-22 12:32:51,934 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 84 pro položku 127 - x:-82.883 y:-169.555.
+2025-08-22 12:33:20,854 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 85 pro položku 127 - x:-82.583 y:-169.149.
+2025-08-22 12:33:51,774 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 86 pro položku 127 - x:-82.312 y:-168.724.
+2025-08-22 12:34:12,887 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 87 pro položku 127 - x:-82.07 y:-168.282.
+2025-08-22 12:34:33,855 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 88 pro položku 127 - x:-81.857 y:-167.824.
+2025-08-22 12:34:54,862 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 89 pro položku 127 - x:-81.676 y:-167.353.
+2025-08-22 12:35:15,359 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 90 pro položku 127 - x:-81.527 y:-166.872.
+2025-08-22 12:35:36,297 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 91 pro položku 127 - x:-81.41 y:-166.381.
+2025-08-22 12:36:06,950 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 92 pro položku 127 - x:-81.326 y:-165.884.
+2025-08-22 12:36:28,265 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 93 pro položku 127 - x:-81.275 y:-165.382.
+2025-08-22 12:37:40,766 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 128 - x:-94.483 y:-155.953.
+2025-08-22 12:38:10,567 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 128 - x:-94.502 y:-155.471.
+2025-08-22 12:38:40,382 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 128 - x:-94.573 y:-154.994.
+2025-08-22 12:39:09,725 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 128 - x:-94.566 y:-154.503.
+2025-08-22 12:39:20,005 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 128 - x:-94.415 y:-153.959.
+2025-08-22 12:39:29,208 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 128 - x:-94.562 y:-153.477.
+2025-08-22 12:42:47,709 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 128 - x:-94.47 y:-152.893.
+2025-08-22 12:46:19,318 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 128 - x:-94.603 y:-152.376.
+2025-08-22 12:46:40,434 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 128 - x:-95.185 y:-152.101.
+2025-08-22 12:46:49,538 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 128 - x:-95.451 y:-151.673.
+2025-08-22 12:46:58,740 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 128 - x:-95.745 y:-151.263.
+2025-08-22 12:47:07,989 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 128 - x:-96.064 y:-150.874.
+2025-08-22 12:47:17,241 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 128 - x:-96.409 y:-150.506.
+2025-08-22 12:47:36,907 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 128 - x:-97.067 y:-150.492.
+2025-08-22 12:47:57,799 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 128 - x:-97.435 y:-150.191.
+2025-08-22 12:48:17,519 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 128 - x:-97.82 y:-149.913.
+2025-08-22 12:48:38,213 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 128 - x:-98.227 y:-149.668.
+2025-08-22 12:48:57,905 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 128 - x:-98.647 y:-149.446.
+2025-08-22 12:49:18,892 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 128 - x:-99.079 y:-149.25.
+2025-08-22 12:52:39,363 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 128 - x:-99.524 y:-149.084.
+2025-08-22 12:56:10,808 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 128 - x:-99.862 y:-148.512.
+2025-08-22 12:58:12,272 [INFO] Zavírám sériový port CNC
+2025-08-22 13:01:50,507 [INFO] Aplikace spuštěna
+2025-08-22 13:01:50,508 [INFO] Zobrazení domovské obrazovky
+2025-08-22 13:01:52,284 [INFO] Klik: Manuální ovládání
+2025-08-22 13:01:52,295 [INFO] Kliknutí na manuální řízení
+2025-08-22 13:02:25,979 [INFO] Aplikace spuštěna
+2025-08-22 13:02:25,979 [INFO] Zobrazení domovské obrazovky
+2025-08-22 13:02:27,764 [INFO] Klik: Manuální ovládání
+2025-08-22 13:02:27,775 [INFO] Kliknutí na manuální řízení
+2025-08-22 13:04:14,418 [INFO] Zavírám sériový port CNC
+2025-08-22 13:09:42,985 [INFO] Aplikace spuštěna
+2025-08-22 13:09:42,985 [INFO] Zobrazení domovské obrazovky
+2025-08-22 13:10:04,431 [INFO] Klik: Nové měření
+2025-08-22 13:10:06,980 [INFO] Vytvořena složka projektu: projects\2025_08_22_13_10_06_31_1
+2025-08-22 13:10:08,052 [INFO] Načten EAN kód: 1
+2025-08-22 13:10:09,542 [INFO] [SCAN] Spouštím proces FIND pro projekt 31
+2025-08-22 13:10:33,170 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 13:10:33,175 [INFO] [DB] Uložen drát 1 vzorku 43 - x:781 y:445 r:109.
+2025-08-22 13:10:33,175 [INFO] [DB] Uložen drát 2 vzorku 43 - x:392 y:458 r:109.
+2025-08-22 13:10:33,175 [INFO] [DB] Uložen drát 3 vzorku 43 - x:918 y:786 r:109.
+2025-08-22 13:10:33,175 [INFO] [DB] Uložen drát 4 vzorku 43 - x:556 y:791 r:109.
+2025-08-22 13:10:33,175 [INFO] [DB] Uložen drát 5 vzorku 43 - x:748 y:1101 r:108.
+2025-08-22 13:10:49,233 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 31
+2025-08-22 13:10:50,750 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 5 detekovanými dráty.
+2025-08-22 13:11:54,799 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 139 - x:-135.009 y:-162.64.
+2025-08-22 13:12:04,017 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 139 - x:-135.054 y:-162.14.
+2025-08-22 13:12:12,500 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 139 - x:-135.187 y:-161.657.
+2025-08-22 13:12:21,610 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 139 - x:-135.405 y:-161.205.
+2025-08-22 13:12:31,137 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 139 - x:-135.7 y:-160.799.
+2025-08-22 13:12:39,543 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 139 - x:-136.062 y:-160.452.
+2025-08-22 13:12:48,684 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 139 - x:-136.481 y:-160.176.
+2025-08-22 13:12:57,012 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 139 - x:-136.942 y:-159.978.
+2025-08-22 13:13:05,929 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 139 - x:-137.431 y:-159.867.
+2025-08-22 13:13:15,484 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 139 - x:-137.933 y:-159.844.
+2025-08-22 13:13:23,113 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 139 - x:-138.43 y:-159.912.
+2025-08-22 13:13:32,275 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 139 - x:-138.907 y:-160.067.
+2025-08-22 13:13:41,003 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 139 - x:-139.349 y:-160.304.
+2025-08-22 13:13:49,702 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 139 - x:-139.741 y:-160.617.
+2025-08-22 13:13:58,325 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 139 - x:-140.071 y:-160.995.
+2025-08-22 13:14:06,868 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 139 - x:-140.328 y:-161.426.
+2025-08-22 13:14:15,801 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 139 - x:-140.505 y:-161.895.
+2025-08-22 13:14:24,200 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 139 - x:-140.594 y:-162.389.
+2025-08-22 13:14:33,344 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 139 - x:-140.594 y:-162.891.
+2025-08-22 13:14:41,714 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 139 - x:-140.505 y:-163.384.
+2025-08-22 13:14:50,646 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 139 - x:-140.328 y:-163.854.
+2025-08-22 13:15:00,468 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 139 - x:-140.071 y:-164.285.
+2025-08-22 13:15:08,274 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 139 - x:-139.741 y:-164.663.
+2025-08-22 13:15:27,809 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 139 - x:-139.203 y:-164.755.
+2025-08-22 13:15:48,381 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 139 - x:-138.794 y:-164.948.
+2025-08-22 13:16:09,031 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 139 - x:-138.363 y:-165.075.
+2025-08-22 13:16:18,988 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 139 - x:-137.933 y:-165.435.
+2025-08-22 13:16:27,721 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 139 - x:-137.431 y:-165.413.
+2025-08-22 13:16:36,491 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 139 - x:-136.942 y:-165.301.
+2025-08-22 13:16:53,956 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 139 - x:-136.481 y:-165.104.
+2025-08-22 13:17:02,997 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 139 - x:-136.062 y:-164.828.
+2025-08-22 13:17:11,884 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 139 - x:-135.7 y:-164.481.
+2025-08-22 13:17:20,770 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 139 - x:-135.405 y:-164.075.
+2025-08-22 13:17:30,581 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 139 - x:-135.187 y:-163.623.
+2025-08-22 13:17:38,452 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 139 - x:-135.054 y:-163.14.
+2025-08-22 13:18:31,893 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 140 - x:-144.996 y:-162.266.
+2025-08-22 13:18:40,955 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 140 - x:-145.041 y:-161.766.
+2025-08-22 13:18:49,790 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 140 - x:-145.174 y:-161.282.
+2025-08-22 13:18:58,234 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 140 - x:-145.392 y:-160.83.
+2025-08-22 13:19:07,311 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 140 - x:-145.687 y:-160.424.
+2025-08-22 13:19:15,652 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 140 - x:-146.049 y:-160.077.
+2025-08-22 13:19:24,485 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 140 - x:-146.468 y:-159.801.
+2025-08-22 13:19:33,723 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 140 - x:-146.93 y:-159.604.
+2025-08-22 13:19:42,320 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 140 - x:-147.419 y:-159.492.
+2025-08-22 13:19:51,663 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 140 - x:-147.92 y:-159.469.
+2025-08-22 13:20:00,773 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 140 - x:-148.417 y:-159.537.
+2025-08-22 13:20:09,828 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 140 - x:-148.895 y:-159.692.
+2025-08-22 13:20:19,236 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 140 - x:-149.337 y:-159.93.
+2025-08-22 13:20:28,127 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 140 - x:-149.729 y:-160.242.
+2025-08-22 13:20:36,681 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 140 - x:-150.059 y:-160.62.
+2025-08-22 13:20:46,204 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 140 - x:-150.316 y:-161.051.
+2025-08-22 13:20:54,660 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 140 - x:-150.493 y:-161.521.
+2025-08-22 13:21:03,503 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 140 - x:-150.582 y:-162.015.
+2025-08-22 13:21:12,527 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 140 - x:-150.582 y:-162.516.
+2025-08-22 13:21:21,253 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 140 - x:-150.493 y:-163.01.
+2025-08-22 13:21:29,988 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 140 - x:-150.316 y:-163.48.
+2025-08-22 13:21:38,659 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 140 - x:-150.059 y:-163.911.
+2025-08-22 13:21:47,300 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 140 - x:-149.729 y:-164.289.
+2025-08-22 13:22:05,978 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 140 - x:-149.337 y:-164.601.
+2025-08-22 13:22:25,418 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 140 - x:-148.771 y:-164.551.
+2025-08-22 13:22:46,687 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 140 - x:-148.343 y:-164.666.
+2025-08-22 13:23:16,407 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 140 - x:-147.904 y:-164.713.
+2025-08-22 13:23:36,918 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 140 - x:-147.464 y:-164.702.
+2025-08-22 13:23:47,244 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 140 - x:-146.93 y:-164.928.
+2025-08-22 13:23:57,338 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 140 - x:-146.468 y:-164.73.
+2025-08-22 13:24:05,460 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 140 - x:-146.049 y:-164.454.
+2025-08-22 13:24:15,032 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 140 - x:-145.687 y:-164.107.
+2025-08-22 13:24:23,867 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 140 - x:-145.392 y:-163.701.
+2025-08-22 13:24:32,832 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 140 - x:-145.174 y:-163.249.
+2025-08-22 13:24:42,137 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 140 - x:-145.041 y:-162.765.
+2025-08-22 13:25:34,805 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 141 - x:-131.474 y:-153.858.
+2025-08-22 13:25:44,210 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 141 - x:-131.519 y:-153.358.
+2025-08-22 13:25:52,692 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 141 - x:-131.652 y:-152.874.
+2025-08-22 13:26:01,683 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 141 - x:-131.87 y:-152.422.
+2025-08-22 13:26:10,639 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 141 - x:-132.165 y:-152.017.
+2025-08-22 13:26:19,455 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 141 - x:-132.527 y:-151.67.
+2025-08-22 13:26:28,606 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 141 - x:-132.946 y:-151.394.
+2025-08-22 13:26:36,732 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 141 - x:-133.407 y:-151.196.
+2025-08-22 13:26:46,004 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 141 - x:-133.896 y:-151.085.
+2025-08-22 13:26:55,278 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 141 - x:-134.397 y:-151.062.
+2025-08-22 13:27:04,573 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 141 - x:-134.895 y:-151.13.
+2025-08-22 13:27:13,215 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 141 - x:-135.372 y:-151.285.
+2025-08-22 13:27:22,430 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 141 - x:-135.813 y:-151.522.
+2025-08-22 13:27:31,587 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 141 - x:-136.206 y:-151.835.
+2025-08-22 13:27:40,891 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 141 - x:-136.536 y:-152.213.
+2025-08-22 13:27:50,066 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 141 - x:-136.793 y:-152.644.
+2025-08-22 13:27:59,174 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 141 - x:-136.969 y:-153.113.
+2025-08-22 13:28:08,450 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 141 - x:-137.059 y:-153.607.
+2025-08-22 13:28:16,921 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 141 - x:-137.059 y:-154.108.
+2025-08-22 13:28:25,981 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 141 - x:-136.969 y:-154.602.
+2025-08-22 13:28:35,048 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 141 - x:-136.793 y:-155.072.
+2025-08-22 13:28:43,492 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 141 - x:-136.536 y:-155.502.
+2025-08-22 13:28:52,553 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 141 - x:-136.206 y:-155.88.
+2025-08-22 13:29:01,613 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 141 - x:-135.813 y:-156.193.
+2025-08-22 13:29:10,111 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 141 - x:-135.372 y:-156.431.
+2025-08-22 13:29:19,219 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 141 - x:-134.895 y:-156.586.
+2025-08-22 13:29:28,375 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 141 - x:-134.397 y:-156.653.
+2025-08-22 13:29:37,085 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 141 - x:-133.896 y:-156.63.
+2025-08-22 13:29:45,698 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 141 - x:-133.407 y:-156.519.
+2025-08-22 13:29:54,384 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 141 - x:-132.946 y:-156.322.
+2025-08-22 13:30:03,161 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 141 - x:-132.527 y:-156.045.
+2025-08-22 13:30:12,039 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 141 - x:-132.165 y:-155.699.
+2025-08-22 13:30:20,974 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 141 - x:-131.87 y:-155.293.
+2025-08-22 13:31:29,874 [INFO] Zobrazení domovské obrazovky
+2025-08-22 13:31:31,835 [INFO] Klik: Nové měření
+2025-08-22 13:31:36,455 [INFO] Zavírám sériový port CNC
+2025-08-22 13:31:39,761 [INFO] Aplikace spuštěna
+2025-08-22 13:31:39,761 [INFO] Zobrazení domovské obrazovky
+2025-08-22 13:32:49,816 [INFO] Klik: Nové měření
+2025-08-22 13:32:51,634 [INFO] Vytvořena složka projektu: projects\2025_08_22_13_32_51_32_1
+2025-08-22 13:32:53,259 [INFO] Načten EAN kód: 1
+2025-08-22 13:32:53,789 [INFO] Načten EAN kód: 2
+2025-08-22 13:32:54,223 [INFO] Načten EAN kód: 3
+2025-08-22 13:32:54,814 [INFO] Načten EAN kód: 4
+2025-08-22 13:32:58,236 [INFO] [SCAN] Spouštím proces FIND pro projekt 32
+2025-08-22 13:33:14,648 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-08-22 13:33:14,653 [INFO] [DB] Uložen drát 1 vzorku 44 - x:783 y:450 r:109.
+2025-08-22 13:33:14,653 [INFO] [DB] Uložen drát 2 vzorku 44 - x:394 y:463 r:109.
+2025-08-22 13:33:14,653 [INFO] [DB] Uložen drát 3 vzorku 44 - x:921 y:791 r:109.
+2025-08-22 13:33:14,653 [INFO] [DB] Uložen drát 4 vzorku 44 - x:558 y:796 r:109.
+2025-08-22 13:33:14,653 [INFO] [DB] Uložen drát 5 vzorku 44 - x:750 y:1106 r:108.
+2025-08-22 13:33:32,061 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-08-22 13:33:32,065 [INFO] [DB] Uložen drát 1 vzorku 45 - x:993 y:337 r:256.
+2025-08-22 13:33:32,065 [INFO] [DB] Uložen drát 2 vzorku 45 - x:445 y:406 r:256.
+2025-08-22 13:33:32,065 [INFO] [DB] Uložen drát 3 vzorku 45 - x:1048 y:841 r:256.
+2025-08-22 13:33:32,065 [INFO] [DB] Uložen drát 4 vzorku 45 - x:505 y:1041 r:257.
+2025-08-22 13:33:50,334 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-08-22 13:33:50,341 [INFO] [DB] Uložen drát 1 vzorku 46 - x:573 y:364 r:300.
+2025-08-22 13:33:50,342 [INFO] [DB] Uložen drát 2 vzorku 46 - x:1074 y:646 r:299.
+2025-08-22 13:33:50,342 [INFO] [DB] Uložen drát 3 vzorku 46 - x:565 y:991 r:294.
+2025-08-22 13:34:07,811 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-08-22 13:34:07,816 [INFO] [DB] Uložen drát 1 vzorku 47 - x:640 y:680 r:452.
+2025-08-22 13:34:19,260 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 32
+2025-08-22 13:34:21,396 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 5 detekovanými dráty.
+2025-08-22 13:35:20,614 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 144 - x:-134.957 y:-162.511.
+2025-08-22 13:35:29,769 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 144 - x:-135.002 y:-162.011.
+2025-08-22 13:35:39,091 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 144 - x:-135.136 y:-161.528.
+2025-08-22 13:35:47,749 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 144 - x:-135.353 y:-161.076.
+2025-08-22 13:35:56,442 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 144 - x:-135.648 y:-160.67.
+2025-08-22 13:36:05,716 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 144 - x:-136.011 y:-160.323.
+2025-08-22 13:36:14,277 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 144 - x:-136.429 y:-160.047.
+2025-08-22 13:36:23,539 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 144 - x:-136.891 y:-159.85.
+2025-08-22 13:36:32,598 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 144 - x:-137.38 y:-159.738.
+2025-08-22 13:36:41,647 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 144 - x:-137.881 y:-159.716.
+2025-08-22 13:36:50,877 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 144 - x:-138.378 y:-159.783.
+2025-08-22 13:36:59,237 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 144 - x:-138.855 y:-159.938.
+2025-08-22 13:37:19,159 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 144 - x:-139.297 y:-160.176.
+2025-08-22 13:37:29,772 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 144 - x:-139.689 y:-160.488.
+2025-08-22 13:37:38,669 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 144 - x:-140.019 y:-160.866.
+2025-08-22 13:37:47,333 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 144 - x:-140.277 y:-161.297.
+2025-08-22 13:37:55,934 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 144 - x:-140.453 y:-161.767.
+2025-08-22 13:38:05,256 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 144 - x:-140.543 y:-162.26.
+2025-08-22 13:38:13,200 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 144 - x:-140.543 y:-162.762.
+2025-08-22 13:38:22,642 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 144 - x:-140.453 y:-163.256.
+2025-08-22 13:38:31,225 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 144 - x:-140.277 y:-163.725.
+2025-08-22 13:38:40,434 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 144 - x:-140.019 y:-164.156.
+2025-08-22 13:38:50,582 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 144 - x:-139.689 y:-164.534.
+2025-08-22 13:38:58,690 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 144 - x:-139.297 y:-164.847.
+2025-08-22 13:39:26,483 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 144 - x:-138.744 y:-164.825.
+2025-08-22 13:39:56,579 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 144 - x:-138.312 y:-164.948.
+2025-08-22 13:40:07,040 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 144 - x:-137.881 y:-165.307.
+2025-08-22 13:40:15,964 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 144 - x:-137.38 y:-165.284.
+2025-08-22 13:40:25,003 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 144 - x:-136.891 y:-165.173.
+2025-08-22 13:40:33,476 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 144 - x:-136.429 y:-164.975.
+2025-08-22 13:40:42,635 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 144 - x:-136.011 y:-164.699.
+2025-08-22 13:40:51,615 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 144 - x:-135.648 y:-164.352.
+2025-08-22 13:41:00,251 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 144 - x:-135.353 y:-163.946.
+2025-08-22 13:41:09,683 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 144 - x:-135.136 y:-163.494.
+2025-08-22 13:41:18,459 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 144 - x:-135.002 y:-163.011.
+2025-08-22 13:42:05,035 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 145 - x:-144.944 y:-162.137.
+2025-08-22 13:42:14,185 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 145 - x:-144.989 y:-161.637.
+2025-08-22 13:42:23,552 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 145 - x:-145.122 y:-161.153.
+2025-08-22 13:42:32,088 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 145 - x:-145.34 y:-160.701.
+2025-08-22 13:42:40,531 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 145 - x:-145.635 y:-160.295.
+2025-08-22 13:42:49,542 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 145 - x:-145.998 y:-159.948.
+2025-08-22 13:42:57,870 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 145 - x:-146.417 y:-159.672.
+2025-08-22 13:43:07,076 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 145 - x:-146.878 y:-159.475.
+2025-08-22 13:43:15,218 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 145 - x:-147.367 y:-159.363.
+2025-08-22 13:43:24,041 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 145 - x:-147.869 y:-159.341.
+2025-08-22 13:43:32,637 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 145 - x:-148.366 y:-159.408.
+2025-08-22 13:43:41,180 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 145 - x:-148.843 y:-159.563.
+2025-08-22 13:43:50,998 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 145 - x:-149.285 y:-159.801.
+2025-08-22 13:43:59,351 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 145 - x:-149.677 y:-160.114.
+2025-08-22 13:44:08,486 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 145 - x:-150.007 y:-160.492.
+2025-08-22 13:44:16,813 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 145 - x:-150.265 y:-160.922.
+2025-08-22 13:44:25,736 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 145 - x:-150.441 y:-161.392.
+2025-08-22 13:44:35,116 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 145 - x:-150.531 y:-161.886.
+2025-08-22 13:44:43,574 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 145 - x:-150.531 y:-162.388.
+2025-08-22 13:44:52,396 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 145 - x:-150.441 y:-162.881.
+2025-08-22 13:45:00,710 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 145 - x:-150.265 y:-163.351.
+2025-08-22 13:45:09,663 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 145 - x:-150.007 y:-163.782.
+2025-08-22 13:45:18,503 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 145 - x:-149.677 y:-164.16.
+2025-08-22 13:45:27,469 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 145 - x:-149.285 y:-164.473.
+2025-08-22 13:45:55,502 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 145 - x:-148.719 y:-164.421.
+2025-08-22 13:46:25,125 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 145 - x:-148.289 y:-164.528.
+2025-08-22 13:46:55,137 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 145 - x:-147.852 y:-164.567.
+2025-08-22 13:47:25,131 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 145 - x:-147.416 y:-164.547.
+2025-08-22 13:47:54,237 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 145 - x:-146.988 y:-164.459.
+2025-08-22 13:48:04,383 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 145 - x:-146.417 y:-164.602.
+2025-08-22 13:48:13,435 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 145 - x:-145.998 y:-164.325.
+2025-08-22 13:48:22,346 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 145 - x:-145.635 y:-163.978.
+2025-08-22 13:48:30,992 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 145 - x:-145.34 y:-163.572.
+2025-08-22 13:48:39,810 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 145 - x:-145.122 y:-163.12.
+2025-08-22 13:48:48,507 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 145 - x:-144.989 y:-162.637.
+2025-08-22 13:49:42,920 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 146 - x:-131.397 y:-153.729.
+2025-08-22 13:49:52,391 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 146 - x:-131.441 y:-153.229.
+2025-08-22 13:50:00,807 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 146 - x:-131.575 y:-152.746.
+2025-08-22 13:50:09,939 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 146 - x:-131.793 y:-152.294.
+2025-08-22 13:50:18,366 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 146 - x:-132.087 y:-151.888.
+2025-08-22 13:50:27,342 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 146 - x:-132.45 y:-151.541.
+2025-08-22 13:50:36,681 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 146 - x:-132.869 y:-151.265.
+2025-08-22 13:50:45,501 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 146 - x:-133.33 y:-151.068.
+2025-08-22 13:50:54,421 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 146 - x:-133.819 y:-150.956.
+2025-08-22 13:51:03,158 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 146 - x:-134.32 y:-150.934.
+2025-08-22 13:51:11,844 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 146 - x:-134.817 y:-151.001.
+2025-08-22 13:51:21,401 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 146 - x:-135.294 y:-151.156.
+2025-08-22 13:51:29,495 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 146 - x:-135.736 y:-151.394.
+2025-08-22 13:51:38,450 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 146 - x:-136.128 y:-151.706.
+2025-08-22 13:51:47,149 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 146 - x:-136.458 y:-152.084.
+2025-08-22 13:51:55,835 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 146 - x:-136.716 y:-152.515.
+2025-08-22 13:52:04,470 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 146 - x:-136.892 y:-152.985.
+2025-08-22 13:52:13,675 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 146 - x:-136.981 y:-153.478.
+2025-08-22 13:52:23,127 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 146 - x:-136.981 y:-153.98.
+2025-08-22 13:52:31,652 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 146 - x:-136.892 y:-154.473.
+2025-08-22 13:52:40,762 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 146 - x:-136.716 y:-154.943.
+2025-08-22 13:52:49,306 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 146 - x:-136.458 y:-155.374.
+2025-08-22 13:52:58,459 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 146 - x:-136.128 y:-155.751.
+2025-08-22 13:53:07,958 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 146 - x:-135.736 y:-156.064.
+2025-08-22 13:53:16,536 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 146 - x:-135.294 y:-156.302.
+2025-08-22 13:53:25,740 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 146 - x:-134.817 y:-156.457.
+2025-08-22 13:53:35,068 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 146 - x:-134.32 y:-156.524.
+2025-08-22 13:53:43,820 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 146 - x:-133.819 y:-156.502.
+2025-08-22 13:53:52,875 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 146 - x:-133.33 y:-156.39.
+2025-08-22 13:54:01,684 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 146 - x:-132.869 y:-156.193.
+2025-08-22 13:54:10,575 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 146 - x:-132.45 y:-155.917.
+2025-08-22 13:54:19,452 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 146 - x:-132.087 y:-155.57.
+2025-08-22 13:54:31,606 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 146 - x:-131.793 y:-155.164.
+2025-08-22 13:54:40,584 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 146 - x:-131.575 y:-154.712.
+2025-08-22 13:54:49,572 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 146 - x:-131.441 y:-154.229.
+2025-08-22 13:55:38,980 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 147 - x:-140.715 y:-153.563.
+2025-08-22 13:55:47,804 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 147 - x:-140.76 y:-153.063.
+2025-08-22 13:55:56,631 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 147 - x:-140.894 y:-152.579.
+2025-08-22 13:56:06,208 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 147 - x:-141.111 y:-152.127.
+2025-08-22 13:56:14,290 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 147 - x:-141.406 y:-151.721.
+2025-08-22 13:56:23,170 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 147 - x:-141.769 y:-151.375.
+2025-08-22 13:56:31,657 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 147 - x:-142.188 y:-151.098.
+2025-08-22 13:56:40,739 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 147 - x:-142.649 y:-150.901.
+2025-08-22 13:56:49,737 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 147 - x:-143.138 y:-150.789.
+2025-08-22 13:56:58,709 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 147 - x:-143.639 y:-150.767.
+2025-08-22 13:57:08,033 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 147 - x:-144.137 y:-150.834.
+2025-08-22 13:57:16,365 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 147 - x:-144.614 y:-150.989.
+2025-08-22 13:57:25,321 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 147 - x:-145.056 y:-151.227.
+2025-08-22 13:57:34,097 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 147 - x:-145.448 y:-151.54.
+2025-08-22 13:57:42,829 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 147 - x:-145.778 y:-151.918.
+2025-08-22 13:57:52,010 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 147 - x:-146.035 y:-152.348.
+2025-08-22 13:58:00,718 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 147 - x:-146.212 y:-152.818.
+2025-08-22 13:58:09,566 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 147 - x:-146.301 y:-153.312.
+2025-08-22 13:58:18,230 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 147 - x:-146.301 y:-153.814.
+2025-08-22 13:58:26,828 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 147 - x:-146.212 y:-154.307.
+2025-08-22 13:58:35,961 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 147 - x:-146.035 y:-154.777.
+2025-08-22 13:58:44,255 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 147 - x:-145.778 y:-155.208.
+2025-08-22 13:59:16,569 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 147 - x:-145.284 y:-155.414.
+2025-08-22 13:59:39,041 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 147 - x:-144.917 y:-155.688.
+2025-08-22 13:59:49,121 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 147 - x:-144.614 y:-156.136.
+2025-08-22 13:59:58,043 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 147 - x:-144.137 y:-156.291.
+2025-08-22 14:00:15,750 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 147 - x:-143.639 y:-156.359.
+2025-08-22 14:00:24,946 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 147 - x:-143.138 y:-156.336.
+2025-08-22 14:00:33,464 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 147 - x:-142.649 y:-156.224.
+2025-08-22 14:00:42,678 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 147 - x:-142.188 y:-156.027.
+2025-08-22 14:01:00,031 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 147 - x:-141.769 y:-155.751.
+2025-08-22 14:01:08,992 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 147 - x:-141.406 y:-155.404.
+2025-08-22 14:01:17,715 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 147 - x:-141.111 y:-154.998.
+2025-08-22 14:01:26,447 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 147 - x:-140.894 y:-154.546.
+2025-08-22 14:01:35,249 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 147 - x:-140.76 y:-154.062.
+2025-08-22 14:02:24,900 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 148 - x:-135.795 y:-145.586.
+2025-08-22 14:02:33,824 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 148 - x:-135.842 y:-145.077.
+2025-08-22 14:02:42,643 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 148 - x:-135.983 y:-144.585.
+2025-08-22 14:02:51,991 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 148 - x:-136.211 y:-144.127.
+2025-08-22 14:03:00,111 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 148 - x:-136.519 y:-143.718.
+2025-08-22 14:03:08,983 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 148 - x:-136.897 y:-143.374.
+2025-08-22 14:03:17,528 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 148 - x:-137.332 y:-143.104.
+2025-08-22 14:03:26,086 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 148 - x:-137.809 y:-142.919.
+2025-08-22 14:03:35,141 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 148 - x:-138.312 y:-142.825.
+2025-08-22 14:03:43,537 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 148 - x:-138.824 y:-142.825.
+2025-08-22 14:03:52,848 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 148 - x:-139.327 y:-142.919.
+2025-08-22 14:04:01,097 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 148 - x:-139.804 y:-143.104.
+2025-08-22 14:04:10,063 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 148 - x:-140.239 y:-143.374.
+2025-08-22 14:04:18,795 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 148 - x:-140.617 y:-143.718.
+2025-08-22 14:04:27,480 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 148 - x:-140.925 y:-144.127.
+2025-08-22 14:04:37,029 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 148 - x:-141.153 y:-144.585.
+2025-08-22 14:04:45,182 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 148 - x:-141.293 y:-145.077.
+2025-08-22 14:04:54,706 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 148 - x:-141.34 y:-145.586.
+2025-08-22 14:05:03,443 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 148 - x:-141.293 y:-146.096.
+2025-08-22 14:05:12,141 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 148 - x:-141.153 y:-146.588.
+2025-08-22 14:05:21,730 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 148 - x:-140.925 y:-147.046.
+2025-08-22 14:05:29,829 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 148 - x:-140.617 y:-147.454.
+2025-08-22 14:05:38,883 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 148 - x:-140.239 y:-147.799.
+2025-08-22 14:05:47,105 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 148 - x:-139.804 y:-148.068.
+2025-08-22 14:05:56,052 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 148 - x:-139.327 y:-148.253.
+2025-08-22 14:06:05,048 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 148 - x:-138.824 y:-148.347.
+2025-08-22 14:06:13,537 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 148 - x:-138.312 y:-148.347.
+2025-08-22 14:06:23,100 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 148 - x:-137.809 y:-148.253.
+2025-08-22 14:06:31,060 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 148 - x:-137.332 y:-148.068.
+2025-08-22 14:06:40,420 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 148 - x:-136.897 y:-147.799.
+2025-08-22 14:06:49,079 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 148 - x:-136.519 y:-147.454.
+2025-08-22 14:06:58,419 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 148 - x:-136.211 y:-147.046.
+2025-08-22 14:07:07,684 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 148 - x:-135.983 y:-146.588.
+2025-08-22 14:07:16,496 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 148 - x:-135.842 y:-146.096.
+2025-08-22 14:07:17,020 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A2 vzorku 2 s 4 detekovanými dráty.
+2025-08-22 14:08:26,263 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 0 pro položku 149 - x:-81.799 y:-165.447.
+2025-08-22 14:08:46,986 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 1 pro položku 149 - x:-81.945 y:-164.954.
+2025-08-22 14:09:07,344 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 2 pro položku 149 - x:-82.019 y:-164.466.
+2025-08-22 14:09:28,280 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 3 pro položku 149 - x:-82.137 y:-163.988.
+2025-08-22 14:09:57,765 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 4 pro položku 149 - x:-82.297 y:-163.525.
+2025-08-22 14:10:27,435 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 5 pro položku 149 - x:-82.491 y:-163.077.
+2025-08-22 14:10:57,252 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 6 pro položku 149 - x:-82.7 y:-162.64.
+2025-08-22 14:11:27,260 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 7 pro položku 149 - x:-82.936 y:-162.216.
+2025-08-22 14:11:56,590 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 8 pro položku 149 - x:-83.211 y:-161.818.
+2025-08-22 14:12:16,781 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 9 pro položku 149 - x:-83.515 y:-161.443.
+2025-08-22 14:12:36,828 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 10 pro položku 149 - x:-83.847 y:-161.094.
+2025-08-22 14:12:56,786 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 11 pro položku 149 - x:-84.201 y:-160.769.
+2025-08-22 14:13:26,079 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 12 pro položku 149 - x:-84.577 y:-160.47.
+2025-08-22 14:13:46,553 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 13 pro položku 149 - x:-84.967 y:-160.192.
+2025-08-22 14:14:06,977 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 14 pro položku 149 - x:-85.381 y:-159.949.
+2025-08-22 14:14:26,703 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 15 pro položku 149 - x:-85.812 y:-159.74.
+2025-08-22 14:17:25,091 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 16 pro položku 149 - x:-86.199 y:-159.402.
+2025-08-22 14:17:45,045 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 17 pro položku 149 - x:-86.629 y:-159.11.
+2025-08-22 14:17:54,015 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 18 pro položku 149 - x:-87.119 y:-158.996.
+2025-08-22 14:18:02,682 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 19 pro položku 149 - x:-87.617 y:-158.919.
+2025-08-22 14:18:11,997 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 20 pro položku 149 - x:-88.118 y:-158.88.
+2025-08-22 14:18:20,691 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 21 pro položku 149 - x:-88.622 y:-158.88.
+2025-08-22 14:18:29,676 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 22 pro položku 149 - x:-89.124 y:-158.919.
+2025-08-22 14:18:48,329 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 23 pro položku 149 - x:-89.578 y:-159.217.
+2025-08-22 14:19:08,625 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 24 pro položku 149 - x:-90.045 y:-159.352.
+2025-08-22 14:19:28,941 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 25 pro položku 149 - x:-90.51 y:-159.489.
+2025-08-22 14:19:49,272 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 26 pro položku 149 - x:-90.963 y:-159.664.
+2025-08-22 14:20:18,898 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 27 pro položku 149 - x:-91.4 y:-159.875.
+2025-08-22 14:20:29,459 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 28 pro položku 149 - x:-91.942 y:-159.931.
+2025-08-22 14:20:37,819 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 29 pro položku 149 - x:-92.354 y:-160.221.
+2025-08-22 14:20:57,112 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 30 pro položku 149 - x:-92.608 y:-160.692.
+2025-08-22 14:21:07,255 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 31 pro položku 149 - x:-93.105 y:-160.89.
+2025-08-22 14:21:26,602 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 32 pro položku 149 - x:-93.317 y:-161.367.
+2025-08-22 14:21:36,691 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 33 pro položku 149 - x:-93.745 y:-161.666.
+2025-08-22 14:21:45,881 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 34 pro položku 149 - x:-94.019 y:-162.089.
+2025-08-22 14:21:54,721 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 35 pro položku 149 - x:-94.259 y:-162.531.
+2025-08-22 14:22:03,547 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 36 pro položku 149 - x:-94.465 y:-162.991.
+2025-08-22 14:22:12,384 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 37 pro položku 149 - x:-94.635 y:-163.464.
+2025-08-22 14:22:21,200 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 38 pro položku 149 - x:-94.769 y:-163.95.
+2025-08-22 14:22:30,416 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 39 pro položku 149 - x:-94.865 y:-164.444.
+2025-08-22 14:22:38,616 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 40 pro položku 149 - x:-94.922 y:-164.944.
+2025-08-22 14:22:47,558 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 41 pro položku 149 - x:-94.942 y:-165.447.
+2025-08-22 14:22:56,317 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 42 pro položku 149 - x:-94.922 y:-165.95.
+2025-08-22 14:23:05,008 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 43 pro položku 149 - x:-94.865 y:-166.45.
+2025-08-22 14:23:14,251 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 44 pro položku 149 - x:-94.769 y:-166.944.
+2025-08-22 14:23:22,794 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 45 pro položku 149 - x:-94.635 y:-167.43.
+2025-08-22 14:23:32,029 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 46 pro položku 149 - x:-94.465 y:-167.904.
+2025-08-22 14:23:40,495 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 47 pro položku 149 - x:-94.259 y:-168.363.
+2025-08-22 14:23:48,948 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 48 pro položku 149 - x:-94.019 y:-168.805.
+2025-08-22 14:23:58,858 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 49 pro položku 149 - x:-93.745 y:-169.228.
+2025-08-22 14:24:06,794 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 50 pro položku 149 - x:-93.44 y:-169.628.
+2025-08-22 14:24:15,622 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 51 pro položku 149 - x:-93.105 y:-170.004.
+2025-08-22 14:24:24,115 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 52 pro položku 149 - x:-92.742 y:-170.353.
+2025-08-22 14:24:33,206 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 53 pro položku 149 - x:-92.354 y:-170.673.
+2025-08-22 14:24:42,283 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 54 pro položku 149 - x:-91.942 y:-170.963.
+2025-08-22 14:24:50,684 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 55 pro položku 149 - x:-91.51 y:-171.22.
+2025-08-22 14:25:00,046 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 56 pro položku 149 - x:-91.058 y:-171.444.
+2025-08-22 14:25:08,385 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 57 pro položku 149 - x:-90.591 y:-171.632.
+2025-08-22 14:25:17,482 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 58 pro položku 149 - x:-90.111 y:-171.784.
+2025-08-22 14:25:26,413 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 59 pro položku 149 - x:-89.621 y:-171.898.
+2025-08-22 14:25:35,402 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 60 pro položku 149 - x:-89.124 y:-171.975.
+2025-08-22 14:25:44,819 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 61 pro položku 149 - x:-88.622 y:-172.014.
+2025-08-22 14:25:53,174 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 62 pro položku 149 - x:-88.118 y:-172.014.
+2025-08-22 14:26:01,785 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 63 pro položku 149 - x:-87.617 y:-171.975.
+2025-08-22 14:26:10,734 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 64 pro položku 149 - x:-87.119 y:-171.898.
+2025-08-22 14:26:19,747 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 65 pro položku 149 - x:-86.629 y:-171.784.
+2025-08-22 14:26:29,419 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 66 pro položku 149 - x:-86.149 y:-171.632.
+2025-08-22 14:26:37,876 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 67 pro položku 149 - x:-85.682 y:-171.444.
+2025-08-22 14:26:46,679 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 68 pro položku 149 - x:-85.231 y:-171.22.
+2025-08-22 14:26:55,288 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 69 pro položku 149 - x:-84.798 y:-170.963.
+2025-08-22 14:27:03,925 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 70 pro položku 149 - x:-84.386 y:-170.673.
+2025-08-22 14:27:14,058 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 71 pro položku 149 - x:-83.998 y:-170.353.
+2025-08-22 14:27:22,442 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 72 pro položku 149 - x:-83.635 y:-170.004.
+2025-08-22 14:27:31,227 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 73 pro položku 149 - x:-83.3 y:-169.628.
+2025-08-22 14:27:40,029 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 74 pro položku 149 - x:-82.995 y:-169.228.
+2025-08-22 14:27:48,855 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 75 pro položku 149 - x:-82.722 y:-168.805.
+2025-08-22 14:27:57,634 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 76 pro položku 149 - x:-82.481 y:-168.363.
+2025-08-22 14:29:04,584 [INFO] [DB] Do databáze byl uložen snímek mikroskopu 77 pro položku 149 - x:-82.275 y:-167.904.

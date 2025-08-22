@@ -148,6 +148,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                         # For microscope, we don't apply correction matrix
                         live_frame = img
                         sharpness = tenengrad_sharpness(live_frame)
+                        black_ratio, white_ratio = black_white_ratio(live_frame, use_otsu=False, thresh_val=100)
                         live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 4, live_frame.shape[0] // 4))
                     else:
                         live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
@@ -155,7 +156,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                     # Převod na RGB
                     img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
                     if actual_camera == microscope:
-                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f} Cerna:{black_ratio:.1%}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
 
                     # Rozměry a střed
                     h, w = img_rgb.shape[:2]
@@ -867,4 +868,39 @@ def autofocus_z(
         print(f"[AF] DONE -> Z={best_z:.6f} mm, score={best_score:.2f}")
     return best_z, best_score
 
+# --- Poměr černé a bílé plochy v obrázku (pro posun okraje drátu na střed obrázku) -------------
+def black_white_ratio(img, use_otsu=True, thresh_val=50):
+    """
+    Spočítá poměr černé a bílé plochy v obrázku.
+
+    Args:
+        img (numpy.ndarray): vstupní obrázek (BGR nebo grayscale)
+        use_otsu (bool): pokud True použije Otsu thresholding
+        thresh_val (int): pevná hodnota prahu (pokud use_otsu=False)
+
+    Returns:
+        (black_ratio, white_ratio)
+    """
+    # převod na grayscale (pokud je barevný)
+    if len(img.shape) == 3:
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    else:
+        gray = img.copy()
+
+    # prahování
+    if use_otsu:
+        _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    else:
+        _, thresh = cv2.threshold(gray, thresh_val, 255, cv2.THRESH_BINARY)
+
+    # spočítat pixely
+    total_pixels = gray.size
+    black_pixels = np.sum(thresh == 0)
+    white_pixels = np.sum(thresh == 255)
+
+    # poměry
+    black_ratio = black_pixels / total_pixels
+    white_ratio = white_pixels / total_pixels
+
+    return black_ratio, white_ratio
 
