@@ -55,6 +55,8 @@ def init_grbl():
             print(f"[GRBL] Stav:{grbl_status} , Pozice (MPos): X={x:.3f}, Y={y:.3f}, Z={z:.3f}")
         else:
             print("MPos nenalezena, provedu Homing a nastavím na výchozí hodnoty")
+            grbl_abort()
+            time.sleep(1)
             grbl_clear_alarm()
             grbl_home()
     except:
@@ -124,7 +126,7 @@ def move_axis(axis: str, value: float):
     """
     Relativní pohyb v jedné ose.
     """
-    gcode = f"G91 G1 {axis.upper()}{value:.3f} M3 S750 F2000" # M3 S750 je pro spuštění osvětlení, F2000 je rychlost posuvu
+    gcode = f"G91 G1 {axis.upper()}{value:.3f} M3 S1000 F2000" # M3 S750 je pro spuštění osvětlení, F2000 je rychlost posuvu
     send_gcode(gcode)
 
 def grbl_home():
@@ -171,7 +173,7 @@ def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S1000 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 # Absolutní pohyb s anti-backlashem
@@ -193,7 +195,7 @@ def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_b
         z = default_Z_position
 
     # světlo / modalita
-    send_gcode("M3 S750")
+    send_gcode("M3 S1000")
     send_gcode("G90")  # absolutní režim
 
     # aktuální pozice (best-effort)
