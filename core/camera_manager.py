@@ -148,7 +148,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                         # For microscope, we don't apply correction matrix
                         live_frame = img
                         sharpness = tenengrad_sharpness(live_frame)
-                        black_ratio, white_ratio = black_white_ratio(live_frame, use_otsu=False, thresh_val=100)
+                        # black_ratio, white_ratio = black_white_ratio(live_frame, use_otsu=False, thresh_val=100)
                         live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 4, live_frame.shape[0] // 4))
                     else:
                         live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
@@ -156,7 +156,7 @@ def start_camera_preview(image_label, update_position_callback=None):
                     # Převod na RGB
                     img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
                     if actual_camera == microscope:
-                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f} Cerna:{black_ratio:.1%}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
 
                     # Rozměry a střed
                     h, w = img_rgb.shape[:2]

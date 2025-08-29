@@ -22,6 +22,8 @@ from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ra
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
+    # TODO: Upravit počet bodů podle potřeby - doladit na základě reálných dat
+    precision = 12 # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu
 
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
         core.camera_manager.switch_camera()
@@ -50,15 +52,15 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                 print(f"[FIND] Detekuji počet a pozici drátů ve vzorku {code}")
                 items, contours = find_circles(project_id, img)
 
-                # Vykreslíme detekované kruhy na obrázek pro kontrolu
-
+                # Najdeme body po obvodu jednotlivých drátů pro pozice snímků z mikroskopu
                 for i, (x, y, r) in enumerate(items):
+                    # Vykreslíme detekované kruhy a jejich indexy
                     cv2.putText(img, str(i+1), (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255))
                     cv2.circle(img, (x, y), 2, (0, 0, 255), 2)
                     # cv2.circle(img, (x,y), r, (0, 0, 255), 2)
                     # cv2.drawContours(img, contours[i], -1, (0, 255, 0), 2)
 
-                    # Interpolace bodů podél kontury
+                    # Interpolace bodů podél kontury - aby byly rovnoměrně rozmístěny
                     points = contours[i].squeeze()
                     if len(points.shape) == 1:
                         points = points.reshape(1, 2)
@@ -68,7 +70,7 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                     cumlen = np.cumsum(dists)
                     cumlen = np.insert(cumlen, 0, 0)
                     total_len = cumlen[-1]
-                    num_marks = max(1, num_points // 10)  #TODO: Upravit počet značek podle potřeby - doladit na základě reálných dat
+                    num_marks = max(1, num_points // precision)
                     for j in range(num_marks):
                         target_len = j * total_len / num_marks
                         idx = np.searchsorted(cumlen, target_len)
@@ -79,9 +81,11 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                             next_len = cumlen[idx]
                             alpha = (target_len - prev_len) / (next_len - prev_len) if next_len > prev_len else 0
                             interp_point = (1 - alpha) * points[(idx - 1) % num_points] + alpha * points[idx % num_points]
+                        # Vykreslíme interpolovaný bod na obrázek
                         cv2.circle(img, tuple(np.round(interp_point).astype(int)), 5, (255, 0, 0), -1)
+                        # Uložíme bod do seznamu s indexem drátu
                         item_points.append((i, (int(interp_point[0]), int(interp_point[1]))))
-                        print(f"[FIND] Detekovány body na drátu {i+1}: {sum(1 for idx, _ in item_points if idx == i)} {(int(interp_point[0]), int(interp_point[1]))} vzorku {code}")
+                    print(f"[FIND] Detekováno {sum(1 for idx, _ in item_points if idx == i)} bodů na drátě {i+1} vzorku {code}")
 
                 # Uložíme obrázek do projektu
                 image_path = save_image_to_project(project_id, img, f"sample_{code}_position_{pos}.jpg")
@@ -124,7 +128,7 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
 def find_circles(project_id, image):
     """
     Detekuje kruhy na obrázku pomocí Houghovy transformace.
-    Vrací seznam středů kruhů [(x1, y1), (x2, y2), ...].
+    Vrací seznam středů kruhů [(x1, y1), (x2, y2), ...] a jejich kontury.
     """
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) if len(image.shape) == 3 else image
     # gray = cv2.medianBlur(gray, 5)  # Apply median blur to reduce noise
@@ -221,7 +225,6 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
 
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
     z_step_begin = 0.5      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
-
     # Najdi absolutní pozici sample slotu (base XY, výška)
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
     (pos, mpos_x, mpos_y, mpos_z) = sample_position
@@ -232,27 +235,27 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
 
     for (id, pos_index, x_center, y_center, radius) in items:
         item_positions_db = get_sample_item_positions_by_item_id(id)
-
+        # Souřadnice středu drátu v GRBL prostoru
+        cx, cy, cz = rect_to_grbl(float(x_center), float(y_center), base_xy=(mpos_x, mpos_y), z=abs_z)
+        # # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
+        # core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
+        # core.motion_controller.move_to_position(cx, cy, abs_z)
+        # best_z, _ = autofocus_z(getattr(config, "autofocus_steps", (0.1, 0.02, 0.005)),
+        #                         settle_s=0.08,
+        #                         max_steps_per_level=200,
+        #                         overshoot_backtrack=3,  # kolik dalších kroků po sobě s už horší ostrosti
+        #                         verbose=True, )
+        # if best_z is not None and abs(abs_z - best_z) < 1.0: # Pokud je změna menší než 1 mm, přijmeme ji - ale někdy autofocus "uskočí"
+        #     abs_z = float(best_z)
+        #     z_step_begin = 0.15  # Zmenšíme na jemnější rozmezí pro zaostření
+        #     print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
+        #
+        # core.camera_manager.preview_running = False
+        # time.sleep(0.25)
+        # # Konec autofokusu
         for id, step, x_coord, y_coord, image_path, defect_detected in item_positions_db:
+            # Souřadnice bodu v GRBL prostoru
             px, py, pz = rect_to_grbl(float(x_coord), float(y_coord), base_xy=(mpos_x, mpos_y), z=abs_z)
-
-            # # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
-            # if step == 0:
-            #     core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
-            #     core.motion_controller.move_to_position(px, py, abs_z)
-            #     best_z, _ = autofocus_z(getattr(config, "autofocus_steps", (0.1, 0.02, 0.005)),
-            #                             settle_s=0.08,
-            #                             max_steps_per_level=200,
-            #                             overshoot_backtrack=3,  # kolik dalších kroků po sobě s už horší ostrosti
-            #                             verbose=True, )
-            #     if best_z is not None and abs(abs_z - best_z) < 1.0: # Pokud je změna menší než 1 mm, přijmeme ji - ale někdy autofocus "uskočí"
-            #         abs_z = float(best_z)
-            #         z_step_begin = 0.15  # Zmenšíme na jemnější rozmezí pro zaostření
-            #         print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
-            #
-            #     core.camera_manager.preview_running = False
-            #     time.sleep(0.25)
-            # # Konec autofokusu
 
             max_sharpness = 0.0
             sharpest_img = None
@@ -260,19 +263,19 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             errors = 0
             attempt = 1
             z_step = z_step_begin  # Začneme s počátečním krokem Z, v případě chyb zvětšíme
-            black_ratio = 0.0
-            previous_black_ratio = 0.0
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
-            while errors > max_errors or max_sharpness < 800:
+            while errors > max_errors or max_sharpness < 1000:
                 print(f"[FIND] Získávám snímek {step} z mikroskopu pro drát {pos_index} vzorku {ean_code} - (pokus {attempt})")
                 core.motion_controller.move_to_position(px, py, abs_z - z_step)
-                time.sleep(0.25)
+                time.sleep(0.6)
                 max_sharpness = 0.0
                 sharpest_img = None
+                black_ratio = 0.0
+                white_ratio = 0.0
                 errors = 0 # Chyby kamery resetujeme na začátku každého pokusu
 
-                core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S1000 F5")
+                core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F15")
                 time.sleep(0.6)
 
                 timeout = time.time() + 120
@@ -286,12 +289,11 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                         (h, w) = img_rgb.shape[:2]
                         sharpness = tenengrad_sharpness(img_rgb)
-
+                        black_ratio, white_ratio = black_white_ratio(img_rgb, use_otsu=False,thresh_val=100)
                         print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
                         if sharpness > max_sharpness:
                             max_sharpness = sharpness
                             sharpest_img = img_rgb.copy()
-                            black_ratio, white_ratio = black_white_ratio(sharpest_img, use_otsu=False, thresh_val=100)
                     else:
                         print("[MICROSCOPE] Chyba při získávání snímku z mikroskopu, obrázek je None.")
                         errors += 1
@@ -306,22 +308,43 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 if errors <= max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
 
                     z_step += 0.2 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
+                    if black_ratio > 0.5 and max_sharpness < 800:
+                        # zmenšíme poloměr, pokud je okraj příliš velký a ostrost je nízká
+                        dx = px - cx
+                        dy = py - cy
+                        dist = np.hypot(dx, dy)
+                        if dist > (0.8 * (black_ratio - 0.5)):
+                            scale = (dist - (0.8 * (black_ratio - 0.5))) / dist
+                            px = cx + dx * scale
+                            py = cy + dy * scale
+                            print(f"[MICROSCOPE] Vysoký poměr černé {black_ratio:.1%} a nízká ostrost {max_sharpness:.1f}, zmenšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
                     if z_step > 5.0:
                         print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
                         break
+                if black_ratio < 0.2 and max_sharpness > 1000:
+                    dx = px - cx
+                    dy = py - cy
+                    dist = np.hypot(dx, dy)
+
+                    scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
+                    px = cx + dx * scale
+                    py = cy + dy * scale
+                    print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%} a vysoká ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                    max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
+
                 attempt += 1
                 if attempt > 5:  # Maximální počet pokusů
                     print("[MICROSCOPE] Příliš mnoho pokusů, ukončuji snímání.")
                     break
 
             if sharpest_img is not None:
-                image_path = save_image_to_project(project_id, sharpest_img, f"microscope_{ean_code}_{pos_index}_{step}.jpg")
+                image_path = save_image_to_project(project_id, sharpest_img, f"microscope_{ean_code}_{pos_index}_{step}_{id}.jpg")
                 core.database.update_sample_item_position_image(id, image_path)
 
                 # Náhled do GUI
                 img = cv2.resize(sharpest_img, (int(w // 4), int(h // 4)))
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                cv2.putText(img, f"Drat {pos_index} - Snimek {step} Ostrost: {max_sharpness:.2f}, Cerna: {black_ratio:.1%}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                cv2.putText(img, f"Drat {pos_index} - Snimek {step} Ostrost: {max_sharpness:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
                 im_pil = Image.fromarray(img)
                 imgtk = ImageTk.PhotoImage(image=im_pil)
                 if image_label.winfo_exists():

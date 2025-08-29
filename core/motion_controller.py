@@ -82,7 +82,20 @@ def send_gcode(command: str):
             print(f"[GRBL] Chyba: Timeout při zápisu na sériový port (pokus {attempt + 1})")
             time.sleep(0.5)
     else:
-        print("[GRBL] Nepodařilo se odeslat příkaz po 3 pokusech.")
+        print("[GRBL] Nepodařilo se odeslat příkaz po 3 pokusech. Restartuji spojení.")
+        try:
+            grbl_abort()
+            grbl_clear_alarm()
+            cnc_serial.close()
+            time.sleep(1)
+            cnc_serial.open()
+            time.sleep(2)
+            cnc_serial.reset_input_buffer()
+            cnc_serial.flush()
+            cnc_serial.write((command + "\n").encode())
+        except Exception as e:
+            print(f"[GRBL] Chyba při restartu spojení: {e}")
+            return
 
     while True:
         line = cnc_serial.readline().decode().strip()
@@ -126,7 +139,7 @@ def move_axis(axis: str, value: float):
     """
     Relativní pohyb v jedné ose.
     """
-    gcode = f"G91 G1 {axis.upper()}{value:.3f} M3 S1000 F2000" # M3 S750 je pro spuštění osvětlení, F2000 je rychlost posuvu
+    gcode = f"G91 G1 {axis.upper()}{value:.3f} M3 S750 F2000" # M3 S750 je pro spuštění osvětlení, F2000 je rychlost posuvu
     send_gcode(gcode)
 
 def grbl_home():
@@ -173,7 +186,7 @@ def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S1000 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 # Absolutní pohyb s anti-backlashem
@@ -195,7 +208,7 @@ def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_b
         z = default_Z_position
 
     # světlo / modalita
-    send_gcode("M3 S1000")
+    send_gcode("M3 S750")
     send_gcode("G90")  # absolutní režim
 
     # aktuální pozice (best-effort)
@@ -283,9 +296,9 @@ def grbl_update_position():
                     grbl_status = "Idle"
                 elif "Run" in decoded:
                     grbl_status = "Run"
-                elif "Error" in decoded:
+                elif "Error" or "error" in decoded:
                     grbl_status = "Error"
-                elif "Alarm" in decoded:
+                elif "Alarm" or "alarm" in decoded:
                     grbl_status = "Alarm"
                 else:
                     grbl_status = "Unknown"
@@ -300,7 +313,7 @@ def grbl_update_position():
                                 return grbl_last_position, grbl_status
             except Exception:
                 pass
-        time.sleep(0.01)
+        time.sleep(0.1)
     grbl_last_position = "0.000,0.000,0.000"
     grbl_status = "Unknown"
     return grbl_last_position, grbl_status
