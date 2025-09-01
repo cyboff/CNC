@@ -265,7 +265,8 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             z_step = z_step_begin  # Začneme s počátečním krokem Z, v případě chyb zvětšíme
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
-            while errors > max_errors or max_sharpness < 1000:
+            # TODO: Přidat do config nastavení max_sharpness a max_errors
+            while errors > max_errors or max_sharpness < 230:
                 print(f"[FIND] Získávám snímek {step} z mikroskopu pro drát {pos_index} vzorku {ean_code} - (pokus {attempt})")
                 core.motion_controller.move_to_position(px, py, abs_z - z_step)
                 time.sleep(0.6)
@@ -308,7 +309,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 if errors <= max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
 
                     z_step += 0.2 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
-                    if black_ratio > 0.5 and max_sharpness < 800:
+                    if black_ratio > 0.5 and max_sharpness < 200:
                         # zmenšíme poloměr, pokud je okraj příliš velký a ostrost je nízká
                         dx = px - cx
                         dy = py - cy
@@ -321,7 +322,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     if z_step > 5.0:
                         print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
                         break
-                if black_ratio < 0.2 and max_sharpness > 1000:
+                if black_ratio < 0.2 and max_sharpness > 300:
                     dx = px - cx
                     dy = py - cy
                     dist = np.hypot(dx, dy)

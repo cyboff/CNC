@@ -33,7 +33,7 @@ def show_manual_controller(container, on_back):
     ttk.Label(control_frame, text="Manuální řízení CNC", font=("Helvetica", 14, "bold")).pack(pady=10)
 
     # Styl tlačítek
-    step_values = [0.01, 0.1, 1, 5, 10, 50]
+    step_values = [0.001, 0.01, 0.1, 1, 5, 10, 45]
     selected_step = StringVar(value=str(step_values[2]))  # výchozí krok
 
     step_frame = ttk.Frame(control_frame)

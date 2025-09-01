@@ -186,7 +186,7 @@ def move_to_position(x: float, y: float, z: float = None):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F500")  # G90 je absolutní pohyb, F500 je rychlost posuvu
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F2000")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 # Absolutní pohyb s anti-backlashem
@@ -195,7 +195,7 @@ def move_to_position(x: float, y: float, z: float = None):
 # -> všechny bloky pošleme rychle za sebou (čekáme na ok), na konci případně jednou počkáme na Idle
 # -> pokud je anti_backlash=False, tak se použije jen finální dojezd
 def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_backlash: bool = True,
-                     wait_end: bool = True, feed_xy: int = 500, feed_z: int = 500):
+                     wait_end: bool = True, feed_xy: int = 2000, feed_z: int = 500):
     """
     Absolutní najíždění s volitelným anti-backlashem.
     -> pro každou osu vytvoříme 'approach' (předpětí proti vůli) a hned poté finální krátký dojezd
@@ -281,11 +281,12 @@ def grbl_update_position():
     """
     global cnc_serial, position_lock, grbl_status, grbl_last_position
 
+    # cnc_serial.flush()
     cnc_serial.write(b'?')
-    cnc_serial.flush()
+
 
     t0 = time.time()
-    while time.time() - t0 < 0.5:
+    while time.time() - t0 < 1.0:
         if cnc_serial.in_waiting:
             line = cnc_serial.readline()
             # print("Received: (update_position)", line.decode().strip())
