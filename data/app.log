@@ -30417,3 +30417,606 @@
 2025-09-01 16:13:49,707 [INFO] Načten EAN kód: 4
 2025-09-01 16:14:30,060 [INFO] [SCAN] Spouštím proces FIND pro projekt 18
 2025-09-01 16:14:54,653 [INFO] Zavírám sériový port CNC
+2025-09-01 16:15:28,381 [INFO] Aplikace spuštěna
+2025-09-01 16:15:28,381 [INFO] Zobrazení domovské obrazovky
+2025-09-01 16:15:32,319 [INFO] Klik: Nové měření
+2025-09-01 16:15:36,921 [INFO] Vytvořena složka projektu: projects\2025_09_01_16_15_36_19_1
+2025-09-01 16:15:38,583 [INFO] Načten EAN kód: 1
+2025-09-01 16:15:39,599 [INFO] Načten EAN kód: 2
+2025-09-01 16:15:40,207 [INFO] Načten EAN kód: 3
+2025-09-01 16:15:41,311 [INFO] Načten EAN kód: 4
+2025-09-01 16:15:44,311 [INFO] [SCAN] Spouštím proces FIND pro projekt 19
+2025-09-01 16:16:01,055 [INFO] [DB] Uložen vzorek 1 na pozici A1.
+2025-09-01 16:16:01,057 [INFO] [DB] Uložen drát 1 vzorku 64 - x:931 y:500 r:216.
+2025-09-01 16:16:01,057 [INFO] [DB] Uložen drát 2 vzorku 64 - x:407 y:750 r:216.
+2025-09-01 16:16:01,058 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 162 - x:917 y:287.
+2025-09-01 16:16:01,060 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 162 - x:890 y:291.
+2025-09-01 16:16:01,061 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 162 - x:865 y:297.
+2025-09-01 16:16:01,063 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 162 - x:840 y:306.
+2025-09-01 16:16:01,065 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 162 - x:817 y:317.
+2025-09-01 16:16:01,066 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 162 - x:795 y:333.
+2025-09-01 16:16:01,067 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 162 - x:775 y:351.
+2025-09-01 16:16:01,069 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 162 - x:758 y:371.
+2025-09-01 16:16:01,070 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 162 - x:744 y:393.
+2025-09-01 16:16:01,071 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 162 - x:732 y:416.
+2025-09-01 16:16:01,073 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 162 - x:724 y:441.
+2025-09-01 16:16:01,074 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 162 - x:718 y:467.
+2025-09-01 16:16:01,076 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 162 - x:716 y:494.
+2025-09-01 16:16:01,077 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 162 - x:717 y:521.
+2025-09-01 16:16:01,078 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 162 - x:721 y:547.
+2025-09-01 16:16:01,080 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 162 - x:728 y:572.
+2025-09-01 16:16:01,081 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 162 - x:738 y:596.
+2025-09-01 16:16:01,082 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 162 - x:751 y:618.
+2025-09-01 16:16:01,084 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 162 - x:767 y:639.
+2025-09-01 16:16:01,085 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 162 - x:786 y:658.
+2025-09-01 16:16:01,086 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 162 - x:807 y:676.
+2025-09-01 16:16:01,088 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 162 - x:830 y:690.
+2025-09-01 16:16:01,089 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 162 - x:853 y:700.
+2025-09-01 16:16:01,090 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 162 - x:878 y:708.
+2025-09-01 16:16:01,092 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 162 - x:905 y:712.
+2025-09-01 16:16:01,093 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 162 - x:931 y:714.
+2025-09-01 16:16:01,094 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 162 - x:959 y:713.
+2025-09-01 16:16:01,096 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 162 - x:984 y:708.
+2025-09-01 16:16:01,097 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 162 - x:1009 y:700.
+2025-09-01 16:16:01,099 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 162 - x:1033 y:690.
+2025-09-01 16:16:01,100 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 162 - x:1055 y:676.
+2025-09-01 16:16:01,101 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 162 - x:1077 y:659.
+2025-09-01 16:16:01,103 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 162 - x:1096 y:640.
+2025-09-01 16:16:01,104 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 162 - x:1112 y:618.
+2025-09-01 16:16:01,105 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 162 - x:1125 y:596.
+2025-09-01 16:16:01,107 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 162 - x:1135 y:572.
+2025-09-01 16:16:01,108 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 162 - x:1142 y:547.
+2025-09-01 16:16:01,109 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 162 - x:1146 y:520.
+2025-09-01 16:16:01,111 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 162 - x:1146 y:493.
+2025-09-01 16:16:01,112 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 162 - x:1144 y:467.
+2025-09-01 16:16:01,114 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 162 - x:1137 y:441.
+2025-09-01 16:16:01,115 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 162 - x:1129 y:417.
+2025-09-01 16:16:01,116 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 162 - x:1118 y:394.
+2025-09-01 16:16:01,118 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 162 - x:1103 y:372.
+2025-09-01 16:16:01,119 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 162 - x:1085 y:351.
+2025-09-01 16:16:01,120 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 162 - x:1065 y:333.
+2025-09-01 16:16:01,122 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 162 - x:1043 y:318.
+2025-09-01 16:16:01,123 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 162 - x:1020 y:306.
+2025-09-01 16:16:01,125 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 162 - x:996 y:297.
+2025-09-01 16:16:01,126 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 162 - x:970 y:291.
+2025-09-01 16:16:01,128 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 162 - x:944 y:287.
+2025-09-01 16:16:01,129 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 163 - x:403 y:536.
+2025-09-01 16:16:01,130 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 163 - x:376 y:539.
+2025-09-01 16:16:01,132 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 163 - x:350 y:544.
+2025-09-01 16:16:01,133 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 163 - x:326 y:552.
+2025-09-01 16:16:01,134 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 163 - x:302 y:563.
+2025-09-01 16:16:01,136 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 163 - x:280 y:577.
+2025-09-01 16:16:01,137 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 163 - x:259 y:594.
+2025-09-01 16:16:01,138 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 163 - x:240 y:613.
+2025-09-01 16:16:01,140 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 163 - x:224 y:635.
+2025-09-01 16:16:01,141 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 163 - x:213 y:658.
+2025-09-01 16:16:01,142 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 163 - x:203 y:682.
+2025-09-01 16:16:01,144 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 163 - x:196 y:707.
+2025-09-01 16:16:01,145 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 163 - x:192 y:733.
+2025-09-01 16:16:01,146 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 163 - x:193 y:761.
+2025-09-01 16:16:01,147 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 163 - x:196 y:788.
+2025-09-01 16:16:01,149 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 163 - x:202 y:813.
+2025-09-01 16:16:01,150 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 163 - x:211 y:838.
+2025-09-01 16:16:01,151 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 163 - x:223 y:861.
+2025-09-01 16:16:01,153 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 163 - x:238 y:882.
+2025-09-01 16:16:01,154 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 163 - x:256 y:903.
+2025-09-01 16:16:01,155 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 163 - x:276 y:921.
+2025-09-01 16:16:01,157 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 163 - x:298 y:935.
+2025-09-01 16:16:01,158 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 163 - x:322 y:947.
+2025-09-01 16:16:01,159 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 163 - x:345 y:956.
+2025-09-01 16:16:01,161 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 163 - x:371 y:963.
+2025-09-01 16:16:01,162 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 163 - x:398 y:965.
+2025-09-01 16:16:01,163 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 163 - x:426 y:964.
+2025-09-01 16:16:01,165 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 163 - x:452 y:960.
+2025-09-01 16:16:01,166 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 163 - x:477 y:953.
+2025-09-01 16:16:01,167 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 163 - x:501 y:943.
+2025-09-01 16:16:01,169 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 163 - x:523 y:930.
+2025-09-01 16:16:01,170 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 163 - x:545 y:914.
+2025-09-01 16:16:01,171 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 163 - x:566 y:896.
+2025-09-01 16:16:01,173 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 163 - x:583 y:875.
+2025-09-01 16:16:01,174 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 163 - x:597 y:853.
+2025-09-01 16:16:01,175 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 163 - x:608 y:830.
+2025-09-01 16:16:01,176 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 163 - x:616 y:805.
+2025-09-01 16:16:01,178 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 163 - x:621 y:780.
+2025-09-01 16:16:01,179 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 163 - x:623 y:752.
+2025-09-01 16:16:01,180 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 163 - x:620 y:725.
+2025-09-01 16:16:01,182 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 163 - x:615 y:699.
+2025-09-01 16:16:01,183 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 163 - x:607 y:674.
+2025-09-01 16:16:01,185 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 163 - x:597 y:651.
+2025-09-01 16:16:01,186 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 163 - x:583 y:629.
+2025-09-01 16:16:01,187 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 163 - x:566 y:607.
+2025-09-01 16:16:01,189 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 163 - x:547 y:589.
+2025-09-01 16:16:01,190 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 163 - x:525 y:573.
+2025-09-01 16:16:01,191 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 163 - x:503 y:559.
+2025-09-01 16:16:01,192 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 163 - x:479 y:550.
+2025-09-01 16:16:01,194 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 163 - x:454 y:542.
+2025-09-01 16:16:01,195 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 163 - x:429 y:538.
+2025-09-01 16:16:18,587 [INFO] [DB] Uložen vzorek 2 na pozici A2.
+2025-09-01 16:16:18,589 [INFO] [DB] Uložen drát 1 vzorku 65 - x:485 y:288 r:111.
+2025-09-01 16:16:18,589 [INFO] [DB] Uložen drát 2 vzorku 65 - x:850 y:427 r:110.
+2025-09-01 16:16:18,589 [INFO] [DB] Uložen drát 3 vzorku 65 - x:507 y:660 r:111.
+2025-09-01 16:16:18,589 [INFO] [DB] Uložen drát 4 vzorku 65 - x:846 y:794 r:111.
+2025-09-01 16:16:18,589 [INFO] [DB] Uložen drát 5 vzorku 65 - x:564 y:1021 r:110.
+2025-09-01 16:16:18,590 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 164 - x:468 y:188.
+2025-09-01 16:16:18,592 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 164 - x:442 y:194.
+2025-09-01 16:16:18,593 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 164 - x:417 y:205.
+2025-09-01 16:16:18,594 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 164 - x:398 y:222.
+2025-09-01 16:16:18,596 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 164 - x:383 y:244.
+2025-09-01 16:16:18,597 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 164 - x:376 y:270.
+2025-09-01 16:16:18,599 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 164 - x:375 y:298.
+2025-09-01 16:16:18,600 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 164 - x:381 y:324.
+2025-09-01 16:16:18,602 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 164 - x:394 y:347.
+2025-09-01 16:16:18,603 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 164 - x:413 y:367.
+2025-09-01 16:16:18,604 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 164 - x:436 y:382.
+2025-09-01 16:16:18,605 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 164 - x:460 y:391.
+2025-09-01 16:16:18,607 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 164 - x:487 y:396.
+2025-09-01 16:16:18,608 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 164 - x:514 y:393.
+2025-09-01 16:16:18,609 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 164 - x:539 y:383.
+2025-09-01 16:16:18,610 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 164 - x:561 y:369.
+2025-09-01 16:16:18,612 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 164 - x:579 y:347.
+2025-09-01 16:16:18,613 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 164 - x:590 y:324.
+2025-09-01 16:16:18,614 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 164 - x:595 y:297.
+2025-09-01 16:16:18,616 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 164 - x:593 y:270.
+2025-09-01 16:16:18,617 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 164 - x:583 y:245.
+2025-09-01 16:16:18,618 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 164 - x:567 y:224.
+2025-09-01 16:16:18,619 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 164 - x:545 y:207.
+2025-09-01 16:16:18,621 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 164 - x:522 y:195.
+2025-09-01 16:16:18,622 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 164 - x:496 y:189.
+2025-09-01 16:16:18,623 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 165 - x:845 y:321.
+2025-09-01 16:16:18,624 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 165 - x:819 y:325.
+2025-09-01 16:16:18,626 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 165 - x:794 y:334.
+2025-09-01 16:16:18,627 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 165 - x:773 y:348.
+2025-09-01 16:16:18,628 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 165 - x:757 y:369.
+2025-09-01 16:16:18,630 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 165 - x:746 y:393.
+2025-09-01 16:16:18,631 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 165 - x:741 y:419.
+2025-09-01 16:16:18,632 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 165 - x:743 y:445.
+2025-09-01 16:16:18,633 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 165 - x:750 y:470.
+2025-09-01 16:16:18,635 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 165 - x:763 y:492.
+2025-09-01 16:16:18,636 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 165 - x:782 y:512.
+2025-09-01 16:16:18,637 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 165 - x:804 y:523.
+2025-09-01 16:16:18,638 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 165 - x:829 y:531.
+2025-09-01 16:16:18,640 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 165 - x:856 y:534.
+2025-09-01 16:16:18,641 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 165 - x:882 y:530.
+2025-09-01 16:16:18,642 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 165 - x:906 y:521.
+2025-09-01 16:16:18,643 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 165 - x:928 y:506.
+2025-09-01 16:16:18,645 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 165 - x:944 y:485.
+2025-09-01 16:16:18,646 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 165 - x:955 y:462.
+2025-09-01 16:16:18,647 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 165 - x:960 y:436.
+2025-09-01 16:16:18,648 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 165 - x:959 y:409.
+2025-09-01 16:16:18,650 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 165 - x:951 y:384.
+2025-09-01 16:16:18,651 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 165 - x:938 y:362.
+2025-09-01 16:16:18,652 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 165 - x:919 y:343.
+2025-09-01 16:16:18,654 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 165 - x:896 y:330.
+2025-09-01 16:16:18,655 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 165 - x:871 y:323.
+2025-09-01 16:16:18,656 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 166 - x:501 y:553.
+2025-09-01 16:16:18,657 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 166 - x:474 y:559.
+2025-09-01 16:16:18,659 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 166 - x:449 y:569.
+2025-09-01 16:16:18,660 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 166 - x:427 y:586.
+2025-09-01 16:16:18,661 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 166 - x:411 y:608.
+2025-09-01 16:16:18,662 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 166 - x:401 y:632.
+2025-09-01 16:16:18,664 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 166 - x:397 y:660.
+2025-09-01 16:16:18,665 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 166 - x:400 y:687.
+2025-09-01 16:16:18,667 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 166 - x:409 y:712.
+2025-09-01 16:16:18,668 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 166 - x:425 y:734.
+2025-09-01 16:16:18,669 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 166 - x:447 y:752.
+2025-09-01 16:16:18,671 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 166 - x:471 y:763.
+2025-09-01 16:16:18,672 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 166 - x:498 y:768.
+2025-09-01 16:16:18,673 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 166 - x:525 y:764.
+2025-09-01 16:16:18,674 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 166 - x:551 y:756.
+2025-09-01 16:16:18,676 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 166 - x:574 y:743.
+2025-09-01 16:16:18,677 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 166 - x:595 y:723.
+2025-09-01 16:16:18,678 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 166 - x:609 y:700.
+2025-09-01 16:16:18,679 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 166 - x:617 y:674.
+2025-09-01 16:16:18,681 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 166 - x:616 y:646.
+2025-09-01 16:16:18,682 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 166 - x:610 y:620.
+2025-09-01 16:16:18,683 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 166 - x:596 y:596.
+2025-09-01 16:16:18,684 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 166 - x:578 y:576.
+2025-09-01 16:16:18,686 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 166 - x:555 y:562.
+2025-09-01 16:16:18,687 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 166 - x:529 y:554.
+2025-09-01 16:16:18,688 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 167 - x:838 y:685.
+2025-09-01 16:16:18,690 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 167 - x:812 y:690.
+2025-09-01 16:16:18,691 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 167 - x:788 y:701.
+2025-09-01 16:16:18,692 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 167 - x:768 y:717.
+2025-09-01 16:16:18,693 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 167 - x:753 y:739.
+2025-09-01 16:16:18,695 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 167 - x:742 y:763.
+2025-09-01 16:16:18,696 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 167 - x:738 y:788.
+2025-09-01 16:16:18,697 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 167 - x:738 y:814.
+2025-09-01 16:16:18,699 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 167 - x:744 y:839.
+2025-09-01 16:16:18,700 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 167 - x:758 y:862.
+2025-09-01 16:16:18,701 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 167 - x:777 y:880.
+2025-09-01 16:16:18,702 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 167 - x:799 y:893.
+2025-09-01 16:16:18,704 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 167 - x:824 y:900.
+2025-09-01 16:16:18,705 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 167 - x:851 y:901.
+2025-09-01 16:16:18,706 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 167 - x:877 y:896.
+2025-09-01 16:16:18,708 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 167 - x:901 y:886.
+2025-09-01 16:16:18,709 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 167 - x:922 y:870.
+2025-09-01 16:16:18,710 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 167 - x:938 y:849.
+2025-09-01 16:16:18,712 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 167 - x:949 y:825.
+2025-09-01 16:16:18,713 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 167 - x:954 y:799.
+2025-09-01 16:16:18,714 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 167 - x:953 y:772.
+2025-09-01 16:16:18,716 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 167 - x:947 y:747.
+2025-09-01 16:16:18,717 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 167 - x:932 y:725.
+2025-09-01 16:16:18,718 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 167 - x:912 y:706.
+2025-09-01 16:16:18,719 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 167 - x:890 y:694.
+2025-09-01 16:16:18,721 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 167 - x:865 y:687.
+2025-09-01 16:16:18,722 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 168 - x:556 y:913.
+2025-09-01 16:16:18,723 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 168 - x:529 y:919.
+2025-09-01 16:16:18,725 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 168 - x:505 y:929.
+2025-09-01 16:16:18,726 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 168 - x:484 y:947.
+2025-09-01 16:16:18,728 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 168 - x:468 y:969.
+2025-09-01 16:16:18,729 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 168 - x:458 y:993.
+2025-09-01 16:16:18,731 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 168 - x:455 y:1021.
+2025-09-01 16:16:18,733 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 168 - x:460 y:1048.
+2025-09-01 16:16:18,735 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 168 - x:471 y:1072.
+2025-09-01 16:16:18,736 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 168 - x:488 y:1093.
+2025-09-01 16:16:18,738 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 168 - x:509 y:1111.
+2025-09-01 16:16:18,739 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 168 - x:533 y:1124.
+2025-09-01 16:16:18,740 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 168 - x:559 y:1130.
+2025-09-01 16:16:18,742 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 168 - x:586 y:1127.
+2025-09-01 16:16:18,743 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 168 - x:612 y:1119.
+2025-09-01 16:16:18,744 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 168 - x:635 y:1105.
+2025-09-01 16:16:18,746 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 168 - x:654 y:1084.
+2025-09-01 16:16:18,747 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 168 - x:666 y:1061.
+2025-09-01 16:16:18,749 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 168 - x:673 y:1034.
+2025-09-01 16:16:18,750 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 168 - x:672 y:1006.
+2025-09-01 16:16:18,752 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 168 - x:664 y:980.
+2025-09-01 16:16:18,753 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 168 - x:652 y:957.
+2025-09-01 16:16:18,755 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 168 - x:631 y:937.
+2025-09-01 16:16:18,756 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 168 - x:609 y:923.
+2025-09-01 16:16:18,757 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 168 - x:584 y:913.
+2025-09-01 16:16:36,131 [INFO] [DB] Uložen vzorek 3 na pozici B1.
+2025-09-01 16:16:36,133 [INFO] [DB] Uložen drát 1 vzorku 66 - x:690 y:520 r:452.
+2025-09-01 16:16:36,134 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 169 - x:678 y:79.
+2025-09-01 16:16:36,136 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 169 - x:650 y:81.
+2025-09-01 16:16:36,137 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 169 - x:624 y:84.
+2025-09-01 16:16:36,138 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 169 - x:598 y:88.
+2025-09-01 16:16:36,140 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 169 - x:572 y:94.
+2025-09-01 16:16:36,141 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 169 - x:547 y:101.
+2025-09-01 16:16:36,142 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 169 - x:523 y:109.
+2025-09-01 16:16:36,143 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 169 - x:499 y:119.
+2025-09-01 16:16:36,145 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 169 - x:476 y:130.
+2025-09-01 16:16:36,146 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 169 - x:453 y:143.
+2025-09-01 16:16:36,147 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 169 - x:431 y:157.
+2025-09-01 16:16:36,149 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 169 - x:410 y:173.
+2025-09-01 16:16:36,150 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 169 - x:389 y:188.
+2025-09-01 16:16:36,151 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 169 - x:368 y:205.
+2025-09-01 16:16:36,153 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 169 - x:349 y:225.
+2025-09-01 16:16:36,154 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 169 - x:332 y:245.
+2025-09-01 16:16:36,155 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 169 - x:316 y:266.
+2025-09-01 16:16:36,157 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 169 - x:302 y:289.
+2025-09-01 16:16:36,158 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 169 - x:290 y:311.
+2025-09-01 16:16:36,159 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 169 - x:278 y:334.
+2025-09-01 16:16:36,160 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 169 - x:269 y:358.
+2025-09-01 16:16:36,162 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 169 - x:260 y:382.
+2025-09-01 16:16:36,163 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 169 - x:252 y:407.
+2025-09-01 16:16:36,164 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 169 - x:246 y:433.
+2025-09-01 16:16:36,165 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 169 - x:243 y:459.
+2025-09-01 16:16:36,167 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 169 - x:241 y:486.
+2025-09-01 16:16:36,168 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 169 - x:239 y:513.
+2025-09-01 16:16:36,169 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 169 - x:240 y:540.
+2025-09-01 16:16:36,170 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 169 - x:242 y:566.
+2025-09-01 16:16:36,172 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 169 - x:245 y:592.
+2025-09-01 16:16:36,173 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 169 - x:250 y:618.
+2025-09-01 16:16:36,174 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 169 - x:257 y:643.
+2025-09-01 16:16:36,175 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 169 - x:265 y:668.
+2025-09-01 16:16:36,177 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 169 - x:274 y:692.
+2025-09-01 16:16:36,178 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 169 - x:285 y:715.
+2025-09-01 16:16:36,179 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 169 - x:298 y:738.
+2025-09-01 16:16:36,180 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 169 - x:312 y:760.
+2025-09-01 16:16:36,181 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 169 - x:328 y:781.
+2025-09-01 16:16:36,183 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 169 - x:345 y:802.
+2025-09-01 16:16:36,184 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 169 - x:362 y:821.
+2025-09-01 16:16:36,185 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 169 - x:381 y:840.
+2025-09-01 16:16:36,186 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 169 - x:400 y:858.
+2025-09-01 16:16:36,188 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 169 - x:420 y:876.
+2025-09-01 16:16:36,189 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 169 - x:441 y:891.
+2025-09-01 16:16:36,190 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 169 - x:463 y:906.
+2025-09-01 16:16:36,191 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 169 - x:487 y:917.
+2025-09-01 16:16:36,192 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 169 - x:510 y:927.
+2025-09-01 16:16:36,194 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 169 - x:534 y:937.
+2025-09-01 16:16:36,195 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 169 - x:558 y:946.
+2025-09-01 16:16:36,197 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 169 - x:583 y:954.
+2025-09-01 16:16:36,198 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 169 - x:609 y:959.
+2025-09-01 16:16:36,199 [INFO] [DB] Do databáze byl bod mikroskopu 51 pro položku 169 - x:635 y:963.
+2025-09-01 16:16:36,200 [INFO] [DB] Do databáze byl bod mikroskopu 52 pro položku 169 - x:662 y:966.
+2025-09-01 16:16:36,202 [INFO] [DB] Do databáze byl bod mikroskopu 53 pro položku 169 - x:689 y:967.
+2025-09-01 16:16:36,203 [INFO] [DB] Do databáze byl bod mikroskopu 54 pro položku 169 - x:717 y:966.
+2025-09-01 16:16:36,204 [INFO] [DB] Do databáze byl bod mikroskopu 55 pro položku 169 - x:744 y:964.
+2025-09-01 16:16:36,205 [INFO] [DB] Do databáze byl bod mikroskopu 56 pro položku 169 - x:769 y:959.
+2025-09-01 16:16:36,207 [INFO] [DB] Do databáze byl bod mikroskopu 57 pro položku 169 - x:795 y:954.
+2025-09-01 16:16:36,208 [INFO] [DB] Do databáze byl bod mikroskopu 58 pro položku 169 - x:820 y:949.
+2025-09-01 16:16:36,209 [INFO] [DB] Do databáze byl bod mikroskopu 59 pro položku 169 - x:845 y:941.
+2025-09-01 16:16:36,211 [INFO] [DB] Do databáze byl bod mikroskopu 60 pro položku 169 - x:869 y:932.
+2025-09-01 16:16:36,212 [INFO] [DB] Do databáze byl bod mikroskopu 61 pro položku 169 - x:892 y:921.
+2025-09-01 16:16:36,213 [INFO] [DB] Do databáze byl bod mikroskopu 62 pro položku 169 - x:915 y:909.
+2025-09-01 16:16:36,214 [INFO] [DB] Do databáze byl bod mikroskopu 63 pro položku 169 - x:937 y:895.
+2025-09-01 16:16:36,216 [INFO] [DB] Do databáze byl bod mikroskopu 64 pro položku 169 - x:959 y:880.
+2025-09-01 16:16:36,217 [INFO] [DB] Do databáze byl bod mikroskopu 65 pro položku 169 - x:980 y:864.
+2025-09-01 16:16:36,218 [INFO] [DB] Do databáze byl bod mikroskopu 66 pro položku 169 - x:1001 y:846.
+2025-09-01 16:16:36,219 [INFO] [DB] Do databáze byl bod mikroskopu 67 pro položku 169 - x:1021 y:826.
+2025-09-01 16:16:36,221 [INFO] [DB] Do databáze byl bod mikroskopu 68 pro položku 169 - x:1038 y:806.
+2025-09-01 16:16:36,222 [INFO] [DB] Do databáze byl bod mikroskopu 69 pro položku 169 - x:1055 y:785.
+2025-09-01 16:16:36,223 [INFO] [DB] Do databáze byl bod mikroskopu 70 pro položku 169 - x:1070 y:763.
+2025-09-01 16:16:36,224 [INFO] [DB] Do databáze byl bod mikroskopu 71 pro položku 169 - x:1084 y:741.
+2025-09-01 16:16:36,226 [INFO] [DB] Do databáze byl bod mikroskopu 72 pro položku 169 - x:1096 y:718.
+2025-09-01 16:16:36,227 [INFO] [DB] Do databáze byl bod mikroskopu 73 pro položku 169 - x:1107 y:695.
+2025-09-01 16:16:36,228 [INFO] [DB] Do databáze byl bod mikroskopu 74 pro položku 169 - x:1116 y:671.
+2025-09-01 16:16:36,229 [INFO] [DB] Do databáze byl bod mikroskopu 75 pro položku 169 - x:1124 y:646.
+2025-09-01 16:16:36,231 [INFO] [DB] Do databáze byl bod mikroskopu 76 pro položku 169 - x:1131 y:621.
+2025-09-01 16:16:36,232 [INFO] [DB] Do databáze byl bod mikroskopu 77 pro položku 169 - x:1136 y:595.
+2025-09-01 16:16:36,233 [INFO] [DB] Do databáze byl bod mikroskopu 78 pro položku 169 - x:1139 y:569.
+2025-09-01 16:16:36,235 [INFO] [DB] Do databáze byl bod mikroskopu 79 pro položku 169 - x:1142 y:542.
+2025-09-01 16:16:36,236 [INFO] [DB] Do databáze byl bod mikroskopu 80 pro položku 169 - x:1142 y:514.
+2025-09-01 16:16:36,237 [INFO] [DB] Do databáze byl bod mikroskopu 81 pro položku 169 - x:1141 y:487.
+2025-09-01 16:16:36,238 [INFO] [DB] Do databáze byl bod mikroskopu 82 pro položku 169 - x:1138 y:460.
+2025-09-01 16:16:36,240 [INFO] [DB] Do databáze byl bod mikroskopu 83 pro položku 169 - x:1134 y:434.
+2025-09-01 16:16:36,241 [INFO] [DB] Do databáze byl bod mikroskopu 84 pro položku 169 - x:1128 y:408.
+2025-09-01 16:16:36,242 [INFO] [DB] Do databáze byl bod mikroskopu 85 pro položku 169 - x:1121 y:383.
+2025-09-01 16:16:36,243 [INFO] [DB] Do databáze byl bod mikroskopu 86 pro položku 169 - x:1112 y:359.
+2025-09-01 16:16:36,245 [INFO] [DB] Do databáze byl bod mikroskopu 87 pro položku 169 - x:1102 y:335.
+2025-09-01 16:16:36,246 [INFO] [DB] Do databáze byl bod mikroskopu 88 pro položku 169 - x:1092 y:312.
+2025-09-01 16:16:36,247 [INFO] [DB] Do databáze byl bod mikroskopu 89 pro položku 169 - x:1078 y:289.
+2025-09-01 16:16:36,248 [INFO] [DB] Do databáze byl bod mikroskopu 90 pro položku 169 - x:1063 y:268.
+2025-09-01 16:16:36,250 [INFO] [DB] Do databáze byl bod mikroskopu 91 pro položku 169 - x:1048 y:247.
+2025-09-01 16:16:36,251 [INFO] [DB] Do databáze byl bod mikroskopu 92 pro položku 169 - x:1030 y:227.
+2025-09-01 16:16:36,252 [INFO] [DB] Do databáze byl bod mikroskopu 93 pro položku 169 - x:1011 y:208.
+2025-09-01 16:16:36,253 [INFO] [DB] Do databáze byl bod mikroskopu 94 pro položku 169 - x:993 y:190.
+2025-09-01 16:16:36,254 [INFO] [DB] Do databáze byl bod mikroskopu 95 pro položku 169 - x:972 y:173.
+2025-09-01 16:16:36,256 [INFO] [DB] Do databáze byl bod mikroskopu 96 pro položku 169 - x:951 y:158.
+2025-09-01 16:16:36,257 [INFO] [DB] Do databáze byl bod mikroskopu 97 pro položku 169 - x:929 y:144.
+2025-09-01 16:16:36,258 [INFO] [DB] Do databáze byl bod mikroskopu 98 pro položku 169 - x:906 y:132.
+2025-09-01 16:16:36,260 [INFO] [DB] Do databáze byl bod mikroskopu 99 pro položku 169 - x:883 y:120.
+2025-09-01 16:16:36,261 [INFO] [DB] Do databáze byl bod mikroskopu 100 pro položku 169 - x:859 y:110.
+2025-09-01 16:16:36,262 [INFO] [DB] Do databáze byl bod mikroskopu 101 pro položku 169 - x:834 y:102.
+2025-09-01 16:16:36,263 [INFO] [DB] Do databáze byl bod mikroskopu 102 pro položku 169 - x:809 y:95.
+2025-09-01 16:16:36,264 [INFO] [DB] Do databáze byl bod mikroskopu 103 pro položku 169 - x:784 y:89.
+2025-09-01 16:16:36,266 [INFO] [DB] Do databáze byl bod mikroskopu 104 pro položku 169 - x:758 y:84.
+2025-09-01 16:16:36,267 [INFO] [DB] Do databáze byl bod mikroskopu 105 pro položku 169 - x:732 y:81.
+2025-09-01 16:16:36,268 [INFO] [DB] Do databáze byl bod mikroskopu 106 pro položku 169 - x:704 y:80.
+2025-09-01 16:16:53,658 [INFO] [DB] Uložen vzorek 4 na pozici B2.
+2025-09-01 16:16:53,660 [INFO] [DB] Uložen drát 1 vzorku 67 - x:911 y:294 r:296.
+2025-09-01 16:16:53,660 [INFO] [DB] Uložen drát 2 vzorku 67 - x:406 y:646 r:301.
+2025-09-01 16:16:53,660 [INFO] [DB] Uložen drát 3 vzorku 67 - x:912 y:923 r:302.
+2025-09-01 16:16:53,661 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 170 - x:890 y:15.
+2025-09-01 16:16:53,663 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 170 - x:862 y:18.
+2025-09-01 16:16:53,664 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 170 - x:836 y:22.
+2025-09-01 16:16:53,665 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 170 - x:810 y:29.
+2025-09-01 16:16:53,667 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 170 - x:786 y:38.
+2025-09-01 16:16:53,668 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 170 - x:762 y:50.
+2025-09-01 16:16:53,669 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 170 - x:739 y:63.
+2025-09-01 16:16:53,670 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 170 - x:717 y:79.
+2025-09-01 16:16:53,672 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 170 - x:696 y:98.
+2025-09-01 16:16:53,673 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 170 - x:679 y:118.
+2025-09-01 16:16:53,674 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 170 - x:662 y:140.
+2025-09-01 16:16:53,676 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 170 - x:648 y:163.
+2025-09-01 16:16:53,677 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 170 - x:637 y:187.
+2025-09-01 16:16:53,678 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 170 - x:629 y:211.
+2025-09-01 16:16:53,679 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 170 - x:623 y:237.
+2025-09-01 16:16:53,681 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 170 - x:618 y:264.
+2025-09-01 16:16:53,682 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 170 - x:616 y:291.
+2025-09-01 16:16:53,683 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 170 - x:618 y:319.
+2025-09-01 16:16:53,684 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 170 - x:622 y:346.
+2025-09-01 16:16:53,686 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 170 - x:627 y:372.
+2025-09-01 16:16:53,687 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 170 - x:635 y:397.
+2025-09-01 16:16:53,688 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 170 - x:646 y:421.
+2025-09-01 16:16:53,689 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 170 - x:658 y:445.
+2025-09-01 16:16:53,691 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 170 - x:672 y:467.
+2025-09-01 16:16:53,692 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 170 - x:690 y:488.
+2025-09-01 16:16:53,694 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 170 - x:710 y:508.
+2025-09-01 16:16:53,695 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 170 - x:731 y:526.
+2025-09-01 16:16:53,696 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 170 - x:753 y:541.
+2025-09-01 16:16:53,698 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 170 - x:776 y:554.
+2025-09-01 16:16:53,699 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 170 - x:800 y:564.
+2025-09-01 16:16:53,700 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 170 - x:825 y:573.
+2025-09-01 16:16:53,701 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 170 - x:850 y:579.
+2025-09-01 16:16:53,703 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 170 - x:877 y:584.
+2025-09-01 16:16:53,704 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 170 - x:904 y:587.
+2025-09-01 16:16:53,705 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 170 - x:932 y:585.
+2025-09-01 16:16:53,706 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 170 - x:960 y:583.
+2025-09-01 16:16:53,708 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 170 - x:986 y:578.
+2025-09-01 16:16:53,709 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 170 - x:1011 y:570.
+2025-09-01 16:16:53,710 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 170 - x:1035 y:560.
+2025-09-01 16:16:53,712 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 170 - x:1059 y:548.
+2025-09-01 16:16:53,713 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 170 - x:1082 y:534.
+2025-09-01 16:16:53,714 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 170 - x:1103 y:518.
+2025-09-01 16:16:53,715 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 170 - x:1123 y:499.
+2025-09-01 16:16:53,716 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 170 - x:1142 y:478.
+2025-09-01 16:16:53,718 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 170 - x:1158 y:457.
+2025-09-01 16:16:53,719 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 170 - x:1171 y:434.
+2025-09-01 16:16:53,720 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 170 - x:1183 y:410.
+2025-09-01 16:16:53,722 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 170 - x:1192 y:385.
+2025-09-01 16:16:53,723 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 170 - x:1199 y:360.
+2025-09-01 16:16:53,724 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 170 - x:1205 y:334.
+2025-09-01 16:16:53,726 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 170 - x:1207 y:306.
+2025-09-01 16:16:53,727 [INFO] [DB] Do databáze byl bod mikroskopu 51 pro položku 170 - x:1207 y:278.
+2025-09-01 16:16:53,728 [INFO] [DB] Do databáze byl bod mikroskopu 52 pro položku 170 - x:1204 y:251.
+2025-09-01 16:16:53,729 [INFO] [DB] Do databáze byl bod mikroskopu 53 pro položku 170 - x:1199 y:224.
+2025-09-01 16:16:53,731 [INFO] [DB] Do databáze byl bod mikroskopu 54 pro položku 170 - x:1191 y:199.
+2025-09-01 16:16:53,732 [INFO] [DB] Do databáze byl bod mikroskopu 55 pro položku 170 - x:1181 y:175.
+2025-09-01 16:16:53,733 [INFO] [DB] Do databáze byl bod mikroskopu 56 pro položku 170 - x:1168 y:152.
+2025-09-01 16:16:53,734 [INFO] [DB] Do databáze byl bod mikroskopu 57 pro položku 170 - x:1153 y:130.
+2025-09-01 16:16:53,736 [INFO] [DB] Do databáze byl bod mikroskopu 58 pro položku 170 - x:1135 y:109.
+2025-09-01 16:16:53,737 [INFO] [DB] Do databáze byl bod mikroskopu 59 pro položku 170 - x:1114 y:89.
+2025-09-01 16:16:53,738 [INFO] [DB] Do databáze byl bod mikroskopu 60 pro položku 170 - x:1093 y:73.
+2025-09-01 16:16:53,739 [INFO] [DB] Do databáze byl bod mikroskopu 61 pro položku 170 - x:1071 y:58.
+2025-09-01 16:16:53,741 [INFO] [DB] Do databáze byl bod mikroskopu 62 pro položku 170 - x:1047 y:45.
+2025-09-01 16:16:53,742 [INFO] [DB] Do databáze byl bod mikroskopu 63 pro položku 170 - x:1023 y:36.
+2025-09-01 16:16:53,743 [INFO] [DB] Do databáze byl bod mikroskopu 64 pro položku 170 - x:998 y:28.
+2025-09-01 16:16:53,744 [INFO] [DB] Do databáze byl bod mikroskopu 65 pro položku 170 - x:972 y:22.
+2025-09-01 16:16:53,746 [INFO] [DB] Do databáze byl bod mikroskopu 66 pro položku 170 - x:946 y:17.
+2025-09-01 16:16:53,747 [INFO] [DB] Do databáze byl bod mikroskopu 67 pro položku 170 - x:918 y:15.
+2025-09-01 16:16:53,748 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 171 - x:401 y:351.
+2025-09-01 16:16:53,749 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 171 - x:372 y:353.
+2025-09-01 16:16:53,751 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 171 - x:344 y:357.
+2025-09-01 16:16:53,752 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 171 - x:318 y:363.
+2025-09-01 16:16:53,753 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 171 - x:292 y:371.
+2025-09-01 16:16:53,755 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 171 - x:267 y:382.
+2025-09-01 16:16:53,756 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 171 - x:243 y:395.
+2025-09-01 16:16:53,757 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 171 - x:221 y:410.
+2025-09-01 16:16:53,758 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 171 - x:199 y:428.
+2025-09-01 16:16:53,759 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 171 - x:179 y:449.
+2025-09-01 16:16:53,761 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 171 - x:162 y:471.
+2025-09-01 16:16:53,762 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 171 - x:148 y:494.
+2025-09-01 16:16:53,763 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 171 - x:134 y:518.
+2025-09-01 16:16:53,764 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 171 - x:123 y:543.
+2025-09-01 16:16:53,766 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 171 - x:115 y:568.
+2025-09-01 16:16:53,767 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 171 - x:110 y:595.
+2025-09-01 16:16:53,768 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 171 - x:107 y:623.
+2025-09-01 16:16:53,769 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 171 - x:107 y:653.
+2025-09-01 16:16:53,771 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 171 - x:110 y:681.
+2025-09-01 16:16:53,772 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 171 - x:114 y:708.
+2025-09-01 16:16:53,773 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 171 - x:122 y:734.
+2025-09-01 16:16:53,774 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 171 - x:131 y:760.
+2025-09-01 16:16:53,776 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 171 - x:143 y:784.
+2025-09-01 16:16:53,777 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 171 - x:157 y:807.
+2025-09-01 16:16:53,778 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 171 - x:174 y:830.
+2025-09-01 16:16:53,779 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 171 - x:193 y:851.
+2025-09-01 16:16:53,781 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 171 - x:214 y:869.
+2025-09-01 16:16:53,782 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 171 - x:237 y:885.
+2025-09-01 16:16:53,783 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 171 - x:261 y:900.
+2025-09-01 16:16:53,785 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 171 - x:285 y:912.
+2025-09-01 16:16:53,786 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 171 - x:310 y:922.
+2025-09-01 16:16:53,787 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 171 - x:336 y:929.
+2025-09-01 16:16:53,788 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 171 - x:363 y:933.
+2025-09-01 16:16:53,790 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 171 - x:392 y:936.
+2025-09-01 16:16:53,791 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 171 - x:420 y:935.
+2025-09-01 16:16:53,792 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 171 - x:447 y:933.
+2025-09-01 16:16:53,794 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 171 - x:474 y:927.
+2025-09-01 16:16:53,795 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 171 - x:500 y:919.
+2025-09-01 16:16:53,796 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 171 - x:525 y:909.
+2025-09-01 16:16:53,797 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 171 - x:550 y:896.
+2025-09-01 16:16:53,799 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 171 - x:572 y:881.
+2025-09-01 16:16:53,800 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 171 - x:594 y:864.
+2025-09-01 16:16:53,802 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 171 - x:616 y:844.
+2025-09-01 16:16:53,803 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 171 - x:629 y:821.
+2025-09-01 16:16:53,804 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 171 - x:644 y:798.
+2025-09-01 16:16:53,806 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 171 - x:664 y:778.
+2025-09-01 16:16:53,807 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 171 - x:685 y:757.
+2025-09-01 16:16:53,809 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 171 - x:680 y:749.
+2025-09-01 16:16:53,810 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 171 - x:683 y:729.
+2025-09-01 16:16:53,812 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 171 - x:690 y:703.
+2025-09-01 16:16:53,813 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 171 - x:694 y:675.
+2025-09-01 16:16:53,814 [INFO] [DB] Do databáze byl bod mikroskopu 51 pro položku 171 - x:697 y:649.
+2025-09-01 16:16:53,816 [INFO] [DB] Do databáze byl bod mikroskopu 52 pro položku 171 - x:696 y:621.
+2025-09-01 16:16:53,817 [INFO] [DB] Do databáze byl bod mikroskopu 53 pro položku 171 - x:693 y:594.
+2025-09-01 16:16:53,819 [INFO] [DB] Do databáze byl bod mikroskopu 54 pro položku 171 - x:687 y:567.
+2025-09-01 16:16:53,820 [INFO] [DB] Do databáze byl bod mikroskopu 55 pro položku 171 - x:679 y:541.
+2025-09-01 16:16:53,821 [INFO] [DB] Do databáze byl bod mikroskopu 56 pro položku 171 - x:668 y:516.
+2025-09-01 16:16:53,823 [INFO] [DB] Do databáze byl bod mikroskopu 57 pro položku 171 - x:655 y:492.
+2025-09-01 16:16:53,824 [INFO] [DB] Do databáze byl bod mikroskopu 58 pro položku 171 - x:640 y:469.
+2025-09-01 16:16:53,825 [INFO] [DB] Do databáze byl bod mikroskopu 59 pro položku 171 - x:622 y:447.
+2025-09-01 16:16:53,827 [INFO] [DB] Do databáze byl bod mikroskopu 60 pro položku 171 - x:602 y:428.
+2025-09-01 16:16:53,828 [INFO] [DB] Do databáze byl bod mikroskopu 61 pro položku 171 - x:580 y:410.
+2025-09-01 16:16:53,829 [INFO] [DB] Do databáze byl bod mikroskopu 62 pro položku 171 - x:557 y:396.
+2025-09-01 16:16:53,831 [INFO] [DB] Do databáze byl bod mikroskopu 63 pro položku 171 - x:533 y:382.
+2025-09-01 16:16:53,832 [INFO] [DB] Do databáze byl bod mikroskopu 64 pro položku 171 - x:508 y:371.
+2025-09-01 16:16:53,834 [INFO] [DB] Do databáze byl bod mikroskopu 65 pro položku 171 - x:482 y:362.
+2025-09-01 16:16:53,835 [INFO] [DB] Do databáze byl bod mikroskopu 66 pro položku 171 - x:456 y:357.
+2025-09-01 16:16:53,836 [INFO] [DB] Do databáze byl bod mikroskopu 67 pro položku 171 - x:428 y:352.
+2025-09-01 16:16:53,838 [INFO] [DB] Do databáze byl bod mikroskopu 0 pro položku 172 - x:896 y:632.
+2025-09-01 16:16:53,839 [INFO] [DB] Do databáze byl bod mikroskopu 1 pro položku 172 - x:866 y:635.
+2025-09-01 16:16:53,841 [INFO] [DB] Do databáze byl bod mikroskopu 2 pro položku 172 - x:837 y:641.
+2025-09-01 16:16:53,842 [INFO] [DB] Do databáze byl bod mikroskopu 3 pro položku 172 - x:810 y:650.
+2025-09-01 16:16:53,843 [INFO] [DB] Do databáze byl bod mikroskopu 4 pro položku 172 - x:784 y:662.
+2025-09-01 16:16:53,845 [INFO] [DB] Do databáze byl bod mikroskopu 5 pro položku 172 - x:759 y:676.
+2025-09-01 16:16:53,846 [INFO] [DB] Do databáze byl bod mikroskopu 6 pro položku 172 - x:735 y:694.
+2025-09-01 16:16:53,847 [INFO] [DB] Do databáze byl bod mikroskopu 7 pro položku 172 - x:712 y:713.
+2025-09-01 16:16:53,849 [INFO] [DB] Do databáze byl bod mikroskopu 8 pro položku 172 - x:691 y:735.
+2025-09-01 16:16:53,850 [INFO] [DB] Do databáze byl bod mikroskopu 9 pro položku 172 - x:682 y:762.
+2025-09-01 16:16:53,851 [INFO] [DB] Do databáze byl bod mikroskopu 10 pro položku 172 - x:660 y:784.
+2025-09-01 16:16:53,853 [INFO] [DB] Do databáze byl bod mikroskopu 11 pro položku 172 - x:638 y:806.
+2025-09-01 16:16:53,854 [INFO] [DB] Do databáze byl bod mikroskopu 12 pro položku 172 - x:634 y:822.
+2025-09-01 16:16:53,855 [INFO] [DB] Do databáze byl bod mikroskopu 13 pro položku 172 - x:635 y:837.
+2025-09-01 16:16:53,857 [INFO] [DB] Do databáze byl bod mikroskopu 14 pro položku 172 - x:628 y:865.
+2025-09-01 16:16:53,858 [INFO] [DB] Do databáze byl bod mikroskopu 15 pro položku 172 - x:624 y:895.
+2025-09-01 16:16:53,859 [INFO] [DB] Do databáze byl bod mikroskopu 16 pro položku 172 - x:622 y:925.
+2025-09-01 16:16:53,860 [INFO] [DB] Do databáze byl bod mikroskopu 17 pro položku 172 - x:625 y:955.
+2025-09-01 16:16:53,862 [INFO] [DB] Do databáze byl bod mikroskopu 18 pro položku 172 - x:629 y:984.
+2025-09-01 16:16:53,863 [INFO] [DB] Do databáze byl bod mikroskopu 19 pro položku 172 - x:636 y:1012.
+2025-09-01 16:16:53,864 [INFO] [DB] Do databáze byl bod mikroskopu 20 pro položku 172 - x:647 y:1039.
+2025-09-01 16:16:53,866 [INFO] [DB] Do databáze byl bod mikroskopu 21 pro položku 172 - x:659 y:1065.
+2025-09-01 16:16:53,867 [INFO] [DB] Do databáze byl bod mikroskopu 22 pro položku 172 - x:674 y:1089.
+2025-09-01 16:16:53,868 [INFO] [DB] Do databáze byl bod mikroskopu 23 pro položku 172 - x:693 y:1113.
+2025-09-01 16:16:53,870 [INFO] [DB] Do databáze byl bod mikroskopu 24 pro položku 172 - x:713 y:1135.
+2025-09-01 16:16:53,871 [INFO] [DB] Do databáze byl bod mikroskopu 25 pro položku 172 - x:736 y:1155.
+2025-09-01 16:16:53,872 [INFO] [DB] Do databáze byl bod mikroskopu 26 pro položku 172 - x:760 y:1171.
+2025-09-01 16:16:53,873 [INFO] [DB] Do databáze byl bod mikroskopu 27 pro položku 172 - x:785 y:1185.
+2025-09-01 16:16:53,875 [INFO] [DB] Do databáze byl bod mikroskopu 28 pro položku 172 - x:812 y:1197.
+2025-09-01 16:16:53,876 [INFO] [DB] Do databáze byl bod mikroskopu 29 pro položku 172 - x:839 y:1207.
+2025-09-01 16:16:53,877 [INFO] [DB] Do databáze byl bod mikroskopu 30 pro položku 172 - x:867 y:1213.
+2025-09-01 16:16:53,878 [INFO] [DB] Do databáze byl bod mikroskopu 31 pro položku 172 - x:896 y:1217.
+2025-09-01 16:16:53,880 [INFO] [DB] Do databáze byl bod mikroskopu 32 pro položku 172 - x:926 y:1218.
+2025-09-01 16:16:53,881 [INFO] [DB] Do databáze byl bod mikroskopu 33 pro položku 172 - x:956 y:1216.
+2025-09-01 16:16:53,882 [INFO] [DB] Do databáze byl bod mikroskopu 34 pro položku 172 - x:986 y:1211.
+2025-09-01 16:16:53,884 [INFO] [DB] Do databáze byl bod mikroskopu 35 pro položku 172 - x:1013 y:1204.
+2025-09-01 16:16:53,885 [INFO] [DB] Do databáze byl bod mikroskopu 36 pro položku 172 - x:1040 y:1193.
+2025-09-01 16:16:53,886 [INFO] [DB] Do databáze byl bod mikroskopu 37 pro položku 172 - x:1066 y:1180.
+2025-09-01 16:16:53,888 [INFO] [DB] Do databáze byl bod mikroskopu 38 pro položku 172 - x:1090 y:1164.
+2025-09-01 16:16:53,889 [INFO] [DB] Do databáze byl bod mikroskopu 39 pro položku 172 - x:1114 y:1145.
+2025-09-01 16:16:53,890 [INFO] [DB] Do databáze byl bod mikroskopu 40 pro položku 172 - x:1135 y:1125.
+2025-09-01 16:16:53,892 [INFO] [DB] Do databáze byl bod mikroskopu 41 pro položku 172 - x:1154 y:1102.
+2025-09-01 16:16:53,893 [INFO] [DB] Do databáze byl bod mikroskopu 42 pro položku 172 - x:1171 y:1077.
+2025-09-01 16:16:53,894 [INFO] [DB] Do databáze byl bod mikroskopu 43 pro položku 172 - x:1185 y:1052.
+2025-09-01 16:16:53,895 [INFO] [DB] Do databáze byl bod mikroskopu 44 pro položku 172 - x:1196 y:1026.
+2025-09-01 16:16:53,897 [INFO] [DB] Do databáze byl bod mikroskopu 45 pro položku 172 - x:1205 y:998.
+2025-09-01 16:16:53,898 [INFO] [DB] Do databáze byl bod mikroskopu 46 pro položku 172 - x:1211 y:970.
+2025-09-01 16:16:53,899 [INFO] [DB] Do databáze byl bod mikroskopu 47 pro položku 172 - x:1213 y:939.
+2025-09-01 16:16:53,900 [INFO] [DB] Do databáze byl bod mikroskopu 48 pro položku 172 - x:1213 y:909.
+2025-09-01 16:16:53,902 [INFO] [DB] Do databáze byl bod mikroskopu 49 pro položku 172 - x:1211 y:879.
+2025-09-01 16:16:53,903 [INFO] [DB] Do databáze byl bod mikroskopu 50 pro položku 172 - x:1205 y:851.
+2025-09-01 16:16:53,904 [INFO] [DB] Do databáze byl bod mikroskopu 51 pro položku 172 - x:1195 y:823.
+2025-09-01 16:16:53,906 [INFO] [DB] Do databáze byl bod mikroskopu 52 pro položku 172 - x:1184 y:797.
+2025-09-01 16:16:53,907 [INFO] [DB] Do databáze byl bod mikroskopu 53 pro položku 172 - x:1170 y:772.
+2025-09-01 16:16:53,908 [INFO] [DB] Do databáze byl bod mikroskopu 54 pro položku 172 - x:1152 y:748.
+2025-09-01 16:16:53,909 [INFO] [DB] Do databáze byl bod mikroskopu 55 pro položku 172 - x:1133 y:725.
+2025-09-01 16:16:53,911 [INFO] [DB] Do databáze byl bod mikroskopu 56 pro položku 172 - x:1112 y:704.
+2025-09-01 16:16:53,912 [INFO] [DB] Do databáze byl bod mikroskopu 57 pro položku 172 - x:1089 y:686.
+2025-09-01 16:16:53,913 [INFO] [DB] Do databáze byl bod mikroskopu 58 pro položku 172 - x:1064 y:671.
+2025-09-01 16:16:53,915 [INFO] [DB] Do databáze byl bod mikroskopu 59 pro položku 172 - x:1038 y:657.
+2025-09-01 16:16:53,916 [INFO] [DB] Do databáze byl bod mikroskopu 60 pro položku 172 - x:1011 y:648.
+2025-09-01 16:16:53,917 [INFO] [DB] Do databáze byl bod mikroskopu 61 pro položku 172 - x:984 y:640.
+2025-09-01 16:16:53,918 [INFO] [DB] Do databáze byl bod mikroskopu 62 pro položku 172 - x:955 y:635.
+2025-09-01 16:16:53,920 [INFO] [DB] Do databáze byl bod mikroskopu 63 pro položku 172 - x:925 y:632.
+2025-09-01 16:17:00,626 [INFO] [FIND] Spouštím proces MICROSCOPE pro projekt 19
+2025-09-01 16:17:02,277 [INFO] [MICROSCOPE] Získávám mikroskopické obrázky pro pozici A1 vzorku 1 s 2 detekovanými dráty.
+2025-09-01 16:17:15,255 [INFO] [DB] Aktualizován obrázek pro pozici 5139 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_0_5139.jpg.
+2025-09-01 16:17:24,033 [INFO] [DB] Aktualizován obrázek pro pozici 5140 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_1_5140.jpg.
+2025-09-01 16:17:41,643 [INFO] [DB] Aktualizován obrázek pro pozici 5141 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_2_5141.jpg.
+2025-09-01 16:17:50,937 [INFO] [DB] Aktualizován obrázek pro pozici 5142 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_3_5142.jpg.
+2025-09-01 16:17:59,621 [INFO] [DB] Aktualizován obrázek pro pozici 5143 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_4_5143.jpg.
+2025-09-01 16:18:08,357 [INFO] [DB] Aktualizován obrázek pro pozici 5144 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_5_5144.jpg.
+2025-09-01 16:18:16,434 [INFO] [DB] Aktualizován obrázek pro pozici 5145 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_6_5145.jpg.
+2025-09-01 16:18:25,118 [INFO] [DB] Aktualizován obrázek pro pozici 5146 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_7_5146.jpg.
+2025-09-01 16:18:33,196 [INFO] [DB] Aktualizován obrázek pro pozici 5147 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_8_5147.jpg.
+2025-09-01 16:18:51,461 [INFO] [DB] Aktualizován obrázek pro pozici 5148 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_9_5148.jpg.
+2025-09-01 16:19:01,419 [INFO] [DB] Aktualizován obrázek pro pozici 5149 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_10_5149.jpg.
+2025-09-01 16:19:09,497 [INFO] [DB] Aktualizován obrázek pro pozici 5150 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_11_5150.jpg.
+2025-09-01 16:19:18,170 [INFO] [DB] Aktualizován obrázek pro pozici 5151 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_12_5151.jpg.
+2025-09-01 16:19:26,187 [INFO] [DB] Aktualizován obrázek pro pozici 5152 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_13_5152.jpg.
+2025-09-01 16:19:34,882 [INFO] [DB] Aktualizován obrázek pro pozici 5153 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_14_5153.jpg.
+2025-09-01 16:19:43,611 [INFO] [DB] Aktualizován obrázek pro pozici 5154 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_15_5154.jpg.
+2025-09-01 16:19:51,689 [INFO] [DB] Aktualizován obrázek pro pozici 5155 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_16_5155.jpg.
+2025-09-01 16:20:00,373 [INFO] [DB] Aktualizován obrázek pro pozici 5156 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_17_5156.jpg.
+2025-09-01 16:20:08,504 [INFO] [DB] Aktualizován obrázek pro pozici 5157 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_18_5157.jpg.
+2025-09-01 16:20:17,232 [INFO] [DB] Aktualizován obrázek pro pozici 5158 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_19_5158.jpg.
+2025-09-01 16:20:25,342 [INFO] [DB] Aktualizován obrázek pro pozici 5159 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_20_5159.jpg.
+2025-09-01 16:20:34,084 [INFO] [DB] Aktualizován obrázek pro pozici 5160 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_21_5160.jpg.
+2025-09-01 16:20:42,196 [INFO] [DB] Aktualizován obrázek pro pozici 5161 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_22_5161.jpg.
+2025-09-01 16:20:50,938 [INFO] [DB] Aktualizován obrázek pro pozici 5162 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_23_5162.jpg.
+2025-09-01 16:20:59,097 [INFO] [DB] Aktualizován obrázek pro pozici 5163 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_24_5163.jpg.
+2025-09-01 16:21:07,883 [INFO] [DB] Aktualizován obrázek pro pozici 5164 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_25_5164.jpg.
+2025-09-01 16:21:16,104 [INFO] [DB] Aktualizován obrázek pro pozici 5165 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_26_5165.jpg.
+2025-09-01 16:21:24,322 [INFO] [DB] Aktualizován obrázek pro pozici 5166 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_27_5166.jpg.
+2025-09-01 16:21:32,584 [INFO] [DB] Aktualizován obrázek pro pozici 5167 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_28_5167.jpg.
+2025-09-01 16:21:40,843 [INFO] [DB] Aktualizován obrázek pro pozici 5168 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_29_5168.jpg.
+2025-09-01 16:21:49,097 [INFO] [DB] Aktualizován obrázek pro pozici 5169 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_30_5169.jpg.
+2025-09-01 16:21:58,026 [INFO] [DB] Aktualizován obrázek pro pozici 5170 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_31_5170.jpg.
+2025-09-01 16:22:06,375 [INFO] [DB] Aktualizován obrázek pro pozici 5171 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_32_5171.jpg.
+2025-09-01 16:22:14,706 [INFO] [DB] Aktualizován obrázek pro pozici 5172 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_33_5172.jpg.
+2025-09-01 16:22:23,039 [INFO] [DB] Aktualizován obrázek pro pozici 5173 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_34_5173.jpg.
+2025-09-01 16:22:31,341 [INFO] [DB] Aktualizován obrázek pro pozici 5174 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_35_5174.jpg.
+2025-09-01 16:22:39,670 [INFO] [DB] Aktualizován obrázek pro pozici 5175 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_36_5175.jpg.
+2025-09-01 16:22:48,100 [INFO] [DB] Aktualizován obrázek pro pozici 5176 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_37_5176.jpg.
+2025-09-01 16:23:17,905 [INFO] [DB] Aktualizován obrázek pro pozici 5177 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_38_5177.jpg.
+2025-09-01 16:23:49,575 [INFO] [DB] Aktualizován obrázek pro pozici 5178 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_39_5178.jpg.
+2025-09-01 16:24:09,085 [INFO] [DB] Aktualizován obrázek pro pozici 5179 na projects\2025_09_01_16_15_36_19_1\images\microscope_1_1_40_5179.jpg.

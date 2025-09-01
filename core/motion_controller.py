@@ -281,12 +281,10 @@ def grbl_update_position():
     """
     global cnc_serial, position_lock, grbl_status, grbl_last_position
 
-    # cnc_serial.flush()
     cnc_serial.write(b'?')
 
-
     t0 = time.time()
-    while time.time() - t0 < 1.0:
+    while time.time() - t0 < 0.5:
         if cnc_serial.in_waiting:
             line = cnc_serial.readline()
             # print("Received: (update_position)", line.decode().strip())
