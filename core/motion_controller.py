@@ -102,7 +102,7 @@ def send_gcode(command: str):
         if not line:
             break
         print(f"[GRBL] Odpověď: {line}")
-        if line == "ok" or line.startswith("error"):
+        if line == "ok" or line.startswith("error") or line.startswith("<Idle") :
             break
 
 def _get_final_dir(axis: str) -> int:
@@ -284,7 +284,7 @@ def grbl_update_position():
     cnc_serial.write(b'?')
 
     t0 = time.time()
-    while time.time() - t0 < 0.5:
+    while time.time() - t0 < 0.4:
         if cnc_serial.in_waiting:
             line = cnc_serial.readline()
             # print("Received: (update_position)", line.decode().strip())

@@ -23,7 +23,7 @@ from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ra
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
     # TODO: Upravit počet bodů podle potřeby - doladit na základě reálných dat
-    precision = 12 # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu
+    precision = 20 # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu
 
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
         core.camera_manager.switch_camera()
@@ -224,7 +224,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             )
 
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
-    z_step_begin = 0.5      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
+    z_step_begin = 0.3      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
     # Najdi absolutní pozici sample slotu (base XY, výška)
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
     (pos, mpos_x, mpos_y, mpos_z) = sample_position
@@ -266,7 +266,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
             # TODO: Přidat do config nastavení max_sharpness a max_errors
-            while errors > max_errors or max_sharpness < 230:
+            while errors > max_errors or max_sharpness < 100:
                 print(f"[FIND] Získávám snímek {step} z mikroskopu pro drát {pos_index} vzorku {ean_code} - (pokus {attempt})")
                 core.motion_controller.move_to_position(px, py, abs_z - z_step)
                 time.sleep(0.6)
@@ -276,10 +276,10 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 white_ratio = 0.0
                 errors = 0 # Chyby kamery resetujeme na začátku každého pokusu
 
-                core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F15")
+                core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F5")
                 time.sleep(0.6)
 
-                timeout = time.time() + 120
+                timeout = time.time() + 60
                 while core.motion_controller.grbl_status != "Idle":
                     if time.time() > timeout:
                         print("[MICROSCOPE] GRBL neodpovídá, přerušuji snímání.")
@@ -302,8 +302,8 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         if errors > max_errors:
                             break
 
-                    if sharpness is not None and sharpness < max_sharpness * 0.5 and sharpest_img is not None:
-                        print(f"[MICROSCOPE] Ostrost klesla pod 50% max. ostrosti ({sharpness:.3f} z {max_sharpness:.3f}), poměr černé {black_ratio:.1%} - ukončuji snímání.")
+                    if sharpness is not None and sharpness < max_sharpness * 0.75 and sharpest_img is not None:
+                        print(f"[MICROSCOPE] Ostrost klesla pod 75% max. ostrosti ({sharpness:.3f} z {max_sharpness:.3f}), poměr černé {black_ratio:.1%} - ukončuji snímání.")
                         break
 
                 if errors <= max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
@@ -322,16 +322,16 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     if z_step > 5.0:
                         print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
                         break
-                if black_ratio < 0.2 and max_sharpness > 300:
-                    dx = px - cx
-                    dy = py - cy
-                    dist = np.hypot(dx, dy)
-
-                    scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
-                    px = cx + dx * scale
-                    py = cy + dy * scale
-                    print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%} a vysoká ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
-                    max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
+                # if black_ratio < 0.2 and max_sharpness > 300:
+                #     dx = px - cx
+                #     dy = py - cy
+                #     dist = np.hypot(dx, dy)
+                #
+                #     scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
+                #     px = cx + dx * scale
+                #     py = cy + dy * scale
+                #     print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%} a vysoká ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                #     max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
 
                 attempt += 1
                 if attempt > 5:  # Maximální počet pokusů
@@ -343,7 +343,17 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 core.database.update_sample_item_position_image(id, image_path)
 
                 # Náhled do GUI
-                img = cv2.resize(sharpest_img, (int(w // 4), int(h // 4)))
+                h, w = sharpest_img.shape[:2]
+                target_h, target_w = config.frame_height, config.frame_width
+                aspect = w / h
+                target_aspect = target_w / target_h
+                if aspect > target_aspect:
+                    new_w = target_w
+                    new_h = int(target_w / aspect)
+                else:
+                    new_h = target_h
+                    new_w = int(target_h * aspect)
+                img = cv2.resize(sharpest_img, (new_w, new_h))
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                 cv2.putText(img, f"Drat {pos_index} - Snimek {step} Ostrost: {max_sharpness:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
                 im_pil = Image.fromarray(img)

@@ -62,8 +62,9 @@ def init_cameras():
         # microscope.ExposureAuto.SetValue("Continuous")
         microscope.GainAuto.SetValue("Off")
         microscope.ExposureAuto.SetValue("Off")
-        microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # in microseconds
-        microscope.GainRaw.Value = 0
+        # microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # in microseconds
+        # microscope.GainRaw.Value = 0
+        microscope.ExposureTime.Value = config.microscope_exposure_time  # in microseconds
         # microscope.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
         print(f"Rozlišení mikroskopu nastaveno na {microscope.Width.Value}x{microscope.Height.Value}")
 
@@ -149,10 +150,23 @@ def start_camera_preview(image_label, update_position_callback=None):
                         live_frame = img
                         sharpness = tenengrad_sharpness(live_frame)
                         # black_ratio, white_ratio = black_white_ratio(live_frame, use_otsu=False, thresh_val=100)
-                        live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 4, live_frame.shape[0] // 4))
+                        #live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 3, live_frame.shape[0] // 3))
                     else:
                         live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
-                        live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 2, live_frame.shape[0] // 2))
+                        # live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 2, live_frame.shape[0] // 2))
+                    # Rozměry dle velikosti frame
+                    h, w = live_frame.shape[:2]
+                    target_h, target_w = config.frame_height, config.frame_width
+                    aspect = w / h
+                    target_aspect = target_w / target_h
+                    if aspect > target_aspect:
+                        new_w = target_w
+                        new_h = int(target_w / aspect)
+                    else:
+                        new_h = target_h
+                        new_w = int(target_h * aspect)
+
+                    live_frame = cv2.resize(live_frame, (new_w, new_h))
                     # Převod na RGB
                     img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
                     if actual_camera == microscope:
@@ -479,6 +493,8 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     #     switch_camera()
 
     move_to_coordinates(base_x, base_y, calib_z)
+    if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
+        switch_camera()
 
     def get_frame_with_overlays():
         nonlocal last_frame, auto_ok, last_centers, pts_src
@@ -613,7 +629,10 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         nonlocal current_corner_index, pts_grbl, calib_corners_grbl, prev_correction_matrix_main
         if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.camera:
             switch_camera()
-        core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
+        # pro a2A5328 - 4gmPRO
+        core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
+        # pro acA2440-20gm
+        # core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib  # zvýšení expozice pro kalibraci
         pts_grbl = []
         current_corner_index = 0
         print(f"[CALIBRATION] Začínám kalibraci mikroskopu.")
@@ -680,7 +699,8 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 set_setting("calib_corners_grbl", pts_grbl_np.tolist())
                 config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
                 config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
-                core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time
+                #core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time
+                core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time
                 switch_camera()
                 move_to_coordinates(base_x, base_y, calib_z)
                 messagebox.showinfo("Kalibrace", "Kalibrace dokončena.")
