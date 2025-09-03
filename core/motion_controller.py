@@ -97,12 +97,13 @@ def send_gcode(command: str):
             print(f"[GRBL] Chyba při restartu spojení: {e}")
             return
 
-    while True:
+    t0 = time.time()
+    while time.time() - t0 < 0.4:
         line = cnc_serial.readline().decode().strip()
         if not line:
             break
         print(f"[GRBL] Odpověď: {line}")
-        if line == "ok" or line.startswith("error") or line.startswith("<Idle") :
+        if line == "ok":
             break
 
 def _get_final_dir(axis: str) -> int:
