@@ -12,7 +12,7 @@ import config
 import core.camera_manager
 import gui.find_samples
 from core.logger import logger
-from core.motion_controller import move_to_coordinates, grbl_abort, grbl_clear_alarm
+from core.motion_controller import move_to_coordinates, grbl_abort, grbl_clear_alarm, cancel_move, grbl_wait_for_idle
 from core.database import save_project_sample_to_db, save_sample_items_to_db, save_sample_item_positions_to_db, \
     get_sample_items_by_sample_id, get_sample_item_positions_by_item_id, update_sample_item_position_image
 from PIL import Image, ImageTk
@@ -224,7 +224,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             )
 
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
-    z_step_begin = 0.5      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
+    z_step_begin = 0.4      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
     # Najdi absolutní pozici sample slotu (base XY, výška)
     sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
     (pos, mpos_x, mpos_y, mpos_z) = sample_position
@@ -248,23 +248,26 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             errors = 0
             attempt = 1
             z_step = z_step_begin  # Začneme s počátečním krokem Z, v případě chyb zvětšíme
-            # if step == 0:
-            #     # # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
-            #     core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
-            #     core.motion_controller.move_to_position(px, py, abs_z)
-            #     best_z, _ = autofocus_z(getattr(config, "autofocus_steps", (0.02, 0.005)),
-            #                             settle_s=0.08,
-            #                             max_steps_per_level=200,
-            #                             overshoot_backtrack=3,  # kolik dalších kroků po sobě s už horší ostrosti
-            #                             verbose=True, )
-            #     if best_z is not None and abs(abs_z - best_z) < 1.0:  # Pokud je změna menší než 1 mm, přijmeme ji - ale někdy autofocus "uskočí"
-            #         abs_z = float(best_z)
-            #         z_step_begin = 0.15  # Zmenšíme na jemnější rozmezí pro zaostření
-            #         print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
-            #
-            #     core.camera_manager.preview_running = False
-            #     time.sleep(0.25)
-            #     # # Konec autofokusu
+            if step == 0:
+                # # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
+                core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
+                core.motion_controller.move_to_position(px, py, abs_z)
+                best_z, _ = autofocus_z(dof_mm = 0.003,            # hloubka ostrosti mikroskopu
+                                        span_mm = 1.0,             # rozsah pro obousměrný jog
+                                        feed_mm_min = 10.0,        # rychlost jogu (mm/min)
+                                        sample_sleep_s = 0.02,
+                                        cam_lag_s = 0.15,
+                                        settle_ms_after_cancel = 120,
+                                        refine = False,
+                                        verbose = True)
+                if best_z is not None and abs(abs_z - best_z) < 1.0:  # Pokud je změna menší než 1 mm, přijmeme ji - ale někdy autofocus "uskočí"
+                    abs_z = float(best_z)
+                    z_step_begin = 0.15  # Zmenšíme na jemnější rozmezí pro zaostření
+                    print(f"[MICROSCOPE] Nejlepší výška pro zaostření: {abs_z:.3f} mm")
+
+                core.camera_manager.preview_running = False
+                time.sleep(0.25)
+                # # Konec autofokusu
 
             # Opakovací smyčka (ponecháno jako v původní verzi)
             # TODO: Přidat do config nastavení max_sharpness a max_errors
@@ -278,7 +281,11 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 white_ratio = 0.0
                 errors = 0 # Chyby kamery resetujeme na začátku každého pokusu
 
-                core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F5")
+                #core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F5")
+
+                # místo pohybu G1 použijeme jog $J abychom to mohli přerušit
+                grbl_wait_for_idle() # musíme počkat na Idle než pošleme příkaz JOG
+                core.motion_controller.send_gcode(f"$J=G90 Z{(abs_z+z_step):.3f} F5")
                 #time.sleep(0.5) # Je třeba počkat na odpověď CNC, že změnilo status na RUN
                 # Místo čekání na správnou odpověď ji natvrdo změníme
                 core.motion_controller.grbl_status = "Run"
@@ -304,10 +311,12 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         errors += 1
                         sharpness = None
                         if errors > max_errors:
+                            cancel_move() # přeruší pojezd bez ztráty pozice
                             break
 
                     if sharpness is not None and sharpness < max_sharpness * 0.75 and sharpest_img is not None:
                         print(f"[MICROSCOPE] Ostrost klesla pod 75% max. ostrosti ({sharpness:.3f} z {max_sharpness:.3f}), poměr černé {black_ratio:.1%} - ukončuji snímání.")
+                        cancel_move() # přeruší pojezd bez ztráty pozice
                         break
 
                 if errors <= max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu

@@ -12,6 +12,7 @@ position_timer = None
 # === Sdílené proměnné ===
 
 position_lock = threading.Lock()
+io_lock = threading.RLock()
 grbl_status = "Unknown"  # Stav GRBL, zda je Idle nebo ne
 grbl_last_position = "0.001,0.002,0.003"
 
@@ -63,48 +64,62 @@ def init_grbl():
         print("Chyba inicializace GRBL")
 
 def send_gcode(command: str):
-    """
-    Odeslání G-code příkazu do GRBL + vypsání odpovědi.
-    """
-    global cnc_serial
+    global cnc_serial, grbl_status, grbl_last_position
 
     if cnc_serial is None or not cnc_serial.is_open:
         print("[GRBL] Port není otevřený")
 
-    print(f"[GRBL] Posílám: {command}")
-    # Zamezení blokování při zápisu na sériový port
-    cnc_serial.flush()  # Vyprázdníme buffer před zápisem
-    for attempt in range(3):
-        try:
-            cnc_serial.write((command + "\n").encode())
-            break
-        except serial.SerialTimeoutException:
-            print(f"[GRBL] Chyba: Timeout při zápisu na sériový port (pokus {attempt + 1})")
-            time.sleep(0.5)
-    else:
-        print("[GRBL] Nepodařilo se odeslat příkaz po 3 pokusech. Restartuji spojení.")
-        try:
-            grbl_abort()
-            grbl_clear_alarm()
-            cnc_serial.close()
-            time.sleep(1)
-            cnc_serial.open()
-            time.sleep(2)
-            cnc_serial.reset_input_buffer()
-            cnc_serial.flush()
-            cnc_serial.write((command + "\n").encode())
-        except Exception as e:
-            print(f"[GRBL] Chyba při restartu spojení: {e}")
+    with io_lock:  # držíme linku exkluzivně
+        print(f"[GRBL] Posílám: {command}")
+        cnc_serial.flush()
+        for attempt in range(3):
+            try:
+                cnc_serial.write((command + "\n").encode())
+                break
+            except serial.SerialTimeoutException:
+                print(f"[GRBL] Timeout při zápisu (pokus {attempt + 1})")
+                time.sleep(0.5)
+        else:
+            print("[GRBL] Nepodařilo se odeslat po 3 pokusech.")
             return
 
-    t0 = time.time()
-    while time.time() - t0 < 0.4:
-        line = cnc_serial.readline().decode().strip()
-        if not line:
-            break
-        print(f"[GRBL] Odpověď: {line}")
-        if line == "ok":
-            break
+        # Čti odpovědi až do 'ok' (nebo do vypršení krátkého okna)
+        t0 = time.time()
+        while time.time() - t0 < 0.8:
+            line = cnc_serial.readline().decode(errors='ignore').strip()
+            if not line:
+                break
+            # print(f"[GRBL] Odpověď: {line}")
+            if line == "ok":
+                break
+
+        # >>> NOVÉ: hned po příkazu udělej rychlé '?' pro čerstvý stav
+        try:
+            cnc_serial.write(b'?')
+            cnc_serial.flush()
+            t1 = time.time()
+            while time.time() - t1 < 0.4:
+                if cnc_serial.in_waiting:
+                    decoded = cnc_serial.readline().decode(errors='ignore').strip()
+                    # Stav
+                    if "Idle" in decoded:
+                        grbl_status = "Idle"
+                    elif "Run" in decoded:
+                        grbl_status = "Run"
+                    elif ("Error" in decoded) or ("error" in decoded):
+                        grbl_status = "Error"
+                    elif ("Alarm" in decoded) or ("alarm" in decoded):
+                        grbl_status = "Alarm"
+                    # MPos
+                    if 'MPos:' in decoded:
+                        for part in decoded.split('|'):
+                            if part.startswith('MPos:'):
+                                grbl_last_position = part[5:].strip()
+                                break
+                    break
+                time.sleep(0.01)
+        except Exception:
+            pass  # když se to nepovede, nevadí – příští dotaz to dožene
 
 def _get_final_dir(axis: str) -> int:
     """Směr finálního dojezdu pro osu (+1 nebo -1). Lze přepsat v configu jako dict anti_backlash_final_dir."""
@@ -182,12 +197,67 @@ def grbl_abort():
     time.sleep(0.5)  # Krátká prodleva pro stabilitu
     print("[GRBL] Abort odeslán (Ctrl-X)")
 
+def _send_realtime(byte_cmd: bytes):
+    """
+    Odeslání real-time příkazu do GRBL (např. b'!', b'~', b'\x85').
+    Nepřidává newline a drží io_lock, aby se to nepralo s další I/O.
+    """
+    global cnc_serial, io_lock
+    if cnc_serial is None or not cnc_serial.is_open:
+        print("[GRBL] Port není otevřený")
+        return
+    with io_lock:
+        try:
+            cnc_serial.write(byte_cmd)
+            cnc_serial.flush()
+        except Exception as e:
+            print(f"[GRBL] Chyba při odesílání real-time příkazu: {e}")
+
+def feed_hold():
+    """Okamžitý řízený stop bez ztráty pozice (stav -> Hold)."""
+    _send_realtime(b'!')
+
+def resume_motion():
+    """Pokračování po feed-holdu (Cycle Start)."""
+    _send_realtime(b'~')
+
+def jog_cancel():
+    """
+    Zruší rozpracovaný pohyb a vyprázdní běžící akci bez resetu.
+    V GRBL 1.1 se používá 0x85 jako 'Jog Cancel' i pro ukončení hold stavu bez ztráty pozice.
+    """
+    _send_realtime(b'\x85')
+
+def cancel_move(timeout: float = 3.0):
+    """
+    Okamžitě zastaví právě probíhající jogovací pohyb ($J=...).
+    -> Pošle realtime Jog Cancel (0x85) a čeká na Idle.
+    -> Nepoužívá reset (Ctrl-X), takže se neztratí pozice.
+    """
+    global grbl_status
+
+    # 1) Pošleme Jog Cancel
+    jog_cancel()
+
+    # 2) Počkej na Idle (status aktualizuje timer v init_grbl)
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        if grbl_status == "Idle":
+            print("[GRBL] cancel_move(): jog zrušen, CNC je v Idle.")
+            return
+        time.sleep(0.05)
+
+    print("[GRBL] cancel_move(): timeout – GRBL není Idle!")
+
+
 # Absolutní pohyb bez anti-backlashe
-def move_to_position(x: float, y: float, z: float = None):
+def move_to_position(x: float, y: float, z: float = None, feed: float = 2000):
     global grbl_status
     if z is None:
         z = default_Z_position
-    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F2000")  # G90 je absolutní pohyb, F500 je rychlost posuvu
+    if feed is None:
+        feed = 2000
+    send_gcode(f"G90 G1 X{x:.3f} Y{y:.3f} Z{z:.3f} M3 S750 F{feed}")  # G90 je absolutní pohyb, F500 je rychlost posuvu
     grbl_wait_for_idle() # Počkej na dokončení pohybu
 
 # Absolutní pohyb s anti-backlashem
@@ -268,8 +338,8 @@ def move_to_home_position():
     print("[MOTION] Najíždím na výchozí pozici (-245, -245)")
     move_to_position(-245, -245)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
 
-def move_to_coordinates(x: float, y: float, z: float = None):
-    move_to_position(x, y, z)
+def move_to_coordinates(x: float, y: float, z: float = None, feed: float = 2000 ):
+    move_to_position(x, y, z, feed)
 
 def move_relative(dx: float, dy: float):
     gcode = f"G91\nG0 X{dx:.3f} Y{dy:.3f}"
@@ -278,45 +348,46 @@ def move_relative(dx: float, dy: float):
 
 def grbl_update_position():
     """
-    Pošle '?' a načte poslední odpověď od GRBL, uloží do last_position
+    Pošle '?' a načte odpověď od GRBL (stav + MPos).
+    Pokud je linka právě obsazená, zkusí chvilku počkat, jinak vrátí cache.
     """
-    global cnc_serial, position_lock, grbl_status, grbl_last_position
+    global cnc_serial, position_lock, io_lock, grbl_status, grbl_last_position
 
-    cnc_serial.write(b'?')
+    # krátký timeout místo úplného non-blockingu (eliminuje zpoždění po send_gcode)
+    if not io_lock.acquire(timeout=0.2):
+        return grbl_last_position, grbl_status
 
-    t0 = time.time()
-    while time.time() - t0 < 0.4:
-        if cnc_serial.in_waiting:
-            line = cnc_serial.readline()
-            # print("Received: (update_position)", line.decode().strip())
-            try:
-                decoded = line.decode(errors='ignore').strip()
-                # print("[GRBL] Status:", decoded)
+    try:
+        cnc_serial.write(b'?')
+        cnc_serial.flush()
+        t0 = time.time()
+        while time.time() - t0 < 0.6:
+            if cnc_serial.in_waiting:
+                decoded = cnc_serial.readline().decode(errors='ignore').strip()
+
                 if "Idle" in decoded:
                     grbl_status = "Idle"
                 elif "Run" in decoded:
                     grbl_status = "Run"
-                elif "Error" or "error" in decoded:
+                elif ("Error" in decoded) or ("error" in decoded):
                     grbl_status = "Error"
-                elif "Alarm" or "alarm" in decoded:
+                elif ("Alarm" in decoded) or ("alarm" in decoded):
                     grbl_status = "Alarm"
-                else:
-                    grbl_status = "Unknown"
 
                 if 'MPos:' in decoded:
                     for part in decoded.split('|'):
                         if part.startswith('MPos:'):
-                            mpos = part[5:].strip()
                             with position_lock:
-                                grbl_last_position = mpos
-                                # print("Aktuální CNC pozice:",last_position)
-                                return grbl_last_position, grbl_status
-            except Exception:
-                pass
-        time.sleep(0.1)
-    grbl_last_position = "0.000,0.000,0.000"
-    grbl_status = "Unknown"
-    return grbl_last_position, grbl_status
+                                grbl_last_position = part[5:].strip()
+                            break
+                return grbl_last_position, grbl_status
+
+            time.sleep(0.02)
+
+        # Timeout – cache necháme jak je (žádné "Unknown")
+        return grbl_last_position, grbl_status
+    finally:
+        io_lock.release()
 
 def grbl_wait_for_idle():
     global grbl_status
@@ -325,8 +396,8 @@ def grbl_wait_for_idle():
     Zamezí se tím opakování dotazů na GRBL stav přes sériovou linku.
     """
     # print("[GRBL] Waiting for Idle:", grbl_status)
-    time.sleep(0.6)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.6s, aby se stihl aktualizovat
+    time.sleep(0.5)  # Stav CNC se updatuje každých 0.5s, takže počkáme 0.5s, aby se stihl aktualizovat
     while True:
         if grbl_status == "Idle":
             break
-        time.sleep(0.6)
+        time.sleep(0.5)

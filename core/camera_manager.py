@@ -761,47 +761,47 @@ def _ensure_microscope():
     if actual_camera is None or actual_camera is camera:
         switch_camera()
 
+
 # def autofocus_z(
 #     search_heights_mm=getattr(config, "autofocus_steps", (0.05, 0.01, 0.001)),
 #     settle_s=0.08,
 #     max_steps_per_level=200,
-#     overshoot_backtrack=3, # kolik dalších kroků po sobě s už horší ostrosti
+#     overshoot_backtrack=3,
 #     verbose=True,
+#     eps_rel=0.003,                 # <= 0.3 %: změny menší než tohle ignoruj jako šum
+#     min_steps_before_backtrack=4,  # než dovolíme backtrack, udělej alespoň N kroků
+#     plateau_patience=8             # po tolika krocích bez zlepšení zkusíme jednou otočit směr
 # ):
 #     """
-#     Vícestupňový hill-climb autofokus v ose Z pomocí Tenengrad ostrosti.
+#         Vícestupňový hill-climb autofokus v ose Z pomocí Tenengrad ostrosti.
 #
-#     Algoritmus:
-#       1) Na aktuální Z změříme ostrost.
-#       2) Zkusíme +krok. Pokud se zlepší, pokračujeme stejným směrem.
-#          Pokud ne, zkusíme opačný směr (–krok).
-#       3) Pokud přijdou 3 po sobě jdoucí kroky s horší ostrostí,
-#          vrátíme se na nejlepší Z aktuální úrovně (o N*step zpět)
-#          a pokračujeme jemnějším krokem.
-#       4) Po dojetí všech úrovní se nastaví nejlepší nalezené Z.
+#         Algoritmus:
+#           1) Na aktuální Z změříme ostrost.
+#           2) Zkusíme +krok. Pokud se zlepší, pokračujeme stejným směrem.
+#              Pokud ne, zkusíme opačný směr (–krok).
+#           3) Pokud přijdou 3 po sobě jdoucí kroky s horší ostrostí,
+#              vrátíme se na nejlepší Z aktuální úrovně (o N*step zpět)
+#              a pokračujeme jemnějším krokem.
+#           4) Po dojetí všech úrovní se nastaví nejlepší nalezené Z.
 #
-#     Návratová hodnota: (best_z, best_score)
+#         Návratová hodnota: (best_z, best_score)
 #     """
+#
 #     # _ensure_microscope()
 #
-#     # Přečti aktuální pozici stroje
 #     try:
 #         pos_x, pos_y, pos_z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
 #     except Exception:
-#         # Pokud není k dispozici, zkus získat přímo snímek a pokračuj
 #         img0 = _grab_focus_frame()
 #         if img0 is None:
 #             raise RuntimeError("Nelze získat snímek pro autofokus.")
-#         # Bez znalosti Z nemůžeme jezdit -> chyba
 #         raise RuntimeError("Nelze načíst aktuální GRBL pozici (grbl_last_position).")
 #
-#     # Pomocná funkce pro přesun na Z
 #     def goto_z(z_target):
 #         move_to_coordinates(pos_x, pos_y, z_target)
-#         # čas na uklidnění
 #         time.sleep(settle_s)
 #
-#     # Změř startovní ostrost
+#     # start
 #     img = _grab_focus_frame()
 #     if img is None:
 #         raise RuntimeError("Kamera nevrací snímky (autofokus).")
@@ -816,200 +816,84 @@ def _ensure_microscope():
 #         if verbose:
 #             print(f"[AF] Level {level}: step={step} mm")
 #
-#         # Nejprve detekuj výhodnější směr (nahoru vs. dolů)
-#         trial_scores = []
-#         # Zkus +step
+#         # najdi počáteční směr dle lepšího souseda
 #         goto_z(current_z + step)
-#         img_p = _grab_focus_frame()
-#         s_plus = tenengrad_sharpness(img_p) if img_p is not None else -np.inf
-#         # Zpět
-#         goto_z(current_z)
-#
-#         # Zkus -step
+#         img_p = _grab_focus_frame(); s_plus  = tenengrad_sharpness(img_p) if img_p is not None else -np.inf
 #         goto_z(current_z - step)
-#         img_m = _grab_focus_frame()
-#         s_minus = tenengrad_sharpness(img_m) if img_m is not None else -np.inf
-#         # Vrať se na výchozí
+#         img_m = _grab_focus_frame(); s_minus = tenengrad_sharpness(img_m) if img_m is not None else -np.inf
 #         goto_z(current_z)
 #
-#         if s_plus >= s_minus:
-#             direction = +1
-#             if verbose:
-#                 print(f"[AF]  Preferuji směr + (s+={s_plus:.2f} >= s-={s_minus:.2f})")
-#         else:
-#             direction = -1
-#             if verbose:
-#                 print(f"[AF]  Preferuji směr - (s-={s_minus:.2f} > s+={s_plus:.2f})")
+#         direction = +1 if s_plus >= s_minus else -1
+#         if verbose:
+#             print(f"[AF]  Preferuji směr {'+' if direction>0 else '-'} (s+={s_plus:.2f}, s-={s_minus:.2f})")
 #
 #         worse_in_row = 0
 #         steps_done = 0
-#         local_best_z = best_z
+#         local_best_z = current_z
 #         local_best_score = best_score
+#         steps_since_improve = 0
+#         flipped_once = False  # směr můžeme jednou přepnout, když je to plošina
 #
 #         while steps_done < max_steps_per_level:
-#             # Udělej krok ve zvoleném směru
 #             current_z = current_z + direction * step
 #             goto_z(current_z)
 #             img = _grab_focus_frame()
 #             if img is None:
-#                 if verbose:
-#                     print("[AF]  Varování: žádný snímek, krok přeskočen.")
+#                 if verbose: print("[AF]  Varování: žádný snímek, krok přeskočen.")
 #                 continue
+#
 #             score = tenengrad_sharpness(img)
 #             steps_done += 1
 #
 #             if verbose:
 #                 print(f"[AF]   Z={current_z:.6f} mm -> score={score:.2f}")
 #
-#             if score > local_best_score:
+#             # relativní zlepšení / zhoršení s tolerancí
+#             improved = score > local_best_score * (1 + eps_rel)
+#             worse    = score < local_best_score * (1 - eps_rel)
+#
+#             if improved:
 #                 local_best_score = score
 #                 local_best_z = current_z
+#                 steps_since_improve = 0
 #                 worse_in_row = 0
-#                 # průběžně aktualizuj i globální best
 #                 if score > best_score:
 #                     best_score = score
 #                     best_z = current_z
 #             else:
-#                 worse_in_row += 1
+#                 steps_since_improve += 1
+#                 if worse:
+#                     worse_in_row += 1
+#                 # malé změny v rámci šumu neinkrementují worse_in_row
 #
-#             # 3× po sobě horší? vrať se a jdi na jemnější krok
-#             if worse_in_row >= overshoot_backtrack:
+#             # Plateau → jednorázově zkus opačný směr
+#             if steps_since_improve >= plateau_patience and not flipped_once:
 #                 if verbose:
-#                     print(f"[AF]   {overshoot_backtrack}× horší v řadě -> návrat na nejlepší a jemnější krok.")
-#                 # návrat na doposud nejlepší v úrovni
+#                     print("[AF]   Plateau detekováno -> přepínám směr a zkouším opačně.")
+#                 direction *= -1
+#                 flipped_once = True
+#                 steps_since_improve = 0
+#                 worse_in_row = 0
+#                 continue
+#
+#             # Opravdové přejetí maxima → návrat jen když už jsme skutečně něco našli
+#             if (worse_in_row >= overshoot_backtrack) and (steps_done >= min_steps_before_backtrack) and (local_best_z != current_z):
+#                 if verbose:
+#                     print(f"[AF]   {overshoot_backtrack}× horší (mimo šum) -> návrat na lokální maximum a jemnější krok.")
 #                 goto_z(local_best_z)
 #                 current_z = local_best_z
-#                 break  # přejdeme na další (jemnější) level
+#                 break
 #
-#         # Po ukončení levelu se drž lokálního maxima
+#         # konec úrovně → drž se lokálního maxima
 #         goto_z(local_best_z)
 #         current_z = local_best_z
 #         if verbose:
 #             print(f"[AF] Level {level} best: Z={local_best_z:.6f} mm, score={local_best_score:.2f}")
 #
-#     # Na konci nastav globální nejlepší
 #     goto_z(best_z)
 #     if verbose:
 #         print(f"[AF] DONE -> Z={best_z:.6f} mm, score={best_score:.2f}")
 #     return best_z, best_score
-
-def autofocus_z(
-    search_heights_mm=getattr(config, "autofocus_steps", (0.05, 0.01, 0.001)),
-    settle_s=0.08,
-    max_steps_per_level=200,
-    overshoot_backtrack=3,
-    verbose=True,
-    eps_rel=0.003,                 # <= 0.3 %: změny menší než tohle ignoruj jako šum
-    min_steps_before_backtrack=4,  # než dovolíme backtrack, udělej alespoň N kroků
-    plateau_patience=8             # po tolika krocích bez zlepšení zkusíme jednou otočit směr
-):
-    # _ensure_microscope()
-
-    try:
-        pos_x, pos_y, pos_z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
-    except Exception:
-        img0 = _grab_focus_frame()
-        if img0 is None:
-            raise RuntimeError("Nelze získat snímek pro autofokus.")
-        raise RuntimeError("Nelze načíst aktuální GRBL pozici (grbl_last_position).")
-
-    def goto_z(z_target):
-        move_to_coordinates(pos_x, pos_y, z_target)
-        time.sleep(settle_s)
-
-    # start
-    img = _grab_focus_frame()
-    if img is None:
-        raise RuntimeError("Kamera nevrací snímky (autofokus).")
-    best_score = tenengrad_sharpness(img)
-    best_z = pos_z
-    if verbose:
-        print(f"[AF] Start Z={best_z:.6f} mm, score={best_score:.2f}")
-
-    current_z = pos_z
-
-    for level, step in enumerate(search_heights_mm, start=1):
-        if verbose:
-            print(f"[AF] Level {level}: step={step} mm")
-
-        # najdi počáteční směr dle lepšího souseda
-        goto_z(current_z + step)
-        img_p = _grab_focus_frame(); s_plus  = tenengrad_sharpness(img_p) if img_p is not None else -np.inf
-        goto_z(current_z - step)
-        img_m = _grab_focus_frame(); s_minus = tenengrad_sharpness(img_m) if img_m is not None else -np.inf
-        goto_z(current_z)
-
-        direction = +1 if s_plus >= s_minus else -1
-        if verbose:
-            print(f"[AF]  Preferuji směr {'+' if direction>0 else '-'} (s+={s_plus:.2f}, s-={s_minus:.2f})")
-
-        worse_in_row = 0
-        steps_done = 0
-        local_best_z = current_z
-        local_best_score = best_score
-        steps_since_improve = 0
-        flipped_once = False  # směr můžeme jednou přepnout, když je to plošina
-
-        while steps_done < max_steps_per_level:
-            current_z = current_z + direction * step
-            goto_z(current_z)
-            img = _grab_focus_frame()
-            if img is None:
-                if verbose: print("[AF]  Varování: žádný snímek, krok přeskočen.")
-                continue
-
-            score = tenengrad_sharpness(img)
-            steps_done += 1
-
-            if verbose:
-                print(f"[AF]   Z={current_z:.6f} mm -> score={score:.2f}")
-
-            # relativní zlepšení / zhoršení s tolerancí
-            improved = score > local_best_score * (1 + eps_rel)
-            worse    = score < local_best_score * (1 - eps_rel)
-
-            if improved:
-                local_best_score = score
-                local_best_z = current_z
-                steps_since_improve = 0
-                worse_in_row = 0
-                if score > best_score:
-                    best_score = score
-                    best_z = current_z
-            else:
-                steps_since_improve += 1
-                if worse:
-                    worse_in_row += 1
-                # malé změny v rámci šumu neinkrementují worse_in_row
-
-            # Plateau → jednorázově zkus opačný směr
-            if steps_since_improve >= plateau_patience and not flipped_once:
-                if verbose:
-                    print("[AF]   Plateau detekováno -> přepínám směr a zkouším opačně.")
-                direction *= -1
-                flipped_once = True
-                steps_since_improve = 0
-                worse_in_row = 0
-                continue
-
-            # Opravdové přejetí maxima → návrat jen když už jsme skutečně něco našli
-            if (worse_in_row >= overshoot_backtrack) and (steps_done >= min_steps_before_backtrack) and (local_best_z != current_z):
-                if verbose:
-                    print(f"[AF]   {overshoot_backtrack}× horší (mimo šum) -> návrat na lokální maximum a jemnější krok.")
-                goto_z(local_best_z)
-                current_z = local_best_z
-                break
-
-        # konec úrovně → drž se lokálního maxima
-        goto_z(local_best_z)
-        current_z = local_best_z
-        if verbose:
-            print(f"[AF] Level {level} best: Z={local_best_z:.6f} mm, score={local_best_score:.2f}")
-
-    goto_z(best_z)
-    if verbose:
-        print(f"[AF] DONE -> Z={best_z:.6f} mm, score={best_score:.2f}")
-    return best_z, best_score
 
 
 # --- Poměr černé a bílé plochy v obrázku (pro posun okraje drátu na střed obrázku) -------------
@@ -1047,170 +931,142 @@ def black_white_ratio(img, use_otsu=True, thresh_val=50):
     white_ratio = white_pixels / total_pixels
 
     return black_ratio, white_ratio
-#
-# # --- autofocus_z: kontinuální sweep s měřením ostrosti (nahrazuje dosavadní autofocus_z) ---
-# import time
-# import math
-# import numpy as np
-# import cv2
-# import core.motion_controller
-#
-# from core.motion_controller import (
-#     send_gcode,
-#     grbl_abort,
-#     grbl_clear_alarm
-# )
-# # ^ využívá tvoje existující funkce / sdílené proměnné  (viz motion_controller.py)
-#
-# def _current_z_or(default_val: float = config.default_Z_position) -> float:
-#     try:
-#         x, y, z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
-#         return z
-#     except Exception:
-#         return default_val
-#
-# def _tenengrad(gray: np.ndarray) -> float:
-#     gx = cv2.Sobel(gray, cv2.CV_32F, 1, 0, ksize=3)
-#     gy = cv2.Sobel(gray, cv2.CV_32F, 0, 1, ksize=3)
-#     return float(np.mean(gx*gx + gy*gy))
-#
-# def _to_gray(img):
-#     if img is None:
-#         return None
-#     if img.ndim == 2:
-#         return img
-#     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#
-# def autofocus_z(
-#     *args,
-#     drop_ratio: float = 0.75,
-#     confirm_drop_frames: int = 3,
-#     feed_sweep: int = 5,
-#     settle_ms: int = 5,
-#     min_travel_mm: float = 0.05,
-#     ema_alpha: float = 0.4,
-#     fine_refine: bool = False,
-#     fine_span_mm: float = 0.05,
-#     fine_step_mm: float = 0.002,
-#     fine_feed: int = 5,
-#     **kwargs
-# ):
-#     """
-#     Kontinuální autofocus:
-#       - automaticky sveeppne Z v rozsahu [Z0-2.0, Z0+2.0] (Z0 = aktuální Z)
-#       - průběžně vyhodnocuje ostrost; při propadu pod drop_ratio*max pošle Abort a vrátí se na maximum
-#       - volitelně jemně doostří ±fine_span_mm s krokem fine_step_mm
-#     Vrací dict: {"best_z": float, "best_score": float}
-#     """
-#     # 1) Rozsah okolo aktuální pozice
-#     z0 = _current_z_or(config.default_Z_position)
-#     print("z0", z0)
-#     z_start = z0 - 2.0
-#     z_end   = z0 + 2.0
-#
-#     # pro konzistenci: jeď vždy z menšího na větší
-#     z_lo, z_hi = (z_start, z_end) if z_start <= z_end else (z_end, z_start)
-#     print("z_lo", z_lo)
-#     print("z_hi", z_hi)
-#     # 2) Připrav modalitu a přesun na začátek sweepu
-#     send_gcode("M3 S750")        # světlo on
-#     send_gcode("G90")            # absolutní režim
-#     send_gcode(f"G1 Z{z_lo:.3f} F{feed_sweep}")
-#     time.sleep(0.10)
-#
-#     # 3) Spusť plynulý sweep (jediným G1 blokem) směrem k z_hi
-#     send_gcode(f"G1 Z{z_hi:.3f} F{feed_sweep}")
-#
-#     # 4) Průběžné měření ostrosti
-#     max_ema = -math.inf
-#     best_score = -math.inf
-#     best_z = z_lo
-#     ema_val = None
-#     below_cnt = 0
-#     z_first = _current_z_or(z_lo)
-#     t0 = time.time()
-#
-#     try:
-#         while True:
-#             # snímek z kamery (Mono8/BGR -> gray)
-#             img = core.camera_manager.get_image()
-#             gray = _to_gray(img)
-#             if gray is None:
-#                 time.sleep(0.002)
-#                 continue
-#
-#             score = _tenengrad(gray)
-#             print("score", score)
-#             ema_val = score if (ema_val is None or ema_alpha <= 0) else (ema_alpha*score + (1.0-ema_alpha)*ema_val)
-#
-#             cur_z = _current_z_or(best_z)
-#
-#             # ulož maximum
-#             if ema_val > max_ema:
-#                 max_ema = ema_val
-#                 best_score = score
-#                 best_z = cur_z
-#                 print("best_score", best_score)
-#                 print("best_z", best_z)
-#
-#             # posuzuj propad až po minimální ujeté dráze
-#             if abs(cur_z - z_first) >= min_travel_mm and max_ema > 0:
-#                 if ema_val < drop_ratio * max_ema:
-#                     below_cnt += 1
-#                 else:
-#                     below_cnt = 0
-#
-#                 if below_cnt >= confirm_drop_frames:
-#                     # tvrdé zastavení + odemčení
-#                     grbl_abort()        # Ctrl-X
-#                     time.sleep(0.15)
-#                     grbl_clear_alarm()  # $X
-#                     time.sleep(0.05)
-#                     # návrat přesně na nejlepší Z
-#                     send_gcode("M3 S750")  # světlo on
-#                     send_gcode("G90")  # absolutní režim
-#                     send_gcode(f"G1 Z{best_z:.3f} F{feed_sweep}")
-#                     break
-#
-#             if settle_ms > 0:
-#                 time.sleep(settle_ms/1000.0)
-#
-#         # 5) volitelné jemné doostření v okolí maxima
-#         if fine_refine:
-#             z_lo2 = best_z - fine_span_mm
-#             z_hi2 = best_z + fine_span_mm
-#             z = z_lo2
-#             best_ref_z = best_z
-#             best_ref_sc = best_score
-#             send_gcode("M3 S750")  # světlo on
-#             send_gcode("G90")  # absolutní režim
-#             while z <= z_hi2 + 1e-9:
-#                 send_gcode(f"G1 Z{z:.3f} F{fine_feed}")
-#                 time.sleep(0.02)
-#                 img2 = core.camera_manager.get_image()
-#                 g2 = _to_gray(img2)
-#                 if g2 is not None:
-#                     sc2 = _tenengrad(g2)
-#                     print("sc2", sc2)
-#                     if sc2 > best_ref_sc:
-#                         best_ref_sc = sc2
-#                         best_ref_z = z
-#                         print("best_ref_z", best_ref_z)
-#                         print("best_ref_sc", best_ref_sc)
-#                 z += fine_step_mm
-#             send_gcode("M3 S750")  # světlo on
-#             send_gcode("G90")  # absolutní režim
-#             send_gcode(f"G1 Z{best_ref_z:.3f} F{fine_feed}")
-#             best_z, best_score = best_ref_z, best_ref_sc
-#
-#         return {"best_z": float(best_z), "best_score": float(best_score)}
-#
-#     except Exception:
-#         # pojistka: zastavit pohyb a odemknout, ať nezůstane viset
-#         try:
-#             grbl_abort()
-#             time.sleep(0.15)
-#             grbl_clear_alarm()
-#         except Exception:
-#             pass
-#         raise
+
+# autofocus s plynulým jogem
+import time
+import numpy as np
+import cv2
+import core.motion_controller
+from core.motion_controller import send_gcode, cancel_move, move_to_coordinates
+
+def _to_gray(img):
+    if img is None:
+        return None
+    return img if img.ndim == 2 else cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+def _mpos_now():
+    try:
+        x, y, z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
+        return x, y, z
+    except Exception:
+        return 0.0, 0.0, 0.0
+
+def _scan_jog(z_start, dz, feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel):
+    """Provede jeden $J jog o délce dz, vrátí [(z,score)]."""
+    v_mms = feed_mm_min / 60.0
+    t_total = abs(dz) / max(v_mms, 1e-6)
+
+    send_gcode(f"$J=G91 G21 F{feed_mm_min:.3f} Z{dz:.3f}")
+    time.sleep(0.1)  # rozjezd
+
+    t0 = time.perf_counter()
+    samples = []
+    while True:
+        elapsed = time.perf_counter() - t0
+        if elapsed >= (t_total + 0.2):
+            break
+        img = get_image()
+        if img is None:
+            time.sleep(sample_sleep_s)
+            continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        eff_time = max(0.0, elapsed - cam_lag_s)
+        z = z_start + np.sign(dz) * v_mms * min(eff_time, t_total)
+        samples.append((z, s))
+        time.sleep(sample_sleep_s)
+
+    cancel_move()
+    time.sleep(settle_ms_after_cancel / 1000.0)
+    return samples
+
+def autofocus_z(
+    dof_mm: float = 0.003,            # hloubka ostrosti mikroskopu
+    span_mm: float = 2.0,             # rozsah pro obousměrný jog
+    feed_mm_min: float = 10.0,        # rychlost jogu (mm/min)
+    sample_sleep_s: float = 0.02,
+    cam_lag_s: float = 0.15,
+    settle_ms_after_cancel: int = 120,
+    refine: bool = True,              # zapne přesné doostření po krocích
+    verbose: bool = True
+):
+    """
+    Autofocus pro mikroskop s malou hloubkou ostrosti.
+    - 'dof_mm' = hloubka ostrosti (např. 0.003 mm)
+    - parametry scanu a feedy se odvozují automaticky z DOF
+    - pokud refine=False → skončí po hrubém jogu
+    """
+
+    # --- odvozené parametry podle DOF ---
+    fine_step = dof_mm / 3.0
+    fine_span = 3 * dof_mm
+    coarse_step = max(fine_step * 10, 0.005)
+    coarse_span = max(fine_span * 20, 0.05)
+
+    fine_feed = (0.5 * dof_mm) / cam_lag_s * 60.0
+    fine_feed = max(5.0, min(fine_feed, 30.0))
+    coarse_feed = fine_feed * 2
+
+    if verbose:
+        print(f"[AF] DOF={dof_mm*1000:.1f} µm → "
+              f"fine_step={fine_step*1000:.1f} µm, fine_span=±{fine_span*1000:.1f} µm, "
+              f"coarse_step={coarse_step*1000:.1f} µm, coarse_span=±{coarse_span:.3f} mm, "
+              f"fine_feed={fine_feed:.1f} mm/min")
+
+    x0, y0, z0 = _mpos_now()
+
+    # 1) jog dolů a nahoru
+    z_mid = z0 - span_mm / 2
+    samples_down = _scan_jog(z0, -span_mm / 2, feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel)
+    samples_up   = _scan_jog(z_mid, span_mm,     feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel)
+
+    all_samples = samples_down + samples_up
+    if not all_samples:
+        raise RuntimeError("Nebyla nasbírána žádná data autofocusu.")
+
+    best_z, best_score = max(all_samples, key=lambda zs: zs[1])
+    if verbose:
+        print(f"[AF] Odhad maxima z jogu → Z≈{best_z:.6f}, score={best_score:.2f}")
+
+    move_to_coordinates(x0, y0, best_z)
+    time.sleep(0.1)
+
+    if not refine:
+        if verbose:
+            print(f"[AF] DONE (bez refine) → Z={best_z:.6f}, score={best_score:.2f}")
+        return best_z, best_score
+
+    # 2) hrubý scan
+    lo = best_z - coarse_span
+    hi = best_z + coarse_span
+    zs = np.arange(lo, hi + 1e-9, coarse_step)
+
+    best_local_z, best_local_s = best_z, best_score
+    for zt in zs:
+        move_to_coordinates(x0, y0, float(zt), feed=coarse_feed)
+        time.sleep(0.05)
+        img = get_image()
+        if img is None: continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        if s > best_local_s:
+            best_local_s, best_local_z = s, zt
+
+    # 3) jemný scan
+    lo = best_local_z - fine_span
+    hi = best_local_z + fine_span
+    zs = np.arange(lo, hi + 1e-9, fine_step)
+
+    best_fine_z, best_fine_s = best_local_z, best_local_s
+    for zt in zs:
+        move_to_coordinates(x0, y0, float(zt), feed=fine_feed)
+        time.sleep(0.08)
+        img = get_image()
+        if img is None: continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        if s > best_fine_s:
+            best_fine_s, best_fine_z = s, zt
+
+    move_to_coordinates(x0, y0, best_fine_z)
+
+    if verbose:
+        print(f"[AF] DONE refine → Z={best_fine_z:.6f}, score={best_fine_s:.2f}")
+    return best_fine_z, best_fine_s
