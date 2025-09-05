@@ -18,7 +18,8 @@ from core.database import save_project_sample_to_db, save_sample_items_to_db, sa
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
-from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ratio
+from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ratio, rectpx_to_grbl, preview_running
+
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
@@ -213,15 +214,6 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
     Převádí detekované kruhy (v rect prostoru) na GRBL pohyby.
     Nově využívá core.camera_manager.rectpx_to_grbl pro převod (u_rect, v_rect) -> (X,Y,Z).
     """
-    # --- Bezpečný import převodní funkce (podporuje i případný překlep rectx_to_grbl) ---
-    try:
-        rect_to_grbl = core.camera_manager.rectpx_to_grbl
-    except AttributeError:
-        rect_to_grbl = getattr(core.camera_manager, "rectpx_to_grbl", None)
-        if rect_to_grbl is None:
-            raise RuntimeError(
-                "Nenalezena funkce rectpx_to_grbl. "
-            )
 
     # TODO: Upravit přesnost pohybu podle potřeby (asi na 0.5 mm)
     z_step_begin = 0.4      # rozsah Z pro mikroskopické přejetí skrz fokus, po zlepšení konstrukce kazety se vzorky můžeme zmenšit
@@ -236,20 +228,24 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
     for (id, pos_index, x_center, y_center, radius) in items:
         item_positions_db = get_sample_item_positions_by_item_id(id)
         # Souřadnice středu drátu v GRBL prostoru
-        cx, cy, cz = rect_to_grbl(float(x_center), float(y_center), base_xy=(mpos_x, mpos_y), z=abs_z)
+        cx, cy, cz = rectpx_to_grbl(float(x_center), float(y_center), base_xy=(mpos_x, mpos_y), z=abs_z)
 
         for id, step, x_coord, y_coord, image_path, defect_detected in item_positions_db:
             # Souřadnice bodu v GRBL prostoru
-            px, py, pz = rect_to_grbl(float(x_coord), float(y_coord), base_xy=(mpos_x, mpos_y), z=abs_z)
+            px, py, pz = rectpx_to_grbl(float(x_coord), float(y_coord), base_xy=(mpos_x, mpos_y), z=abs_z)
 
             max_sharpness = 0.0
             sharpest_img = None
             max_errors = 3
             errors = 0
             attempt = 1
+            previous_ratio = 0.0
+            max_ratio = 0.0
+            previous_px = 0
+            previous_py = 0
             z_step = z_step_begin  # Začneme s počátečním krokem Z, v případě chyb zvětšíme
             if step == 0:
-                # # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
+                # TODO: Ověřit a doladit: Autofokus na prvním obrázku - je to celkem nespolehlivé i pomalé
                 core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
                 core.motion_controller.move_to_position(px, py, abs_z)
                 best_z, _ = autofocus_z(dof_mm = 0.003,            # hloubka ostrosti mikroskopu
@@ -278,7 +274,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 max_sharpness = 0.0
                 sharpest_img = None
                 black_ratio = 0.0
-                white_ratio = 0.0
+
                 errors = 0 # Chyby kamery resetujeme na začátku každého pokusu
 
                 #core.motion_controller.send_gcode(f"G90 G1 Z{(abs_z+z_step):.3f} M3 S750 F5")
@@ -287,7 +283,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                 grbl_wait_for_idle() # musíme počkat na Idle než pošleme příkaz JOG
                 core.motion_controller.send_gcode(f"$J=G90 Z{(abs_z+z_step):.3f} F5")
                 #time.sleep(0.5) # Je třeba počkat na odpověď CNC, že změnilo status na RUN
-                # Místo čekání na správnou odpověď ji natvrdo změníme
+                # Místo čekání na správnou odpověď ji pro urychlení procesu natvrdo změníme
                 core.motion_controller.grbl_status = "Run"
 
                 timeout = time.time() + 60
@@ -302,7 +298,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         (h, w) = img_rgb.shape[:2]
                         sharpness = tenengrad_sharpness(img_rgb)
                         black_ratio, white_ratio = black_white_ratio(img_rgb, use_otsu=False,thresh_val=100)
-                        print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
+                        # print(f"[MICROSCOPE] Ostrost obrázku {step}: {sharpness:.3f}, max:{max_sharpness:.3f}")
                         if sharpness > max_sharpness:
                             max_sharpness = sharpness
                             sharpest_img = img_rgb.copy()
@@ -319,10 +315,14 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         cancel_move() # přeruší pojezd bez ztráty pozice
                         break
 
-                if errors <= max_errors: # Pokud bylo málo chyb snímání, pokračujeme v dalším pokusu
+                if errors <= max_errors: # Pokud nebylo chyb snímání, pokračujeme v dalším pokusu
 
                     z_step += 0.1 # Zvětšíme rozsah Z pro další pokus - asi nerovný vzorek
-                    if black_ratio > 0.5 and max_sharpness < 200:
+                    if z_step > 5.0:
+                        print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
+                        break
+                    # Kontrola zda hrana je na obrázku
+                    if black_ratio > 0.7:
                         # zmenšíme poloměr, pokud je okraj příliš velký a ostrost je nízká
                         dx = px - cx
                         dy = py - cy
@@ -331,20 +331,32 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                             scale = (dist - (0.8 * (black_ratio - 0.5))) / dist
                             px = cx + dx * scale
                             py = cy + dy * scale
-                            print(f"[MICROSCOPE] Vysoký poměr černé {black_ratio:.1%} a nízká ostrost {max_sharpness:.1f}, zmenšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
-                    if z_step > 5.0:
-                        print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
-                        break
-                # if black_ratio < 0.2 and max_sharpness > 300:
-                #     dx = px - cx
-                #     dy = py - cy
-                #     dist = np.hypot(dx, dy)
-                #
-                #     scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
-                #     px = cx + dx * scale
-                #     py = cy + dy * scale
-                #     print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%} a vysoká ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
-                #     max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
+                            print(f"[MICROSCOPE] Vysoký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zmenšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                            max_sharpness = 0.0  # Vynulujeme ostrost, abychom pokračovali v hledání
+
+                    if black_ratio < 0.1 and max_sharpness > 250 and previous_ratio < black_ratio:
+                        previous_ratio = black_ratio
+                        if previous_ratio > max_ratio:
+                            previous_px = px
+                            previous_py = py
+                            max_ratio = previous_ratio
+
+                        dx = px - cx
+                        dy = py - cy
+                        dist = np.hypot(dx, dy)
+
+                        scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
+                        px = cx + dx * scale
+                        py = cy + dy * scale
+                        print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                        max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
+
+                    # pokud předchozí krok situaci zhoršil, vrátime se
+                    if max_ratio > black_ratio:
+                        px = previous_px
+                        py = previous_py
+                        max_sharpness = 0.0
+                        print(f"[MICROSCOPE] Max poměr černé byl lepší {max_ratio:.1%} > {black_ratio:.1%}, vracím na původní souřadnice")
 
                 attempt += 1
                 if attempt > 5:  # Maximální počet pokusů

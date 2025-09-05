@@ -127,7 +127,6 @@ def start_camera_preview(image_label, update_position_callback=None):
     if preview_running:
         return
 
-
     if actual_camera is None or camera is None or microscope is None:
         print("[Camera] Inicializuji kameru...")
         try:
@@ -143,64 +142,71 @@ def start_camera_preview(image_label, update_position_callback=None):
     def preview_loop():
         global camera, microscope, actual_camera, preview_running, live_frame, live_frame_lock
 
+        target_interval = 1.0 / 25.0  # 25 FPS = 40 ms
+
         while preview_running:
-                # print("Zachycuji snímek...")
-                with live_frame_lock:
-                    img = get_image()
-                if img is not None:
-                    if actual_camera == microscope:
-                        # For microscope, we don't apply correction matrix
-                        live_frame = img
-                        sharpness = tenengrad_sharpness(live_frame)
-                        # black_ratio, white_ratio = black_white_ratio(live_frame, use_otsu=False, thresh_val=100)
-                        #live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 3, live_frame.shape[0] // 3))
-                    else:
-                        live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
-                        # live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 2, live_frame.shape[0] // 2))
-                    # Rozměry dle velikosti frame
-                    h, w = live_frame.shape[:2]
-                    target_h, target_w = config.frame_height, config.frame_width
-                    aspect = w / h
-                    target_aspect = target_w / target_h
-                    if aspect > target_aspect:
-                        new_w = target_w
-                        new_h = int(target_w / aspect)
-                    else:
-                        new_h = target_h
-                        new_w = int(target_h * aspect)
+            t0 = time.time()
 
-                    live_frame = cv2.resize(live_frame, (new_w, new_h))
-                    # Převod na RGB
-                    img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
-                    if actual_camera == microscope:
-                        cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+            with live_frame_lock:
+                img = get_image()
+            if img is not None:
+                if actual_camera == microscope:
+                    # Pro mikroskop neaplikujeme korekci
+                    live_frame = img
+                    sharpness = tenengrad_sharpness(live_frame)
+                else:
+                    live_frame = cv2.warpPerspective(
+                        img,
+                        config.correction_matrix,
+                        (int(config.image_width), int(config.image_height))
+                    )
 
-                    # Rozměry a střed
-                    h, w = img_rgb.shape[:2]
-                    cx, cy = int(w // 2) , int(h // 2)
+                # Rozměry dle velikosti frame
+                h, w = live_frame.shape[:2]
+                target_h, target_w = config.frame_height, config.frame_width
+                aspect = w / h
+                target_aspect = target_w / target_h
+                if aspect > target_aspect:
+                    new_w = target_w
+                    new_h = int(target_w / aspect)
+                else:
+                    new_h = target_h
+                    new_w = int(target_h * aspect)
 
-                    # Křížek ve středu
-                    cv2.line(img_rgb, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
-                    cv2.line(img_rgb, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
+                live_frame = cv2.resize(live_frame, (new_w, new_h))
+                # Převod na RGB
+                img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
+                if actual_camera == microscope:
+                    cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
 
+                # Křížek ve středu
+                h, w = img_rgb.shape[:2]
+                cx, cy = int(w // 2), int(h // 2)
+                cv2.line(img_rgb, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
+                cv2.line(img_rgb, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
 
-                    im_pil = Image.fromarray(img_rgb)
-                    imgtk = ImageTk.PhotoImage(image=im_pil)
+                im_pil = Image.fromarray(img_rgb)
+                imgtk = ImageTk.PhotoImage(image=im_pil)
 
                 def update():
                     if not image_label.winfo_exists():
-                        return  # Widget už neexistuje, ukončíme aktualizaci
+                        return  # Widget už neexistuje
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(250, update) # asi není třeba plynulý pohyb, méně to zatěžuje přenosy a procesor
+                # update plánujeme okamžitě, FPS řídí smyčka
+                image_label.after(1, update)
 
-
-        # actual_camera.StopGrabbing()
-        # actual_camera.Close()
+            # počkej do další periody
+            elapsed = time.time() - t0
+            sleep_time = target_interval - elapsed
+            if sleep_time > 0:
+                time.sleep(sleep_time)
 
     # spustíme náhled ve vlákně, aby neblokoval GUI
     threading.Thread(target=preview_loop, daemon=True).start()
+
 
 
 
