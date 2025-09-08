@@ -201,7 +201,7 @@ def find_circles(project_id, image):
             if 0.7 < circularity < 1.3:  # adjust as needed for your images
                 (x, y), r = cv2.minEnclosingCircle(cnt)
                 x, y, r = int(x), int(y), int(r)
-                if 30 < r < 650:  # filter by radius
+                if 30 < r < (config.image_width // 2 - 10):  # filter by radius
                     circles.append((x, y, r))
                     contours.append(cnt)
 
@@ -334,7 +334,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                             max_sharpness = 0.0  # Vynulujeme ostrost, abychom pokračovali v hledání
 
                     # TODO: doladit problém, kdy jsou dráty zcela u sebe
-                    if 0.002 < black_ratio < 0.3 and max_sharpness > 250:
+                    if black_ratio < 0.3 and max_sharpness > 250:
                         if black_ratio > max_black_ratio + 0.002: # přidáme 0.2% hysterezi
                             previous_px = px
                             previous_py = py
@@ -350,8 +350,8 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                         print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
                         max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
 
-                    # pokud předchozí krok situaci zhoršil, vrátime se
-                    if max_black_ratio > black_ratio + 0.002: # přidáme 0.2% hysterezi
+                    # pokud předchozí kroky situaci zhoršily, vrátime se
+                    if max_black_ratio > black_ratio and attempt == 4:
                         px = previous_px
                         py = previous_py
                         max_sharpness = 0.0
