@@ -16,6 +16,7 @@ def init_db():
                     value TEXT
                 )
     ''')
+    # TODO: Pokud neexistuje, přidat defaultní nastavení parametrů do settings
 
     c.execute('''
         CREATE TABLE IF NOT EXISTS projects (
@@ -60,7 +61,7 @@ def init_db():
             x_coord REAL,
             y_coord REAL,
             image_path TEXT,
-            detected_detected BOOLEAN DEFAULT 0,
+            defect_detected BOOLEAN DEFAULT 0,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY(sample_item_id) REFERENCES project_sample_items(id)
         )
@@ -167,7 +168,31 @@ def save_sample_item_positions_to_db(item_id:int, step:int, px:float, py:float, 
     c.execute(
         "INSERT INTO project_sample_item_positions (sample_item_id, position_index, x_coord, y_coord, image_path, created_at) VALUES (?, ?, ?, ?, ?, ?)",
         (item_id, step, px, py, image_path, now))
-    logger.info(f"[DB] Do databáze byl uložen snímek mikroskopu {step} pro položku {item_id} - x:{px} y:{py}.")
+    logger.info(f"[DB] Do databáze byl bod mikroskopu {step} pro položku {item_id} - x:{px} y:{py}.")
 
     conn.commit()
     conn.close()
+
+def get_sample_item_positions_by_item_id(item_id: int):
+    conn = sqlite3.connect("data/database.db")
+    c = conn.cursor()
+    c.execute("SELECT id, position_index, x_coord, y_coord, image_path, defect_detected FROM project_sample_item_positions WHERE sample_item_id = ?", (item_id,))
+    rows = c.fetchall()
+    conn.close()
+    return rows
+
+def update_sample_item_position_image(position_id: int, image_path: str):
+    conn = sqlite3.connect("data/database.db")
+    c = conn.cursor()
+    c.execute("UPDATE project_sample_item_positions SET image_path = ? WHERE id = ?", (image_path, position_id))
+    conn.commit()
+    conn.close()
+    logger.info(f"[DB] Aktualizován obrázek pro pozici {position_id} na {image_path}.")
+
+def update_sample_item_position_defect(position_id: int, defect: bool):
+    conn = sqlite3.connect("data/database.db")
+    c = conn.cursor()
+    c.execute("UPDATE project_sample_item_positions SET defect_detected = ? WHERE id = ?", (1 if defect else 0, position_id))
+    conn.commit()
+    conn.close()
+    logger.info(f"[DB] Aktualizována detekce defektu pro pozici {position_id} na {defect}.")

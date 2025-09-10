@@ -35,6 +35,7 @@ def show_settings(container, on_back):
     def save_settings():
         for key, var in entries.items():
             set_setting(key, var.get())
+
         messagebox.showinfo("Uloženo", "Nastavení byla uložena.")
         logger.info("Nastavení uložena")
 
