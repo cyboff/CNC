@@ -43,11 +43,6 @@ def show_microscope_images(container, project_id, samples, on_back):
     tree.pack(fill="both", expand=True)
 
     # VPRAVO – kamera
-    core.camera_manager.preview_running = False
-    if core.camera_manager.actual_camera == core.camera_manager.camera:
-        core.camera_manager.switch_camera()
-
-
     preview_frame, image_label, position_label = create_camera_preview(
         main_frame,
         config.frame_width,
@@ -66,11 +61,10 @@ def show_microscope_images(container, project_id, samples, on_back):
 
     tree.bind("<ButtonRelease-1>", on_click)
 
-
+    # Přepneme na mikroskop
+    core.camera_manager.preview_running = False
     if core.camera_manager.actual_camera == core.camera_manager.camera:
         core.camera_manager.switch_camera()
-    core.camera_manager.preview_running = False  # Zastavíme živý náhled, abychom mohli získat snímek
-    # time.sleep(0.2)  # Počkáme, aby se proces náhledu zastavil
 
     # Spustí snímání mikroskopem ve vlákně
     def threaded_get_microscope_images(container, image_label, tree, project_id):

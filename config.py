@@ -46,9 +46,6 @@ image_height = int(get_setting("image_height"))
 correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
 correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
 
-# Autofocus kroky (od hrubého po jemný)
-autofocus_steps = json.loads(get_setting("autofocus_steps"))
-
 # Výchozí pozice osy Z (např. výška mikroskopu)
 default_Z_position = float(get_setting("default_Z_position"))
 last_Z_position = default_Z_position  # lze měnit runtime

@@ -24,6 +24,7 @@ def init_cameras():
     tl_factory = pylon.TlFactory.GetInstance()
     devices = tl_factory.EnumerateDevices()
     if not devices:
+        messagebox.showerror("Chyba kamery", "Kamera Basler nenalezena!")
         raise Exception("Kamera Basler nenalezena!")
     # Initialize both cameras and return them for later switching
     camera = pylon.InstantCamera(tl_factory.CreateDevice(devices[0]))
@@ -52,13 +53,21 @@ def init_cameras():
     if len(devices) > 1:
         microscope = pylon.InstantCamera(tl_factory.CreateDevice(devices[1]))
         print("Microskop", microscope.GetDeviceInfo().GetModelName())
-        microscope.Open()
+        try:
+           microscope.Open()
+        except Exception as e:
+            messagebox.showerror("Chyba mikroskopu", f"Chyba při připojování se k mikroskopu: {e}")
+            raise
         # microscope.GainAuto.SetValue("Continuous")
         # microscope.ExposureAuto.SetValue("Continuous")
         microscope.GainAuto.SetValue("Off")
         microscope.ExposureAuto.SetValue("Off")
+        # pro acA2440-20gm
         microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # in microseconds
         microscope.GainRaw.Value = 0
+
+        # pro a2A5328-4gmPRO (jinak Chyba při inicializaci kamery: Node not existing (file 'genicam_wrap.cpp', line 16815)
+        #microscope.ExposureTime.Value = config.microscope_exposure_time  # in microseconds
         # microscope.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
         print(f"Rozlišení mikroskopu nastaveno na {microscope.Width.Value}x{microscope.Height.Value}")
 
@@ -118,7 +127,6 @@ def start_camera_preview(image_label, update_position_callback=None):
     if preview_running:
         return
 
-
     if actual_camera is None or camera is None or microscope is None:
         print("[Camera] Inicializuji kameru...")
         try:
@@ -134,47 +142,71 @@ def start_camera_preview(image_label, update_position_callback=None):
     def preview_loop():
         global camera, microscope, actual_camera, preview_running, live_frame, live_frame_lock
 
+        target_interval = 1.0 / 25.0  # 25 FPS = 40 ms
+
         while preview_running:
-                # print("Zachycuji snímek...")
-                with live_frame_lock:
-                    img = get_image()
-                if img is not None:
-                    if actual_camera == microscope:
-                        # For microscope, we don't apply correction matrix
-                        live_frame = img
-                        live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 4, live_frame.shape[0] // 4))
-                    else:
-                        live_frame = cv2.warpPerspective(img, config.correction_matrix, (int(config.image_width), int(config.image_height)))
-                        live_frame = cv2.resize(live_frame, (live_frame.shape[1] // 2, live_frame.shape[0] // 2))
-                    # Převod na RGB
-                    img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
+            t0 = time.time()
 
-                    # Rozměry a střed
-                    h, w = img_rgb.shape[:2]
-                    cx, cy = int(w // 2) , int(h // 2)
+            with live_frame_lock:
+                img = get_image()
+            if img is not None:
+                if actual_camera == microscope:
+                    # Pro mikroskop neaplikujeme korekci
+                    live_frame = img
+                    sharpness = tenengrad_sharpness(live_frame)
+                else:
+                    live_frame = cv2.warpPerspective(
+                        img,
+                        config.correction_matrix,
+                        (int(config.image_width), int(config.image_height))
+                    )
 
-                    # Křížek ve středu
-                    cv2.line(img_rgb, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
-                    cv2.line(img_rgb, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
+                # Rozměry dle velikosti frame
+                h, w = live_frame.shape[:2]
+                target_h, target_w = config.frame_height, config.frame_width
+                aspect = w / h
+                target_aspect = target_w / target_h
+                if aspect > target_aspect:
+                    new_w = target_w
+                    new_h = int(target_w / aspect)
+                else:
+                    new_h = target_h
+                    new_w = int(target_h * aspect)
 
+                live_frame = cv2.resize(live_frame, (new_w, new_h))
+                # Převod na RGB
+                img_rgb = cv2.cvtColor(live_frame, cv2.COLOR_GRAY2RGB)
+                if actual_camera == microscope:
+                    cv2.putText(img_rgb, f"Ostrost: {sharpness:.2f}", (10, 20),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
 
-                    im_pil = Image.fromarray(img_rgb)
-                    imgtk = ImageTk.PhotoImage(image=im_pil)
+                # Křížek ve středu
+                h, w = img_rgb.shape[:2]
+                cx, cy = int(w // 2), int(h // 2)
+                cv2.line(img_rgb, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
+                cv2.line(img_rgb, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
+
+                im_pil = Image.fromarray(img_rgb)
+                imgtk = ImageTk.PhotoImage(image=im_pil)
 
                 def update():
                     if not image_label.winfo_exists():
-                        return  # Widget už neexistuje, ukončíme aktualizaci
+                        return  # Widget už neexistuje
                     image_label.imgtk = imgtk
                     image_label.config(image=imgtk)
 
-                image_label.after(250, update) # asi není třeba plynulý pohyb, méně to zatěžuje přenosy a procesor
+                # update plánujeme okamžitě, FPS řídí smyčka
+                image_label.after(1, update)
 
-
-        # actual_camera.StopGrabbing()
-        # actual_camera.Close()
+            # počkej do další periody
+            elapsed = time.time() - t0
+            sleep_time = target_interval - elapsed
+            if sleep_time > 0:
+                time.sleep(sleep_time)
 
     # spustíme náhled ve vlákně, aby neblokoval GUI
     threading.Thread(target=preview_loop, daemon=True).start()
+
 
 
 
@@ -470,6 +502,8 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
     #     switch_camera()
 
     move_to_coordinates(base_x, base_y, calib_z)
+    if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
+        switch_camera()
 
     def get_frame_with_overlays():
         nonlocal last_frame, auto_ok, last_centers, pts_src
@@ -604,7 +638,10 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         nonlocal current_corner_index, pts_grbl, calib_corners_grbl, prev_correction_matrix_main
         if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.camera:
             switch_camera()
-        core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
+        # pro a2A5328 - 4gmPRO
+        #core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
+        # pro acA2440-20gm
+        core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib  # zvýšení expozice pro kalibraci
         pts_grbl = []
         current_corner_index = 0
         print(f"[CALIBRATION] Začínám kalibraci mikroskopu.")
@@ -671,7 +708,10 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 set_setting("calib_corners_grbl", pts_grbl_np.tolist())
                 config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
                 config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
-                core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time
+                # pro a2A5328 - 4gmPRO
+                # core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time # expozice pro test
+                # pro acA2440-20gm
+                core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # expozice pro test
                 switch_camera()
                 move_to_coordinates(base_x, base_y, calib_z)
                 messagebox.showinfo("Kalibrace", "Kalibrace dokončena.")
@@ -727,136 +767,177 @@ def _ensure_microscope():
     if actual_camera is None or actual_camera is camera:
         switch_camera()
 
+# --- Poměr černé a bílé plochy v obrázku (pro posun okraje drátu na střed obrázku) -------------
+def black_white_ratio(img, use_otsu=True, thresh_val=50):
+    """
+    Spočítá poměr černé a bílé plochy v obrázku.
+
+    Args:
+        img (numpy.ndarray): vstupní obrázek (BGR nebo grayscale)
+        use_otsu (bool): pokud True použije Otsu thresholding
+        thresh_val (int): pevná hodnota prahu (pokud use_otsu=False)
+
+    Returns:
+        (black_ratio, white_ratio)
+    """
+    # převod na grayscale (pokud je barevný)
+    if len(img.shape) == 3:
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    else:
+        gray = img.copy()
+
+    # prahování
+    if use_otsu:
+        _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    else:
+        _, thresh = cv2.threshold(gray, thresh_val, 255, cv2.THRESH_BINARY)
+
+    # spočítat pixely
+    total_pixels = gray.size
+    black_pixels = np.sum(thresh == 0)
+    white_pixels = np.sum(thresh == 255)
+
+    # poměry
+    black_ratio = black_pixels / total_pixels
+    white_ratio = white_pixels / total_pixels
+
+    return black_ratio, white_ratio
+
+# autofocus s plynulým jogem
+import time
+import numpy as np
+import cv2
+import core.motion_controller
+from core.motion_controller import send_gcode, cancel_move, move_to_coordinates
+
+def _to_gray(img):
+    if img is None:
+        return None
+    return img if img.ndim == 2 else cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+def _mpos_now():
+    try:
+        x, y, z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
+        return x, y, z
+    except Exception:
+        return 0.0, 0.0, 0.0
+
+def _scan_jog(z_start, dz, feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel):
+    """Provede jeden $J jog o délce dz, vrátí [(z,score)]."""
+    v_mms = feed_mm_min / 60.0
+    t_total = abs(dz) / max(v_mms, 1e-6)
+
+    send_gcode(f"$J=G91 G21 F{feed_mm_min:.3f} Z{dz:.3f}")
+    time.sleep(0.1)  # rozjezd
+
+    t0 = time.perf_counter()
+    samples = []
+    while True:
+        elapsed = time.perf_counter() - t0
+        if elapsed >= (t_total + 0.2):
+            break
+        img = get_image()
+        if img is None:
+            time.sleep(sample_sleep_s)
+            continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        eff_time = max(0.0, elapsed - cam_lag_s)
+        z = z_start + np.sign(dz) * v_mms * min(eff_time, t_total)
+        samples.append((z, s))
+        time.sleep(sample_sleep_s)
+
+    cancel_move()
+    time.sleep(settle_ms_after_cancel / 1000.0)
+    return samples
+
 def autofocus_z(
-    search_heights_mm=getattr(config, "autofocus_steps", (0.1, 0.01, 0.002)),
-    settle_s=0.08,
-    max_steps_per_level=120,
-    overshoot_backtrack=3, # kolik dalších kroků po sobě s už horší ostrosti
-    verbose=True,
+    dof_mm: float = 0.003,            # hloubka ostrosti mikroskopu
+    span_mm: float = 2.0,             # rozsah pro obousměrný jog
+    feed_mm_min: float = 10.0,        # rychlost jogu (mm/min)
+    sample_sleep_s: float = 0.02,
+    cam_lag_s: float = 0.15,
+    settle_ms_after_cancel: int = 120,
+    refine: bool = True,              # zapne přesné doostření po krocích
+    verbose: bool = True
 ):
     """
-    Vícestupňový hill-climb autofokus v ose Z pomocí Tenengrad ostrosti.
-
-    Algoritmus:
-      1) Na aktuální Z změříme ostrost.
-      2) Zkusíme +krok. Pokud se zlepší, pokračujeme stejným směrem.
-         Pokud ne, zkusíme opačný směr (–krok).
-      3) Pokud přijdou 3 po sobě jdoucí kroky s horší ostrostí,
-         vrátíme se na nejlepší Z aktuální úrovně (o N*step zpět)
-         a pokračujeme jemnějším krokem.
-      4) Po dojetí všech úrovní se nastaví nejlepší nalezené Z.
-
-    Návratová hodnota: (best_z, best_score)
+    Autofocus pro mikroskop s malou hloubkou ostrosti.
+    - 'dof_mm' = hloubka ostrosti (např. 0.003 mm)
+    - parametry scanu a feedy se odvozují automaticky z DOF
+    - pokud refine=False → skončí po hrubém jogu
     """
-    # _ensure_microscope()
 
-    # Přečti aktuální pozici stroje
-    try:
-        pos_x, pos_y, pos_z = [float(v) for v in core.motion_controller.grbl_last_position.split(",")]
-    except Exception:
-        # Pokud není k dispozici, zkus získat přímo snímek a pokračuj
-        img0 = _grab_focus_frame()
-        if img0 is None:
-            raise RuntimeError("Nelze získat snímek pro autofokus.")
-        # Bez znalosti Z nemůžeme jezdit -> chyba
-        raise RuntimeError("Nelze načíst aktuální GRBL pozici (grbl_last_position).")
+    # --- odvozené parametry podle DOF ---
+    fine_step = dof_mm / 3.0
+    fine_span = 3 * dof_mm
+    coarse_step = max(fine_step * 10, 0.005)
+    coarse_span = max(fine_span * 20, 0.05)
 
-    # Pomocná funkce pro přesun na Z
-    def goto_z(z_target):
-        move_to_coordinates(pos_x, pos_y, z_target)
-        # čas na uklidnění
-        time.sleep(settle_s)
+    fine_feed = (0.5 * dof_mm) / cam_lag_s * 60.0
+    fine_feed = max(5.0, min(fine_feed, 30.0))
+    coarse_feed = fine_feed * 2
 
-    # Změř startovní ostrost
-    img = _grab_focus_frame()
-    if img is None:
-        raise RuntimeError("Kamera nevrací snímky (autofokus).")
-    best_score = tenengrad_sharpness(img)
-    best_z = pos_z
     if verbose:
-        print(f"[AF] Start Z={best_z:.6f} mm, score={best_score:.2f}")
+        print(f"[AF] DOF={dof_mm*1000:.1f} µm → "
+              f"fine_step={fine_step*1000:.1f} µm, fine_span=±{fine_span*1000:.1f} µm, "
+              f"coarse_step={coarse_step*1000:.1f} µm, coarse_span=±{coarse_span:.3f} mm, "
+              f"fine_feed={fine_feed:.1f} mm/min")
 
-    current_z = pos_z
+    x0, y0, z0 = _mpos_now()
 
-    for level, step in enumerate(search_heights_mm, start=1):
-        if verbose:
-            print(f"[AF] Level {level}: step={step} mm")
+    # 1) jog dolů a nahoru
+    z_mid = z0 - span_mm / 2
+    samples_down = _scan_jog(z0, -span_mm / 2, feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel)
+    samples_up   = _scan_jog(z_mid, span_mm,     feed_mm_min, sample_sleep_s, cam_lag_s, settle_ms_after_cancel)
 
-        # Nejprve detekuj výhodnější směr (nahoru vs. dolů)
-        trial_scores = []
-        # Zkus +step
-        goto_z(current_z + step)
-        img_p = _grab_focus_frame()
-        s_plus = tenengrad_sharpness(img_p) if img_p is not None else -np.inf
-        # Zpět
-        goto_z(current_z)
+    all_samples = samples_down + samples_up
+    if not all_samples:
+        raise RuntimeError("Nebyla nasbírána žádná data autofocusu.")
 
-        # Zkus -step
-        goto_z(current_z - step)
-        img_m = _grab_focus_frame()
-        s_minus = tenengrad_sharpness(img_m) if img_m is not None else -np.inf
-        # Vrať se na výchozí
-        goto_z(current_z)
-
-        if s_plus >= s_minus:
-            direction = +1
-            if verbose:
-                print(f"[AF]  Preferuji směr + (s+={s_plus:.2f} >= s-={s_minus:.2f})")
-        else:
-            direction = -1
-            if verbose:
-                print(f"[AF]  Preferuji směr - (s-={s_minus:.2f} > s+={s_plus:.2f})")
-
-        worse_in_row = 0
-        steps_done = 0
-        local_best_z = best_z
-        local_best_score = best_score
-
-        while steps_done < max_steps_per_level:
-            # Udělej krok ve zvoleném směru
-            current_z = current_z + direction * step
-            goto_z(current_z)
-            img = _grab_focus_frame()
-            if img is None:
-                if verbose:
-                    print("[AF]  Varování: žádný snímek, krok přeskočen.")
-                continue
-            score = tenengrad_sharpness(img)
-            steps_done += 1
-
-            if verbose:
-                print(f"[AF]   Z={current_z:.6f} mm -> score={score:.2f}")
-
-            if score > local_best_score:
-                local_best_score = score
-                local_best_z = current_z
-                worse_in_row = 0
-                # průběžně aktualizuj i globální best
-                if score > best_score:
-                    best_score = score
-                    best_z = current_z
-            else:
-                worse_in_row += 1
-
-            # 3× po sobě horší? vrať se a jdi na jemnější krok
-            if worse_in_row >= overshoot_backtrack:
-                if verbose:
-                    print(f"[AF]   {overshoot_backtrack}× horší v řadě -> návrat na nejlepší a jemnější krok.")
-                # návrat na doposud nejlepší v úrovni
-                goto_z(local_best_z)
-                current_z = local_best_z
-                break  # přejdeme na další (jemnější) level
-
-        # Po ukončení levelu se drž lokálního maxima
-        goto_z(local_best_z)
-        current_z = local_best_z
-        if verbose:
-            print(f"[AF] Level {level} best: Z={local_best_z:.6f} mm, score={local_best_score:.2f}")
-
-    # Na konci nastav globální nejlepší
-    goto_z(best_z)
+    best_z, best_score = max(all_samples, key=lambda zs: zs[1])
     if verbose:
-        print(f"[AF] DONE -> Z={best_z:.6f} mm, score={best_score:.2f}")
-    return best_z, best_score
+        print(f"[AF] Odhad maxima z jogu → Z≈{best_z:.6f}, score={best_score:.2f}")
 
+    move_to_coordinates(x0, y0, best_z)
+    time.sleep(0.1)
 
+    if not refine:
+        if verbose:
+            print(f"[AF] DONE (bez refine) → Z={best_z:.6f}, score={best_score:.2f}")
+        return best_z, best_score
+
+    # 2) hrubý scan
+    lo = best_z - coarse_span
+    hi = best_z + coarse_span
+    zs = np.arange(lo, hi + 1e-9, coarse_step)
+
+    best_local_z, best_local_s = best_z, best_score
+    for zt in zs:
+        move_to_coordinates(x0, y0, float(zt), feed=coarse_feed)
+        time.sleep(0.05)
+        img = get_image()
+        if img is None: continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        if s > best_local_s:
+            best_local_s, best_local_z = s, zt
+
+    # 3) jemný scan
+    lo = best_local_z - fine_span
+    hi = best_local_z + fine_span
+    zs = np.arange(lo, hi + 1e-9, fine_step)
+
+    best_fine_z, best_fine_s = best_local_z, best_local_s
+    for zt in zs:
+        move_to_coordinates(x0, y0, float(zt), feed=fine_feed)
+        time.sleep(0.08)
+        img = get_image()
+        if img is None: continue
+        s = float(tenengrad_sharpness(_to_gray(img)))
+        if s > best_fine_s:
+            best_fine_s, best_fine_z = s, zt
+
+    move_to_coordinates(x0, y0, best_fine_z)
+
+    if verbose:
+        print(f"[AF] DONE refine → Z={best_fine_z:.6f}, score={best_fine_s:.2f}")
+    return best_fine_z, best_fine_s
