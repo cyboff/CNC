@@ -546,7 +546,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
 
             # textový hint
-            status = "Auto: OK (stiskni 'q' pro potvrzení)" if auto_ok else "Hledám rohy..."
+            status = "Auto: OK (stiskni 'q' pro potvrzeni)" if auto_ok else "Hledam rohy..."
             cv2.putText(img_bgr, status, (10, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 200, 255), 2, cv2.LINE_AA)
 
         # elif calib_step == "microscope":
