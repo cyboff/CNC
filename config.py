@@ -54,7 +54,7 @@ last_Z_position = default_Z_position  # lze měnit runtime
 sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 
 # Předdefinované pozice rohů kalibračního obrázku (pro kalibraci GRBL)
-calib_z = -56.800
+calib_z = float(get_setting("calib_z"))
 calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
 
 anti_backlash_axes = "XYZ"
