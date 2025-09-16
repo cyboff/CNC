@@ -4,6 +4,7 @@ import platform
 import threading
 import ttkbootstrap as ttk
 from PIL import Image, ImageTk
+from pyexpat.errors import messages
 
 from core.database import get_samples_by_project_id
 from core.logger import logger
@@ -106,8 +107,30 @@ def create_footer(container):
     footer_text = f"version: {VERSION}  |  Developed by {COMPANY}"
     ttk.Label(footer, text=footer_text, font=("Arial", 12), foreground="#d8e2f1", background="#48484c").pack(side="left", padx=10, pady=5)
 
-    status_label = ttk.Label(footer, text="Systém připraven.", font=("Arial", 12), foreground="#d8e2f1", background="#48484c")
+    status_label = ttk.Label(footer, text="Inicializace systému...", font=("Arial", 12), foreground="#d8e2f1", background="#48484c")
     status_label.pack(side="right", padx=12)
+
+    def update_status():
+        if status_label.winfo_exists():
+            if core.motion_controller.grbl_status is ( "Idle" or "Run" ):
+                cnc_status = "Připojeno"
+            else:
+                cnc_status = f"Stav: {core.motion_controller.grbl_status}"
+            if core.camera_manager.camera is not None:
+                camera_status = "Připojena"
+            else:
+                camera_status = "Není připojena"
+            if core.camera_manager.microscope is not None:
+                microscope_status = "Připojen"
+            else:
+                microscope_status = "Není připojen"
+            message = f"CNC: {cnc_status} | Kamera: {camera_status} | Mikroskop: {microscope_status}"
+            status_label.config(text=message)
+            footer.after(5000, update_status)
+
+    status_timer = threading.Timer(5, update_status)
+    status_timer.daemon = True
+    status_timer.start()
 
 def create_camera_preview(parent, frame_width, frame_height, get_position, start_preview):
     preview_frame = ttk.Frame(parent)

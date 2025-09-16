@@ -108,10 +108,12 @@ def send_gcode(command: str):
                 if cnc_serial.in_waiting:
                     decoded = cnc_serial.readline().decode(errors='ignore').strip()
                     # Stav
-                    if "Idle" in decoded:
+                    if ("Idle" in decoded) or ("idle" in decoded):
                         grbl_status = "Idle"
-                    elif "Run" in decoded:
+                    elif ("Run" in decoded) or ("run" in decoded):
                         grbl_status = "Run"
+                    elif ("Jog" in decoded) or ("jog" in decoded):
+                        grbl_status = "Jog"
                     elif ("Error" in decoded) or ("error" in decoded):
                         grbl_status = "Error"
                     elif ("Alarm" in decoded) or ("alarm" in decoded):
