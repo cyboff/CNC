@@ -22,7 +22,7 @@ def show_find_samples(container, project_id, samples, on_back):
     for widget in container.winfo_children():
         widget.destroy()
     print(f"Krok 3: Spouštím detekci vzorků pro projekt {project_id} s {len(samples)} vzorky")
-    create_header(container, "CNC Sample Detector - Krok 3: Hledání vzorků", on_back)
+    create_header(container, "WDS - Wire Defect Scanner - Krok 3: Hledání vzorků", on_back)
     create_footer(container)
 
     main_frame = ttk.Frame(container)

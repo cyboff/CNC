@@ -77,7 +77,7 @@ def center_window(window, width=1500, height=1000):
     window.geometry(f"{width}x{height}+{x}+{y}")
 
 
-def create_header(container, title="CNC Sample Detector", on_back=None):
+def create_header(container, title="WDS - Wire Defect Scanner", on_back=None):
     header = ttk.Frame(container, style="Header.TFrame")
     header.pack(fill="x", pady=(0, 10))
 
@@ -112,10 +112,10 @@ def create_footer(container):
 
     def update_status():
         if status_label.winfo_exists():
-            if core.motion_controller.grbl_status is ( "Idle" or "Run" ):
+            if core.motion_controller.grbl_status is ( "Idle" or "Run" or "Jog" ):
                 cnc_status = "Připojeno"
             else:
-                cnc_status = f"Stav: {core.motion_controller.grbl_status}"
+                cnc_status = f"{core.motion_controller.grbl_status}"
             if core.camera_manager.camera is not None:
                 camera_status = "Připojena"
             else:
@@ -124,9 +124,9 @@ def create_footer(container):
                 microscope_status = "Připojen"
             else:
                 microscope_status = "Není připojen"
-            message = f"CNC: {cnc_status} | Kamera: {camera_status} | Mikroskop: {microscope_status}"
+            message = f"Stav CNC: {cnc_status} | Kamera: {camera_status} | Mikroskop: {microscope_status}"
             status_label.config(text=message)
-            footer.after(5000, update_status)
+            footer.after(100, update_status)
 
     status_timer = threading.Timer(5, update_status)
     status_timer.daemon = True

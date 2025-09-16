@@ -1,7 +1,7 @@
 import numpy as np
 
 # === Obecné nastavení programu ===
-APP_NAME = "CNC Sample Detector"
+APP_NAME = "WDS - Wire Defect Scanner"
 VERSION = "1.0.0"
 COMPANY = "S.S.K. a.s."
 

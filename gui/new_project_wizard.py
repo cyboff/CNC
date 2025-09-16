@@ -13,7 +13,7 @@ def open_new_project_wizard(container, on_back):
         widget.destroy()
 
     # Horní lišta s nadpisem a tlačítkem Zpět
-    create_header(container, "CNC Sample Detector -  Krok 1: vytvoření nového projektu",on_back)
+    create_header(container, "WDS - Wire Defect Scanner -  Krok 1: vytvoření nového projektu",on_back)
     create_footer(container)
 
    # create_step_header(container, "Krok 1: Vytvoření nového projektu")

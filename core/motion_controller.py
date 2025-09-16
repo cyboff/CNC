@@ -13,7 +13,7 @@ position_timer = None
 
 position_lock = threading.Lock()
 io_lock = threading.RLock()
-grbl_status = "Unknown"  # Stav GRBL, zda je Idle nebo ne
+grbl_status = "Nepřipojeno"  # Stav GRBL, zda je Idle nebo ne
 grbl_last_position = "0.001,0.002,0.003"
 
 
@@ -158,6 +158,21 @@ def _get_ab_amount() -> float:
     except Exception:
         return 0.02
 
+def _send_realtime(byte_cmd: bytes):
+    """
+    Odeslání real-time příkazu do GRBL (např. b'!', b'~', b'\x85').
+    Nepřidává newline a drží io_lock, aby se to nepralo s další I/O.
+    """
+    global cnc_serial, io_lock
+    if cnc_serial is None or not cnc_serial.is_open:
+        print("[GRBL] Port není otevřený")
+        return
+    with io_lock:
+        try:
+            cnc_serial.write(byte_cmd)
+            cnc_serial.flush()
+        except Exception as e:
+            print(f"[GRBL] Chyba při odesílání real-time příkazu: {e}")
 
 def move_axis(axis: str, value: float):
     """
@@ -173,9 +188,10 @@ def grbl_home():
     global cnc_serial, grbl_last_position, grbl_status, position_lock
     with io_lock:
         try:
-            send_gcode("$H")
             grbl_status = "Homing"
-            print("🏠 GRBL Home odesláno")
+            print("[GRBL] Spouštím homing ($H)")
+            send_gcode("$H")
+
         except Exception as e:
             print("⚠️  Chyba zasílání Home:", e)
             return
@@ -195,33 +211,18 @@ def grbl_clear_alarm():
     """
     Odblokuje ALARM stav ($X)
     """
-    send_gcode("$X")
+    _send_realtime(b"$X\n")
     time.sleep(0.5)
+    print("[GRBL] Clear alarm odeslán ($X)")
 
 def grbl_abort():
     """
     Nouzové přerušení (ctrl-x)
     """
     global cnc_serial
-    send_gcode("\x18")  # Odeslání Ctrl-X jako G-code příkazu
+    _send_realtime(b'\x18')  # Odeslání Ctrl-X jako G-code příkazu
     time.sleep(0.5)  # Krátká prodleva pro stabilitu
     print("[GRBL] Abort odeslán (Ctrl-X)")
-
-def _send_realtime(byte_cmd: bytes):
-    """
-    Odeslání real-time příkazu do GRBL (např. b'!', b'~', b'\x85').
-    Nepřidává newline a drží io_lock, aby se to nepralo s další I/O.
-    """
-    global cnc_serial, io_lock
-    if cnc_serial is None or not cnc_serial.is_open:
-        print("[GRBL] Port není otevřený")
-        return
-    with io_lock:
-        try:
-            cnc_serial.write(byte_cmd)
-            cnc_serial.flush()
-        except Exception as e:
-            print(f"[GRBL] Chyba při odesílání real-time příkazu: {e}")
 
 def feed_hold():
     """Okamžitý řízený stop bez ztráty pozice (stav -> Hold)."""

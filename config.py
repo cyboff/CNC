@@ -3,8 +3,8 @@ import json
 import numpy as np
 
 # === Obecné nastavení programu ===
-APP_NAME = "CNC Sample Detector"
-VERSION = "0.9.5"
+APP_NAME = "WDS - Wire Defect Scanner"
+VERSION = "0.9.7"
 COMPANY = "S.S.K. a.s."
 
 # === Cesty ===

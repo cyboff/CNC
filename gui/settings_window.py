@@ -12,7 +12,7 @@ def show_settings(container, on_back):
 
     logger.info("Kliknutí na nastavení")
 
-    create_header(container, "CNC Sample Detector – Nastavení",on_back)
+    create_header(container, "WDS - Wire Defect Scanner – Nastavení",on_back)
     create_footer(container)
 
     settings = get_all_settings()

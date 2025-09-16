@@ -13,7 +13,7 @@ def show_projects(container, on_back):
 
 
     # Horní lišta s nadpisem a tlačítkem Zpět
-    create_header(container, "CNC Sample Detector - projekty",on_back)
+    create_header(container, "WDS - Wire Defect Scanner - projekty",on_back)
     create_footer(container)
 
     top_bar = ttk.Frame(container)
@@ -64,7 +64,7 @@ def open_project_detail(container, project_id, on_back):
         widget.destroy()
 
     logger.info(f"Zobrazení detailu měření ID {project_id}")
-    create_header(container, "CNC Sample Detector - detail projektu",on_back)
+    create_header(container, "WDS - Wire Defect Scanner - detail projektu",on_back)
     create_footer(container)
 
     top_bar = ttk.Frame(container)

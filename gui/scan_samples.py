@@ -13,7 +13,7 @@ def sample_scanner(container, project_id, on_back):
 
     samples = []
     print(f"Krok 2: Skenování EAN kódů pro projekt {project_id}")
-    create_header(container, "CNC Sample Detector - Krok 2: Skenování EAN kódů")
+    create_header(container, "WDS - Wire Defect Scanner - Krok 2: Skenování EAN kódů")
     create_footer(container)
     create_back_button(container, on_back)
 

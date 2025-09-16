@@ -8,7 +8,7 @@ def show_log_view(container, on_back):
         widget.destroy()
 
     # Horní lišta s nadpisem a tlačítkem Zpět
-    create_header(container, "CNC Sample Detector - log záznamů",on_back)
+    create_header(container, "WDS - Wire Defect Scanner - log záznamů",on_back)
     create_footer(container)
 
 
