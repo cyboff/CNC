@@ -23,8 +23,10 @@ from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ra
 
 def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
     sample_positions = []
-    # TODO: Upravit počet bodů podle potřeby - doladit na základě reálných dat
-    precision = 12 # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu
+
+    # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu drátu
+    precision = 20 # Pro 5x objektiv
+    # precision = 12 # pro 10x objektiv
 
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
         core.camera_manager.switch_camera()
@@ -83,7 +85,8 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                             alpha = (target_len - prev_len) / (next_len - prev_len) if next_len > prev_len else 0
                             interp_point = (1 - alpha) * points[(idx - 1) % num_points] + alpha * points[idx % num_points]
                         # Vykreslíme interpolovaný bod na obrázek
-                        cv2.circle(img, tuple(np.round(interp_point).astype(int)), 20, (255, 0, 0), 1)
+                        # cv2.circle(img, tuple(np.round(interp_point).astype(int)), 20, (255, 0, 0), 1)
+                        cv2.circle(img, tuple(np.round(interp_point).astype(int)), 40, (255, 0, 0), 1)
                         # Uložíme bod do seznamu s indexem drátu
                         item_points.append((i, (int(interp_point[0]), int(interp_point[1]))))
                     print(f"[FIND] Detekováno {sum(1 for idx, _ in item_points if idx == i)} bodů na drátě {i+1} vzorku {code}")
@@ -320,42 +323,42 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     if z_step > 5.0:
                         print("[MICROSCOPE] Dosáhli jsme maximálního rozsahu Z, ukončuji snímání.")
                         break
-                    # Kontrola zda hrana drátu je na obrázku
-                    if black_ratio > 0.7:
-                        # zmenšíme poloměr, pokud je okraj příliš velký
-                        dx = px - cx
-                        dy = py - cy
-                        dist = np.hypot(dx, dy)
-                        if dist > (0.8 * (black_ratio - 0.5)):
-                            scale = (dist - (0.8 * (black_ratio - 0.5))) / dist
-                            px = cx + dx * scale
-                            py = cy + dy * scale
-                            print(f"[MICROSCOPE] Vysoký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zmenšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
-                            max_sharpness = 0.0  # Vynulujeme ostrost, abychom pokračovali v hledání
-
-                    # TODO: doladit problém, kdy jsou dráty zcela u sebe
-                    if black_ratio < 0.3 and max_sharpness > 250:
-                        if black_ratio > max_black_ratio + 0.002: # přidáme 0.2% hysterezi
-                            previous_px = px
-                            previous_py = py
-                            max_black_ratio = black_ratio
-
-                        dx = px - cx
-                        dy = py - cy
-                        dist = np.hypot(dx, dy)
-
-                        scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
-                        px = cx + dx * scale
-                        py = cy + dy * scale
-                        print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
-                        max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
-
-                    # pokud předchozí kroky situaci zhoršily, vrátime se
-                    if max_black_ratio > black_ratio and attempt == 4:
-                        px = previous_px
-                        py = previous_py
-                        max_sharpness = 0.0
-                        print(f"[MICROSCOPE] Poměr černé byl lepší {max_black_ratio:.1%} > {black_ratio:.1%}, vracím na původní souřadnice")
+                    # Kontrola zda hrana drátu je na obrázku -jen pro 10x objektiv
+                    # if black_ratio > 0.7:
+                    #     # zmenšíme poloměr, pokud je okraj příliš velký
+                    #     dx = px - cx
+                    #     dy = py - cy
+                    #     dist = np.hypot(dx, dy)
+                    #     if dist > (0.8 * (black_ratio - 0.5)):
+                    #         scale = (dist - (0.8 * (black_ratio - 0.5))) / dist
+                    #         px = cx + dx * scale
+                    #         py = cy + dy * scale
+                    #         print(f"[MICROSCOPE] Vysoký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zmenšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                    #         max_sharpness = 0.0  # Vynulujeme ostrost, abychom pokračovali v hledání
+                    #
+                    # # TODO: doladit problém, kdy jsou dráty zcela u sebe
+                    # if black_ratio < 0.3 and max_sharpness > 250:
+                    #     if black_ratio > max_black_ratio + 0.002: # přidáme 0.2% hysterezi
+                    #         previous_px = px
+                    #         previous_py = py
+                    #         max_black_ratio = black_ratio
+                    #
+                    #     dx = px - cx
+                    #     dy = py - cy
+                    #     dist = np.hypot(dx, dy)
+                    #
+                    #     scale = (dist + (0.8 * (0.5 - black_ratio))) / dist
+                    #     px = cx + dx * scale
+                    #     py = cy + dy * scale
+                    #     print(f"[MICROSCOPE] Nízký poměr černé {black_ratio:.1%}, ostrost {max_sharpness:.1f}, zvětšuji poloměr na {np.hypot(px - cx, py - cy):.1f} mm")
+                    #     max_sharpness = 0.0 # Vynulujeme ostrost, abychom pokračovali v hledání
+                    #
+                    # # pokud předchozí kroky situaci zhoršily, vrátime se
+                    # if max_black_ratio > black_ratio and attempt == 4:
+                    #     px = previous_px
+                    #     py = previous_py
+                    #     max_sharpness = 0.0
+                    #     print(f"[MICROSCOPE] Poměr černé byl lepší {max_black_ratio:.1%} > {black_ratio:.1%}, vracím na původní souřadnice")
 
                 attempt += 1
                 if attempt > 5:  # Maximální počet pokusů

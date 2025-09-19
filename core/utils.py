@@ -128,7 +128,7 @@ def create_footer(container):
             status_label.config(text=message)
             footer.after(100, update_status)
 
-    status_timer = threading.Timer(5, update_status)
+    status_timer = threading.Timer(1, update_status)
     status_timer.daemon = True
     status_timer.start()
 

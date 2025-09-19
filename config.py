@@ -8,8 +8,8 @@ VERSION = "0.9.7"
 COMPANY = "S.S.K. a.s."
 
 # === Cesty ===
-PROJECTS_DIR = "projects"
-DATABASE_PATH = "data/database.db"
+PROJECTS_DIR = get_setting("PROJECTS_DIR") == "projects"
+DATABASE_PATH = get_setting("DATABASE_PATH") == "data/database.db"
 
 # === Kamera ===
 CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
@@ -21,8 +21,8 @@ microscope_exposure_time_calib = int(get_setting("microscope_exposure_time_calib
 CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
 CNC_BAUDRATE = int(get_setting("CNC_BAUDRATE"))
 CNC_TIMEOUT = 1  # v sekundách
-CNC_RTS = get_setting("CNC_RTS") == "False"
-CNC_DTR = get_setting("CNC_DTR") == "False"
+CNC_RTS = "False"
+CNC_DTR = "False"
 
 # === Výchozí rozměry okna ===
 def safe_int(value, default=1000):
