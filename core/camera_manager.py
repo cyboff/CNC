@@ -64,18 +64,21 @@ def init_cameras():
         # microscope.ExposureAuto.SetValue("Continuous")
         microscope.GainAuto.SetValue("Off")
         microscope.ExposureAuto.SetValue("Off")
-        # pro acA2440-20gm
-        # microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # in microseconds
-        # microscope.GainRaw.Value = 0
 
-        # pro a2A5328-4gmPRO (jinak Chyba při inicializaci kamery: Node not existing (file 'genicam_wrap.cpp', line 16815)
-        microscope.ExposureTime.Value = config.microscope_exposure_time  # in microseconds
-        # ořez kvuli vinětaci
-        microscope.Width.SetValue(min(microscope.Width.GetMax(), 4000))
-        microscope.Height.SetValue(min(microscope.Height.GetMax(), 4000))
-        microscope.OffsetX.SetValue((microscope.Width.GetMax() - microscope.Width.GetValue()) // 2)
-        # microscope.OffsetY.SetValue((microscope.Height.GetMax() - microscope.Height.GetValue()) // 2)
-        microscope.OffsetY.SetValue(0)  # lepší než vycentrované, kvůli mechanice
+        if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
+            # pro acA2440-20gm
+            microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # in microseconds
+            microscope.GainRaw.Value = 0
+
+        if microscope.GetDeviceInfo().GetModelName() == "a2A5328-4gmPRO":
+            # pro a2A5328-4gmPRO (jinak Chyba při inicializaci kamery: Node not existing (file 'genicam_wrap.cpp', line 16815)
+            microscope.ExposureTime.Value = config.microscope_exposure_time  # in microseconds
+            # ořez kvuli vinětaci
+            microscope.Width.SetValue(min(microscope.Width.GetMax(), 4000))
+            microscope.Height.SetValue(min(microscope.Height.GetMax(), 4000))
+            microscope.OffsetX.SetValue((microscope.Width.GetMax() - microscope.Width.GetValue()) // 2)
+            # microscope.OffsetY.SetValue((microscope.Height.GetMax() - microscope.Height.GetValue()) // 2)
+            microscope.OffsetY.SetValue(0)  # lepší než vycentrované, kvůli mechanice
         # microscope.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
         print(f"Rozlišení mikroskopu nastaveno na {microscope.Width.Value}x{microscope.Height.Value}")
 
@@ -646,10 +649,13 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         nonlocal current_corner_index, pts_grbl, calib_corners_grbl, prev_correction_matrix_main
         if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.camera:
             switch_camera()
-        # pro a2A5328 - 4gmPRO
-        core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
-        # pro acA2440-20gm
-        # core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib  # zvýšení expozice pro kalibraci
+
+        if microscope.GetDeviceInfo().GetModelName() == "a2A5328-4gmPRO":
+            # pro a2A5328 - 4gmPRO
+            core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time_calib # zvýšení expozice pro kalibraci
+        if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
+            # pro acA2440-20gm
+            core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib  # zvýšení expozice pro kalibraci
         pts_grbl = []
         current_corner_index = 0
         print(f"[CALIBRATION] Začínám kalibraci mikroskopu.")
@@ -716,10 +722,12 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                 set_setting("calib_corners_grbl", pts_grbl_np.tolist())
                 config.correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
                 config.calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
-                # pro a2A5328 - 4gmPRO
-                core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time # expozice pro test
-                # pro acA2440-20gm
-                # core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # expozice pro test
+                if microscope.GetDeviceInfo().GetModelName() == "a2A5328-4gmPRO":
+                    # pro a2A5328 - 4gmPRO
+                    core.camera_manager.microscope.ExposureTime.Value = config.microscope_exposure_time # expozice pro test
+                if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
+                    # pro acA2440-20gm
+                    core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # expozice pro test
                 switch_camera()
                 move_to_coordinates(base_x, base_y, calib_z)
                 messagebox.showinfo("Kalibrace", "Kalibrace dokončena.")

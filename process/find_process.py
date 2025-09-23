@@ -25,7 +25,8 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
     sample_positions = []
 
     # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu drátu
-    precision = 20 # Pro 5x objektiv
+    precision = config.precision
+    # precision = 20 # Pro 5x objektiv
     # precision = 12 # pro 10x objektiv
 
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
@@ -84,9 +85,8 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                             next_len = cumlen[idx]
                             alpha = (target_len - prev_len) / (next_len - prev_len) if next_len > prev_len else 0
                             interp_point = (1 - alpha) * points[(idx - 1) % num_points] + alpha * points[idx % num_points]
-                        # Vykreslíme interpolovaný bod na obrázek
-                        # cv2.circle(img, tuple(np.round(interp_point).astype(int)), 20, (255, 0, 0), 1)
-                        cv2.circle(img, tuple(np.round(interp_point).astype(int)), 40, (255, 0, 0), 1)
+                        # Vykreslíme interpolovaný bod na obrázek pro kontrolu - radius 2*precision
+                        cv2.circle(img, tuple(np.round(interp_point).astype(int)), 2 * precision, (255, 0, 0), 1)
                         # Uložíme bod do seznamu s indexem drátu
                         item_points.append((i, (int(interp_point[0]), int(interp_point[1]))))
                     print(f"[FIND] Detekováno {sum(1 for idx, _ in item_points if idx == i)} bodů na drátě {i+1} vzorku {code}")
@@ -94,7 +94,20 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                 # Uložíme obrázek do projektu
                 image_path = save_image_to_project(project_id, img, f"sample_{code}_position_{pos}.jpg")
                 # Zobrazíme náhled obrázku v GUI
-                img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
+                # Rozměry dle velikosti frame
+                h, w = img.shape[:2]
+                target_h, target_w = config.frame_height, config.frame_width
+                aspect = w / h
+                target_aspect = target_w / target_h
+                if aspect > target_aspect:
+                    new_w = target_w
+                    new_h = int(target_w / aspect)
+                else:
+                    new_h = target_h
+                    new_w = int(target_h * aspect)
+
+                img = cv2.resize(img, (new_w, new_h))
+                # img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
                 im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
                 imgtk = ImageTk.PhotoImage(image=im_pil)
                 if image_label.winfo_exists():

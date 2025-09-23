@@ -20,15 +20,18 @@ def show_settings(container, on_back):
     scrollable = ScrollableFrame(container)
     scrollable.pack(fill="both", expand=True, padx=20, pady=10)
     frame = scrollable.get_frame()
+    frame.pack(fill="both", expand=True, padx=20, pady=10)
+    frame.grid_columnconfigure(0, weight=1)
+    frame.grid_columnconfigure(1, weight=20)
 
     entries = {}
     row = 0
 
     for key, value in settings.items():
-        ttk.Label(frame, text=key.upper(), font=("Helvetica", 10, "bold"), anchor="e", width=25).grid(row=row, column=0, sticky="e", padx=5, pady=5)
+        ttk.Label(frame, text=key.upper(), font=("Helvetica", 10, "bold"), anchor="e").grid(row=row, column=0, sticky="ew", padx=5, pady=5)
         var = ttk.StringVar(value=str(value))
-        entry = ttk.Entry(frame, textvariable=var, width=60)
-        entry.grid(row=row, column=1, sticky="w", padx=5, pady=5)
+        entry = ttk.Entry(frame, textvariable=var)
+        entry.grid(row=row, column=1, sticky="ew", padx=5, pady=5)
         entries[key] = var
         row += 1
 

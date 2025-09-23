@@ -42,7 +42,7 @@ def show_find_samples(container, project_id, samples, on_back):
     tree.heading("Detected Items", text="Detekované dráty")
     tree.column("Sample", width=100, anchor="center")
     tree.column("Position", width=100, anchor="center")
-    tree.column("Detected Items", width=100, anchor="center")
+    tree.column("Detected Items", width=150, anchor="center")
     tree.pack(fill="both", expand=True)
 
     def on_click(event):

@@ -173,7 +173,20 @@ def show_image(image_label, project_id, ean, pos):
         return
     else:
         # Zobrazíme náhled obrázku v GUI
-        img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
+        # Rozměry dle velikosti frame
+        h, w = img.shape[:2]
+        target_h, target_w = config.frame_height, config.frame_width
+        aspect = w / h
+        target_aspect = target_w / target_h
+        if aspect > target_aspect:
+            new_w = target_w
+            new_h = int(target_w / aspect)
+        else:
+            new_h = target_h
+            new_w = int(target_h * aspect)
+
+        img = cv2.resize(img, (new_w, new_h))
+        # img = cv2.resize(img, (config.frame_width, config.frame_height))  # Změna velikosti na rozměry náhledu
         im_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
         imgtk = ImageTk.PhotoImage(image=im_pil)
         if image_label.winfo_exists():

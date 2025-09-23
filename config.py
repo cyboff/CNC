@@ -1,6 +1,7 @@
 from core.settings import get_setting, set_setting
 import json
 import numpy as np
+from screeninfo import get_monitors
 
 # === Obecné nastavení programu ===
 APP_NAME = "WDS - Wire Defect Scanner"
@@ -8,8 +9,7 @@ VERSION = "0.9.7"
 COMPANY = "S.S.K. a.s."
 
 # === Cesty ===
-PROJECTS_DIR = get_setting("PROJECTS_DIR") == "projects"
-DATABASE_PATH = get_setting("DATABASE_PATH") == "data/database.db"
+PROJECTS_DIR = get_setting("PROJECTS_DIR")
 
 # === Kamera ===
 CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
@@ -31,20 +31,29 @@ def safe_int(value, default=1000):
     except (ValueError, TypeError):
         return default
 
-WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1500)
-WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 1000)
+def get_max_screen_resolution():
+    monitor = get_monitors()[0]
+    return monitor.width, monitor.height
+
+max_width, max_height = get_max_screen_resolution()
+WINDOW_WIDTH = min(safe_int(get_setting("WINDOW_WIDTH"), 2500), max_width)
+WINDOW_HEIGHT = min(safe_int(get_setting("WINDOW_HEIGHT"), 1800), max_height)
 
 # Rozměry výstupního rámce (např. zobrazení videa)
-frame_width = int(get_setting("frame_width"))
-frame_height = int(get_setting("frame_height"))
+frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
+frame_height = min(safe_int(get_setting("frame_height"), 1500), int(WINDOW_HEIGHT * 0.75))
 
-# Rozlišení kamery (v pixelech)
+# Rozlišení hlavní kamery (v pixelech)
 image_width = int(get_setting("image_width"))
 image_height = int(get_setting("image_height"))
 
 # Korekční matice pro transformaci perspektivy
 correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
 correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
+
+# Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky
+# - čím vyšší číslo, tím méně snímků na obvodu drátu
+precision = int(get_setting("precision")) # Pro 5x objektiv - 20, pro 10x objektiv - 12
 
 # Výchozí pozice osy Z (např. výška mikroskopu)
 default_Z_position = float(get_setting("default_Z_position"))
@@ -57,6 +66,7 @@ sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
 calib_z = float(get_setting("calib_z"))
 calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
 
+# Anti-backlash nastavení pro pojezdy
 anti_backlash_axes = "XYZ"
 anti_backlash_mm = 0.02
 anti_backlash_final_dir = {'X': +1, 'Y': +1, 'Z': +1}

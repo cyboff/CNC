@@ -1,6 +1,8 @@
 import os
 import re
 import cv2
+
+import config
 from core.database import get_project_by_id
 
 def create_project_folder(project_id):
@@ -14,8 +16,8 @@ def create_project_folder(project_id):
     # Normalizace jména
     safe_name = re.sub(r'\W+', '_', project_name).strip('_')
     timestamp = created_at.replace(" ", "_").replace(":", "_").replace("-", "_")
-    projects_dir = f"{timestamp}_{project_id}_{project_name}"
-    project_path = os.path.join("projects", projects_dir)
+    project_dir = f"{timestamp}_{project_id}_{project_name}"
+    project_path = os.path.join(config.PROJECTS_DIR, project_dir)
 
     os.makedirs(project_path, exist_ok=True)
     os.makedirs(os.path.join(project_path, "images"), exist_ok=True)
@@ -39,8 +41,8 @@ def get_project_folder(project_id):
     # Normalizace jména
     safe_name = re.sub(r'\W+', '_', project_name).strip('_')
     timestamp = created_at.replace(" ", "_").replace(":", "_").replace("-", "_")
-    projects_dir = f"{timestamp}_{project_id}_{project_name}"
-    project_path = os.path.join("projects", projects_dir)
+    project_dir = f"{timestamp}_{project_id}_{project_name}"
+    project_path = os.path.join(config.PROJECTS_DIR, project_dir)
     if os.path.exists(project_path):
         return project_path
     else:

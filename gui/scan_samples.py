@@ -23,16 +23,29 @@ def sample_scanner(container, project_id, on_back):
     entry.pack(pady=5)
     entry.focus()
 
-    listbox = tk.Listbox(container, height=10, font=("Courier", 12))
-    listbox.pack(padx=10, pady=10, fill="both", expand=True)
+    tree = ttk.Treeview(
+        container,
+        columns=("code", "position"),
+        show="headings",
+        height=10
+    )
+    tree.heading("code", text="Vzorek - EAN kód")
+    tree.heading("position", text="Vložte na pozici")
+    tree.column("code", width=100, anchor="center")
+    tree.column("position", width=100, anchor="center")
+    tree.pack(padx=200, pady=10, fill="both", expand=True)
 
     def on_scan(event=None):
         code = entry.get().strip()
         if code and code not in samples:
             samples.append(code)
-            listbox.insert("end", code)
+            tree.insert(
+                "",
+                "end",
+                values=(code, config.sample_positions_mm[len(samples)-1][0])
+            )
             entry.delete(0, "end")
-            logger.info(f"Načten EAN kód: {code}")
+            logger.info(f"Načten EAN kód: {code} pro pozici {config.sample_positions_mm[len(samples)-1][0]}")
         elif code in samples:
             Messagebox.show_info("Kód už byl načten.")
             logger.warning(f"EAN kód {code} byl již načten")
