@@ -93,8 +93,13 @@ def switch_camera():
             if actual_camera.IsGrabbing():
                 actual_camera.StopGrabbing()
             if actual_camera is microscope:
+                camera.ExposureTimeAbs.Value = config.camera_exposure_time # pro případ změny expozice v nastavení
                 actual_camera = camera
             else:
+                if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
+                    microscope.ExposureTimeAbs.Value = config.microscope_exposure_time
+                if microscope.GetDeviceInfo().GetModelName() == "a2A5328-4gmPRO":
+                    microscope.ExposureTime.Value = config.microscope_exposure_time
                 actual_camera = microscope
 
         try:

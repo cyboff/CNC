@@ -1,4 +1,4 @@
-from core.settings import get_setting, set_setting
+from core.settings import get_setting
 import json
 import numpy as np
 from screeninfo import get_monitors
@@ -70,3 +70,45 @@ calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))
 anti_backlash_axes = "XYZ"
 anti_backlash_mm = 0.02
 anti_backlash_final_dir = {'X': +1, 'Y': +1, 'Z': +1}
+
+def reload_settings():
+    global CAMERA_IPS, camera_exposure_time, microscope_exposure_time, microscope_exposure_time_calib
+    global CNC_SERIAL_PORT, CNC_BAUDRATE
+    global WINDOW_WIDTH, WINDOW_HEIGHT
+    global frame_width, frame_height
+    global image_width, image_height
+    global correction_matrix, correction_matrix_grbl
+    global precision
+    global default_Z_position
+    global sample_positions_mm
+    global calib_z, calib_corners_grbl
+
+    CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
+    camera_exposure_time = int(get_setting("camera_exposure_time"))  # v milisekundách
+    microscope_exposure_time = int(get_setting("microscope_exposure_time"))  # v milisekundách
+    microscope_exposure_time_calib = int(get_setting("microscope_exposure_time_calib"))  # pro kalibrační obraz
+
+    CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
+    CNC_BAUDRATE = int(get_setting("CNC_BAUDRATE"))
+
+    max_width, max_height = get_max_screen_resolution()
+    WINDOW_WIDTH = min(safe_int(get_setting("WINDOW_WIDTH"), 2500), max_width)
+    WINDOW_HEIGHT = min(safe_int(get_setting("WINDOW_HEIGHT"), 1800), max_height)
+
+    frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
+    frame_height = min(safe_int(get_setting("frame_height"), 1500), int(WINDOW_HEIGHT * 0.75))
+
+    image_width = int(get_setting("image_width"))
+    image_height = int(get_setting("image_height"))
+
+    correction_matrix = np.array(json.loads(get_setting("correction_matrix")))
+    correction_matrix_grbl = np.array(json.loads(get_setting("correction_matrix_grbl")))
+
+    precision = int(get_setting("precision")) # Pro 5x objektiv - 20, pro 10x objektiv - 12
+
+    default_Z_position = float(get_setting("default_Z_position"))
+
+    sample_positions_mm = json.loads(get_setting("sample_positions_mm"))
+
+    calib_z = float(get_setting("calib_z"))
+    calib_corners_grbl = np.array(json.loads(get_setting("calib_corners_grbl")))

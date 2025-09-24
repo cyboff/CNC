@@ -19,6 +19,7 @@ def create_project_folder(project_id):
     project_dir = f"{timestamp}_{project_id}_{project_name}"
     project_path = os.path.join(config.PROJECTS_DIR, project_dir)
 
+    os.makedirs(config.PROJECTS_DIR, exist_ok=True)
     os.makedirs(project_path, exist_ok=True)
     os.makedirs(os.path.join(project_path, "images"), exist_ok=True)
 

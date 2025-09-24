@@ -1,5 +1,6 @@
 import ttkbootstrap as ttk
 from tkinter import StringVar, messagebox
+import config
 from core.logger import logger
 from core.settings import get_setting, set_setting
 from core.utils import create_back_button, create_header, create_footer
@@ -39,7 +40,13 @@ def show_settings(container, on_back):
         for key, var in entries.items():
             set_setting(key, var.get())
 
-        messagebox.showinfo("Uloženo", "Nastavení byla uložena.")
-        logger.info("Nastavení uložena")
+        try:
+            config.reload_settings()
+            logger.info("Nastavení uložena a načtena bez restartu.")
+            messagebox.showinfo("Uloženo", "Nastavení byla uložena a načtena bez restartu.")
+        except Exception as e:
+            logger.exception("Nepodařilo se reloadnout config: %s", e)
+            messagebox.showwarning("Uloženo s výhradou",
+                                   f"Nastavení byla uložena, ale nepodařilo se reloadnout config:\n{e}")
 
     ttk.Button(container, text="💾 Uložit", command=save_settings, bootstyle="success").pack(pady=15)
