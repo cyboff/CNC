@@ -1,7 +1,5 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.dialogs import Messagebox
-import tkinter as tk
-
 import config
 from core.logger import logger
 from core.utils import create_header, create_footer, create_back_button

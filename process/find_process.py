@@ -3,8 +3,6 @@
 Modul pro najíždění na základní pozici a detekci vzorků pomocí hlavní kamery.
 Vrací seznam souřadnic vzorků [(x1, y1), (x2, y2), ...].
 """
-from os import waitpid
-
 import cv2
 import numpy as np
 from ttkbootstrap.dialogs import Messagebox

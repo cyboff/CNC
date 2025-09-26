@@ -1,8 +1,5 @@
 import threading
-from tkinter import ttk, Label
-
-from ttkbootstrap.dialogs import Messagebox
-
+from tkinter import ttk
 import config
 import time
 import core.camera_manager
