@@ -1,6 +1,7 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.dialogs import Messagebox
 import config
+from core.database import save_project_sample_to_db
 from core.logger import logger
 from core.utils import create_header, create_footer, create_back_button
 from gui.find_samples import show_find_samples
@@ -37,13 +38,17 @@ def sample_scanner(container, project_id, on_back):
         code = entry.get().strip()
         if code and code not in samples:
             samples.append(code)
+            pos = config.sample_positions_mm[len(samples)-1][0] if len(samples)-1 < len(config.sample_positions_mm) else None
             tree.insert(
                 "",
                 "end",
-                values=(code, config.sample_positions_mm[len(samples)-1][0])
+                values=(code, pos)
             )
-            entry.delete(0, "end")
-            logger.info(f"Načten EAN kód: {code} pro pozici {config.sample_positions_mm[len(samples)-1][0]}")
+            entry.delete(0, "end") # vyčistit zadávací pole pole
+            # Vložit do databáze
+            save_project_sample_to_db(project_id, pos, code, None)
+            print(f"Načten vzorek s EAN kódem: {code} pro pozici {pos}")
+            logger.info(f"Načten vzorek s EAN kódem: {code} pro pozici {pos}")
         elif code in samples:
             Messagebox.show_info("Kód už byl načten.")
             logger.warning(f"EAN kód {code} byl již načten")
@@ -62,7 +67,7 @@ def sample_scanner(container, project_id, on_back):
         # Pokračovat na měření
         for widget in container.winfo_children():
             widget.destroy()
-        show_find_samples(container, project_id, samples, on_back)
+        show_find_samples(container, project_id, on_back)
 
 
     ttk.Button(

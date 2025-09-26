@@ -72,6 +72,7 @@ anti_backlash_mm = 0.02
 anti_backlash_final_dir = {'X': +1, 'Y': +1, 'Z': +1}
 
 def reload_settings():
+    global PROJECTS_DIR
     global CAMERA_IPS, camera_exposure_time, microscope_exposure_time, microscope_exposure_time_calib
     global CNC_SERIAL_PORT, CNC_BAUDRATE
     global WINDOW_WIDTH, WINDOW_HEIGHT
@@ -83,6 +84,7 @@ def reload_settings():
     global sample_positions_mm
     global calib_z, calib_corners_grbl
 
+    PROJECTS_DIR = get_setting("PROJECTS_DIR")
     CAMERA_IPS = json.loads(get_setting("CAMERA_IPS"))
     camera_exposure_time = int(get_setting("camera_exposure_time"))  # v milisekundách
     microscope_exposure_time = int(get_setting("microscope_exposure_time"))  # v milisekundách

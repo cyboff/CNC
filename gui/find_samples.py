@@ -17,11 +17,11 @@ stop_event = threading.Event()
 stop_event.clear()
 
 
-def show_find_samples(container, project_id, samples, on_back):
+def show_find_samples(container, project_id, on_back):
     global stop_event
     for widget in container.winfo_children():
         widget.destroy()
-    print(f"Krok 3: Spouštím detekci vzorků pro projekt {project_id} s {len(samples)} vzorky")
+    print(f"Krok 3: Spouštím detekci vzorků pro projekt {project_id}")
     create_header(container, "WDS - Wire Defect Scanner - Krok 3: Hledání vzorků", on_back)
     create_footer(container)
 
@@ -67,8 +67,8 @@ def show_find_samples(container, project_id, samples, on_back):
 
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
 
-    def threaded_find_and_show(container, image_label, tree, project_id, samples):
-        positions = find_sample_positions(container, image_label, tree, project_id, samples)
+    def threaded_find_and_show(container, image_label, tree, project_id):
+        positions = find_sample_positions(container, image_label, tree, project_id)
         container.after(0, lambda: Messagebox.show_info(f"Detekovány {len(positions)} vzorky. Výsledky jsou v tabulce."))
         def stop_camera_preview():
             core.camera_manager.stop_camera_preview()
@@ -85,14 +85,14 @@ def show_find_samples(container, project_id, samples, on_back):
         container.after(2000, show_image_first_row)  # Zobrazí první řádek v tabulce po dokončení hledání
 
     stop_event.clear()
-    t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
+    t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id), daemon=True)
     t.start()
 
     # Přidání tlačítek pro opakování detekce a pokračování na mikroskop
     button_frame = ttk.Frame(container)
     button_frame.pack(pady=10)
 
-    def restart_sample_detector(thread, container, image_label, tree, project_id, samples):
+    def restart_sample_detector(thread, container, image_label, tree, project_id):
         global stop_event
         logger.info(f"[FIND] Opakuji hledání vzorků pro projekt {project_id}")
         stop_event.set()
@@ -107,17 +107,17 @@ def show_find_samples(container, project_id, samples, on_back):
         # Restart živého náhledu
         core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
         time.sleep(0.5)
-        t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id, samples), daemon=True)
+        t = threading.Thread(target=threaded_find_and_show, args=(container, image_label, tree, project_id), daemon=True)
         t.start()
         return t
 
-    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="success",command=lambda: restart_sample_detector(t,container, image_label, tree, project_id, samples)).pack(side="left", padx=10)
+    ttk.Button(button_frame,text="Opakuj hledání",bootstyle="success",command=lambda: restart_sample_detector(t,container, image_label, tree, project_id)).pack(side="left", padx=10)
 
-    def start_show_microscope_images(container, project_id, samples, on_back):
+    def start_show_microscope_images(container, project_id, on_back):
         if not tree.get_children():
             Messagebox.show_error("Musíte detekovat alespoň 1 vzorek.")
             return
         logger.info(f"[FIND] Spouštím proces MICROSCOPE pro projekt {project_id}")
-        show_microscope_images(container, project_id, samples, on_back)
+        show_microscope_images(container, project_id, on_back)
 
-    ttk.Button(button_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success", command=lambda: start_show_microscope_images(container, project_id, samples, on_back)).pack(side="left", padx=10)
+    ttk.Button(button_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success", command=lambda: start_show_microscope_images(container, project_id, on_back)).pack(side="left", padx=10)

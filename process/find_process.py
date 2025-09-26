@@ -12,14 +12,15 @@ import gui.find_samples
 from core.logger import logger
 from core.motion_controller import move_to_coordinates, grbl_abort, grbl_clear_alarm, cancel_move, grbl_wait_for_idle
 from core.database import save_project_sample_to_db, save_sample_items_to_db, save_sample_item_positions_to_db, \
-    get_sample_items_by_sample_id, get_sample_item_positions_by_item_id, update_sample_item_position_image
+    get_sample_items_by_sample_id, get_sample_item_positions_by_item_id, update_sample_image_path, \
+    get_samples_by_project_id
 from PIL import Image, ImageTk
 import time
 from core.project_manager import save_image_to_project
 from core.camera_manager import tenengrad_sharpness, autofocus_z, black_white_ratio, rectpx_to_grbl, preview_running
 
 
-def find_sample_positions(container, image_label, tree, project_id: int, sample_codes: list[str]):
+def find_sample_positions(container, image_label, tree, project_id: int):
     sample_positions = []
 
     # Počet vynechaných bodů pro interpolaci na kontuře drátu pro mikroskopické snímky - čím vyšší číslo, tím méně bodů na obvodu drátu
@@ -30,12 +31,18 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
     if core.camera_manager.actual_camera is None or core.camera_manager.actual_camera == core.camera_manager.microscope:
         core.camera_manager.switch_camera()
 
+    # Získáme seznam vzorků z projektu
+    samples = get_samples_by_project_id(project_id)
+    print(f"Pro project {project_id} nalezeny následující vzorky:")
+    for sample_id, position, code, image_path in samples:
+        print(f"EAN Vzorku: {code}, pozice: {position}, db_id: {sample_id}")
+
     while not gui.find_samples.stop_event.is_set(): # Kontrola, zda není proces přerušen, například při stisku tlačítka Opakovat hledání
-        for code in sample_codes:
+        for sample_id, position, code, image_path in samples:
             items = []  # Počet detekovaných drátů pro každý vzorek
             item_points = []  # Pozice jednotlivých detekovaných bodů na drátu
             contours = []
-            sample_position = config.sample_positions_mm[sample_codes.index(code)]
+            sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
             (pos, x, y, z) = sample_position
             print(f"[FIND] Najíždím na pozici {pos} vzorku {code}: ({x}, {y}, {z})")
             move_to_coordinates(x, y, z)
@@ -126,7 +133,8 @@ def find_sample_positions(container, image_label, tree, project_id: int, sample_
                     # Přidáme řádek do tabulky s pozicí, kódem
                     container.after(0, lambda: tree.insert("", "end", values=(f"{code}", f"{pos}", f"{len(items)}")))
                 # Uložit vzorek do databáze
-                sample_id = save_project_sample_to_db(project_id, pos, code, image_path)  # Uložíme vzorek do databáze
+                #sample_id = save_project_sample_to_db(project_id, pos, code, image_path)  # Uložíme vzorek do databáze
+                update_sample_image_path(sample_id, image_path)
                 save_sample_items_to_db(sample_id, items)  # Uložíme detekované dráty do databáze
                 items_db = get_sample_items_by_sample_id(sample_id)
                 for i, (id, pos_index, x_center, y_center, radius) in enumerate(items_db):

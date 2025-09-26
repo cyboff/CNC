@@ -12,10 +12,10 @@ from core.logger import logger
 
 update_position_timer = None
 
-def show_microscope_images(container, project_id, samples, on_back):
+def show_microscope_images(container, project_id, on_back):
     for widget in container.winfo_children():
         widget.destroy()
-    print(f"Krok 4: Spouštím snímaní mikroskopem pro projekt {project_id} s {len(samples)} vzorky")
+    print(f"Krok 4: Spouštím snímaní mikroskopem pro projekt {project_id}")
     create_header(container, "WDS - Wire Defect Scanner - Krok 4: Snímání mikroskopem", on_back)
     create_footer(container)
 
@@ -69,11 +69,12 @@ def show_microscope_images(container, project_id, samples, on_back):
         samples_from_db = get_samples_by_project_id(project_id)
         for sample_id, position, ean_code, image_path in samples_from_db:
             # Získej položky vzorku z databáze
-            items = get_sample_items_by_sample_id(sample_id)
-            container.after(0, lambda: tree.insert("", "end", values=(ean_code, position, len(items))))
-            container.after(0, lambda: show_image(image_label, project_id, ean_code, position))
-            time.sleep(0.5)  # Pauza mezi jednotlivými snímky, aby se stihly zobrazit
-            get_microscope_images(container, image_label, project_id, position, ean_code, items)
+            if image_path is not None:
+                items = get_sample_items_by_sample_id(sample_id)
+                container.after(0, lambda: tree.insert("", "end", values=(ean_code, position, len(items))))
+                container.after(0, lambda: show_image(image_label, project_id, ean_code, position))
+                time.sleep(0.5)  # Pauza mezi jednotlivými snímky, aby se stihly zobrazit
+                get_microscope_images(container, image_label, project_id, position, ean_code, items)
 
     t = threading.Thread(target=threaded_get_microscope_images, args=(container, image_label, tree, project_id), daemon=True)
     t.start()

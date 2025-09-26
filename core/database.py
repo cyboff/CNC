@@ -181,6 +181,14 @@ def get_sample_item_positions_by_item_id(item_id: int):
     conn.close()
     return rows
 
+def update_sample_image_path(sample_id: int, image_path: str):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("UPDATE project_samples SET image_path = ? WHERE id = ?", (image_path, sample_id))
+    conn.commit()
+    conn.close()
+    logger.info(f"[DB] Aktualizován obrázek pro vzorek {sample_id} na {image_path}.")
+
 def update_sample_item_position_image(position_id: int, image_path: str):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
