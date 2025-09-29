@@ -152,7 +152,7 @@ def delete_sample_items_from_project(project_id: int):
     c = conn.cursor()
     c.execute("DELETE FROM project_sample_item_positions WHERE sample_item_id IN (SELECT id FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id = ?))", (project_id,))
     c.execute("DELETE FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id = ?)", (project_id,))
-    c.execute("DELETE FROM project_samples WHERE project_id = ?", (project_id,))
+    # c.execute("DELETE FROM project_samples WHERE project_id = ?", (project_id,))
     conn.commit()
     conn.close()
     logger.info(f"[DB] Všechny položky vzorků pro projekt {project_id} byly smazány.")

@@ -3,7 +3,7 @@ import tkinter.messagebox as messagebox
 
 from core.camera_manager import microscope
 from core.database import get_all_projects, get_project_by_id, delete_project, get_samples_by_project_id, \
-    get_sample_item_positions_by_item_id, get_sample_items_by_sample_id
+    get_sample_item_positions_by_item_id, get_sample_items_by_sample_id, delete_sample_items_from_project
 from core.logger import logger
 from core.utils import create_back_button, create_header, create_footer
 from gui.find_samples import show_find_samples
@@ -66,44 +66,59 @@ def show_projects(container, on_back):
     refresh_table()
 
 
-
 def open_project_detail(container, project_id, on_back):
     for widget in container.winfo_children():
         widget.destroy()
 
     logger.info(f"Zobrazení detailu měření ID {project_id}")
-    create_header(container, "WDS - Wire Defect Scanner - detail projektu",on_back)
+    create_header(container, "WDS - Wire Defect Scanner - detail projektu", on_back)
     create_footer(container)
 
-    top_bar = ttk.Frame(container)
+    # --- Scrollovací část ---
+    canvas = ttk.Canvas(container)
+    scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
+    scroll_frame = ttk.Frame(canvas)
+
+    scroll_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(
+            scrollregion=canvas.bbox("all")
+        )
+    )
+
+    canvas.create_window((0, 0), window=scroll_frame, anchor="n")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+    # -------------------------
+
+    top_bar = ttk.Frame(scroll_frame)
     top_bar.pack(fill="x", pady=10, padx=10)
 
     ttk.Label(top_bar, text=f"Detail měření ID {project_id}", font=("Helvetica", 20)).pack(side="left")
 
-
     project = get_project_by_id(project_id)
     if not project:
-        ttk.Label(container, text="Měření nenalezeno.", font=("Helvetica", 14)).pack(pady=20)
+        ttk.Label(scroll_frame, text="Měření nenalezeno.", font=("Helvetica", 14)).pack(pady=20)
         return
 
     _, name, comment, created = project
 
-    info_frame = ttk.Frame(container, padding=20)
-    info_frame.pack(pady=20)
+    info_frame = ttk.Frame(scroll_frame, padding=20)
+    info_frame.pack(pady=20, fill="x")
 
     ttk.Label(info_frame, text=f"Název: {name}", font=("Helvetica", 14)).pack(anchor="w", pady=5)
     ttk.Label(info_frame, text=f"Komentář: {comment}", font=("Helvetica", 14)).pack(anchor="w", pady=5)
     ttk.Label(info_frame, text=f"Vytvořeno: {created}", font=("Helvetica", 14)).pack(anchor="w", pady=5)
 
-    # TODO: zde bude v budoucnu detail vzorků, obrázky apod.
     samples = get_samples_by_project_id(project_id)
     image_missing = False
     if samples:
-    # Vytvoření tabulky 4x4 pro vzorky
-        samples_frame = ttk.Frame(container)
+        samples_frame = ttk.Frame(scroll_frame)
         samples_frame.pack(pady=10)
 
-        for i, (sample_id, position, ean_code, image_path) in enumerate(samples[:16]):  # max 16 vzorků
+        for i, (sample_id, position, ean_code, image_path) in enumerate(samples[:16]):
             row = i // 4
             col = i % 4
             cell = ttk.Frame(samples_frame, borderwidth=1, relief="solid", padding=5)
@@ -111,7 +126,7 @@ def open_project_detail(container, project_id, on_back):
 
             ttk.Label(cell, text=f"Pozice: {position}").pack(anchor="w")
             ttk.Label(cell, text=f"EAN: {ean_code}").pack(anchor="w")
-            # Zobrazíme obrázek vzorku, pokud je k dispozici
+
             if image_path is not None:
                 try:
                     from PIL import Image, ImageTk
@@ -121,50 +136,47 @@ def open_project_detail(container, project_id, on_back):
                     img_label = ttk.Label(cell, image=photo)
                     img_label.image = photo
                     img_label.pack()
-                except Exception as e:
+                except Exception:
                     ttk.Label(cell, text="Obrázek nelze načíst").pack()
                     image_missing = True
             else:
                 image_missing = True
 
-            # Vypíšeme počet detekovaných drátů a počet snímků z mikroskopu
             items = get_sample_items_by_sample_id(sample_id)
-
             microscope_images_missing = False
+            item_image_count = 0
             ttk.Label(cell, text=f"Detekované dráty: {len(items)}").pack(anchor="w")
-            for j, (item_id, position_index, x_center, y_center, radius) in enumerate(items):
+            for j, (item_id, _, _, _, _) in enumerate(items):
                 positions = get_sample_item_positions_by_item_id(item_id)
-                item_image_count = 0
-                for k, (item_id, position_index, x_coord, y_coord, item_image_path, defect_detected) in enumerate(
-                        positions):
+                for (_, _, _, _, item_image_path, _) in positions:
                     if item_image_path is not None:
                         try:
                             img = Image.open(item_image_path)
                             item_image_count += 1
-                        except Exception as e:
+                        except Exception:
                             pass
-                ttk.Label(cell, text=f"  Drát {j + 1}: Nasnímáno {item_image_count} z {len(positions)} snímků").pack(
-                    anchor="w")
+                ttk.Label(cell,text=f"  Pro drát {j+1} získáno {item_image_count} z {len(positions)} snímků").pack(anchor="w")
                 if item_image_count < len(positions):
                     microscope_images_missing = True
 
-        if image_missing is True:
-            # Některé vzorky nemají obrázek - nabídneme znovu hledání vzorků
+        if image_missing:
+            def delete_and_rescan():
+                delete_sample_items_from_project(project_id)
+                show_find_samples(container, project_id, on_back)
+
             ttk.Button(
-                container, text="Vzorky načteny – spustit měření", bootstyle="success",
-                command=lambda: show_find_samples(container, project_id, on_back)
+                scroll_frame, text="EAN kódy vzorků načteny – spustit měření", bootstyle="success",
+                command=lambda: delete_and_rescan()
             ).pack(pady=20)
-        elif microscope_images_missing is True:
-            # Některé vzorky nemají obrázky z mikroskopu - nabídneme znovu snímání mikroskopem
+        elif microscope_images_missing:
             ttk.Button(
-                container, text="Pokračovat na snímání mikroskopem", bootstyle="success",
+                scroll_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success",
                 command=lambda: show_microscope_images(container, project_id, on_back)
             ).pack(pady=20)
 
     else:
-        # Projekt založen, ale bez vzorků - nabídneme skenování EAN kódů
         ttk.Button(
-            container, text="Skenovat kódy vzorků", bootstyle="success",
+            scroll_frame, text="Skenovat kódy vzorků", bootstyle="success",
             command=lambda: sample_scanner(container, project_id, on_back)
         ).pack(pady=20)
 
