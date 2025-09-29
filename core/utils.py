@@ -14,6 +14,8 @@ from tkinter import Label
 import cv2
 from core.project_manager import get_image_from_project
 import core.camera_manager
+from core.settings import get_setting
+from config import safe_int
 
 def create_step_header(parent, text: str):
     """Vytvoří záhlaví kroku s popisným textem."""
@@ -69,12 +71,23 @@ def add_nav_button(parent, text, command):
     button.configure(width=25)  # nebo .place(width=250), ale width=25 s fontem 16 odpovídá cca 250px
 
 
-def center_window(window, width=1500, height=1000):
+def center_window(window, width=1500, height=900):
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
-    x = (screen_width // 2) - (width // 2)
-    y = (screen_height // 2) - (height // 2)
-    window.geometry(f"{width}x{height}+{x}+{y}")
+    # Pokud jsou parametry okna nastavené větší než má obrazovka, maximalizujeme ho, jinak vycentrujeme
+    if width > screen_width or height > screen_height:
+        window.state("zoomed")
+    else:
+        x = (screen_width // 2) - (width // 2)
+        y = (screen_height // 2) - (height // 2)
+        window.geometry(f"{width}x{height}+{x}+{y}")
+    # Aktualizujeme rozměry výstupního rámce pro zobrazení videa
+    window.update_idletasks()
+    window_width = window.winfo_width()
+    window_height = window.winfo_height()
+
+    config.frame_width = min(safe_int(get_setting("frame_width"), 1500), safe_int(window_width * 0.75, 1500))
+    config.frame_height = min(safe_int(get_setting("frame_height"), 1500), safe_int(window_height * 0.75, 1500))
 
 
 def create_header(container, title="WDS - Wire Defect Scanner", on_back=None):
@@ -112,8 +125,8 @@ def create_footer(container):
 
     def update_status():
         if status_label.winfo_exists():
-            if core.motion_controller.grbl_status is ( "Idle" or "Run" or "Jog" ):
-                cnc_status = "Připojeno"
+            if core.motion_controller.grbl_status is "Idle":
+                cnc_status = "Připraveno"
             else:
                 cnc_status = f"{core.motion_controller.grbl_status}"
             if core.camera_manager.camera is not None:
@@ -124,7 +137,7 @@ def create_footer(container):
                 microscope_status = "Připojen"
             else:
                 microscope_status = "Není připojen"
-            message = f"Stav CNC: {cnc_status} | Kamera: {camera_status} | Mikroskop: {microscope_status}"
+            message = f"CNC: {cnc_status} | Kamera: {camera_status} | Mikroskop: {microscope_status}"
             status_label.config(text=message)
             footer.after(100, update_status)
 

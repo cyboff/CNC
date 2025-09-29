@@ -20,7 +20,7 @@ def show_manual_controller(container, on_back):
 
     logger.info("Kliknutí na manuální řízení")
 
-    create_header(container, "WDS - Wire Defect Scanner - manuální ovládání", on_back)
+    create_header(container, "WDS - Wire Defect Scanner - manuální ovládání", lambda: (container.unbind_all("<KeyPress>"), on_back()))
     create_footer(container)
 
     main_frame = ttk.Frame(container)

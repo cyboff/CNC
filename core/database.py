@@ -98,7 +98,12 @@ def get_project_by_id(project_id):
 def delete_project(project_id):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
+    # Smazat všechny související záznamy v jiných tabulkách
+    c.execute("DELETE FROM project_sample_item_positions WHERE sample_item_id IN (SELECT id FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id=?))", (project_id,))
+    c.execute("DELETE FROM project_sample_items WHERE sample_id IN (SELECT id FROM project_samples WHERE project_id=?)",(project_id,))
+    c.execute("DELETE FROM project_samples WHERE project_id=?", (project_id,))
     c.execute("DELETE FROM projects WHERE id=?", (project_id,))
+    logger.info(f"[DB] Smazán projekt {project_id} a všechny jeho související záznamy.")
     conn.commit()
     conn.close()
 

@@ -12,9 +12,8 @@ def sample_scanner(container, project_id, on_back):
 
     samples = []
     print(f"Krok 2: Skenování EAN kódů pro projekt {project_id}")
-    create_header(container, "WDS - Wire Defect Scanner - Krok 2: Skenování EAN kódů")
+    create_header(container, "WDS - Wire Defect Scanner - Krok 2: Skenování EAN kódů", on_back)
     create_footer(container)
-    create_back_button(container, on_back)
 
     ttk.Label(container, text="Přilož čtečku kódů ke vzorku a načti:", style="Header.TLabel").pack(pady=10)
 

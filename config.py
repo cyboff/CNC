@@ -1,7 +1,7 @@
 from core.settings import get_setting
 import json
 import numpy as np
-from screeninfo import get_monitors
+import ctypes
 
 # === Obecné nastavení programu ===
 APP_NAME = "WDS - Wire Defect Scanner"
@@ -31,13 +31,8 @@ def safe_int(value, default=1000):
     except (ValueError, TypeError):
         return default
 
-def get_max_screen_resolution():
-    monitor = get_monitors()[0]
-    return monitor.width, monitor.height
-
-max_width, max_height = get_max_screen_resolution()
-WINDOW_WIDTH = min(safe_int(get_setting("WINDOW_WIDTH"), 2500), max_width)
-WINDOW_HEIGHT = min(safe_int(get_setting("WINDOW_HEIGHT"), 1800), max_height)
+WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1800)
+WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 900)
 
 # Rozměry výstupního rámce (např. zobrazení videa)
 frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
@@ -93,9 +88,8 @@ def reload_settings():
     CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
     CNC_BAUDRATE = int(get_setting("CNC_BAUDRATE"))
 
-    max_width, max_height = get_max_screen_resolution()
-    WINDOW_WIDTH = min(safe_int(get_setting("WINDOW_WIDTH"), 2500), max_width)
-    WINDOW_HEIGHT = min(safe_int(get_setting("WINDOW_HEIGHT"), 1800), max_height)
+    WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1800)
+    WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 900)
 
     frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
     frame_height = min(safe_int(get_setting("frame_height"), 1500), int(WINDOW_HEIGHT * 0.75))

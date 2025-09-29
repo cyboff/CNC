@@ -68,7 +68,7 @@ def show_home(container):
 
 
     add_nav_button(left_panel, "➕ Nové měření",        lambda: (logger.info("Klik: Nové měření"),       open_new_project_wizard(container, lambda: show_home(container))))
-    # add_nav_button(left_panel, "📂 Otevřít měření",     lambda: (logger.info("Klik: Otevřít měření"),    show_projects(container, lambda: show_home(container))))
+    add_nav_button(left_panel, "📂 Otevřít měření",     lambda: (logger.info("Klik: Otevřít měření"),    show_projects(container, lambda: show_home(container))))
     add_nav_button(left_panel, "🛠️ Manuální ovládání",  lambda: (logger.info("Klik: Manuální ovládání"), show_manual_controller(container, lambda: show_home(container))))
     add_nav_button(left_panel, "⚙️ Nastavení",          lambda: (logger.info("Klik: Nastavení"),         show_settings(container, lambda: show_home(container))))
     add_nav_button(left_panel, "🔍 Log akcí",           lambda: (logger.info("Klik: Log akcí"),          show_log_view(container, lambda: show_home(container))))
@@ -106,8 +106,8 @@ def show_home(container):
     tree.pack(fill="both", expand=True)
 
     all_projects = get_all_projects()
-    recent_projects = all_projects[0:25] if len(all_projects) > 25 else all_projects
-    for row in recent_projects:
+    # recent_projects = all_projects[0:25] if len(all_projects) > 25 else all_projects
+    for row in all_projects:
         tree.insert("", "end", values=row)
 
     def on_double_click(event):
