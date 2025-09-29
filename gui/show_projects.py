@@ -138,7 +138,11 @@ def open_project_detail(container, project_id, on_back):
                 for k, (item_id, position_index, x_coord, y_coord, item_image_path, defect_detected) in enumerate(
                         positions):
                     if item_image_path is not None:
-                        item_image_count += 1
+                        try:
+                            img = Image.open(item_image_path)
+                            item_image_count += 1
+                        except Exception as e:
+                            pass
                 ttk.Label(cell, text=f"  Drát {j + 1}: Nasnímáno {item_image_count} z {len(positions)} snímků").pack(
                     anchor="w")
                 if item_image_count < len(positions):
@@ -150,8 +154,7 @@ def open_project_detail(container, project_id, on_back):
                 container, text="Vzorky načteny – spustit měření", bootstyle="success",
                 command=lambda: show_find_samples(container, project_id, on_back)
             ).pack(pady=20)
-
-        if microscope_images_missing is True:
+        elif microscope_images_missing is True:
             # Některé vzorky nemají obrázky z mikroskopu - nabídneme znovu snímání mikroskopem
             ttk.Button(
                 container, text="Pokračovat na snímání mikroskopem", bootstyle="success",
