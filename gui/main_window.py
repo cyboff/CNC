@@ -1,8 +1,9 @@
 import ttkbootstrap as ttk
 
 import core.motion_controller
-from core.camera_manager import camera
-from core.motion_controller import cnc_serial
+from core.camera_manager import init_cameras
+import threading
+from core.motion_controller import cnc_serial, init_grbl
 from gui.new_project_wizard import open_new_project_wizard
 from gui.log_viewer import show_log_view
 from gui.styles import apply_styles
@@ -27,6 +28,11 @@ def launch_main_window():
 
     logger.info("Aplikace spuštěna")                # logovací funkce
     show_home(container)                            # zobrazíme home stránku
+
+    # Spustíme GUI a teprve potom inicializujeme GRBL a kamery na pozadí
+    # (nečeká se na dokončení inicializace bez GUI a informací o stavu zařízení)
+    threading.Thread(target=init_grbl, daemon=True).start()
+    threading.Thread(target=init_cameras, daemon=True).start()
 
     root.mainloop()
     # Po zavření hlavního okna ukonči všechny spuštěné procesy
@@ -62,7 +68,7 @@ def show_home(container):
 
 
     add_nav_button(left_panel, "➕ Nové měření",        lambda: (logger.info("Klik: Nové měření"),       open_new_project_wizard(container, lambda: show_home(container))))
-    add_nav_button(left_panel, "📂 Otevřít měření",     lambda: (logger.info("Klik: Otevřít měření"),    show_projects(container, lambda: show_home(container))))
+    # add_nav_button(left_panel, "📂 Otevřít měření",     lambda: (logger.info("Klik: Otevřít měření"),    show_projects(container, lambda: show_home(container))))
     add_nav_button(left_panel, "🛠️ Manuální ovládání",  lambda: (logger.info("Klik: Manuální ovládání"), show_manual_controller(container, lambda: show_home(container))))
     add_nav_button(left_panel, "⚙️ Nastavení",          lambda: (logger.info("Klik: Nastavení"),         show_settings(container, lambda: show_home(container))))
     add_nav_button(left_panel, "🔍 Log akcí",           lambda: (logger.info("Klik: Log akcí"),          show_log_view(container, lambda: show_home(container))))
@@ -100,7 +106,7 @@ def show_home(container):
     tree.pack(fill="both", expand=True)
 
     all_projects = get_all_projects()
-    recent_projects = all_projects[0:10] if len(all_projects) > 10 else all_projects
+    recent_projects = all_projects[0:25] if len(all_projects) > 25 else all_projects
     for row in recent_projects:
         tree.insert("", "end", values=row)
 
