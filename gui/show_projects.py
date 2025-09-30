@@ -1,6 +1,7 @@
 import ttkbootstrap as ttk
 import tkinter.messagebox as messagebox
 
+import config
 from core.camera_manager import microscope
 from core.database import get_all_projects, get_project_by_id, delete_project, get_samples_by_project_id, \
     get_sample_item_positions_by_item_id, get_sample_items_by_sample_id, delete_sample_items_from_project
@@ -118,9 +119,9 @@ def open_project_detail(container, project_id, on_back):
         samples_frame = ttk.Frame(scroll_frame)
         samples_frame.pack(pady=10)
 
-        for i, (sample_id, position, ean_code, image_path) in enumerate(samples[:16]):
-            row = i // 4
-            col = i % 4
+        for i, (sample_id, position, ean_code, image_path) in enumerate(samples[:len(config.sample_positions_mm)]):
+            row = i // int(len(config.sample_positions_mm) ** 0.5)
+            col = i % int(len(config.sample_positions_mm) ** 0.5)
             cell = ttk.Frame(samples_frame, borderwidth=1, relief="solid", padding=5)
             cell.grid(row=row, column=col, padx=5, pady=5, sticky="nsew")
 
@@ -144,9 +145,10 @@ def open_project_detail(container, project_id, on_back):
 
             items = get_sample_items_by_sample_id(sample_id)
             microscope_images_missing = False
-            item_image_count = 0
+
             ttk.Label(cell, text=f"Detekované dráty: {len(items)}").pack(anchor="w")
             for j, (item_id, _, _, _, _) in enumerate(items):
+                item_image_count = 0
                 positions = get_sample_item_positions_by_item_id(item_id)
                 for (_, _, _, _, item_image_path, _) in positions:
                     if item_image_path is not None:
