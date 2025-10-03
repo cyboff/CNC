@@ -35,8 +35,8 @@ WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1800)
 WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 900)
 
 # Rozměry výstupního rámce (např. zobrazení videa)
-frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
-frame_height = min(safe_int(get_setting("frame_height"), 1500), int(WINDOW_HEIGHT * 0.75))
+frame_width = min(safe_int(get_setting("frame_width"), 1500), int(min(WINDOW_WIDTH, WINDOW_HEIGHT) * 0.75))
+frame_height = min(safe_int(get_setting("frame_height"), 1500), int(min(WINDOW_WIDTH,WINDOW_HEIGHT) * 0.75))
 
 # Rozlišení hlavní kamery (v pixelech)
 image_width = int(get_setting("image_width"))
@@ -88,12 +88,15 @@ def reload_settings():
     CNC_SERIAL_PORT = get_setting("CNC_SERIAL_PORT")
     CNC_BAUDRATE = int(get_setting("CNC_BAUDRATE"))
 
-    WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1800)
-    WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 900)
+    # bez restartu aplikace nefunguje dobře
+    # WINDOW_WIDTH = safe_int(get_setting("WINDOW_WIDTH"), 1800)
+    # WINDOW_HEIGHT = safe_int(get_setting("WINDOW_HEIGHT"), 900)
+    #
+    # # Rozměry výstupního rámce (např. zobrazení videa)
+    # frame_width = min(safe_int(get_setting("frame_width"), 1500), int(min(WINDOW_WIDTH, WINDOW_HEIGHT) * 0.75))
+    # frame_height = min(safe_int(get_setting("frame_height"), 1500), int(min(WINDOW_WIDTH, WINDOW_HEIGHT) * 0.75))
 
-    frame_width = min(safe_int(get_setting("frame_width"), 1500), int(WINDOW_WIDTH * 0.75))
-    frame_height = min(safe_int(get_setting("frame_height"), 1500), int(WINDOW_HEIGHT * 0.75))
-
+    # Rozlišení hlavní kamery (v pixelech)
     image_width = int(get_setting("image_width"))
     image_height = int(get_setting("image_height"))
 

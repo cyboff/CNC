@@ -170,7 +170,8 @@ def open_project_detail(container, project_id, on_back):
                 scroll_frame, text="EAN kódy vzorků načteny – spustit měření", bootstyle="success",
                 command=lambda: delete_and_rescan()
             ).pack(pady=20)
-        elif microscope_images_missing:
+
+        if microscope_images_missing:
             ttk.Button(
                 scroll_frame, text="Pokračovat na snímání mikroskopem", bootstyle="success",
                 command=lambda: show_microscope_images(container, project_id, on_back)

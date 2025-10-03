@@ -311,7 +311,7 @@ def rectpx_scaled_to_grbl(u_scaled: float, v_scaled: float, scaled_w: int, scale
 # --- Auto detekce rohových fiducialů (kroužek + křížek) ---
 
 # Parametry vzoru a kamery
-SQUARE_MM = 40.0
+SQUARE_MM = 42.0
 RADIUS_MM = 1.0         # kroužek ve vzoru má r = 1 mm (SVG)
 OFFSET_MM = 2.0         # středy kroužků jsou 2 mm od hrany
 ROI_RATIO = 0.20        # rohové ROI = 20 % šířky/výšky
@@ -320,6 +320,13 @@ ROI_RATIO = 0.20        # rohové ROI = 20 % šířky/výšky
 ALPHA = 0.25            # vyhlazení EMA (0..1) – menší = klidnější
 LOCK_ROI = 100          # lokální ROI kolem poslední pozice (px)
 MIN_DELTA = 0.3         # deadband (ignoruj změny < 0.3 px)
+
+# --- nové pro body v rozích ---
+DOT_DIAMETER_MM = 0.30   # Ø závrtu
+DOT_MIN_SCALE = 0.35     # min plocha ~ 35 % nominálu
+DOT_MAX_SCALE = 2.5      # max plocha ~ 250 % nominálu (rezerva)
+ADAPTIVE_BLOCK = 21      # velikost okna pro adaptivní práh (liché)
+ADAPTIVE_C = 5           # offset prahu
 
 def _pix_per_mm(img_w):
     return float(img_w) / SQUARE_MM
@@ -387,6 +394,100 @@ def _detect_circle_in_roi(gray, roi_box, min_r, max_r, seed=None):
     c = circles[i]
     cx, cy, r = int(c[0]) + x0, int(c[1]) + y0, int(c[2])
     return float(cx), float(cy), float(r)
+
+def _expected_dot_area_px(img_w: int) -> float:
+    """Nominální plocha bodu v pixelech z Ø v mm a px/mm."""
+    ppm = _pix_per_mm(img_w)          # px / mm (odvozeno ze SQUARE_MM)
+    d_px = DOT_DIAMETER_MM * ppm      # průměr v pixelech
+    r_px = max(d_px / 2.0, 1.0)
+    return float(np.pi * r_px * r_px)
+
+def _detect_dot_in_roi(gray, roi_box, exp_area_px, seed=None):
+    """
+    Najdi malý TMAVÝ, přibližně kruhový blob v ROI.
+    Vrací (cx, cy) v globálních souřadnicích nebo None.
+    """
+    x0, y0, x1, y1 = roi_box
+    if seed is not None:
+        cx, cy = seed
+        rr = LOCK_ROI // 2
+        x0, y0, x1, y1 = _clamp_roi(int(cx - rr), int(cy - rr),
+                                    int(cx + rr), int(cy + rr),
+                                    gray.shape[1], gray.shape[0])
+
+    roi = gray[y0:y1, x0:x1]
+    if roi.size == 0:
+        return None
+
+    # lehké vyhlazení & adaptivní prahování → tmavé = 255 v inverzi
+    roi_blur = cv2.GaussianBlur(roi, (3, 3), 0)
+    thr = cv2.adaptiveThreshold(
+        roi_blur, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV,
+        ADAPTIVE_BLOCK, ADAPTIVE_C
+    )
+
+    # nastavíme blob detektor pro malé tmavé kulaté body
+    params = cv2.SimpleBlobDetector_Params()
+    params.filterByColor = True
+    params.blobColor = 255  # protože máme THRESH_BINARY_INV (tmavé→bílé)
+
+    area = float(exp_area_px)
+    params.filterByArea = True
+    params.minArea = max(area * DOT_MIN_SCALE, 3.0)
+    params.maxArea = area * DOT_MAX_SCALE
+
+    params.filterByCircularity = True
+    params.minCircularity = 0.6
+
+    params.filterByInertia = False
+    params.filterByConvexity = False
+
+    detector = cv2.SimpleBlobDetector_create(params)
+    kps = detector.detect(thr)
+
+    if not kps:
+        return None
+
+    # výběr „nejlepšího“ kandidáta
+    if seed is not None:
+        sx, sy = seed[0] - x0, seed[1] - y0
+        kp = min(kps, key=lambda k: (k.pt[0]-sx)**2 + (k.pt[1]-sy)**2)
+    else:
+        # nejbližší očekávané ploše
+        kp = min(kps, key=lambda k: abs(np.pi*(k.size/2)**2 - area))
+
+    cx = float(kp.pt[0]) + x0
+    cy = float(kp.pt[1]) + y0
+    return cx, cy
+
+def _detect_four_corners_dots(gray, last_centers, img_w):
+    """
+    Detekce 4 rohů pomocí malých tmavých bodů (TL, TR, BR, BL).
+    Vrací seznam čtyř (x,y) nebo None na pozici, kde se nenašlo.
+    Aplikuje EMA + deadband jako původní kód.
+    """
+    rois = _corner_rois(gray.shape[1], gray.shape[0])
+    exp_area = _expected_dot_area_px(img_w)
+    centers = []
+    for i, rb in enumerate(rois):
+        seed = last_centers[i] if last_centers and last_centers[i] is not None else None
+        res = _detect_dot_in_roi(gray, rb, exp_area_px=exp_area, seed=seed)
+        if res is None:
+            centers.append(last_centers[i] if last_centers else None)
+            continue
+
+        # jemná sub-pixelová korekce (stejný princip jako u kruhu)
+        rx, ry = _refine_center(gray, res[0], res[1], win=7)
+        new_pt = (rx, ry)
+
+        if last_centers and last_centers[i] is not None:
+            dx = abs(new_pt[0] - last_centers[i][0])
+            dy = abs(new_pt[1] - last_centers[i][1])
+            if dx < MIN_DELTA and dy < MIN_DELTA:
+                centers.append(last_centers[i]); continue
+
+        centers.append(_smooth(last_centers[i] if last_centers else None, new_pt))
+    return centers
 
 def _refine_center(gray, x, y, win=9):
     x_i, y_i = int(round(x)), int(round(y))
@@ -540,7 +641,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         if calib_step == "main_camera":
             # auto detekce rohů
             h, w = gray.shape[:2]
-            centers = _detect_four_corners(gray, last_centers, img_w=w)
+            centers = _detect_four_corners_dots(gray, last_centers, img_w=w)
             last_centers = centers
 
             # ověř, zda máme všechny 4 body
@@ -565,18 +666,23 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
             status = "Auto: OK (stiskni 'q' pro potvrzeni)" if auto_ok else "Hledam rohy..."
             cv2.putText(img_bgr, status, (10, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 200, 255), 2, cv2.LINE_AA)
 
-        # elif calib_step == "microscope":
-        #     h, w = img_bgr.shape[:2]
-        #     cx, cy = int(w // 2), int(h // 2)
-        #     cv2.line(img_bgr, (cx - 15, cy), (cx + 15, cy), (0, 0, 255), 2)
-        #     cv2.line(img_bgr, (cx, cy - 15), (cx, cy + 15), (0, 0, 255), 2)
+        elif calib_step == "microscope":
+            h, w = img_bgr.shape[:2]
+            cx, cy = int(w // 2), int(h // 2)
+            cv2.line(img_bgr, (cx - 25, cy), (cx + 25, cy), (0, 255, 0), 10)
+            cv2.line(img_bgr, (cx, cy - 25), (cx, cy + 25), (0, 255, 0), 10)
+            cv2.circle(img_bgr, (cx, cy), 250, (0, 255, 0), 10, cv2.LINE_AA)
+            # textový hint
+            status = "Vycentruj vývrt a stiskni 'q' pro potvrzeni"
+            cv2.putText(img_bgr, status, (10, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 200, 255), 2, cv2.LINE_AA)
 
         return img_bgr
 
     def refresh_image():
         nonlocal calib_step, pts_src
-        if calib_step in ("main_camera_done", "microscope", "done"):
-            return
+        # if calib_step in ("main_camera_done", "microscope", "done"):
+        if calib_step in ("main_camera_done", "done"):
+           return
         core.camera_manager.preview_running = False
         img = get_frame_with_overlays()
         if img is not None:
@@ -584,9 +690,18 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
             #     # Pro ověření kalibrace hlavní kamery použijeme korekční matici
             #     img = cv2.warpPerspective(img, config.correction_matrix, (image_width, image_height))
             # Převod na velikost widgetu
-            widget_w = config.frame_width
-            widget_h = config.frame_height
-            img_resized = cv2.resize(img, (widget_w, widget_h))
+            # Rozměry dle velikosti frame
+            h, w = img.shape[:2]
+            target_h, target_w = config.frame_height, config.frame_width
+            aspect = w / h
+            target_aspect = target_w / target_h
+            if aspect > target_aspect:
+                new_w = target_w
+                new_h = int(target_w / aspect)
+            else:
+                new_h = target_h
+                new_w = int(target_h * aspect)
+            img_resized = cv2.resize(img, (new_w, new_h))
             imgtk = ImageTk.PhotoImage(image=Image.fromarray(img_resized))
             image_label.imgtk = imgtk
             image_label.config(image=imgtk)
@@ -661,6 +776,8 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
             # pro acA2440-20gm
             core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time_calib  # zvýšení expozice pro kalibraci
+
+        refresh_image()
         pts_grbl = []
         current_corner_index = 0
         print(f"[CALIBRATION] Začínám kalibraci mikroskopu.")
@@ -707,14 +824,14 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
         def verify_microscope_calibration():
             nonlocal calib_step
             calib_step = "done"
-            # core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
+            core.camera_manager.start_camera_preview(image_label, update_position_callback=None)
             print("[CALIBRATION] Ověřuji kalibraci mikroskopu...")
             test_coordinates = np.float32([
                 [0, 0],
                 [image_width - 1, 0],
                 [image_width - 1, image_height - 1],
-                [0, image_height - 1],
-                [image_width // 2 - 1, image_height // 2 - 1]
+                [0, image_height - 1]
+                # [image_width // 2 - 1, image_height // 2 - 1]
             ])
             for test_point in test_coordinates:
                 transformed_point = cv2.perspectiveTransform(np.array([[[test_point[0], test_point[1]]]], dtype=np.float32), config.correction_matrix_grbl)[0][0]
@@ -734,6 +851,7 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
                     # pro acA2440-20gm
                     core.camera_manager.microscope.ExposureTimeAbs.Value = config.microscope_exposure_time  # expozice pro test
                 switch_camera()
+                #core.camera_manager.start_camera_preview()
                 move_to_coordinates(base_x, base_y, calib_z)
                 messagebox.showinfo("Kalibrace", "Kalibrace dokončena.")
                 unregister_calibration_hotkeys()
