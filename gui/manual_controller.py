@@ -114,12 +114,61 @@ def show_manual_controller(container, on_back):
 
     container.bind_all("<KeyPress>", on_key_press)
 
+    # === TLAČÍTKO "JEĎ" vlevo + COMBOBOX vedle (stejná výška) ===
+    posbar = ttk.Frame(control_frame)
+    posbar.pack(pady=(16, 8), fill="x")
+
+    position_var = StringVar()
+    position_names = [t[0] for t in getattr(config, "sample_positions_mm", [])] or []
+
+    def go_to_selected_position():
+        position = position_var.get()
+        if not position:
+            logger.warning("Nebyla vybrána žádná pozice.")
+            return
+        sample_position = next((t for t in config.sample_positions_mm if t[0] == position), None)
+        if not sample_position:
+            logger.error(f"Pozice '{position}' nebyla nalezena v config.sample_positions_mm.")
+            return
+        try:
+            (_, mpos_x, mpos_y, mpos_z) = sample_position
+        except Exception as e:
+            logger.exception(f"Nepodařilo se rozbalit pozici '{position}': {e}")
+            return
+
+        def _worker():
+            try:
+                core.motion_controller.move_to_position(mpos_x, mpos_y, mpos_z)
+            except Exception as e:
+                logger.exception(f"Chyba při najíždění na pozici '{position}': {e}")
+
+        threading.Thread(target=_worker, daemon=True).start()
+
+    # Tlačítko vlevo
+    goto_btn = ttk.Button(posbar, text="➡️ Jeď na pozici", style="Main.TButton",
+                          command=go_to_selected_position, cursor="hand2", width=16)
+    goto_btn.pack(side="left", ipady=8, ipadx=20, padx=(0, 6))
+
+    # Combobox napravo (rozbalovací menu)
+    combo = ttk.Combobox(posbar, textvariable=position_var, state="readonly", width=5)
+    combo["values"] = position_names
+    if position_names:
+        combo.current(0)
+    combo.pack(side="left", fill="x", expand=True, ipady=0, padx=(6, 0))
+
+    if not position_names:
+        goto_btn.state(["disabled"])
+        combo.state(["disabled"])
+
     # === TLAČÍTKA ===
 
     def add_action_button(parent, text, command):
         button = ttk.Button(parent, text=text, style="Main.TButton", command=command, cursor="hand2")
         button.pack(pady=6, ipadx=20, ipady=8)
         button.configure(width=25)
+
+    # Mezera mezi skupinami tlačítek
+    ttk.Label(control_frame, text="").pack(pady=1)
 
     # ZELENÁ skupina
     add_action_button(control_frame, "🏠 Domů ($H)", lambda: threading.Thread(target=grbl_home, daemon=True).start())
@@ -142,4 +191,3 @@ def show_manual_controller(container, on_back):
         lambda: (core.motion_controller.grbl_last_position, core.motion_controller.grbl_status),
         start_camera_preview
     )
-
