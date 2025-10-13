@@ -68,6 +68,10 @@ def show_find_samples(container, project_id, on_back):
     # Spustí hledání vzorků ve vlákně a zobrazí výsledky v tabulce
 
     def threaded_find_and_show(container, image_label, tree, project_id):
+        # Po vložení kazety provedeme pro jistotu homing
+        t = threading.Thread(target=core.motion_controller.grbl_home, daemon=True)
+        t.start()
+        t.join()
         positions = find_sample_positions(container, image_label, tree, project_id)
         container.after(0, lambda: Messagebox.show_info(f"Detekovány {len(positions)} vzorky. Výsledky jsou v tabulce."))
         def stop_camera_preview():

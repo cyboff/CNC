@@ -8,6 +8,7 @@ from core.database import get_samples_by_project_id, get_sample_items_by_sample_
 from core.utils import create_back_button, create_header, create_footer, create_camera_preview, show_image
 from process.find_process import get_microscope_images
 from core.logger import logger
+from ttkbootstrap.dialogs import Messagebox
 
 
 update_position_timer = None
@@ -75,6 +76,9 @@ def show_microscope_images(container, project_id, on_back):
                 container.after(0, lambda: show_image(image_label, project_id, ean_code, position))
                 time.sleep(0.5)  # Pauza mezi jednotlivými snímky, aby se stihly zobrazit
                 get_microscope_images(container, image_label, project_id, position, ean_code, items)
+        # Nakonec vyjedeme s kazetou
+        threading.Thread(target=core.motion_controller.move_to_home_position(), daemon=True).start()
+        container.after(100, lambda: Messagebox.show_info("Všechny snímky byly získány. Můžete vyměnit kazetu."))
 
     t = threading.Thread(target=threaded_get_microscope_images, args=(container, image_label, tree, project_id), daemon=True)
     t.start()

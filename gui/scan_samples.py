@@ -53,7 +53,7 @@ def sample_scanner(container, project_id, on_back):
             logger.warning(f"EAN kód {code} byl již načten")
             entry.delete(0, "end")
         if len(samples) > len(config.sample_positions_mm) -1:
-            Messagebox.show_info(f"Načteno všech {len(config.sample_positions_mm)} vzorků. Pokračujte na měření.")
+            Messagebox.show_info(f"Načteno všech {len(config.sample_positions_mm)} vzorků. Vložte kazetu do stroje a spusťte měření.")
             # start_find_samples(container, project_id, samples)
 
     entry.bind("<Return>", on_scan)

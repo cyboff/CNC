@@ -92,9 +92,10 @@ def switch_camera():
         if actual_camera is not None:
             if actual_camera.IsGrabbing():
                 actual_camera.StopGrabbing()
+                time.sleep(1)
             if actual_camera is microscope:
-                camera.ExposureTimeAbs.Value = config.camera_exposure_time # pro případ změny expozice v nastavení
                 actual_camera = camera
+                camera.ExposureTimeAbs.Value = config.camera_exposure_time # pro případ změny expozice v nastavení
             else:
                 if microscope.GetDeviceInfo().GetModelName() == "acA2440-20gm":
                     microscope.ExposureTimeAbs.Value = config.microscope_exposure_time
@@ -671,9 +672,9 @@ def calibrate_camera(container, image_label, move_x, move_y, move_z, step):
             cx, cy = int(w // 2), int(h // 2)
             cv2.line(img_bgr, (cx - 25, cy), (cx + 25, cy), (0, 255, 0), 10)
             cv2.line(img_bgr, (cx, cy - 25), (cx, cy + 25), (0, 255, 0), 10)
-            cv2.circle(img_bgr, (cx, cy), 350, (0, 255, 0), 10, cv2.LINE_AA)
+            cv2.circle(img_bgr, (cx, cy), 500, (0, 255, 0), 10, cv2.LINE_AA)
             # textový hint
-            status = "Vycentruj vývrt a stiskni 'q' pro potvrzeni"
+            status = "Vycentruj vyvrt a stiskni 'q' pro potvrzeni"
             cv2.putText(img_bgr, status, (10, 22), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 200, 255), 2, cv2.LINE_AA)
 
         return img_bgr
