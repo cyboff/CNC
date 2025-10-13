@@ -198,6 +198,7 @@ def grbl_home():
 
     # Počkej na konec homing sekvence
     grbl_wait_for_idle()
+    time.sleep(0.5)
     # Aktualizuj WPos pozici na MPos, protože po homingu může být WPos jiná než MPos
     # je lepší pracovat s MPos = WPos, protože MPos přichází v odpovědi na '?' častěji
     try:
@@ -346,8 +347,8 @@ def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_b
 
 
 def move_to_home_position():
-    print("[MOTION] Najíždím na výchozí pozici (-245, -245)")
-    move_to_position(-245, -245)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
+    print("[MOTION] Najíždím na výchozí pozici (-245, -245, -10)")
+    move_to_position(-245, -245, -10)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
 
 def move_to_coordinates(x: float, y: float, z: float = None, feed: float = 2000 ):
     move_to_position(x, y, z, feed)
