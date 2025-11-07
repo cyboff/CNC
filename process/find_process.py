@@ -231,7 +231,7 @@ def find_circles(project_id, image):
         return circles, contours
     return []
 
-def get_microscope_images(container, image_label, project_id, position, ean_code, items):
+def get_microscope_images(container, image_label, tree, project_id, position, ean_code, items):
     """
     Převádí detekované kruhy (v rect prostoru) na GRBL pohyby.
     Nově využívá core.camera_manager.rectpx_to_grbl pro převod (u_rect, v_rect) -> (X,Y,Z).
@@ -294,7 +294,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
             # Opakovací smyčka (ponecháno jako v původní verzi)
             # TODO: Přidat do config nastavení max_sharpness a max_errors
             while errors > max_errors or max_sharpness < 150:
-                print(f"[FIND] Získávám snímek {step} z mikroskopu pro drát {pos_index} vzorku {ean_code} - (pokus {attempt})")
+                print(f"[FIND] Získávám mikroskopický obrázek {step+1} z {len(item_positions_db)} pro drát {pos_index} z {len(items)} vzorku {ean_code} - (pokus {attempt})")
                 core.motion_controller.move_to_position(px, py, abs_z - z_step)
                 time.sleep(0.2)
                 max_sharpness = 0.0
@@ -407,7 +407,7 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     new_w = int(target_h * aspect)
                 img = cv2.resize(sharpest_img, (new_w, new_h))
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                cv2.putText(img, f"Drat {pos_index} - Snimek {step} Ostrost: {max_sharpness:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                cv2.putText(img, f"Vzorek {ean_code} - Drat {pos_index} z {len(items)} - Snimek {step+1} z {len(item_positions_db)} - Ostrost: {max_sharpness:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
                 im_pil = Image.fromarray(img)
                 imgtk = ImageTk.PhotoImage(image=im_pil)
                 if image_label.winfo_exists():
@@ -415,7 +415,12 @@ def get_microscope_images(container, image_label, project_id, position, ean_code
                     image_label.config(image=imgtk)
                 else:
                     print("[MICROSCOPE] Náhled již neexistuje, nemohu zobrazit obrázek.")
-            #core.motion_controller.grbl_wait_for_idle() # Počkáme až se dokončí pohyb v ose Z - memí potřeba, příkazy se stackují
+                # core.motion_controller.grbl_wait_for_idle() # Počkáme až se dokončí pohyb v ose Z - memí potřeba, příkazy se stackují
+        # aktualizujeme tabulku
+        if tree.winfo_exists():
+            last_row = tree.get_children()[-1]  # Vybereme poslední přidaný řádek
+            tree.item(last_row, values=(ean_code, position, f"{pos_index} z {len(items)}"))
 
-    container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))
+    # container.after(0, lambda: Messagebox.show_info(f"Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány."))
     print(f"[MICROSCOPE] Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány.")
+    logger.info(f"[MICROSCOPE] Snímky z mikroskopu pro vzorek {ean_code} na pozici {position} byly úspěšně získány.")

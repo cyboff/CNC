@@ -172,8 +172,13 @@ def show_manual_controller(container, on_back):
 
     # ZELENÁ skupina
     add_action_button(control_frame, "🏠 Domů ($H)", lambda: threading.Thread(target=grbl_home, daemon=True).start())
-    add_action_button(control_frame, "🔁 Přerušit (Soft Reset)", grbl_abort)
-    add_action_button(control_frame, "❌ Zrušit Alarm ($X)", grbl_clear_alarm)
+    # add_action_button(control_frame, "🔁 Přerušit (Soft Reset)", grbl_abort)
+    # add_action_button(control_frame, "❌ Zrušit Alarm ($X)", grbl_clear_alarm)
+    def abort_and_clear_alarm():
+        grbl_abort()
+        grbl_clear_alarm()
+    add_action_button(control_frame, "🔁 Soft Reset", abort_and_clear_alarm)
+
     # Mezera mezi skupinami tlačítek
     ttk.Label(control_frame, text="").pack(pady=1)
     # MODRÁ skupina

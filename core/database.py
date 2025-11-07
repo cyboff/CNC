@@ -173,7 +173,7 @@ def save_sample_item_positions_to_db(item_id:int, step:int, px:float, py:float, 
     c.execute(
         "INSERT INTO project_sample_item_positions (sample_item_id, position_index, x_coord, y_coord, image_path, created_at) VALUES (?, ?, ?, ?, ?, ?)",
         (item_id, step, px, py, image_path, now))
-    logger.info(f"[DB] Do databáze byl bod mikroskopu {step} pro položku {item_id} - x:{px} y:{py}.")
+    logger.info(f"[DB] Do databáze byl přidán bod mikroskopu {step} pro položku {item_id} - x:{px} y:{py}.")
 
     conn.commit()
     conn.close()

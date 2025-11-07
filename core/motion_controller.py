@@ -92,12 +92,13 @@ def send_gcode(command: str):
 
         # Čti odpovědi až do 'ok' (nebo do vypršení krátkého okna)
         t0 = time.time()
-        while time.time() - t0 < 300: # počkáme dlouho, ale kdyby se něco pokazilo...
+        while time.time() - t0 < 10: # počkáme dlouho, ale kdyby se něco pokazilo...
             line = cnc_serial.readline().decode(errors='ignore').strip()
             if line:
                 print(f"[GRBL] Odpověď: {line}")
-                if line == "ok" or "error" in line:
+                if (line == "ok") or ("error" in line) or ("ALARM" in line):
                     break
+            time.sleep(0.2)
 
         # >>> NOVÉ: hned po příkazu udělej rychlé '?' pro čerstvý stav
         try:
@@ -116,8 +117,11 @@ def send_gcode(command: str):
                         grbl_status = "Jog"
                     elif ("Error" in decoded) or ("error" in decoded):
                         grbl_status = "Error"
-                    elif ("Alarm" in decoded) or ("alarm" in decoded):
+                    elif ("Alarm" in decoded) or ("alarm" in decoded) or ("ALARM" in decoded):
                         grbl_status = "Alarm"
+                    else:
+                        decoded.split(":")
+                        grbl_status = decoded[0]
                     # MPos
                     if 'MPos:' in decoded:
                         for part in decoded.split('|'):
@@ -240,7 +244,7 @@ def jog_cancel():
     """
     _send_realtime(b'\x85')
 
-def cancel_move(timeout: float = 3.0):
+def cancel_move(timeout: float = 5.0):
     """
     Okamžitě zastaví právě probíhající jogovací pohyb ($J=...).
     -> Pošle realtime Jog Cancel (0x85) a čeká na Idle.
@@ -263,7 +267,7 @@ def cancel_move(timeout: float = 3.0):
 
 
 # Absolutní pohyb bez anti-backlashe
-def move_to_position(x: float, y: float, z: float = None, feed: float = 2000):
+def move_to_position(x: float, y: float, z: float = None, feed: float = 1000):
     global grbl_status
     if z is None:
         z = default_Z_position
@@ -347,10 +351,10 @@ def move_to_position_antibacklash(x: float, y: float, z: float = None, *, anti_b
 
 
 def move_to_home_position():
-    print("[MOTION] Najíždím na výchozí pozici (-245, -245, -10)")
-    move_to_position(-245, -245, -10)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
+    print("[GRBL] Najíždím na výchozí pozici (-245, -245, -10)")
+    move_to_position(-245, -245, 0)  # Použijeme výchozí pozici Mpos pro GRBL, která je -245, -245
 
-def move_to_coordinates(x: float, y: float, z: float = None, feed: float = 2000 ):
+def move_to_coordinates(x: float, y: float, z: float = None, feed: float = 1000 ):
     move_to_position(x, y, z, feed)
 
 def move_relative(dx: float, dy: float):
@@ -383,9 +387,9 @@ def grbl_update_position():
                     grbl_status = "Run"
                 elif "Jog" in decoded:
                     grbl_status = "Jog"
-                elif ("Error" in decoded) or ("error" in decoded):
+                elif ("Error" in decoded) or ("error" in decoded) or ("ERROR" in decoded):
                     grbl_status = "Error"
-                elif ("Alarm" in decoded) or ("alarm" in decoded):
+                elif ("Alarm" in decoded) or ("alarm" in decoded) or ("ALARM" in decoded):
                     grbl_status = "Alarm"
 
                 if 'MPos:' in decoded:
@@ -403,7 +407,7 @@ def grbl_update_position():
     finally:
         io_lock.release()
 
-def grbl_wait_for_idle():
+def grbl_wait_for_idle(timeout: float = 300.0):
     global grbl_status
     """
     Čeká, dokud GRBL nepřijde do stavu Idle (stav získá z threadu position_timer v init_grbl()).
@@ -411,7 +415,8 @@ def grbl_wait_for_idle():
     """
     # print("[GRBL] Waiting for Idle:", grbl_status)
     time.sleep(0.1)  # Stav CNC se updatuje každých 0.5s, takže počkáme, aby se stihl aktualizovat
-    while True:
-        if grbl_status == "Idle":
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        if ("Idle" in grbl_status) or ("Alarm" in grbl_status) or ("Error" in grbl_status):
             break
         time.sleep(0.1)

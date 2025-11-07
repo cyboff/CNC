@@ -26,7 +26,7 @@ def show_microscope_images(container, project_id, on_back):
     # VLEVO - Vytvoří tabulku s výsledky
     results_frame = ttk.Frame(main_frame)
     results_frame.pack(side="left", fill="both", expand=True, padx=10, pady=10)
-    ttk.Label(results_frame, text="Výsledky hledání vzorků:", font=("Helvetica", 14, "bold")).pack(pady=(10, 5))
+    ttk.Label(results_frame, text="Výsledky snímání vzorků:", font=("Helvetica", 14, "bold")).pack(pady=(10, 5))
     style = ttk.Style()
     style.configure("Treeview.Heading", font=("Helvetica", 14, "bold"), background="#2b3b4c", foreground="white")
     style.configure("Treeview", font=("Helvetica", 14), rowheight=28)
@@ -34,10 +34,10 @@ def show_microscope_images(container, project_id, on_back):
                         style="Treeview")
     tree.heading("Sample", text="Vzorek")
     tree.heading("Position", text="Pozice")
-    tree.heading("Detected Items", text="Detekované dráty")
+    tree.heading("Detected Items", text="Nasnímané dráty")
     tree.column("Sample", width=100, anchor="center")
-    tree.column("Position", width=100, anchor="center")
-    tree.column("Detected Items", width=100, anchor="center")
+    tree.column("Position", width=80, anchor="center")
+    tree.column("Detected Items", width=150, anchor="center")
     tree.pack(fill="both", expand=True)
 
     # VPRAVO – kamera
@@ -72,10 +72,10 @@ def show_microscope_images(container, project_id, on_back):
             # Získej položky vzorku z databáze
             if image_path is not None:
                 items = get_sample_items_by_sample_id(sample_id)
-                container.after(0, lambda: tree.insert("", "end", values=(ean_code, position, len(items))))
+                container.after(0, lambda: tree.insert("", "end", values=(ean_code, position, f"0 z {len(items)}")))
                 container.after(0, lambda: show_image(image_label, project_id, ean_code, position))
                 time.sleep(0.5)  # Pauza mezi jednotlivými snímky, aby se stihly zobrazit
-                get_microscope_images(container, image_label, project_id, position, ean_code, items)
+                get_microscope_images(container, image_label, tree, project_id, position, ean_code, items)
         # Nakonec vyjedeme s kazetou
         threading.Thread(target=core.motion_controller.move_to_home_position(), daemon=True).start()
         container.after(100, lambda: Messagebox.show_info("Všechny snímky byly získány. Můžete vyměnit kazetu."))
